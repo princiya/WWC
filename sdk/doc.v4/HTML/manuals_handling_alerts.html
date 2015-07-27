@@ -1,0 +1,318 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Handling Alerts</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_handling_alerts.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Handling Alerts</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_local_and_global_joint_rotatio.html">Previous</a>&nbsp;
+     <a href="manuals_handling_gestures.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">Alerts notify your application of significant events in real-time. These events are occurrences that could affect your application’s behavior, such as hands entering or leaving the scene.</span></p>
+<p class="p_Body"><span class="f_Body">See <a href="manuals_configuring_alerts.html" class="topiclink">Configuring Alerts</a> to learn how to enable alerts.</span></p>
+<p class="p_Body"><span class="f_Body">The following table summarizes the types of alerts that may be fired:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table style="width:820px; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<th style="vertical-align:top; width:317px; padding:6px; border:solid 1px #000000;"><p class="p_TableText"><span class="f_TableText" style="font-weight: bold;">Alert Type</span></p>
+</th>
+<th style="vertical-align:top; width:475px; padding:6px; border:solid 1px #000000;"><p class="p_TableText"><span class="f_TableText" style="font-weight: bold;">Description</span></p>
+</th>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:317px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">ALERT_HAND_DETECTED</span></p>
+</td>
+<td style="vertical-align:top; width:475px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">A hand is identified and its mask is available.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:317px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">ALERT_HAND_NOT_DETECTED</span></p>
+</td>
+<td style="vertical-align:top; width:475px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">A previously detected hand is lost, either because it left the field of view or because it is occluded (hidden by another object).</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:317px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">ALERT_HAND_TRACKED</span></p>
+</td>
+<td style="vertical-align:top; width:475px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Full tracking information is available for a hand.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:317px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">ALERT_HAND_NOT_TRACKED</span></p>
+</td>
+<td style="vertical-align:top; width:475px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Tracking information is no longer available for a hand (none of the joints are tracked).</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:317px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">ALERT_HAND_CALIBRATED</span></p>
+</td>
+<td style="vertical-align:top; width:475px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Hand measurements are ready and accurate.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:317px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">ALERT_HAND_NOT_CALIBRATED</span></p>
+</td>
+<td style="vertical-align:top; width:475px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Hand measurements are not yet finalized, and are not fully accurate.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:317px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">ALERT_HAND_OUT_OF_BORDERS</span></p>
+</td>
+<td style="vertical-align:top; width:475px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Hand is outside of the tracking boundaries.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:317px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">ALERT_HAND_INSIDE_BORDERS</span></p>
+</td>
+<td style="vertical-align:top; width:475px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Hand has moved back inside the tracking boundaries. &nbsp; &nbsp; &nbsp; </span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:317px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">ALERT_HAND_OUT_OF_LEFT_BORDER</span></p>
+</td>
+<td style="vertical-align:top; width:475px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">The tracked object is touching the left border of the field of view.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:317px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">ALERT_HAND_OUT_OF_RIGHT_BORDER</span></p>
+</td>
+<td style="vertical-align:top; width:475px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">The tracked object is touching the right border of the field of view.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:317px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">ALERT_HAND_OUT_OF_TOP_BORDER</span></p>
+</td>
+<td style="vertical-align:top; width:475px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">The tracked object is touching the upper border of the field of view.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:317px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">ALERT_HAND_OUT_OF_BOTTOM_BORDER</span></p>
+</td>
+<td style="vertical-align:top; width:475px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">The tracked object is touching the lower border of the field of view.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:317px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">ALERT_HAND_TOO_FAR</span></p>
+</td>
+<td style="vertical-align:top; width:475px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">The tracked object is too far to be tracked.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:317px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">ALERT_HAND_TOO_CLOSE</span></p>
+</td>
+<td style="vertical-align:top; width:475px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">The tracked object is too close to be tracked.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body">You can either poll for alerts in your main processing loop, or register alert handlers whose callback functions are called when alerts are fired. </span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Polling for Alerts within the Main Processing Loop</span></p>
+<p class="p_InternalHeading"><span class="f_Body">There are different ways to query for fired alerts within the main processing loop:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Call </span><span class="f_CodeExample"><a href="isalertfired_pxchanddata.html" class="topiclink">IsAlertFired</a></span><span class="f_Body"> for a specific alert.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Call </span><span class="f_CodeExample"><a href="isalertfiredbyhand_pxchanddata.html" class="topiclink">IsAlertFiredByHand</a></span><span class="f_Body"> for a specific alert and a specific hand.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Call </span><span class="f_CodeExample"><a href="queryfiredalertsnumber_pxchanddata.html" class="topiclink">QueryFiredAlertsNumber</a></span><span class="f_Body">, and then iterate over the fired alerts by calling </span><span class="f_CodeExample"><a href="queryfiredalertdata_pxchanddata.html" class="topiclink">QueryFiredAlertData</a></span><span class="f_Body"> with indexes from </span><span class="f_CodeExample">0</span><span class="f_Body"> to </span><span class="f_CodeExample"><a href="queryfiredalertsnumber_pxchanddata.html" class="topiclink">QueryFiredAlertsNumber</a>()-1</span><span class="f_Body">.</span></td></tr></table></div><p class="p_Body"><span class="f_Body">Example 66 illustrates how to poll for specific alerts within the main processing loop.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A1')">C++ Example 66: Poll for Specific Alerts</a></span></p>
+<div id="TOGGLE0186A1" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// handData is the PXCHandData instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// poll for alerts</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCHandData::AlertData data;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">if (handData-&gt;IsAlertFired(PXCHandData::ALERT_HAND_TRACKED,&amp;data)) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// handle HAND_TRACKED alert</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">if (handData-&gt;IsAlertFired(PXCHandData::ALERT_HAND_TOO_FAR,&amp;data)) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// handle HAND_ TOO_FAR alert</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A2')">C# Example 66: Poll for Specific Alerts</a></span></p>
+<div id="TOGGLE0186A2" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// handData is the PXCMHandData instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// poll for alerts</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMHandData.AlertData data;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">if (handData.IsAlertFired(PXCMHandData.AlertType.ALERT_HAND_TRACKED,out data)) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// handle HAND_TRACKED alert</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">if (handData.IsAlertFired(PXCMHandData.AlertType.ALERT_HAND_TOO_FAR,out data)) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// handle HAND_ TOO_FAR alert</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A3')">Java Example 66: Poll for Specific Alerts</a></span></p>
+<div id="TOGGLE0186A3" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// handData is the PXCMHandData instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// poll for alerts</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMHandData.AlertData data=new PXCMHandData.AlertData();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">if (handData.IsAlertFired(PXCMHandData.AlertType.ALERT_HAND_TRACKED,data)) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// handle HAND_TRACKED alert</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">if (handData.IsAlertFired(PXCMHandData.AlertType.ALERT_HAND_TOO_FAR,data)) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// handle HAND_ TOO_FAR alert</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Creating and Registering an Alert Handler</span></p>
+<p class="p_Body"><span class="f_Body">Example 67 illustrates how to create and register an alert handler.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A4')">C++ Example 67: Subscribe to Alerts</a></span></p>
+<div id="TOGGLE0186A4" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">class MyHandler:public PXCHandConfiguration::AlertHandler {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">public:</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;virtual void PXCAPI OnFiredAlert(const PXCHandData::AlertData &amp;data) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// handle alerts</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;if (data.label == PXCHandData::ALERT_HAND_DETECTED) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// handle hand detected</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;…</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;} else if (data.label == PXCHandData::ALERT_HAND_TRACKED) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;…</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;};</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">};</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// handModule is a PXCHandModule instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Subscribe to the alert notification event</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCHandConfiguration *handConfig=handModule-&gt;CreateActiveConfiguration();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">MyHandler handler;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handConfig-&gt;SubscribeAlert(&amp;handler);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handConfig-&gt;ApplyChanges();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// streaming &amp; receiving alerts</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handConfig-&gt;UnsubscribeAlert(&amp;handler);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handConfig-&gt;Release();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A5')">C# Example 67: Subscribe to Alerts</a></span></p>
+<div id="TOGGLE0186A5" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">void OnFiredAlert(PXCMHandData.AlertData data) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// handle alerts</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;if (data.label == PXCMHandData::AlertType.ALERT_HAND_DETECTED) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// handle hand detected</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;…</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;} else if (data.label == PXCMHandData.AlertType.ALERT_HAND_TRACKED) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;…</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// handModule is a PXCMHandModule instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Subscribe to the alert notification event</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMHandConfiguration handConfig=handModule.CreateActiveConfiguration();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handConfig.SubscribeAlert(OnFiredAlert);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handConfig.ApplyChanges();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// streaming &amp; receiving alerts</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handConfig.UnsubscribeAlert(OnFiredAlert);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handConfig.Dispose();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A6')">Java Example 67: Subscribe to Alerts</a></span></p>
+<div id="TOGGLE0186A6" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">class MyHandler implements PXCMHandConfiguration.AlertHandler {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">public:</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;void OnFiredAlert(PXCMHandData.AlertData data) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// handle alerts</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;if (data.label == PXCMHandData.AlertType.ALERT_HAND_DETECTED) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// handle hand detected</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;…</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;} else if (data.label == PXCMHandData.AlertType.ALERT_HAND_TRACKED) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;…</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;};</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">};</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// handModule is a PXCMHandModule instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Subscribe to the alert notification event</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMHandConfiguration handConfig=handModule.CreateActiveConfiguration();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">MyHandler handler=new MyHandler();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handConfig.SubscribeAlert(handler);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handConfig.ApplyChanges();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// streaming &amp; receiving alerts</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handConfig.UnsubscribeAlert(handler);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handConfig.close();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+<script type="text/javascript">
+HMInitToggle('TOGGLE0186A1','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A2','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A3','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A4','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A5','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A6','hm.type','dropdown','hm.state','0');
+</script>
+</body>
+</html>

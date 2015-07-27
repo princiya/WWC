@@ -1,0 +1,58 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Handling UI Controls</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_handling_ui_controls.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Handling UI Controls</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_touchless_controller2.html">Previous</a>&nbsp;
+     <a href="manuals_ui_controls.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_InternalHeading"><span class="f_InternalHeading">Initializing and Calibrating Hand Tracking</span></p>
+<h1 class="p_Heading1"><span class="f_Body">Touchless control is derived from tracked hand motions. Therefore, to begin its operation, the module must identify the user’s hand. To initiate hand tracking, the user must place his or her hand in front of the computer screen, in an open but relaxed posture, as illustrated in Figure 51.</span></h1>
+<p class="p_Body" style="text-align: center;"><img src="manuals_clip0122_zoom164.png" width="139" height="157" alt="" style="margin:0px auto 0px auto;width:139px;height:157px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 51: Open Posture to Initiate Tracking</span></p>
+<p class="p_Body"><img src="note.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">The user can perform UI control gestures with either hand, left or right. Only one hand can control the application at any given time.</span></p>
+<p class="p_Body"><span class="f_Body">The module uses the initial hand placement to make assumptions about the real-world range where the hand moves to control the application. In effect, the module “draws” a virtual 3D cube, with the tracked hand at its center. The hand’s movements in relation to this cube are translated into cursor movements in relation to the screen. For instance, if the hand approaches the right-hand plane of the cube, the cursor moves to the right edge of the screen. The cube’s X, Y and Z dimensions are represented as 1 values, and cursor locations provided in event data are given as (X,Y,Z) values from 0 to 1. (See <a href="manuals_ui_controls.html#eventdata" class="topiclink">Event Data</a> for more details).</span></p>
+<p class="p_Body"><img src="note.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">Every time the hand leaves and returns to the sensor’s field-of-view, its surrounding 3D cube is recalculated.</span></p>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

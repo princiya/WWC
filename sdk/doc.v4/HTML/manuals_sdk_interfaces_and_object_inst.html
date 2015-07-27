@@ -1,0 +1,128 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Language-Specific Restrictions</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="language restrictions,restrictions" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_sdk_interfaces_and_object_inst.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Language-Specific Restrictions</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_algorithms_and_i_o_modules.html">Previous</a>&nbsp;
+     <a href="manuals_streaming_through_pxcmsenseman.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">When developing an application with the Intel® RealSense™ SDK, you must take into account the following language-specific restrictions: </span></p>
+<p class="p_Body"><span class="f_InternalHeading">C++ </span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Do not use the compiler keyword </span><span class="f_CodeExample">dynamic_cast</span><span class="f_Body"> to cast types. Instead, use the </span><span class="f_CodeExample"><a href="queryinstance_pxcbase.html" class="topiclink">QueryInstance</a></span><span class="f_Body"> function or its template. </span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Do not use the compiler keyword </span><span class="f_CodeExample">delete</span><span class="f_Body"> to destroy an instance. Instead, use the </span><span class="f_CodeExample"><a href="release_pxcbase.html" class="topiclink">Release</a></span><span class="f_Body"> function.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Do not release any instance returned by the </span><span class="f_CodeExample"><a href="queryinstance_pxcbase.html" class="topiclink">QueryInstance</a></span><span class="f_Body"> function. See the Remarks section of the </span><span class="f_CodeExample"><a href="queryinstance_pxcbase.html" class="topiclink">QueryInstance</a></span><span class="f_Body"> function for details.</span></td></tr></table></div><p class="p_Body"><span class="f_Body">Example 13 shows how to cast a session instance to a meta data instance in C++.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A1')">C++ Example 13: Cast a PXCSession Instance to PXCMetadata</a> </span></p>
+<div id="TOGGLE0186A1" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">PXCSession *session=PXCSession::CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMetadata *mdata=session-&gt;QueryInstance&lt;PXCMetaData&gt;();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">session-&gt;Release();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_TipNoteCautionWarning" style="margin: 7px 0px 7px 0px;"><span class="f_InternalHeading">C#</span></p>
+<p class="p_Body"><span class="f_Body">Each C# instance is a C# managed object that internally points to a C++ unmanaged instance. Dispose the C# object so that the unmanaged C++ instance can be destroyed, with exception that internally managed instances (such as those returned by the </span><span class="f_CodeExample"><a href="queryinstance_pxcbase.html" class="topiclink">QueryInstance</a></span><span class="f_Body"> function) do not have to be explicitly destroyed. </span></p>
+<p class="p_Body"><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">Releasing internally managed instances is ignored.</span></p>
+<p class="p_Body"><span class="f_Body">Example 14 shows how to cast a session instance to a meta data instance in C#:</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A2')">C# Example 14: Cast a PXCMSession Instance to PXCMMetadata</a> </span></p>
+<div id="TOGGLE0186A2" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">PXCMSession session=PXCMSession.CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMMetadata mdata=session.QueryInstance&lt;PXCMMetadata&gt;();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">session.Dispose();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Java</span></p>
+<p class="p_Body"><span class="f_Body">Java does not support unsigned data types while the SDK defines depth map data as an array of unsigned short integers for the effective range. You can retrieve the depth map data as a signed short integer array but </span><span class="f_Body" style="font-weight: bold; text-decoration: underline;">should instead treat the values as unsigned</span><span class="f_Body">.</span></p>
+<p class="p_Body"><span class="f_Body">As illustrated in Example 15, each Java instance is a Java managed object that internally points to a Java unmanaged instance. Release the Java object so that the unmanaged C++ resource can be destroyed, with exception that internally managed instances (such as those returned by the </span><span class="f_CodeExample"><a href="queryinstance_pxcbase.html" class="topiclink">QueryInstance</a></span><span class="f_Body"> function) do not have to be explicitly destroyed. </span></p>
+<p class="p_Body"><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">Releasing internally managed instances is ignored.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A3')">Java Example 15: Create and Manage Instances</a> </span></p>
+<div id="TOGGLE0186A3" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Create an instance and pass a reference to the Java function.  </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSession session=PXCMSession.CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Cast interfaces; The returned instance is internally managed by PXCMSession.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMMetadata mdata=(PXCMMetadata)session.QueryInstance(PXCMMetadata.CUID);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Instances must be destroyed via close()</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">session.close();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body">Some SDK Java methods must return more than a single value, such as a status code, an instance of certain interface, and a time stamp. Java does not natively support this feature. The SDK uses the following convention to overcome this limitation (See Example 16 for an example):</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">If the returned value is an SDK interface instance, the application should create the instance first using the default constructor, and then pass the instance to the Java function, which initializes the instance.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">If the returned value is a structure class or an array of data, the application must initialize the structure and then pass a reference to the Java function, which sets the structure field values in place.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">If the returned value is a primitive data type, the application must create an array of the primitive and then pass the array instance to the Java function. The application can retrieve the values via the first element of the array upon a successful execution. </span></td></tr></table></div><p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A4')">Java Example 16: Return Primitives, Structures, or Instances from Java Methods</a> </span></p>
+<div id="TOGGLE0186A4" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// For instances, create an instance with the default constructor and then pass the instance to the Java function. </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSpeechSynthesis vsynth=new PXCMSpeechSynthesis();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">session.CreateImpl(vsynth);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// For structures or arrays, create a structure instance and pass a reference to the Java function.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSpeechSynthesis.ProfileInfo pinfo=new PXCMSpeechSynthesis.ProfileInfo();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">vsynth.QueryProfile(pinfo);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// For primitives, create an array of the primitives and pass the array to the Java function. The output value is in array[0].</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">int[] index=new int[1];</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSyncPoint.SynthronizeEx(sps, index); // sps is an array of the PXCMSyncPoint instances.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">...</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">&nbsp;</span></p>
+
+</td></tr></table>
+
+<script type="text/javascript">
+HMInitToggle('TOGGLE0186A1','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A2','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A3','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A4','hm.type','dropdown','hm.state','0');
+</script>
+</body>
+</html>

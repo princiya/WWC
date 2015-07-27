@@ -1,0 +1,261 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Capturing Individual Color or Depth Stream</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="capture color,capture color stream,capture depth,capture depth stream,capture individual color and depth stream,capture single stream" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_capture_color_or_depth_samples.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Capturing Individual Color or Depth Stream</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_raw_stream_capture_and_process.html">Previous</a>&nbsp;
+     <a href="manuals_color_and_depth_picture_alignment.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">This section addresses capturing individual color or depth streams. For information about capturing synchronized color and depth streams, see <a href="manuals_color_and_depth_picture_alignment.html" class="topiclink">Capturing Aligned/Unaligned Color and Depth Samples</a>.</span></p>
+<p class="p_Body"><span class="f_Body">The </span><span class="f_CodeExample"><a href="pxcsensemanager.html" class="topiclink">PXC[M]SenseManager</a></span><span class="f_Body"> interface implements I/O device configuration and data streaming. You can use the interface in one of the two ways: by procedural calls or by event callbacks.</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Capturing Color Samples Using Procedural Calls </span></p>
+<p class="p_Body"><span class="f_Body">Example 21 shows how to capture color samples by procedural calls. The example does the following:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Select a color stream by using the </span><span class="f_CodeExample"><a href="enablestreams_pxcsensemanager.html" class="topiclink">EnableStream</a></span><span class="f_Body"> function, and then initialize the pipeline by using the </span><span class="f_CodeExample"><a href="init_pxcsensemanager.html" class="topiclink">Init</a></span><span class="f_Body"> function.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">In the loop, use the </span><span class="f_CodeExample"><a href="acquireframe_pxcsensemanager.html" class="topiclink">AcquireFrame</a></span><span class="f_Body"> function to wait for a color sample to be ready and then retrieve it through the </span><span class="f_CodeExample"><a href="querysample_pxcsensemanager.html" class="topiclink">QuerySample</a></span><span class="f_Body"> function.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Release the frame for reading next sample using the  </span><span class="f_CodeExample"><a href="releaseframe_pxcsensemanager.html" class="topiclink">ReleaseFrame</a></span><span class="f_Body"> function.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Use the </span><span class="f_CodeExample"><a href="close_pxcsensemanager.html" class="topiclink">Close</a></span><span class="f_Body"> &nbsp;function to clean up.</span></td></tr></table></div><p class="p_Body"><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">You can use the filtering functions (such as </span><span class="f_CodeExample"><a href="filterbydeviceinfo_pxccapturemanager.html" class="topiclink">FilterByDeviceInfo</a></span><span class="f_Body">) of the </span><span class="f_CodeExample"><a href="pxccapturemanager.html" class="topiclink">PXC[M]CaptureManager</a></span><span class="f_Body"> interface to customize the stream selection process, for example, to choose a specific camera. Use the </span><span class="f_CodeExample"><a href="querycapturemanager_pxcsensemanager.html" class="topiclink">QueryCaptureManager</a></span><span class="f_Body"> function to retrieve an instance of the </span><span class="f_CodeExample"><a href="pxccapturemanager.html" class="topiclink">PXC[M]CaptureManager</a></span><span class="f_Body"> interface.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A1')">C++ Example 21: Capture Color Samples using the SenseManager and Procedural Calls</a></span></p>
+<div id="TOGGLE0186A1" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Create a PXCSenseManager instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCSenseManager *sm=PXCSenseManager::CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Select the color stream</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm-&gt;EnableStream(PXCCapture::STREAM_TYPE_COLOR,640,480);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Initialize and Stream Samples</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm-&gt;Init(); </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">for (;;) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// This function blocks until a color sample is ready</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;if (sm-&gt;AcquireFrame(true)&lt;PXC_STATUS_NO_ERROR) break; </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// retrieve the sample</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCCapture::Sample *sample=sm-&gt;QuerySample();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// work on the image sample-&gt;color</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span><br />
+<span class="f_CodeExample"> &nbsp; &nbsp;// go fetching the next sample</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;sm-&gt;ReleaseFrame();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Close down</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm-&gt;Release();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A2')">C# Example 21: Capture Color Samples using the SenseManager and Procedural Calls</a> </span></p>
+<div id="TOGGLE0186A2" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Create a PXCMSenseManager instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSenseManager sm=PXCMSenseManager.CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Select the color stream</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm.EnableStream(PXCMCapture.StreamType.STREAM_TYPE_COLOR,640,480); </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Initialize and Stream samples</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm.Init();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">for (;;) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// This function blocks until a color sample is ready</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;if (sm.AcquireFrame(true)&lt;pxcmStatus.PXCM_STATUS_NO_ERROR) break; </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// retrieve the sample</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCMCapture.Sample sample=sm.QuerySample(); </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// work on the image sample.color</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;... </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// go fetching the next sample</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;sm.ReleaseFrame(); </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Close down</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm.Dispose();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A3')">Java Example 21: Capture Color Samples using the SenseManager and Procedural Calls</a> </span></p>
+<div id="TOGGLE0186A3" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Create a PXCMSenseManager instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSenseManager sm=PXCMSenseManager.CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Select the color stream</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm.EnableStream(PXCMCapture.StreamType.STREAM_TYPE_COLOR,640,480); </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Initialize and Stream samples</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm.Init();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">for (;;) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// This function blocks until a color sample is ready</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;if (sm.AcquireFrame(true)&lt;pxcmStatus.PXCM_STATUS_NO_ERROR) break; </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// retrieve the sample</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCMCapture.Sample sample=sm.QuerySample();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// work on the image sample.color</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;... </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// go fetching the next sample</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;sm.ReleaseFrame(); </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Close down</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm.close();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Capturing Color Samples Using Event Callbacks</span></p>
+<p class="p_InternalHeading"><span class="f_Body">Example 23 shows how to capture 60 fps depth samples using the </span><span class="f_CodeExample"><a href="pxcsensemanager.html" class="topiclink">PXC[M]SenseManager</a></span><span class="f_Body"> interface by event callbacks. The main procedure creates the event handler and calls the </span><span class="f_CodeExample"><a href="streamframes_pxcsensemanager.html" class="topiclink">LoopFrames</a></span><span class="f_Body"> function. In the </span><span class="f_CodeExample"><a href="onnewsample_handler_pxcsensemanager.html" class="topiclink">OnNewSample</a></span><span class="f_Body"> event callback, the application receives the current color image sample.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A4')">C++ Example 22: Capture 60FPS Depth Samples using the SenseManager and Event Callbacks</a> </span></p>
+<div id="TOGGLE0186A4" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">class MyHandler: public PXCSenseManager::Handler {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">public:</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;virtual pxcStatus PXCAPI OnNewSample(pxcUID, PXCCapture::Sample *sample) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// work on sample-&gt;color</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;...  </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// return NO ERROR to continue, or any ERROR to exit the loop</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;return PXC_STATUS_NO_ERROR; </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">};</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">void MainRoutine(void) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Create a SenseManager instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCSenseManager *sm=PXCSenseManager::CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Enable depth stream at 320x240x60fps</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;sm-&gt;EnableStream(PXCCapture::STREAM_TYPE_DEPTH,320,240,60);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Initialize my event handler</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;MyHandler handler;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;sm-&gt;Init(&amp;handler)</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Stream depth samples</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;sm-&gt;StreamFrames(true);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;sm-&gt;Close();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;sm-&gt;Release();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A5')">C# Example 22: Capture 60FPS Depth Samples using the SenseManager and Event Calls</a></span></p>
+<div id="TOGGLE0186A5" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">pxcmStatus OnNewSample(int mid, PXCMCapture.Sample sample) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// work on sample.color</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// return NO ERROR to continue, or any ERROR to exit the loop</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;return pxcmStatus.PXCM_STATUS_NO_ERROR;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">void MainRoutine() {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Create a SenseManager instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCMSenseManager sm=PXCMSenseManager.CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Enable depth stream at 320x240x60fps</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;sm.EnableStream(PXCMCapture.StreamType.STREAM_TYPE_DEPTH,320,240,60);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Initialize my event handler</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCMSenseManager::Handler handler=new PXCMSenseManager.Handler();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;handler.onNewSample=OnNewSample;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;sm.Init(handler);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Stream depth samples</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;sm.StreamFrames(true);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;sm.Dispose();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A6')">Java Example 22: Capture 60FPS Depth Samples using the SenseManager and Event Calls</a></span></p>
+<div id="TOGGLE0186A6" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">class MyHandler implements PXCMSenseManager.Handler {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;public pxcmStatus OnNewSample(int mid, PXCMCapture.Sample sample) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// work on sample.color</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;...  </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// return NO ERROR to continue, or any ERROR to exit the loop</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;return pxcmStatus.PXCM_STATUS_NO_ERROR; </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">};</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">void MainRoutine() {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Create a SenseManager instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCMSenseManager sm=PXCMSenseManager.CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Enable depth stream at 320x240x60fps</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;sm.EnableStream(PXCMCapture.StreamType.STREAM_TYPE_DEPTH,320,240,60);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Initialize my event handler</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;MyHandler handler=new MyHandler();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;sm.Init(handler);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Stream depth samples</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;sm.StreamFrames(true);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;sm.close();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+<script type="text/javascript">
+HMInitToggle('TOGGLE0186A1','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A2','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A3','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A4','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A5','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A6','hm.type','dropdown','hm.state','0');
+</script>
+</body>
+</html>

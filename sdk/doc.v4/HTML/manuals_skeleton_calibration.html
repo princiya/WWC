@@ -1,0 +1,56 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Skeleton Calibration</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_skeleton_calibration.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Skeleton Calibration</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_segmentation_images.html">Previous</a>&nbsp;
+     <a href="manuals_skeleton_normalization.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">When a new hand comes into view, the hand module performs automatic calibration to learn its specific measurements, i.e. the distances between its joints. Calibration continues to be refined over time. Tracking begins as soon as a hand is detected, but its accuracy improves significantly when calibration is completed. You can determine when this happens by calling the </span><span class="f_CodeExample"><a href="iscalibrated_ihand_pxchanddata.html" class="topiclink">IsCalibrated</a></span><span class="f_Body"> function, or by listening for the </span><span class="f_CodeExample"><a href="alerttype_pxchanddata.html" class="topiclink">ALERT_HAND_CALIBRATED</a></span><span class="f_Body"> event.</span></p>
+<p class="p_Body"><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">If possible, when your application is initializing, it is recommended to prompt the user to make a spread-fingered gesture (such as a tap), to facilitate hand calibration.</span></p>
+<p class="p_Body"><span class="f_Body">If your application provides the hand module with the user name (by calling the </span><span class="f_CodeExample"><a href="setusername_pxchandconfiguration.html" class="topiclink">SetUserName</a></span><span class="f_Body"> function), it can save hand calibrations and reload them for each user. This guarantees the best tracking results and may save some time during the initialization process.</span></p>
+<p class="p_Body"><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">It is not mandatory to set the user name, the hand module calibrates correctly regardless of the user name value.</span></p>
+<p class="p_Body"><span class="f_Body">If you can’t save specific calibration data per user, but you know the approximate age of your players (either by prompting the user for his/her age or due to the nature of the application), use the </span><span class="f_CodeExample"><a href="setdefaultage_pxchandconfiguration.html" class="topiclink">SetDefaultAge</a></span><span class="f_Body"> function to load the default calibration data suited to the expected age group.</span></p>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

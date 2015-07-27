@@ -1,0 +1,109 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Sample: FF_3DSeg[.cs]</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="C# sample,C++ sample,FF_3DSeg,FF_3DSeg.cs" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "samples_sample_3dseg_cs.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Sample: FF_3DSeg[.cs]</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="samples_front_facing_samples.html">Previous</a>&nbsp;
+     <a href="samples_sample_blob_viewer_cs.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">The </span><span class="f_CodeExample">FF_3DSeg</span><span class="f_Body"> and </span><span class="f_CodeExample">FF_3DSeg.cs</span><span class="f_Body"> are two sample applications to demonstrate the user segmentation feature.</span></p>
+<p class="p_Body"><span class="f_Body">The C++ </span><span class="f_CodeExample">FF_3DSeg</span><span class="f_Body"> sample is a console application, which supports the following command line options:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:682px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:4px;"><p style="margin: 10px 0px 10px 0px;"><span style="font-size: 10pt; font-family: Arial; color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:111px; padding:4px;"><p class="p_CodeExampleEmphasis"><span class="f_CodeExampleEmphasis">-load</span></p>
+</td>
+<td style="vertical-align:top; width:535px; padding:4px;"><p class="p_TableText"><span class="f_TableText">Explicitly load the specified module.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:4px;"><p style="margin: 10px 0px 10px 0px;"><span style="font-size: 10pt; font-family: Arial; color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:111px; padding:4px;"><p class="p_CodeExampleEmphasis"><span class="f_CodeExampleEmphasis">–nframes</span></p>
+</td>
+<td style="vertical-align:top; width:535px; padding:4px;"><p class="p_TableText"><span class="f_TableText">Specify the maximum number of frames to record.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:4px;"><p style="margin: 10px 0px 10px 0px;"><span style="font-size: 10pt; font-family: Arial; color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:111px; padding:4px;"><p class="p_CodeExampleEmphasis"><span class="f_CodeExampleEmphasis">-record</span></p>
+</td>
+<td style="vertical-align:top; width:535px; padding:4px;"><p class="p_TableText"><span class="f_TableText">Enable file recording. Use the -file option to specify the recording file name.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:4px;"><p style="margin: 10px 0px 10px 0px;"><span style="font-size: 10pt; font-family: Arial; color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:111px; padding:4px;"><p class="p_CodeExampleEmphasis"><span class="f_CodeExampleEmphasis">–file</span></p>
+</td>
+<td style="vertical-align:top; width:535px; padding:4px;"><p class="p_TableText"><span class="f_TableText">Specify the recording or playback file name. If -record is not specified, the sample plays back the specified file. Otherwise, the sample records the camera data to the specified file.</span></p>
+<p class="p_Body"><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">The SDK installation directory is privileged and not writable. For file recording, please specify a file name in a writable directory.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:4px;"><p style="margin: 10px 0px 10px 0px;"><span style="font-size: 10pt; font-family: Arial; color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:111px; padding:4px;"><p class="p_CodeExampleEmphasis"><span class="f_CodeExampleEmphasis">-help</span></p>
+</td>
+<td style="vertical-align:top; width:535px; padding:4px;"><p class="p_TableText"><span class="f_TableText">Print out the help message.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p><span class="f_Body">Run the sample in a command window. The sample displays the segmented image in a pop up window, as similar to Figure 125:</span></p>
+<p>&nbsp;</p>
+<p class="p_ImageCaption"><img src="hmfile_hash_09848a4e.png" width="656" height="398" alt="" style="margin:0px auto 0px auto;width:656px;height:398px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 125: User Segmentation Window</span></p>
+<p class="p_ImageCaption" style="text-align: left;"><span class="f_Body">The </span><span class="f_CodeExample">FF_3DSeg.cs</span><span class="f_Body"> sample is a C# GUI application. </span></p>
+<p class="p_ImageCaption" style="text-align: left;"><span class="f_Body">From the main menu, as illustrated in Figure 126, you can select the following items:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_CodeExample">Device</span><span class="f_Body">: Select the input device.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_CodeExample">Color/Depth</span><span class="f_Body">: Select the input stream resolutions.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_CodeExample">Mode</span><span class="f_Body">: Select the operating mode as follows:</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 7px 34px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#9642;</span></td><td style="border:none"><span class="f_CodeExample">Live</span><span class="f_Body">: Streaming from the live camera.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 7px 34px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#9642;</span></td><td style="border:none"><span class="f_CodeExample">Playback</span><span class="f_Body">: Streaming from a file.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 7px 34px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#9642;</span></td><td style="border:none"><span class="f_CodeExample">Record</span><span class="f_Body">: Streaming from the live camera and save the content to a file. </span></td></tr></table></div><p class="p_ImageCaption" style="text-align: left;"><span class="f_Body">There are a set of controls on the right panel:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_CodeExample">Segmented</span><span class="f_Body">: Display the segmented image in the display panel.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_CodeExample">Color</span><span class="f_Body">: Display the color image in the display panel.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_CodeExample">Depth</span><span class="f_Body">: Display the depth image in the display panel.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_CodeExample">Scale</span><span class="f_Body">: scale the image to the display panel resolution</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_CodeExample">PIP</span><span class="f_Body">: show the last two image types selected in the picture in picture mode. </span></td></tr></table></div><p class="p_Body" style="text-align: center;"><img src="samples_clip0011.png" width="532" height="386" alt="" style="margin:0px auto 0px auto;width:532px;height:386px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 126: The 3dseg.cs Sample Main Window</span></p>
+<p class="p_Body"><span class="f_Body">Click the </span><span class="f_CodeExample">Start</span><span class="f_Body"> button to start streaming and the Stop button to stop streaming. The sample shows the segmented image (or any other image type selected) in the display panel, similar to Figure 127:</span></p>
+<p class="p_Body" style="text-align: center;"><img src="hmfile_hash_c7a81a8b.png" width="532" height="386" alt="" style="margin:0px auto 0px auto;width:532px;height:386px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 127: The 3dseg.cs Sample Streaming in Process</span></p>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

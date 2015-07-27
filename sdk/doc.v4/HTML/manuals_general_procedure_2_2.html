@@ -1,0 +1,164 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Configuration and Data Retrieval</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="configuration,retrieve data" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_general_procedure_2_2.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Configuration and Data Retrieval</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_general_procedure_face.html">Previous</a>&nbsp;
+     <a href="manuals_face_location_data.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">The hand tracking module exposes three main interfaces: </span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">The module interface (</span><span class="f_CodeExample"><a href="pxcfacemodule.html" class="topiclink">PXCFaceModule</a></span><span class="f_Body">): This interface provides functions to create instances of the below two interfaces.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">The configuration interface (</span><span class="f_CodeExample"><a href="pxcfaceconfiguration.html" class="topiclink">PXCFaceConfiguration</a></span><span class="f_Body">): Use this interface to configure the face tracking module, including face detection, landmark detection, pose detection, and alert handling.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">The data retrieval interface (</span><span class="f_CodeExample"><a href="pxcfacedata.html" class="topiclink">PXCFaceData</a></span><span class="f_Body">): Use this interface to retrieve any available tracking and alert data.</span></td></tr></table></div><p class="p_Body"><span class="f_Body">The configuration interface </span><span class="f_CodeExample"><a href="pxcfaceconfiguration.html" class="topiclink">PXCFaceConfiguration</a></span><span class="f_Body"> is a storage class that is, once created, independent of the face tracking module. Use the </span><span class="f_CodeExample"><a href="update_pxcfaceconfiguration.html" class="topiclink">Update</a></span><span class="f_Body"> function to retrieve the most recent module configuration parameters and the </span><span class="f_CodeExample"><a href="applychanges_pxcfaceconfiguration.html" class="topiclink">ApplyChanges</a></span><span class="f_Body"> function to push the changes back to the face tracking module, as illustrated in Example 43.</span></p>
+<p class="p_Body"><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">Call the </span><span class="f_CodeExample"><a href="applychanges_pxcfaceconfiguration.html" class="topiclink">ApplyChanges</a></span><span class="f_Body"> function to apply any chances to the face tracking module.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A1')">C++ Example 43: Configure Face Tracking</a></span></p>
+<div id="TOGGLE0186A1" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// face is a PXCFaceModule instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCFaceConfiguration *cfg=face-&gt;CreateActiveConfiguration();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Set to enable all alerts</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">cfg-&gt;EnableAllAlerts();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Apply changes</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">cfg-&gt;ApplyChanges();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">cfg-&gt;Release();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A2')">C# Example 43: Configure Face Tracking</a></span></p>
+<div id="TOGGLE0186A2" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// face is a PXCMFaceModule instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMFaceConfiguration cfg=face.CreateActiveConfiguration();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Set to enable all alerts</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">cfg.EnableAllAlerts();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Apply changes</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">cfg.ApplyChanges();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">cfg.Dispose();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A3')">Java Example 43: Configure Face Tracking</a></span></p>
+<div id="TOGGLE0186A3" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// face is a PXCMFaceModule instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMFaceConfiguration cfg=face.CreateActiveConfiguration();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Set to enable all alerts</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">cfg.EnableAllAlerts();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Apply changes</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">cfg.ApplyChanges();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">cfg.close();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body">Similarly, the data retrieval interface </span><span class="f_CodeExample"><a href="pxcfacedata.html" class="topiclink">PXCFaceData</a></span><span class="f_Body"> is a storage class as well. Use the </span><span class="f_CodeExample"><a href="update_pxcfacedata.html" class="topiclink">Update</a></span><span class="f_Body"> function to retrieve the most recent processed data, as illustrated in Example 44.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A4')">C++ Example 44: Get Face Tracking Processed Data</a> </span></p>
+<div id="TOGGLE0186A4" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// face is a PXCFaceModule instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCFaceData *fdata=face-&gt;CreateOutput();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Get the number of tracked faces</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">pxcI32 nfaces=fdata-&gt;QueryNumberOfDetectedFaces();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">fdata-&gt;Release();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A5')">C# Example 44: Get Face Tracking Processed Data</a></span></p>
+<div id="TOGGLE0186A5" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// face is a PXCMFaceModule instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMFaceData fdata=face.CreateOutput();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Get the number of tracked faces</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">Int32 nfaces=fdata.QueryNumberOfDetectedFaces();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">fdata.Dispose();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A6')">Java Example 44: Get Face Tracking Processed Data</a> </span></p>
+<div id="TOGGLE0186A6" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// face is a PXCMFaceModule instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMFaceData fdata=face.CreateOutput();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Get the number of tracked faces</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">int nfaces=fdata.QueryNumberOfDetectedFaces();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">fdata.close();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+<script type="text/javascript">
+HMInitToggle('TOGGLE0186A1','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A2','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A3','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A4','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A5','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A6','hm.type','dropdown','hm.state','0');
+</script>
+</body>
+</html>

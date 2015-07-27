@@ -1,0 +1,102 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Face Tracking Example</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_face_tracking_example.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Face Tracking Example</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_javascript_programs.html">Previous</a>&nbsp;
+     <a href="manuals_hand_tracking_example.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">Example 114 shows a JavaScript program for face tracking.</span></p>
+<p class="p_Body"><span class="f_Body">See <a href="manuals_programming_guide_face.html" class="topiclink">Face Tracking and Recognition</a> for programming concepts and procedures, and </span><span class="f_CodeExample"><a href="pxcsensemanager.html" class="topiclink">PXCMSenseManager</a></span><span class="f_Body">, </span><span class="f_CodeExample"><a href="pxcfacemodule.html" class="topiclink">PXCMFaceModule</a></span><span class="f_Body">, and </span><span class="f_CodeExample"><a href="pxcfaceconfiguration.html" class="topiclink">PXCMFaceConfiguration</a></span><span class="f_Body"> for the list of supported functions, marked with the </span><span class="f_CodeExample">(JavaScript)</span><span class="f_Body"> suffix.</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">&lt;head&gt;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;&lt;script type=&quot;text/javascript&quot; src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js&quot;&gt;&lt;/script&gt;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;&lt;script type=&quot;text/javascript&quot; src=&quot;realsense.js&quot;&gt;&lt;/script&gt;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;&lt;script type=&quot;text/javascript&quot;&gt;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;function SenseInputStart() {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var sm;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var face;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;PXCMSenseManager_CreateInstance().then(function (instance) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;sm = instance;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return sm.EnableFace(onFaceData);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}).then(function (instance) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;face=instance;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return sm.Init();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}).then(function (result) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return face.CreateActiveConfiguration();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}).then(function (config) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;config.configs.detection.isEnabled = true;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;config.configs.landmarks.isEnabled = true;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;config.configs.pose.isEnabled = true;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;config.configs.expressionProperties.isEnabled = true;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return config.SetTrackingMode(mode);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}).then(function (result) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return face.ApplyChanges();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}).then(function (result) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return sense.StreamFrames();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}).then(function (result) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}).catch(function (error) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;});</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;function SenseInputStop() {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;sm.Close().then(function (result) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;});</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;function onFaceData(mid, module, data) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;&lt;/script&gt;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&lt;/head&gt;</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Example 114: The JavaScript Face Tracking Example</span></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

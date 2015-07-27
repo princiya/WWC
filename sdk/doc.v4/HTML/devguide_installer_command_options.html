@@ -1,0 +1,151 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Command Option and Status Code</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="installer command line,installer status code" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "devguide_installer_command_options.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Command Option and Status Code</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="devguide_runtime_upgrader.html">Previous</a>&nbsp;
+     <a href="devguide_installation_features.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_InternalHeading"><span class="f_InternalHeading">Installer Command Option</span></p>
+<p class="p_InternalHeading"><span class="f_Body">You can use the following command line options with the SDK runtime installers:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table style="width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:375px; padding:5px;"><p><span class="f_CodeExample">--silent --no-progress </span><span style="font-family: 'Courier New';">--acceptlicense=yes</span></p>
+<p>&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:425px; padding:5px;"><p>Run the installer in the silent mode.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:375px; padding:5px;"><p><span class="f_CodeExample">--pre-bundle=&lt;dir&gt;</span></p>
+<p>&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:425px; padding:5px;"><p>Create an installer under <span class="f_CodeExample">&lt;dir&gt;</span> that installs the selected SDK features. &lt;dir&gt; must be an absolute path.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:375px; padding:5px;"><p><span class="f_CodeExample">--finstall=&lt;feature-list&gt; --fnone=all</span></p>
+<p>&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:425px; padding:5px;"><p>Install only the requested features. Use comma to separate multiple features. See <a href="devguide_installation_features.html" class="topiclink">Features and Components</a> for the feature definitions.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:375px; padding:5px;"><p><span class="f_CodeExample">--finstall=all</span></p>
+<p>&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:425px; padding:5px;"><p>Install all runtimes.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:375px; padding:5px;"><p><span class="f_CodeExample">--extract-to=&lt;dir&gt;</span></p>
+<p>&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:425px; padding:5px;"><p>Unpack to the specified directory. The default directory is <span class="f_CodeExample">%TEMP%\{GUID}</span>.</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Installer Status Code</span></p>
+<p class="p_InternalHeading"><span class="f_Body">The SDK runtime installers return the following status codes to the application installer:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table style="width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:47px; padding:5px;"><p class="p_InternalHeading" style="text-align: center;"><span class="f_InternalHeading">Status Code</span></p>
+</td>
+<td style="vertical-align:top; width:706px; padding:5px;"><p class="p_InternalHeading"><span class="f_InternalHeading">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:94px; padding:5px;"><p class="p_TableText" style="text-align: center;"><span class="f_TableText">0</span></p>
+</td>
+<td style="vertical-align:top; width:706px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The installation was completed successfully.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:94px; padding:5px;"><p class="p_TableText" style="text-align: center;"><span class="f_TableText">1</span></p>
+</td>
+<td style="vertical-align:top; width:706px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The installation was aborted.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:94px; padding:5px;"><p class="p_TableText" style="text-align: center;"><span class="f_TableText">2</span></p>
+</td>
+<td style="vertical-align:top; width:706px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The installation was canceled by the user.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:94px; padding:5px;"><p class="p_TableText" style="text-align: center;"><span class="f_TableText">3</span></p>
+</td>
+<td style="vertical-align:top; width:706px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The installation was completed with some errors in the optional component installation.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:94px; padding:5px;"><p class="p_TableText" style="text-align: center;"><span class="f_TableText">1633</span></p>
+</td>
+<td style="vertical-align:top; width:706px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The installation was aborted due to unsupported platform or OS.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:94px; padding:5px;"><p class="p_TableText" style="text-align: center;"><span class="f_TableText">3010</span></p>
+</td>
+<td style="vertical-align:top; width:706px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The installation was completed and reboot was required. Reserved. Usually the SDK runtime does not require reboot.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:94px; padding:5px;"><p class="p_TableText" style="text-align: center;"><span class="f_TableText">3015</span></p>
+</td>
+<td style="vertical-align:top; width:706px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The installation was completed with the warning that the Intel® RealSense™ Depth Camera Manager installed on the system was incompatible with the SDK runtime version. The user must upgrade the Intel RealSense Depth Camera Manager for the SDK runtime to function properly.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:94px; padding:5px;"><p class="p_TableText" style="text-align: center;"><span class="f_TableText">3020</span></p>
+</td>
+<td style="vertical-align:top; width:706px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The installer failed to identify the platform as a valid Intel® RealSense™ 3D Camera platform. Premium components (that had license restrictions) were not installed. Other component installation was completed successfully.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_TableText">See the installer log under </span><span class="f_CodeExample">%TEMP%/micl_tmp_&lt;username&gt;</span><span class="f_TableText"> for the detailed error description.</span></p>
+<p class="p_Body" style="text-align: center;"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

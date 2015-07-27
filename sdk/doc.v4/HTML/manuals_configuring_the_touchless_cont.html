@@ -1,0 +1,128 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Configuring the Touchless Controller Module</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_configuring_the_touchless_cont.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Configuring the Touchless Controller Module</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_integrating_with_the_module.html">Previous</a>&nbsp;
+     <a href="manuals_setting_scroll_and_pointer_sen.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">Before activating the touchless controller module, or at any time during its operation, you can enable or disable its configuration options by calling the </span><span class="f_CodeExample"><a href="setprofile_pxctouchlesscontroller.html" class="topiclink">SetProfile</a></span><span class="f_Body"> function (see <a href="manuals_integrating_with_the_module.html" class="topiclink">Integrating with the Module</a>). These options relate to enabling specific UI controls and event injection. The configuration options are set using a single bit-mask variable (the configuration “profile”), where each bit represents a different option. A bit value of 1 enables the option, and a bit value of 0 disables the option.</span></p>
+<p class="p_Body"><span class="f_Body">Table 13 describes the supported configuration options:</span></p>
+<div style="text-align: center; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="margin:0 auto; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<th style="vertical-align:top; width:406px; padding:6px; border:solid 1px #000000;"><p class="p_Body"><span class="f_Body" style="font-weight: bold;">Configuration Option</span></p>
+</th>
+<th style="vertical-align:top; width:418px; padding:6px; border:solid 1px #000000;"><p class="p_Body"><span class="f_Body" style="font-weight: bold;">Description</span></p>
+</th>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:406px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">Configuration_None</span></p>
+</td>
+<td style="vertical-align:top; width:418px; padding:6px; border:solid 1px #000000;"><p class="p_Body"><span class="f_Body">All touchless control options are disabled.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:406px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">Configuration_Allow_Zoom</span></p>
+</td>
+<td style="vertical-align:top; width:418px; padding:6px; border:solid 1px #000000;"><p class="p_Body"><span class="f_Body">Enable the Zoom action. See <a href="manuals_ui_controls.html#zoom" class="topiclink">Zoom</a> for more details.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:406px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">Configuration_Use_Draw_Mode</span></p>
+</td>
+<td style="vertical-align:top; width:418px; padding:6px; border:solid 1px #000000;"><p class="p_Body"><span class="f_Body">Deprecated.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:406px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">Configuration_Scroll_Horizontally</span></p>
+</td>
+<td style="vertical-align:top; width:418px; padding:6px; border:solid 1px #000000;"><p class="p_Body"><span class="f_Body">Enable horizontal scrolling. See <a href="manuals_ui_controls.html#scroll" class="topiclink">Scroll</a> for more details.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:406px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">Configuration_Scroll_Vertically </span></p>
+</td>
+<td style="vertical-align:top; width:418px; padding:6px; border:solid 1px #000000;"><p class="p_Body"><span class="f_Body">Enable vertical scrolling. See <a href="manuals_ui_controls.html#scroll" class="topiclink">Scroll</a> for more details.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:406px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">Configuration_Meta_Context_Menu </span></p>
+</td>
+<td style="vertical-align:top; width:418px; padding:6px; border:solid 1px #000000;"><p class="p_Body"><span class="f_Body">Enable the meta menu feature. See Activate Meta Menu for more details. </span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:406px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">Configuration_Enable_Injection </span></p>
+</td>
+<td style="vertical-align:top; width:418px; padding:6px; border:solid 1px #000000;"><p class="p_Body"><span class="f_Body">Enable injection of keyboard and touch events directly to the OS. See <a href="manuals_handling_controls_with_automat.html" class="topiclink">Handling Controls with Automatic Injection and Event Handler</a> for more details.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:406px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">Configuration_Edge_Scroll_Horizontally </span></p>
+</td>
+<td style="vertical-align:top; width:418px; padding:6px; border:solid 1px #000000;"><p class="p_Body"><span class="f_Body">Enable horizontal scrolling when the pointer is on the right or left edge of the screen. This is another way to activate scrolling, in addition to the user’s explicit scroll gesture.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:406px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">Configuration_Edge_Scroll_Vertically </span></p>
+</td>
+<td style="vertical-align:top; width:418px; padding:6px; border:solid 1px #000000;"><p class="p_Body"><span class="f_Body">Enable vertical scrolling &nbsp;when pointer is on the top or bottom edge of the screen. This is another way to activate scrolling, in addition to the user’s explicit scroll gesture.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:406px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">Configuration_Allow_Back </span></p>
+</td>
+<td style="vertical-align:top; width:418px; padding:6px; border:solid 1px #000000;"><p class="p_Body"><span class="f_Body"> Enable the </span><span class="f_CodeExample">Back</span><span class="f_Body"> action. See <a href="manuals_ui_controls.html#back" class="topiclink">Back</a> for more details.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:406px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">Configuration_Allow_Selection</span><span class="f_Body"> </span></p>
+</td>
+<td style="vertical-align:top; width:418px; padding:6px; border:solid 1px #000000;"><p class="p_Body"><span class="f_Body"> Enable the </span><span class="f_CodeExample">Select</span><span class="f_Body"> action. See <a href="manuals_ui_controls.html#select" class="topiclink">Select</a> for more details.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Table 13: Configuration Options</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

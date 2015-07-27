@@ -1,0 +1,117 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Unity Web Player Applications</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_unity_web_player.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Unity Web Player Applications</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_realsenseinfo.html">Previous</a>&nbsp;
+     <a href="manuals_javascript_programs.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_InternalHeading"><span class="f_InternalHeading">Limitations</span></p>
+<p class="p_InternalHeading"><span class="f_Body">You can use the same C# interfaces described in this manual in the Unity C# webplayer applications, with the following limitations:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Image data access is limited to low resolutions such as </span><span class="f_CodeExample">320x240</span><span class="f_Body">. Accessing image data may significantly impact application performance. There is no limitation however to access image instance information such as format, resolution, and time stamp.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Due to latency or security restrictions, certain SDK functions do not support the Unity web player platform. These functions have a respective note in their function </span><span class="f_CodeExample" style="font-weight: bold;">Remark</span><span class="f_Body"> sections. The functions include:</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 17px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Courier New';color:#000000;">o</span></td><td style="border:none"><span class="f_Body">Advanced programming directly through </span><span class="f_CodeExample"><a href="pxccapturemanager.html" class="topiclink">PXCMCaptureManager</a></span><span class="f_Body"> is not supported. It is recommended to use the </span><span class="f_CodeExample"><a href="pxcsensemanager.html" class="topiclink">PXCMSenseManager</a></span><span class="f_Body"> interface.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 17px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Courier New';color:#000000;">o</span></td><td style="border:none"><span class="f_Body">Any SDK functions that need to access any files on the local or remote disk.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Support of event callbacks is limited. The event callbacks are implemented as a one-way function call from the local proxy server to the Unity application. As the local server runs asynchronously to the browser context, the application can only use the event callback to set some application state. It is impossible to access any module data or image content within an event callback.</span></td></tr></table></div><p class="p_InternalHeading"><span class="f_InternalHeading">Example</span></p>
+<p class="p_Body"><span class="f_Body">Example 113 shows a hand tracking Unity script. The script uses the </span><span class="f_CodeExample"><a href="pxcsensemanager.html" class="topiclink">PXCMSenseManager</a></span><span class="f_Body"> interface to active hand tracking, waits until any hand tracking data is ready and then retrieves it. </span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">public class SenseInput : MonoBehaviour {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;private PXCMSenseManager sm=null;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Use this for initialization</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;void Start () {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;/* Initialize a PXCMSenseManager instance */</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;sm = PXCMSenseManager.CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;if (sm==null) return;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;/* Enable hand tracking */</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;pxcmStatus sts=sm.EnableHand();</span></p>
+<p class="p_CodeExample"><span style="width:60px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;/* Initialize the execution pipeline */ </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;sts=sm.Init(); </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span style="width:60px">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Update is called once per frame</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;void Update () {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;if (sm==null) return;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;/* Wait until any frame data is available */</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;if (sm.AcquireFrame(false,0)&lt;pxcmStatus.PXCM_STATUS_NO_ERROR) return;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;/* Retrieve hand tracking data if ready */</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;PXCMHandModule hand=sm.QueryHand();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;if (hand != null)</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;PXCMHandData data = hand.CreateOutput();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (data != null)</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;data.Update();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// access hand data</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;....</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;data.Dispose();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// Access hand image</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;PXCMCapture.Sample sample = sm.QueryHandSample();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;if (sample != null)</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (sample.depth != null) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Access the hand image information</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;.... </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;void OnDisable() {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;if (sm==null) return;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;sm.Dispose();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;sm=null;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Example 113: The Hand Tracking Unity Script</span></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

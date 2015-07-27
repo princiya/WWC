@@ -1,0 +1,130 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>PXC[M]Base</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="PXCBase,PXCMBase" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "pxcbase.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">PXC[M]Base</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="deviceinfo_pxcaudiosource.html">Previous</a>&nbsp;
+     <a href="manuals_constants4_2_2_2_2.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_InternalHeading"><span class="f_InternalHeading">Namespace Hierarchy</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table style="width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:98px; padding:5px;"><p class="p_TableText"><span class="f_TableText">C++</span></p>
+</td>
+<td style="vertical-align:top; width:702px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">PXCBase</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:98px; padding:5px;"><p class="p_TableText"><span class="f_TableText">C#</span></p>
+</td>
+<td style="vertical-align:top; width:702px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">PXCMBase</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:98px; padding:5px;"><p class="p_TableText"><span class="f_TableText">Java</span></p>
+</td>
+<td style="vertical-align:top; width:702px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">PXCMBase</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:98px; padding:5px;"><p class="p_TableText"><span class="f_TableText">JavaScript</span></p>
+</td>
+<td style="vertical-align:top; width:702px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">PXCMBase</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Description</span></p>
+<p class="p_InternalHeading"><span style="font-size: 10pt; font-family: Verdana;">The </span><span class="f_CodeExample">PXC[M]Base</span><span style="font-size: 10pt; font-family: Verdana;"> </span><span class="f_Body">interface is the base class of all SDK interface definitions.</span></p>
+<p class="p_Body"><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">For C++, the interface overrides the class </span><span class="f_CodeExample">delete</span><span class="f_Body"> operator with the </span><span class="f_CodeExample"><a href="release_pxcbase.html" class="topiclink">Release</a></span><span class="f_Body"> function to work with the SDK dispatching mechanism and provides a </span><span class="f_CodeExample"><a href="queryinstance_pxcbase.html" class="topiclink">QueryInstance</a></span><span class="f_Body"> mechanism to replace the </span><span class="f_CodeExample">dynamic_cast</span><span class="f_Body"> operation, which relies on compiler–specific, run-time type checking. The application that implements any </span><span class="f_CodeExample">PXCBase</span><span class="f_Body"> derived interface must derive from the </span><span class="f_CodeExample"><a href="pxcbaseimpl.html" class="topiclink">PXCBaseImpl</a></span><span class="f_Body"> template class.</span></p>
+<p class="p_Body"><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">For C#, the interface provides the </span><span class="f_CodeExample"><a href="dispose_pxcmbase.html" class="topiclink">Dispose</a></span><span class="f_Body"> function to release any unmanaged memory objects, and a </span><span class="f_CodeExample"><a href="queryinstance_pxcbase.html" class="topiclink">QueryInstance</a></span><span class="f_Body"> function to retrieve any other interface that an SDK module might implement.</span></p>
+<p class="p_Body"><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">For Java, the interface provides the </span><span class="f_CodeExample"><a href="close_pxcmbase.html" class="topiclink">close</a></span><span class="f_Body"> function to release any unmanaged memory objects, and a </span><span class="f_CodeExample"><a href="queryinstance_pxcbase.html" class="topiclink">QueryInstance</a></span><span class="f_Body"> function to retrieve any other interface that an SDK module might implement.</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Reference</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:5px;"><p class="p_TableText"><span class="f_TableText">C++</span></p>
+</td>
+<td style="vertical-align:top; width:586px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">pxcbase.h</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:5px;"><p class="p_TableText"><span class="f_TableText">C# .NET4</span></p>
+</td>
+<td style="vertical-align:top; width:586px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">libpxcclr.cs.dll</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:5px;"><p class="p_TableText"><span class="f_TableText">Unity</span></p>
+</td>
+<td style="vertical-align:top; width:586px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">libpxcclr.unity.dll</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:5px;"><p class="p_TableText"><span class="f_TableText">Unity Web</span></p>
+</td>
+<td style="vertical-align:top; width:586px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">libpxcclr.unityweb.dll</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:99px; padding:5px;"><p class="p_TableText"><span class="f_TableText">Java</span></p>
+</td>
+<td style="vertical-align:top; width:586px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">libpxcclr.java.jar</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:99px; padding:5px;"><p class="p_TableText"><span class="f_TableText">JavaScript</span></p>
+</td>
+<td style="vertical-align:top; width:586px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">realsense.js</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:99px; padding:5px;"><p class="p_TableText"><span class="f_TableText">Runtime</span></p>
+</td>
+<td style="vertical-align:top; width:586px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">core</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

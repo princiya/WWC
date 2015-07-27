@@ -1,0 +1,55 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Configuring C# Development Environment</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="C# development setup,C# setup" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "devguide_csharp_application.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Configuring C# Development Environment</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="devguide_project_settings.html">Previous</a>&nbsp;
+     <a href="devguide_customize_the_csharp_libraries.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">The SDK exposes the C# interfaces as two dynamically linked libraries (DLL), which support Microsoft .NET framework 4.0.</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">C# interface DLL</span><span class="f_Body">: </span><span class="f_CodeExample">libpxcclr.cs.dll</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">C++ P/Invoke DLL</span><span class="f_Body">: </span><span class="f_CodeExample">libpxccpp2c.dll</span></td></tr></table></div><p class="p_Body"><span class="f_Body">Use the following steps to add DLL as a reference in Microsoft Visual Studio 2010-2012:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Create a new project or open an existing project.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">In the solution explorer, right click the project name and select </span><span class="f_CodeExample">Add Reference</span><span class="f_Body">.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Add </span><span class="f_CodeExample">$(RSSDK_DIR)/bin/win32/libpxcclr.cs.dll</span><span class="f_Body"> or </span><span class="f_CodeExample">$(RSSDK_DIR)/bin/x64/libpxcclr.cs.dll </span><span class="f_Body">as the reference.</span></td></tr></table></div><p class="p_Body"><img src="note.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">It is a known limitation that Microsoft Visual Studio cannot handle 32-bit and 64-bit references at the same time. Thus the application must explicitly modify the reference before building a different target. See this <a href="http://stackoverflow.com/questions/3832552/conditionally-use-32-64-bit-reference-when-building-in-visual-studio" target="_blank" class="weblink">forum post</a> for a possible workaround.</span></p>
+<p class="p_Body"><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">If the application uses </span><span class="f_CodeExample">Copy Local=True</span><span class="f_Body">, the application must manually copy </span><span class="f_CodeExample">libpxccpp2c.dll</span><span class="f_Body"> to your local directory.</span></p>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

@@ -1,0 +1,249 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Integrating with the Module</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_integrating_with_the_module.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Integrating with the Module</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_handling_controls_with_automat.html">Previous</a>&nbsp;
+     <a href="manuals_configuring_the_touchless_cont.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_InternalHeading"><span class="f_InternalHeading">Workflow Overview</span></p>
+<p class="p_Body"><span class="f_Body">Here are the main steps you need to implement in your code, to integrate with the touchless controller module:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Create an instance of the </span><span class="f_CodeExample"><a href="pxcsensemanager.html" class="topiclink">PXC[M]SenseManager</a></span><span class="f_Body"> interface.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Use the </span><span class="f_CodeExample"><a href="enabletouchlesscontroller_pxcsensemanager.html" class="topiclink">EnableTouchlessController</a></span><span class="f_Body"> function to activate the module by calling the &nbsp;function.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Initialize the pipeline by calling the </span><span class="f_CodeExample"><a href="init_pxcsensemanager.html" class="topiclink">Init</a></span><span class="f_Body"> function.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Get an instance of </span><span class="f_CodeExample"><a href="pxctouchlesscontroller.html" class="topiclink">PXC[M]TouchlessController</a></span><span class="f_Body"> by calling the </span><span class="f_CodeExample"><a href="querytouchlesscontroller_pxcsensemanager.html" class="topiclink">QueryTouchlessController</a></span><span class="f_Body"> function.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Optional: Configure the module by calling the </span><span class="f_CodeExample"><a href="queryprofile_pxctouchlesscontroller.html" class="topiclink">QueryProfile</a></span><span class="f_Body"> and </span><span class="f_CodeExample"><a href="setprofile_pxctouchlesscontroller.html" class="topiclink">SetProfile</a></span><span class="f_Body"> functions (see <a href="manuals_configuring_the_touchless_cont.html" class="topiclink">Configuring the Touchless Controller Module</a> for more details). If you don’t set the configuration options explicitly, the default settings are used, which enable only the <a href="manuals_ui_controls.html#cursornavigation" class="topiclink">Cursor Navigation</a> and <a href="manuals_ui_controls.html#select" class="topiclink">Select</a> features.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Implement and register a UI control event handler.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Optional: Implement and register alert handlers.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">In the main loop, call the </span><span class="f_CodeExample"><a href="acquireframe_pxcsensemanager.html" class="topiclink">AcquireFrame</a></span><span class="f_Body"> function to activate frame processing. This causes UI control events to be fired (if any occurred during this frame). Then call the </span><span class="f_CodeExample"><a href="releaseframe_pxcsensemanager.html" class="topiclink">ReleaseFrame</a></span><span class="f_Body"> function to release module resources.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Optionally, at certain stages in your application, you may want to pause or resume the module’s operation, by calling the <a href="pausetouchlesscontroller_pxcsensemanager.html" class="topiclink">PauseTouchlessController</a> function.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">After exiting the main loop, call the </span><span class="f_CodeExample"><a href="release_pxcbase.html" class="topiclink">Release</a></span><span class="f_Body"> function to release SDK resources.</span></td></tr></table></div><p class="p_InternalHeading"><span class="f_InternalHeading">Code Examples</span></p>
+<p class="p_Body"><span class="f_Body">Example 85 and Example 86 are code examples that demonstrate how to implement the main work flow.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A1')">C++ Example 85: Main Loop</a> </span></p>
+<div id="TOGGLE0186A1" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Initialize the Sense Manager</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCSenseManager *senseManager=PXCSenseManager::CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Enable hand analysis in the multimodal pipeline</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">senseManager-&gt;EnableTouchlessController();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Initialize the pipeline</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">senseManager-&gt;Init();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Get an instance of Touchless Controller</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCTouchlessController *touchlessController = senseManager-&gt; QueryTouchlessController();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// register for ux events</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">UXEventHandler eventHandler;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">touchlessController-&gt;SubscribeEvent(&amp;eventHandler);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Configure Touchless Controller</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">ProfileInfo profInfo;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">touchlessController-&gt;QueryProfile(&amp;profInfo);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">profInfo |= (PXCTouchlessController::ProfileInfo::Configuration_Allow_Selection |  &nbsp; &nbsp; &nbsp; &nbsp;PXCTouchlessController::ProfileInfo::Configuration_Enable_Injection);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">touchlessController-&gt;SetProfile(&amp;profInfo);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// main processing loop</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">while (senseManager-&gt;AcquireFrame(true)&gt;=PXC_STATUS_NO_ERROR) { </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;senseManager-&gt;ReleaseFrame();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Release resources</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">senseManager-&gt;Release();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A2')">C# Example 85: Main Loop</a></span></p>
+<div id="TOGGLE0186A2" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Initialize the Sense Manager</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSenseManager senseManager = PXCMSesneManager.CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Enable hand analysis in the multimodal pipeline</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">senseManager.EnableTouchlessController();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Initialize the pipeline</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">senseManager.Init();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Get an instance of touchless controller </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMTouchlessController touchlessController = senseManager.QueryTouchlessController();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// register for ux events</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">touchlessController.SubscribeEvent(OnTouchlessControllerUXEvent);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Configure Touchless Controller</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMTouchlessController.ProfileInfo pinfo = new PXCMTouchlessController.ProfileInfo();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">pinfo.config = PXCTouchlessController.ProfileInfo.Configuration.Configuration_Allow_Selection |  &nbsp; &nbsp; &nbsp; &nbsp;PXCTouchlessController.ProfileInfo.Configuration.Configuration_Enable_Injection);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">touchlessController.SetProfile(pinfo);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// main processing loop</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">while (senseManager.AcquireFrame(true)&gt;= pxcmStatus.PXCM_STATUS_NO_ERROR) { </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;senseManager.ReleaseFrame();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Release resources</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">senseManager.Dispose();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A3')">Java Example 85: Main Loop</a></span></p>
+<div id="TOGGLE0186A3" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Initialize the Sense Manager</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSenseManager senseManager = PXCMSesneManager.CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Enable hand analysis in the multimodal pipeline</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">senseManager.EnableTouchlessController();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Initialize the pipeline</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">senseManager.Init();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Get an instance of touchless controller </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMTouchlessController touchlessController = senseManager.QueryTouchlessController();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// register for ux events</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">UXEventHandler handler=new UXEventHandler();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">touchlessController.SubscribeEvent(handler);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Configure Touchless Controller</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMTouchlessController.ProfileInfo pinfo = new PXCMTouchlessController.ProfileInfo();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">pinfo.config = PXCTouchlessController.ProfileInfo.Configuration.Configuration_Allow_Selection |  &nbsp; &nbsp; &nbsp; &nbsp;PXCTouchlessController.ProfileInfo.Configuration.Configuration_Enable_Injection);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">touchlessController.SetProfile(pinfo);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// main processing loop</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">while (senseManager.AcquireFrame(true)&gt;= pxcmStatus.PXCM_STATUS_NO_ERROR) { </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;senseManager.ReleaseFrame();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Release resources</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">senseManager.Dispose();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A4')">C++ Example 86: Event Handler</a> </span></p>
+<div id="TOGGLE0186A4" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">class UXEventHandler: public PXCTouchlessController::UXEventHandler {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">public:</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;virtual void PXCAPI OnFiredUXEvent(const PXCTouchlessController::UXEventData *uxEventData) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;switch(uxEventData-&gt;type) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;case PXCTouchlessController::UXEventData::UXEvent_StartZoom:</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// handle start zoom</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;…</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;break;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;case PXCTouchlessController::UXEventData::UXEvent_Zoom:</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// handle continued zoom</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;…</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;break;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;case PXCTouchlessController::UXEventData::UXEvent_EndZoom:</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// handle end zoom</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;…</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;break;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// handle all events</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;…</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">};</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A5')">C# Example 86: Event Handler</a></span></p>
+<div id="TOGGLE0186A5" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">void OnTouchlessControllerUXEvent(PXCMTouchlessController.UXEventData uxEventData) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;switch(uxEventData.type) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;case PXCMTouchlessController.UXEventData.UXEventType.UXEvent_StartZoom:</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// handle start zoom</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;…</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;break;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;case PXCMTouchlessController.UXEventData.UXEventType.UXEvent_Zoom:</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// handle continued zoom</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;…</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;break;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;case PXCMTouchlessController.UXEventData.UXEventType.UXEvent_EndZoom:</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// handle end zoom</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;…</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;break;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// handle all events</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;…</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A6')">Java Example 86: Event Handler</a></span></p>
+<div id="TOGGLE0186A6" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">class UXEventHandler implements PXCMTouchlessController.UXEventHandler {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;public void OnFiredUXEvent(PXCMTouchlessController.UXEventData uxEventData) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;switch(uxEventData.type) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;case PXCMTouchlessController.UXEventData.UXEventType.UXEvent_StartZoom:</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// handle start zoom</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;…</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;break;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;case PXCMTouchlessController.UXEventData.UXEventType.UXEvent_Zoom:</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// handle continued zoom</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;…</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;break;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;case PXCMTouchlessController.UXEventData.UXEventType.UXEvent_EndZoom:</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// handle end zoom</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;…</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;break;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// handle all events</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;…</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">};</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+<script type="text/javascript">
+HMInitToggle('TOGGLE0186A1','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A2','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A3','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A4','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A5','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A6','hm.type','dropdown','hm.state','0');
+</script>
+</body>
+</html>

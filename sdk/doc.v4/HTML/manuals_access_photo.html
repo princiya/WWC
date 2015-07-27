@@ -1,0 +1,261 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Accessing Photo</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Accessing Photo" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_access_photo.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Accessing Photo</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_enhanced_photography.html">Previous</a>&nbsp;
+     <a href="manuals_accessing_ep_features.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">Most Enhanced Photography (EP) functions take a photo picture as input and post-process it. The photo instance can be from a <a href="https://developers.google.com/depthmap-metadata/" target="_blank" class="weblink">Google* Depth File</a> or from any preview image. The photo instance contains the following information:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Color</span><span class="f_Body">: The color image of the photo picture.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Depth</span><span class="f_Body">: The depth image of the photo picture.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Calibration Data</span><span class="f_Body">: Any auxiliary information required to map the depth image coordinates to the color image coordinates.</span></td></tr></table></div><p class="p_InternalHeading"><span class="f_InternalHeading">Creating Photo From Preview</span></p>
+<p class="p_InternalHeading"><span class="f_Body">Use the following steps to obtain a photo instance from any preview sample (see Example 92):</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Use the </span><span class="f_CodeExample"><a href="createphoto_pxcsession.html" class="topiclink">CreatePhoto</a></span><span class="f_Body"> function to create a photo image instance.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Use the </span><span class="f_CodeExample"><a href="importfrompreviewsample_pxcphoto.html" class="topiclink">ImportFromPreviewSample</a></span><span class="f_Body"> function to initialize the photo content from the preview sample.</span></td></tr></table></div><p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A1')">C++ Example 92: Take Snapshot using the SenseManager</a></span></p>
+<div id="TOGGLE0186A1" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">void TakeSnapShot(void) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Create a SenseManager instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCSenseManager *sm=PXCSenseManager::CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Create a photo instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCPhoto *photo=sm-&gt;QuerySession()-&gt;CreatePhoto();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Select the color and depth streams</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;sm-&gt;EnableStream(PXCCapture::STREAM_TYPE_COLOR,320,240,30); </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;sm-&gt;EnableStream(PXCCapture::STREAM_TYPE_DEPTH,320,240,30); </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Initialize and Stream Samples</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;sm-&gt;Init(); </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;for (;;) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// This function blocks until both samples are ready</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;if (sm-&gt;AcquireFrame(true)&lt;PXC_STATUS_NO_ERROR) break;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// retrieve the photo picture</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;PXCCapture::Sample *sample=sm-&gt;QuerySample();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// Work on the photo with EP functions if this is the right snapshot</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;photo-&gt;ImportFromPreviewSample(sample);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;... </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// go fetching the next samples</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;sm-&gt;ReleaseFrame(); </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Close down</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;photo-&gt;Release();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;sm-&gt;Release();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A2')">C# Example 92: Take Snapshot using the SenseManager</a></span></p>
+<div id="TOGGLE0186A2" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">void TakeSnapShot() {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Create a SenseManager instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCMSenseManager sm=PXCMSenseManager.CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Create a photo instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCMPhoto photo=sm.session.CreatePhoto();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Select the color and depth streams</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;sm.EnableStream(PXCMCapture.StreamType.STREAM_TYPE_COLOR,320,240,30); </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;sm.EnableStream(PXCMCapture.StreamType.STREAM_TYPE_DEPTH,320,240,30); </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Initialize and Stream Samples</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;sm.Init(); </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;for (;;) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// This function blocks until both samples are ready</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;if (sm.AcquireFrame(true)&lt;pxcmStatus.PXCM_STATUS_NO_ERROR) break;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// retrieve the photo picture</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;PXCMCapture.Sample sample=sm.QuerySample();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// Work on the photo with EP functions if this is the right snapshot</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;photo.ImportFromPreviewSample(sample);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;... </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// go fetching the next samples</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;sm.ReleaseFrame(); </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Close down</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;photo.Dispose();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;sm.Dispose();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A3')">Java Example 92: Take Snapshot using the SenseManager</a></span></p>
+<div id="TOGGLE0186A3" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">void TakeSnapShot() {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Create a SenseManager instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCMSenseManager sm=PXCMSenseManager.CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Create a photo instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCMPhoto photo=sm.QuerySession().CreatePhoto();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Select the color and depth streams</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;sm.EnableStream(PXCMCapture.StreamType.STREAM_TYPE_COLOR,320,240,30); </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;sm.EnableStream(PXCMCapture.StreamType.STREAM_TYPE_DEPTH,320,240,30); </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Initialize and Stream Samples</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;sm.Init(); </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;for (;;) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// This function blocks until both samples are ready</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;if (sm.AcquireFrame(true)&lt;pxcmStatus.PXCM_STATUS_NO_ERROR) break;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// retrieve the photo picture</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;PXCMCapture.Sample photo=sm.QuerySample();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// Work on the photo with EP functions if this is the right snapshot</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;photo.ImportFromPreviewSample(sample);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;... </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// go fetching the next samples</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;sm.ReleaseFrame(); </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Close down</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;photo.close();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;sm.close();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Creating Photo From File</span></p>
+<p class="p_Body"><span class="f_Body">Use the following steps to obtain a photo instance from a <a href="https://developers.google.com/depthmap-metadata/" target="_blank" class="weblink">Google Depth File</a> (see Example 93):</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Use the </span><span class="f_CodeExample"><a href="createphoto_pxcsession.html" class="topiclink">CreatePhoto</a></span><span class="f_Body"> function to create a photo image instance.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Use the </span><span class="f_CodeExample"><a href="loadxmp_pxcphoto.html" class="topiclink">LoadXMP</a></span><span class="f_Body"> function to load the photo content from the file.</span></td></tr></table></div><p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A4')">C++ Example 93: Read Photo From File</a> </span></p>
+<div id="TOGGLE0186A4" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// session is the PXCSession instance.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Create a photo instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCPhoto *photo=session-&gt;CreatePhoto();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Load the XMP file</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">photo-&gt;LoadXMP(L&quot;C:/mywork/photo.xmp&quot;);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">photo-&gt;Release();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A5')">C# Example 93: Read Photo From File</a></span></p>
+<div id="TOGGLE0186A5" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// session is the PXCMSession instance.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Create a photo instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMPhoto photo=session.CreatePhoto();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Load the XMP file</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">photo.LoadXMP(&quot;C:/mywork/photo.xmp&quot;);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">photo.Dispose();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A6')">Java Example 93: Read Photo From File</a></span></p>
+<div id="TOGGLE0186A6" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// session is the PXCMSession instance.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Create a photo instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMPhoto photo=session.CreatePhoto();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Load the XMP file</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">photo.LoadXMP(&quot;C:/mywork/photo.xmp&quot;);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">photo.close();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Saving Photo To File</span></p>
+<p class="p_Body"><span class="f_Body">Similarly, use the </span><span class="f_CodeExample"><a href="savexmp_pxcphoto.html" class="topiclink">SaveXMP</a></span><span class="f_Body"> function to export to a <a href="https://developers.google.com/depthmap-metadata/" target="_blank" class="weblink">Google Depth File</a>. See Example 94.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A7')">C++ Example 94: Save Photo To File</a> </span></p>
+<div id="TOGGLE0186A7" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// photo is a PXCPhoto instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">photo-&gt;SaveXMP(L&quot;C:/mywork/photo.xmp&quot;);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A8')">C# Example 94: Save Photo To File</a></span></p>
+<div id="TOGGLE0186A8" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// photo is a PXCMPhoto instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">photo.SaveXMP(&quot;C:/mywork/photo.xmp&quot;);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A9')">Java Example 94: Save Photo To File</a></span></p>
+<div id="TOGGLE0186A9" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// photo is a PXCMPhoto instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">photo.SaveXMP(&quot;C:/mywork/photo.xmp&quot;);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+<script type="text/javascript">
+HMInitToggle('TOGGLE0186A1','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A2','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A3','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A4','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A5','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A6','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A7','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A8','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A9','hm.type','dropdown','hm.state','0');
+</script>
+</body>
+</html>

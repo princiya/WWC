@@ -1,0 +1,55 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Smoothing</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_smoothing.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Smoothing</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_stabilization.html">Previous</a>&nbsp;
+     <a href="manuals_configuring_alerts.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">While stabilization produces more consistent data for a stationary hand, smoothing does the same for a hand in motion. It ignores small deviations in hand motion and overcomes local problems in tracking, to produce smoother, more continuous tracking information. So, for example, the hand’s motion might be represented as a smooth arc, rather than having zigzags in its path.</span></p>
+<p class="p_Body"><span class="f_Body">Unlike stabilization, which is configured as a boolean value, smoothing is configured by degree, as represented by a value between 0 and 1. A value of 0 means no smoothing, while a value of 1 (the default and recommended value) produces the maximal smoothing. </span></p>
+<p class="p_Body"><span class="f_Body">See </span><span class="f_CodeExample"><a href="setsmoothingvalue_pxchandconfiguration.html" class="topiclink">SetSmoothingValue</a></span><span class="f_Body">.</span></p>
+<p class="p_Body"><img src="note.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">Configuring a smaller smoothing value results in more “jittery” motion but faster reaction time, while a high smoothing value produces smoother motion but introduces some delay.</span></p>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

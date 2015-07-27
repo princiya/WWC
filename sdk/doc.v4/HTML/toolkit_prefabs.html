@@ -1,0 +1,73 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Prefabs</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "toolkit_prefabs.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Prefabs</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="toolkit_animation_trigger_and_rules.html">Previous</a>&nbsp;
+     <a href="tools_sdk_tools.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">The Prefabs are provided for convenience. They are under </span><span class="f_CodeExample">$(RSSDK_DIR)/framework/Unity/RSUnityToolkit/Prefabs</span><span class="f_Body">.</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Debug Viewer</span></p>
+<p class="p_InternalHeading"><img src="toolkit_clip0060.png" width="308" height="233" alt="" style="width:308px;height:233px;border:none" /></p>
+<p class="p_InternalHeading"><img src="toolkit_clip0061.png" width="456" height="33" alt="" style="width:456px;height:33px;border:none" /></p>
+<p class="p_Body"><span class="f_Body">The </span><span class="f_CodeExample">Debug Viewer</span><span class="f_Body"> prefab is provided for debugging purposes. It prints indicators of face, hands and object detection to the Unity log.</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Image</span></p>
+<p class="p_Body"><img src="toolkit_clip0056.png" width="383" height="191" alt="" style="width:383px;height:191px;border:none" /></p>
+<p class="p_Body"><span class="f_Body">The </span><span class="f_CodeExample">Image</span><span class="f_Body"> prefab renders any stream of choice, by the </span><span class="f_CodeExample">Stream Out</span><span class="f_Body"> field.</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Point Cloud Mesh</span></p>
+<p class="p_Body"><img src="toolkit_clip0057.png" width="378" height="96" alt="" style="width:378px;height:96px;border:none" /></p>
+<p class="p_Body"><span class="f_Body">The </span><span class="f_CodeExample">Point Cloud Mesh</span><span class="f_Body"> renders the camera depth data as a 3D mesh. </span></p>
+<p class="p_Body"><span class="f_Body">You can set different materials on the 3D mesh. </span><span style="font-size: 10pt; font-family: 'Neo Sans Intel';">If </span><span class="f_CodeExample">Use UVMap</span><span style="font-size: 10pt; font-family: 'Neo Sans Intel';"> is checked, the RGB data will be drawn on the selected material.</span></p>
+<p class="p_Body"><span style="font-size: 10pt; font-family: 'Neo Sans Intel';">The developer can check the </span><span class="f_CodeExample">Remove Back Triangles</span><span style="font-size: 10pt; font-family: 'Neo Sans Intel';"> option to remove saturated points indicated by the depth value bigger than the value specified in the </span><span class="f_CodeExample">Max Depth Value</span><span class="f_Body"> field.</span></p>
+<p>&nbsp;</p>
+<p><img src="toolkit_clip0062.png" width="462" height="383" alt="" style="width:462px;height:383px;border:none" /><span style="font-size: 10pt; font-family: 'Neo Sans Intel';"> </span><img src="toolkit_clip0063_zoom82.png" width="526" height="382" alt="" style="width:526px;height:382px;border:none" /></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Sense AR</span></p>
+<p class="p_Body"><img src="toolkit_clip0058.png" width="201" height="68" alt="" style="width:201px;height:68px;border:none" /></p>
+<p class="p_Body"><span class="f_Body">The </span><span class="f_CodeExample">Sense AR</span><span class="f_Body"> prefab is provided for augmented reality purposes. It consists two cameras – Main and Real. </span><br />
+<span class="f_Body">The real camera displays the color stream from the camera, whereas the main camera has a higher Z value and thus displays the Unity objects over the color stream.</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Sense Manager</span></p>
+<p class="p_InternalHeading"><img src="toolkit_clip0059.png" width="373" height="120" alt="" style="width:373px;height:120px;border:none" /></p>
+<p class="p_Body"><span class="f_Body">The </span><span class="f_CodeExample">Sense Manager</span><span class="f_Body"> prefab is the manager of the toolkit. The prefab will be added to the scene if any action is used. The prefab provides living streaming, recording and playback modes, based on the </span><span class="f_CodeExample">Run Mode</span><span class="f_Body"> setting. For recording and playback, the developer must configure the </span><span class="f_CodeExample">File Path</span><span class="f_Body"> field.</span></p>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

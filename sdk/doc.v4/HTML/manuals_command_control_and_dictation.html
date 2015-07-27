@@ -1,0 +1,108 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Command Control and Dictation</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="command control,dictation" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_command_control_and_dictation.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Command Control and Dictation</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_speech_recognition_procedure.html">Previous</a>&nbsp;
+     <a href="manuals_specifying_commands_using_java.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">The speech recognition module can be configured in one of the two modes: </span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">The dictation mode</span><span class="f_Body">: The module performs recognition on any vocabulary. To enable the dictation mode, use the </span><span class="f_CodeExample"><a href="setdictation_pxcspeechrecognition.html" class="topiclink">SetDictation</a></span><span class="f_Body"> function.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">The command and control mode</span><span class="f_Body">: The module performs recognition on a list of commands (which may contain multiple words) defined by the application, and ignores any words out of this list. The commands can be specified in the following ways:</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 17px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Courier New';color:#000000;">o</span></td><td style="border:none"><span class="f_Body">Use the </span><span class="f_CodeExample"><a href="buildgrammarfromstringlist_pxcspeechrecognition.html" class="topiclink">BuildGrammarFromStringList</a></span><span class="f_Body"> function to create the list of predefined words.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 17px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Courier New';color:#000000;">o</span></td><td style="border:none"><span class="f_Body">Use the </span><span class="f_CodeExample"><a href="buildgrammarfromfile_pxcspeechrecognition.html" class="topiclink">BuildGrammarFromFile</a></span><span class="f_Body"> function to create the command and control grammar from a Java Speech Grammar Format (JSGF) file. See <a href="manuals_specifying_commands_using_java.html" class="topiclink">Java Speech Grammar Format</a> for details.</span></td></tr></table></div><p class="p_Body"><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">It is possible to create multiple grammars and activate one of them through the </span><span class="f_CodeExample"><a href="setgrammar_pxcspeechrecognition.html" class="topiclink">SetGrammar</a></span><span class="f_Body"> function.</span></p>
+<p class="p_Body"><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">The application can switch between modes during speech recognition.</span></p>
+<p class="p_Body"><span class="f_Body">Example 78 shows how to create a list of commands: &quot;One&quot;, &quot;Two&quot;, and &quot;Three&quot;.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A1')">C++ Example 78: Configure the Command and Control List</a></span></p>
+<div id="TOGGLE0186A1" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// sr is a PXCSpeechRecognition instance.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">pxcCHAR *cmds[3]={ L&quot;One&quot;, L&quot;Two&quot;, L&quot;Three&quot; };</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Build the grammar.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sr-&gt;BuildGrammarFromStringList(1, cmds, 0, 3);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Set the active grammar.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sr-&gt;SetGrammar(1);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A2')">C# Example 78: Configure the Command and Control List</a></span></p>
+<div id="TOGGLE0186A2" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// sr is a PXCMSpeechRecognition instance.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">String[] cmds=new String[3]{ &quot;One&quot;, &quot;Two&quot;, &quot;Three&quot; };</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Build the grammar.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sr.BuildGrammarFromStringList(1, cmds, null);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Set the active grammar.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sr.SetGrammar(1);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A3')">Java Example 78: Configure the Command and Control List</a></span></p>
+<div id="TOGGLE0186A3" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// sr is a PXCMSpeechRecognition instance.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">string[] cmds=new string[3];</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">cmsd[0]=&quot;One&quot;;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">cmds[1]=&quot;Two&quot;;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">cmds[2]=&quot;Three&quot;;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Build the grammar.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sr.BuildGrammarFromStringList(1, cmds, null);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Set the active grammar.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sr.SetGrammar(1);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Step"><span class="f_Step">&nbsp;</span></p>
+
+</td></tr></table>
+
+<script type="text/javascript">
+HMInitToggle('TOGGLE0186A1','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A2','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A3','hm.type','dropdown','hm.state','0');
+</script>
+</body>
+</html>

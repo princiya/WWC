@@ -1,0 +1,94 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>About Audio Recording Level</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="audio recording level" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_about_audio_recording_level.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">About Audio Recording Level</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_handle_recognition_events.html">Previous</a>&nbsp;
+     <a href="manuals_about_confidence_level.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">Good audio sampling is important to achieve a high recognition rate when using the SDK voice recognition module. The audio samples should have peaks that are between </span><span class="f_CodeExample">FS -3dB</span><span class="f_Body"> and </span><span class="f_CodeExample">FS -12dB</span><span class="f_Body">, where </span><span class="f_CodeExample">FS</span><span class="f_Body"> is the full scale of analog-to-digital (ADC) converter. An example of good audio samples with the desired audio recording levels for left and right channels is shown in Figure 48, in waveform and spectrogram displays, respectively.</span></p>
+<p style="text-align: center;"><img src="manuals_clip0001_zoom44.png" width="377" height="272" alt="" style="margin:0px auto 0px auto;width:377px;height:272px;border:none" /><img src="manuals_clip0002_zoom44.png" width="379" height="272" alt="" style="margin:0px auto 0px auto;width:379px;height:272px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 48: Audio Samples with Desired Audio Recording Levels</span></p>
+<p class="p_Body"><span class="f_Body">An example of audio samples with low audio recording levels for left and right channels is shown in Figure 49, in waveform and spectrogram displays, respectively.</span></p>
+<p style="text-align: center;"><img src="manuals_clip0003_zoom44.png" width="376" height="272" alt="" style="margin:0px auto 0px auto;width:376px;height:272px;border:none" /><img src="manuals_clip0004_zoom44.png" width="381" height="272" alt="" style="margin:0px auto 0px auto;width:381px;height:272px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 49: Audio Sample with Low Audio Recording Levels</span></p>
+<p class="p_Body"><span class="f_Body">An example of audio samples with desired speech levels in noisy environment for left and right channels is shown in Figure 50, in waveform and spectrogram display, respectively.</span></p>
+<p style="text-align: center;"><img src="manuals_clip0005_zoom44.png" width="376" height="272" alt="" style="margin:0px auto 0px auto;width:376px;height:272px;border:none" /><img src="manuals_clip0006_zoom44.png" width="382" height="272" alt="" style="margin:0px auto 0px auto;width:382px;height:272px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 50: Audio Samples in Noisy Environment</span></p>
+<p class="p_Body"><span class="f_InternalHeading">Adjusting audio recording level</span></p>
+<p class="p_Body"><span class="f_Body">To adjust the audio recording level, use the </span><span class="f_CodeExample"><a href="setvolume_pxcaudiosource.html" class="topiclink">SetVolume</a></span><span class="f_Body"> function. Example 81 shows how to set the audio recording level. It is recommended that your application provide such control for voice recognition and visually give feedback of whether the user's volume is just right, too high or too low.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A1')">C++ Example 81: Adjust Audio Recording Level</a></span></p>
+<div id="TOGGLE0186A1" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// source is a PXCAudioSource instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">source-&gt;SetVolume(0.2f);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A2')">C# Example 81: Adjust Audio Recording Level</a></span></p>
+<div id="TOGGLE0186A2" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// source is a PXCMAudioSource instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">source.SetVolume(0.2f);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A3')">Java Example 81: Adjust Audio Recording Level</a></span></p>
+<div id="TOGGLE0186A3" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// source is a PXCMAudioSource instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">source.SetVolume(0.2f);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+<script type="text/javascript">
+HMInitToggle('TOGGLE0186A1','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A2','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A3','hm.type','dropdown','hm.state','0');
+</script>
+</body>
+</html>

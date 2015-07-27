@@ -1,0 +1,112 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Invoke (JavaScript) [Reserved]</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "invoke_pxcmbase.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Invoke (JavaScript) [Reserved]</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="dispose_pxcmbase.html">Previous</a>&nbsp;
+     <a href="queryinstance_pxcbase.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_InternalHeading"><span class="f_InternalHeading">Namespace Hierarchy</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table style="width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_TableText"><span class="f_TableText">Java</span></p>
+</td>
+<td style="vertical-align:top; width:752px; padding:5px;"><p><span class="f_CodeExample"><a href="pxcbase.html" class="topiclink">PXCMBase</a>.Invoke</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Syntax</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 10px 0px 10px 0px;"><table style="width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_TableText"><span class="f_TableText">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:841px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">function Invoke(name, params);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Parameters</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table style="width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:55px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:147px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">name</span></p>
+</td>
+<td style="vertical-align:top; width:588px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The full function name string to invoke. For example, to invoke </span><span class="f_CodeExample"><a href="acquireframe_pxcsensemanager.html" class="topiclink">PXCMSesneManager.AcquireFrame</a></span><span class="f_TableText">, use </span><span class="f_CodeExample">&quot;PXCMSenseManager_AcquireFrame&quot;</span><span class="f_TableText">.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:55px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:147px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">params</span></p>
+</td>
+<td style="vertical-align:top; width:588px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The function input parameters. For example, use </span><span class="f_CodeExample">&quot;{ifall: true, timeout: 0}&quot;</span><span class="f_TableText"> as the input parameters to </span><span class="f_CodeExample"><a href="acquireframe_pxcsensemanager.html" class="topiclink">PXCMSesneManager.AcquireFrame</a>.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Description</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table style="width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><br />
+</td>
+<td style="vertical-align:top; width:842px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The </span><span class="f_CodeExample">Invoke</span><span class="f_TableText"> function is a generic mechanism (as opposite to specific JavaScript functions) to access to any exposed SDK interface functions. The function takes the function name and input parameters as input, and returns the function output.</span></p>
+<p class="p_TableText"><img src="note.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_TableText">This feature is reserved. Not all SDK functions can be accessed through </span><span class="f_CodeExample">Invoke</span><span class="f_TableText">. Some use aggregation to reduce overhead thus their calling protocol is different from those listed in this manual. Always use the specific JavaScript functions.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Return Status</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table style="width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:56px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:744px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The function output parameters as a promise object.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

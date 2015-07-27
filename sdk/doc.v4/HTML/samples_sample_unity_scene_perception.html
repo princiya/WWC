@@ -1,0 +1,63 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Unity Sample: RF_ScenePerception</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="RF_ScenePerception,Unity sample" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "samples_sample_unity_scene_perception.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Unity Sample: RF_ScenePerception</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="samples_sample_ninecubes.html">Previous</a>&nbsp;
+     <a href="samples_unity_toolkit_samples.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">This sample </span><span class="f_CodeExample">RF_ScenePerception</span><span class="f_Body"> shows how to run the SDK scene perception module with the Unity game engine supporting the PC Standalone platform. The sample requires Unity v4.1.0 PRO (for the plugin capability) or later.</span></p>
+<p class="p_Body"><span class="f_Body">Copy the sample source to a writable folder and double click </span><span class="f_CodeExample">Assets/Scenes/RF_ScenePerception.unity</span><span class="f_Body"> to launch the Unity editor, and then run the game. The screen shot is similar to Figure 165. </span></p>
+<p class="p_Body"><span class="f_Body">The sample starts by displaying the color images with the frame rate at the top left and the scene quality at the bottom left. When the scene quality reaches certain threshold, the </span><span class="f_CodeExample">Start</span><span class="f_Body"> button appears on the control panel at the right. You can click the </span><span class="f_CodeExample">Start</span><span class="f_Body"> button to start scene perception or the </span><span class="f_CodeExample">Quit</span><span class="f_Body"> button to exit the sample.</span></p>
+<p class="p_ImageCaption"><img src="sample_unity_scene_perception_pic1.png" width="646" height="515" alt="" style="margin:0px auto 0px auto;width:646px;height:515px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 165: The Scene Perception Sample Window</span></p>
+<p class="p_Body"><span class="f_Body">The scene perception window is similar to Figure 166. The top left shows the rendering frame rate; the bottom left shows the tracking accuracy; and the right panels show available controls. You can enable/disable tracking, reconstruction and meshing by clicking the corresponding buttons. When meshing is enabled, you see the meshes in green on top of the color image display.</span></p>
+<p class="p_Body"><span class="f_Body">Click the </span><span class="f_CodeExample">Save</span><span class="f_Body"> Mesh button to save the meshes, and the </span><span class="f_CodeExample">Reset</span><span class="f_Body"> button to start over.</span></p>
+<p class="p_Body" style="text-align: center;"><img src="sample_unity_scene_perception_pic2.png" width="646" height="515" alt="" style="margin:0px auto 0px auto;width:646px;height:515px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 166: The Meshed Scene</span></p>
+<p class="p_Body"><span class="f_Body">The sample consists of a set of scripts, a meshing prefab and a set of rendering shaders as follows:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">The script </span><span class="f_CodeExample">SenseInput.cs</span><span class="f_Body"> uses the SDK SenseManager to initialize the camera, start streaming, and some setup/shutdown steps.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">The script </span><span class="f_CodeExample">Options.cs</span><span class="f_Body"> implements the menu selection as well as the initial scene quality checking screen. </span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">The script </span><span class="f_CodeExample">DepthFusion.cs</span><span class="f_Body"> implements the scene perception functions, calling member functions of the </span><span class="f_CodeExample"><a href="pxcsceneperception.html" class="topiclink">SDK PXCMScenePerception</a></span><span class="f_Body"> interface. When there are meshes to be displayed, the script pushes the meshes into a rendering queue and uses the </span><span class="f_CodeExample">meshPrefab</span><span class="f_Body"> prefab to visualize the meshes.</span></td></tr></table></div><p class="p_Body"><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">The meshing process takes a long time thus it must be done on a thread, while the mesh game object must be created in the Unity main thread. To avoid dropping frames, the Unity main thread updates about 200 mesh game objects every frame.</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">The script </span><span class="f_CodeExample">WorldFacingCamera.cs</span><span class="f_Body"> updates the camera pose information that the scene perception module tracks.</span></td></tr></table></div><p class="p_Body"><img src="note.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">If you see a warning message &quot;</span><span class="f_CodeExample">NullReferenceException: Object reference not set to an instance of an object UnityEditor.DockArea.OnGUI()</span><span class="f_Body">&quot; while running your application in Unity Editor, close the </span><span class="f_CodeExample">Game</span><span class="f_Body"> and </span><span class="f_CodeExample">Scene</span><span class="f_Body"> windows and redo the window layout. The warning message should go away after the layout change. See also <a href="http://neareal.net/index.php?ComputerGraphics%2FUnity%2FTips%2FError%20UnityEditor.DockArea.OnGui(" target="_blank" class="weblink">http://neareal.net/index.php?ComputerGraphics%2FUnity%2FTips%2FError%20UnityEditor.DockArea.OnGui(</a>) (In Japanese.)</span></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

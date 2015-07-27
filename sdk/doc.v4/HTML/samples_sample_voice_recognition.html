@@ -1,0 +1,62 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Sample: FF_SpeechRecognition[.cs]</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="C# sample,C++ sample,FF_SpeechRecognition,FF_SpeechRecognition.cs" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "samples_sample_voice_recognition.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Sample: voice_recognition(.vs)</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="samples_sample_touchless_listbox_sampl.html">Previous</a>&nbsp;
+     <a href="samples_sample_voice_synthesis.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">The </span><span class="f_CodeExample">FF_SpeechRecognition</span><span class="f_Body"> and </span><span class="f_CodeExample">FF_SpeechRecognition.cs</span><span class="f_Body"> samples demonstrate how to use the voice recognition module interface for voice command and control and dictation, in C++ and C# respectively.</span></p>
+<p class="p_Body"><span class="f_Body">The sample main window is shown in Figure 149. The menu can select the audio input source, the recognition module, the language (based on available settings of the recognition module) and the recognition mode (dictation or command and control). The status window shows the progressing status.</span></p>
+<p class="p_Body"><span class="f_Body">Click the </span><span class="f_CodeExample">Start</span><span class="f_Body"> button to start dictation or command and control, and the </span><span class="f_CodeExample">Stop</span><span class="f_Body"> button to stop the operation. During dictation, the dictation window shows the recognized sentence, as similarly shown in Figure 150. For command and control, click </span><span class="f_CodeExample">[Enter New Command]</span><span class="f_Body"> to enter a list of new commands. Then click the </span><span class="f_CodeExample">Start</span><span class="f_Body"> button to start command and control. The sample shows all hypotheses with confidence scores in the command and control window, as similarly shown in Figure 151.</span></p>
+<p class="p_Body" style="text-align: center;"><img src="voice_recognition_main_zoom85.png" width="299" height="423" alt="" style="margin:0px auto 0px auto;width:299px;height:423px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 149: Voice Recognition Sample Main Window</span></p>
+<p class="p_ImageCaption"><img src="voice_recognition_dictation_window_zoom86.png" width="300" height="424" alt="" style="margin:0px auto 0px auto;width:300px;height:424px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 150: Voice Recognition Dictation Window</span></p>
+<p class="p_ImageCaption"><img src="voice_recognition_command_control_zoom86.png" width="302" height="427" alt="" style="margin:0px auto 0px auto;width:302px;height:427px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 151: Voice Recognition Command Control Window</span></p>
+<p class="p_Body"><span class="f_Body">When in the dictation mode, from the </span><span class="f_CodeExample">Mode</span><span class="f_Body"> menu, you can add new vocabulary to the speech engine. A vocabulary file is just a text file that contains the list of words. An example is under the </span><span class="f_CodeExample">examples</span><span class="f_Body"> sub-directory of the sample folder.</span></p>
+<p class="p_Body"><span class="f_Body">When in the command and control mode, from the </span><span class="f_CodeExample">Mode</span><span class="f_Body"> menu, you can select to set the command and control grammar through the JSGF file (grammar specification.) See <a href="manuals_specifying_commands_using_java.html" class="topiclink">Java* Speech Grammar Format</a> for details. JSGF file examples are under the </span><span class="f_CodeExample">examples</span><span class="f_Body"> sub-directory of the sample folder.</span></p>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

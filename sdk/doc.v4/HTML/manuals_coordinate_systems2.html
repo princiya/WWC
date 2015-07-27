@@ -1,0 +1,63 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Coordinate Systems</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_coordinate_systems2.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Coordinate Systems</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_accessing_hand_tracking_data.html">Previous</a>&nbsp;
+     <a href="manuals_accessing_hands_by_index_or_id.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">All data that refers to locations (of joints, hand extremities, center-of-mass, etc.) is expressed in the point coordinates.</span></p>
+<p class="p_Body"><span class="f_Body">The hand module represents position data in two types of coordinate systems:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Image coordinates</span><span class="f_Body"> – a 2-dimensional system in pixels.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">World coordinates</span><span class="f_Body"> – a 3-dimensional system in meters.</span></td></tr></table></div><p class="p_Body"><span class="f_Body">You can retrieve both types of position data for all entities that have positions. For example, the </span><span class="f_CodeExample"><a href="jointdata_pxchanddata.html" class="topiclink">JointData</a></span><span class="f_Body"> structure contains both </span><span class="f_CodeExample">positionImage</span><span class="f_Body"> and </span><span class="f_CodeExample">positionWorld</span><span class="f_Body"> properties.</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Image Coordinates</span></p>
+<p class="p_Body"><span class="f_Body">This is a 2D coordinate system, as illustrated in Figure 31, in which the origin is in the top left corner of the image, and each </span><span class="f_CodeExample">(X,Y)</span><span class="f_Body"> pair represents the pixel in column </span><span class="f_CodeExample">X</span><span class="f_Body"> and row </span><span class="f_CodeExample">Y</span><span class="f_Body"> of the image.  </span></p>
+<p class="p_Body" style="text-align: center;"><img src="manuals_clip0085.png" width="370" height="292" alt="" style="margin:0px auto 0px auto;width:370px;height:292px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 31: Image Coordinates</span></p>
+<p class="p_Body"><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">Different sensors or sensor configurations may result in different image dimensions.</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">World Coordinates</span></p>
+<p class="p_Body"><span class="f_Body">This is a 3D left-handed coordinate system, as illustrated in Figure 32, whose origin is located at the center of the sensor’s physical 3D position. Each </span><span class="f_CodeExample">(x,y,z)</span><span class="f_Body"> triplet represents a point in the real world that is </span><span class="f_CodeExample">x</span><span class="f_Body"> meters to the right of the sensor, </span><span class="f_CodeExample">y</span><span class="f_Body"> meters above the sensor, and </span><span class="f_CodeExample">z</span><span class="f_Body"> meters away from the sensor.</span></p>
+<p class="p_Body" style="text-align: center;"><img src="manuals_clip0110_zoom69.png" width="213" height="304" alt="" style="margin:0px auto 0px auto;width:213px;height:304px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 32: World Coordinates</span></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

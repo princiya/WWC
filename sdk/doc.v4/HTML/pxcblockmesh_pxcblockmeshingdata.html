@@ -1,0 +1,211 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>PXC[M]BlockMesh</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="PXCBlockMesh,PXCMBlockMesh" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "pxcblockmesh_pxcblockmeshingdata.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">PXC[M]BlockMesh</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_structures22.html">Previous</a>&nbsp;
+     <a href="pxcenhancedphotography.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_InternalHeading"><span class="f_InternalHeading">Namespace Hierarchy</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table style="width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_TableText"><span class="f_TableText">C++</span></p>
+</td>
+<td style="vertical-align:top; width:752px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="pxcblockmeshingdata.html" class="topiclink">PXCBlockMeshingData</a>::PXCBlockMesh</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_TableText"><span class="f_TableText">C#</span></p>
+</td>
+<td style="vertical-align:top; width:752px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="pxcblockmeshingdata.html" class="topiclink">PXCMBlockMeshingData</a>.PXCMBlockMesh</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_TableText"><span class="f_TableText">Java</span></p>
+</td>
+<td style="vertical-align:top; width:752px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="pxcblockmeshingdata.html" class="topiclink">PXCMBlockMeshingData</a>.PXCMBlockMesh</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Definition</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 14px 0px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:61px; padding:5px;"><p>C++</p>
+</td>
+<td style="vertical-align:top; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">struct PXCBlockMesh {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pxcI32 meshId;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pxcI32 vertextStartIndex;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pxcI32 numVertices;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pxcI32 faceStartIndex;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pxcI32 numFaces;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp;  <a href="pxcpoint3df32.html" class="topiclink">PXCPoint3DF32</a> min3dPoint;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp;  <a href="pxcpoint3df32.html" class="topiclink">PXCPoint3DF32</a> max3dPoint;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pxcF32 maxDistanceChange;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pxcF32 avgDistanceChange;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">};</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:61px; padding:5px;"><p>C#</p>
+</td>
+<td style="vertical-align:top; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">class PXCBlockMesh {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;Int32 &nbsp;meshId;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;Int32 &nbsp;vertextStartIndex;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;Int32 &nbsp;numVertices;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;Int32 &nbsp;faceStartIndex;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;Int32 &nbsp;numFaces;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp;  <a href="pxcpoint3df32.html" class="topiclink">PXCMPoint3DF32</a> min3dPoint;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp;  <a href="pxcpoint3df32.html" class="topiclink">PXCMPoint3DF32</a> max3dPoint;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;Single maxDistanceChange;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;Single avgDistanceChange;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">};</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:61px; padding:5px;"><p>Java</p>
+</td>
+<td style="vertical-align:top; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">class PXCBlockMesh {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;int &nbsp; &nbsp;meshId;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;int &nbsp; &nbsp;vertexStartIndex;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;int &nbsp; &nbsp;numVertices;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;int &nbsp; &nbsp;faceStartIndex;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;int &nbsp; &nbsp;numFaces;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp;  <a href="pxcpoint3df32.html" class="topiclink">PXCMPoint3DF32</a> min3dPoint;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp;  <a href="pxcpoint3df32.html" class="topiclink">PXCMPoint3DF32</a> max3dPoint;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;float &nbsp;maxDistanceChange;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;float &nbsp;avgDistanceChange;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">};</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Description</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table style="width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><br />
+</td>
+<td style="vertical-align:top; width:842px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The </span><span class="f_CodeExample">PXCBlockMesh</span><span class="f_TableText"> structure describes the block of mesh data.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Members</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table style="width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:196px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">meshId</span></p>
+</td>
+<td style="vertical-align:top; width:529px; padding:5px;"><p class="p_TableText"><span class="f_TableText">A unique identifier to identify the block of mesh data.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:196px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">vertexStartIndex</span></p>
+</td>
+<td style="vertical-align:top; width:529px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The starting index of the vertice in the vertices buffer, returned by the </span><span class="f_CodeExample"><a href="queryvertices_pxcblockmeshingdata.html" class="topiclink">QueryVertices</a></span><span class="f_TableText"> function.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:196px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">numVertices</span></p>
+</td>
+<td style="vertical-align:top; width:529px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The total number of vertices in the block of mesh data.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:196px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">faceStartIndex</span></p>
+</td>
+<td style="vertical-align:top; width:529px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The starting index of the faces in the mesh face buffer, return by the </span><span class="f_CodeExample"><a href="querymeshfaces_pxcblockmeshingdata.html" class="topiclink">QueryMeshFaces</a></span><span class="f_TableText"> function.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:196px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">numFaces</span></p>
+</td>
+<td style="vertical-align:top; width:529px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The total number of mesh faces in the block of mesh data.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:196px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">min3dPoint</span></p>
+</td>
+<td style="vertical-align:top; width:529px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The minimum point for the axis aligned bounding box containing the mesh piece.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:196px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">max3dPoint</span></p>
+</td>
+<td style="vertical-align:top; width:529px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The maximum point for the axis aligned bounding box containing the mesh piece</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:196px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">maxDistanceChange</span></p>
+</td>
+<td style="vertical-align:top; width:529px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The maximum change in distance due to accumulation since the block was last meshed.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:196px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">avgDistanceChange</span></p>
+</td>
+<td style="vertical-align:top; width:529px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The average change in distance due to accumulation since the block was last meshed.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

@@ -1,0 +1,758 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>EnableHand (JavaScript)</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="EnableHand" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "enablehand_pxcsensemanager_javascript.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">EnableHand (JavaScript)</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="enablehand_pxcsensemanager.html">Previous</a>&nbsp;
+     <a href="pausehand_pxcsensemanager.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_InternalHeading"><span class="f_InternalHeading">Namespace Hierarchy</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table style="width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:92px; padding:5px;"><p class="p_TableText"><span class="f_TableText">JavaScript</span></p>
+</td>
+<td style="vertical-align:top; width:708px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="pxcsensemanager.html" class="topiclink">PXCMSenseManager</a>.EnableHand</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Syntax</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 10px 0px 10px 0px;"><table style="width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:91px; padding:5px;"><p class="p_TableText"><span class="f_TableText">JavaScript</span></p>
+</td>
+<td style="vertical-align:top; width:709px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">function EnableHand(onData);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Parameters</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table style="width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:291px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">onData</span></p>
+</td>
+<td style="vertical-align:top; width:529px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The callback function </span><span class="f_CodeExample">OnData</span><span class="f_TableText"> to receive per-frame hand tracking data. </span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Description</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table style="width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><br />
+</td>
+<td style="vertical-align:top; width:842px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The </span><span class="f_CodeExample">EnableHand</span><span class="f_TableText"> function activates the hand module (</span><span class="f_CodeExample"><a href="pxchandmodule.html" class="topiclink">PXC[M]HandModule</a></span><span class="f_TableText">) in the pipeline.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Return Status</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table style="width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:57px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:743px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The </span><span class="f_CodeExample"><a href="pxchandmodule.html" class="topiclink">PXC[M]HandModule</a></span><span class="f_TableText"> instance as a promise object.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Remarks</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table style="width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:92px; padding:5px;"><p>JavaScript</p>
+</td>
+<td style="vertical-align:top; width:708px; padding:5px;"><p class="p_TableText"><img src="note.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_TableText">The </span><span class="f_CodeExample">EnableHand</span><span class="f_TableText"> function takes a callback function </span><span class="f_CodeExample">OnData(mid, module, data)</span><span class="f_TableText"> at input. The callback function is invoked when there is any active hand tracking data. </span></p>
+<p class="p_TableText"><span class="f_TableText">See Table 19 for the function parameter definitions. </span></p>
+<p class="p_TableText"><span class="f_TableText">See also <a href="manuals_hand_tracking.html" class="topiclink">Hand Tracking</a> for concepts and programming guide.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+<p class="p_ImageCaption" style="text-align: left;"><span class="f_ImageCaption">Table 19: JavaScript OnData Function Parameters</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table style="width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="4" style="vertical-align:top; width:276px; padding:5px;"><p class="p_Body"><span class="f_Body" style="font-weight: bold;">Parameter</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_Body"><span class="f_Body" style="font-weight: bold;">Description</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_Body"><span class="f_Body" style="font-weight: bold;">See Also</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="4" style="vertical-align:top; width:276px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">mid</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The module identifier.</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_TableText"><span class="f_TableText">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="4" style="vertical-align:top; width:276px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">module</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The module instance.</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="pxchandmodule.html" class="topiclink">PXCMHandModule</a></span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="4" style="vertical-align:top; width:276px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">data: {</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The hand tracking data.</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:16px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td colspan="3" style="vertical-align:top; width:276px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="ihand_pxchanddata.html" class="topiclink" style="font-style: normal; font-weight: normal; color: #000000; background-color: transparent; text-decoration: none;">hands</a>: [{</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The list of tracked hands.</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="ihand_pxchanddata.html" class="topiclink">IHand</a></span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:16px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:32px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td colspan="2" style="vertical-align:top; width:245px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">uniqueId,</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The hand unique identifier.</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:16px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:32px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td colspan="2" style="vertical-align:top; width:245px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">userId,</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The user identifier.</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:16px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:32px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td colspan="2" style="vertical-align:top; width:245px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">timeStamp,</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The tracking time stamp, in 100 ns.</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:16px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:32px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td colspan="2" style="vertical-align:top; width:245px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">isCalibrated,</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">Boolean: Is the hand calibrated?</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:16px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:32px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td colspan="2" style="vertical-align:top; width:245px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="bodysidetype_pxchanddata.html" class="topiclink" style="font-style: normal; font-weight: normal; color: #000000; background-color: transparent; text-decoration: none;">bodySide</a>,</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The body side enumerator.</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="bodysidetype_pxchanddata.html" class="topiclink">BodySideType</a></span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:16px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:32px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td colspan="2" style="vertical-align:top; width:245px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="pxcrecti32.html" class="topiclink" style="font-style: normal; font-weight: normal; color: #000000; background-color: transparent; text-decoration: none;">boundingBoxImage</a>,</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The hand location and dimension.</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="pxcrecti32.html" class="topiclink">PXCMRectI32</a></span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:16px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:32px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td colspan="2" style="vertical-align:top; width:245px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="pxcpointf32.html" class="topiclink" style="font-style: normal; font-weight: normal; color: #000000; background-color: transparent; text-decoration: none;">massCenterImage</a>,</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The hand mass center image coordinates.</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="pxcpointf32.html" class="topiclink">PXCMPointF32</a></span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:16px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:32px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td colspan="2" style="vertical-align:top; width:245px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="pxcpoint3df32.html" class="topiclink" style="font-style: normal; font-weight: normal; color: #000000; background-color: transparent; text-decoration: none;">massCenterWorld</a>,</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The hand mass center world coordinates.</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="pxcpoint3df32.html" class="topiclink">PXCMPoint3DF32</a></span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:16px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:32px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td colspan="2" style="vertical-align:top; width:245px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="pxcpoint4df32.html" class="topiclink" style="font-style: normal; font-weight: normal; color: #000000; background-color: transparent; text-decoration: none;">palmOrientation</a>,</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The palm orientation quaternion.</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="pxcpoint4df32.html" class="topiclink">PXCMPoint4DF32</a></span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:16px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:32px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td colspan="2" style="vertical-align:top; width:245px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="extremitydata_pxchanddata.html" class="topiclink" style="font-style: normal; font-weight: normal; color: #000000; background-color: transparent; text-decoration: none;">extremityPoints</a>: [{</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The list of extremity points.</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="extremitydata_pxchanddata.html" class="topiclink">ExtremityData</a></span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:16px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:32px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:37px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:5px;"><p><span class="f_CodeExample"><a href="pxcpoint3df32.html" class="topiclink" style="font-style: normal; font-weight: normal; color: #000000; background-color: transparent; text-decoration: none;">pointWorld</a>,</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The image coordinates.</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="pxcpoint3df32.html" class="topiclink">PXCMPoint3DF32</a></span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:16px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:32px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:37px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:5px;"><p><span class="f_CodeExample"><a href="pxcpoint3df32.html" class="topiclink" style="font-style: normal; font-weight: normal; color: #000000; background-color: transparent; text-decoration: none;">pointImage</a>,</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The world coordinates.</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="pxcpoint3df32.html" class="topiclink">PXCMPoint3DF32</a></span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:16px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:32px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td colspan="2" style="vertical-align:top; width:198px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">}],</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:16px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:32px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td colspan="2" style="vertical-align:top; width:245px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="fingerdata_pxchanddata.html" class="topiclink" style="font-style: normal; font-weight: normal; color: #000000; background-color: transparent; text-decoration: none;">fingerData</a>: [{</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The list of the tracked finger data.</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="fingerdata_pxchanddata.html" class="topiclink">FingerData</a></span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:16px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:32px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:37px; padding:5px;"><br />
+</td>
+<td style="vertical-align:top; width:198px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">foldedness,</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The finger foldedness from 0 to 100.</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:16px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:32px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:37px; padding:5px;"><br />
+</td>
+<td style="vertical-align:top; width:198px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">radius,</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The radius of the finger tip in pixels.</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:16px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:32px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td colspan="2" style="vertical-align:top; width:198px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">}],</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:16px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:32px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td colspan="2" style="vertical-align:top; width:245px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="jointdata_pxchanddata.html" class="topiclink" style="font-style: normal; font-weight: normal; color: #000000; background-color: transparent; text-decoration: none;">trackedJoint</a>: [{</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The list of the tracked joints.</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="jointdata_pxchanddata.html" class="topiclink">JointData</a></span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:16px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:32px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:37px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">confidence,</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The joint confidence score from 0 to 100.</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:16px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:32px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:37px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">positionWorld,</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The world coordinates. </span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="pxcpoint3df32.html" class="topiclink">PXCMPoint3DF32</a></span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:16px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:32px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:37px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">positionImage,</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The image coordinates.</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="pxcpoint3df32.html" class="topiclink">PXCMPoint3DF32</a></span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:16px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:32px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:37px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">localRotation,</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The local rotation quaternion.</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="pxcpoint4df32.html" class="topiclink">PXCMPoint4DF32</a></span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:16px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:32px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:37px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">globalRotation,</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The global rotation quaternion.</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="pxcpoint4df32.html" class="topiclink">PXCMPoint4DF32</a></span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:16px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:32px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:37px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">speed,</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">Reserved.</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="pxcpoint3df32.html" class="topiclink">PXCMPoint3DF32</a></span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:16px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:32px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td colspan="2" style="vertical-align:top; width:198px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">}],</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:16px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:32px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td colspan="2" style="vertical-align:top; width:245px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">normalizedJoint: [{</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The list of normalized joints.</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="jointdata_pxchanddata.html" class="topiclink">JointData</a></span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:16px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:32px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:37px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">confidence,</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The joint confidence score from 0 to 100.</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:16px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:32px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:37px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">positionWorld,</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The world coordinates. </span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="pxcpoint3df32.html" class="topiclink">PXCMPoint3DF32</a></span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:16px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:32px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:37px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">positionImage,</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The image coordinates.</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="pxcpoint3df32.html" class="topiclink">PXCMPoint3DF32</a></span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:16px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:32px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:37px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">localRotation,</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The local rotation quaternion.</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="pxcpoint4df32.html" class="topiclink">PXCMPoint4DF32</a></span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:16px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:32px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:37px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">globalRotation,</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The global rotation quaternion.</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="pxcpoint4df32.html" class="topiclink">PXCMPoint4DF32</a></span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:16px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:32px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:37px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">speed,</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The joint motion speed.</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="pxcpoint3df32.html" class="topiclink">PXCMPoint3DF32</a></span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:16px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:32px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td colspan="2" style="vertical-align:top; width:198px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">}],</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:16px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td colspan="3" style="vertical-align:top; width:235px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">]},</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:16px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td colspan="3" style="vertical-align:top; width:235px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">alerts: [{</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The list of fired alerts.</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="alertdata_pxchanddata.html" class="topiclink">AlertData</a></span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:16px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:32px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td colspan="2" style="vertical-align:top; width:198px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">label,</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The alert type enumerator.</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="alerttype_pxchanddata.html" class="topiclink">AlertType</a></span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:16px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:32px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td colspan="2" style="vertical-align:top; width:198px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">handId,</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The hand identifier that triggers the alert.</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:16px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:32px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td colspan="2" style="vertical-align:top; width:198px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">timeStamp,</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The time stamp, in 100ns.</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:16px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:32px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td colspan="2" style="vertical-align:top; width:198px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">frameNumber,</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The frame number.</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:16px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td colspan="3" style="vertical-align:top; width:235px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">}],</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:16px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td colspan="3" style="vertical-align:top; width:235px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">gestures: [{</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The list of fired gestures.</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="gesturedata_pxchanddata.html" class="topiclink">GestureData</a></span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:16px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:32px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td colspan="2" style="vertical-align:top; width:198px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">timeStamp,</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The time stamp, in 100ns.</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:16px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:32px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td colspan="2" style="vertical-align:top; width:198px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">handId,</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The hand identifier triggers the gesture.</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:16px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:32px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td colspan="2" style="vertical-align:top; width:198px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">state,</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The gesture state type. </span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="gesturestatetype_pxchanddata.html" class="topiclink">GestureState</a></span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:16px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:32px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td colspan="2" style="vertical-align:top; width:198px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">frameNumber,</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The frame number.</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:16px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:32px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td colspan="2" style="vertical-align:top; width:198px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">name,</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">String: The gesture name string.</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:16px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td colspan="3" style="vertical-align:top; width:235px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">}],</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="4" style="vertical-align:top; width:267px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+</td>
+<td style="vertical-align:top; width:330px; padding:5px;"><p class="p_TableText"><span class="f_TableText">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:149px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

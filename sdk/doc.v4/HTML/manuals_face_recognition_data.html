@@ -1,0 +1,277 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Face Recognition [F200]</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="face recognition" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_face_recognition_data.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Face Recognition [F200]</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_facial_expression_data.html">Previous</a>&nbsp;
+     <a href="manuals_facial_expression_data_2.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_InternalHeading"><span class="f_Body">The general concept of face recognition is to measure similarity between two faces, one from the current image, and the other one from some references in a recognition database. The measurement is performed on all references in the database. A user is considered recognized if the score of the most matched reference passes certain threshold, and the recognition result is simply the user identifier that is associated with the reference. Thus for any face recognition, the application must perform one or a combination of the following recognition database operations:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Create/Delete Database:</span><span class="f_Body"> Create a recognition database and release it after use. The </span><span class="f_CodeExample"><a href="recognitionconfiguration_pxcfaceconfiguration.html" class="topiclink">RecognitionConfiguration</a></span><span class="f_Body"> interface supports creating multiple recognition databases. You can switch among them. The face recognition is done on the current active recognition database.</span></td></tr></table></div><p class="p_InternalHeading"><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">The algorithm creates a default active storage if none is defined.</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_InternalHeading">Load/Save Database: </span><span class="f_Body">You can save the database to the disk, &nbsp;and load it later. The </span><span class="f_CodeExample"><a href="recognitionmoduledata_pxcfacedata.html" class="topiclink">RecognitionModuleData</a></span><span class="f_Body"> interface provides member functions to export the recognition database, and the </span><span class="f_CodeExample"><a href="recognitionconfiguration_pxcfaceconfiguration.html" class="topiclink">RecognitionConfiguration</a></span><span class="f_Body"> interface to import one. Save the database buffer to a file and load it from a file with proper security measurement to protect user privacy.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Register/Unregister Users</span><span class="f_Body">: Register a user face to the database, using the </span><span class="f_CodeExample"><a href="registeruser_recognitiondata_pxcfacedata.html" class="topiclink">RegisterUser</a></span><span class="f_Body"> function. The user becomes one of the references in the database. It is recommended to register multiple faces (in different poses) of the same user to the database to improve recognition robustness. You can unregister a user via the </span><span class="f_CodeExample"><a href="unregisteruser_recognitiondata_pxcfacedata.html" class="topiclink">UnregisterUser</a></span><span class="f_Body"> function, if there is a better reference. Besides explicit registration, the </span><span class="f_CodeExample"><a href="recognitionconfiguration_pxcfaceconfiguration.html" class="topiclink">RecognitionConfiguration</a></span><span class="f_Body"> interface also introduces a continuous registration mode where the recognition algorithm automatically determines if a user should be registered to the database, or not.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Recognize Current Face</span><span class="f_Body">: Use the </span><span class="f_CodeExample"><a href="queryuserid_recognitiondata_pxcfacedata.html" class="topiclink">QueryUserID</a></span><span class="f_Body"> function to perform recognition of the current face against the active recognition database. </span></td></tr></table></div><p class="p_InternalHeading"><span class="f_InternalHeading">Configuring Face Recognition</span></p>
+<p class="p_InternalHeading"><span class="f_Body">To configure face recognition, use the </span><span class="f_CodeExample"><a href="recognitionconfiguration_pxcfaceconfiguration.html" class="topiclink">RecognitionConfiguration</a></span><span class="f_Body"> interface, as shown in Example 50.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A1')">C++ Example 50: Configure Face Recognition</a></span></p>
+<div id="TOGGLE0186A1" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// cfg is a PXCFaceConfiguration instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCFaceConfiguration::RecognitionConfiguration *rcfg=cfg-&gt;QueryRecognition();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Enable face recognition</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">rcfg-&gt;Enable();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Create a recognition database</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCFaceConfiguration::RecognitionConfiguration::RecognitionStorageDesc desc={};</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">desc.maxUsers=10;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">rcfg-&gt;CreateStorage(L&quot;MyDB&quot;, &amp;desc);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">rcfg-&gt;UseStorage(L&quot;MyDB&quot;);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Set the registeration mode</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">rcfg-&gt;SetRegistrationMode(PXCFaceConfiguration::RecognitionConfiguration::REGISTRATION_MODE_CONTINUOUS);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Make it effective</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">cfg-&gt;ApplyChanges();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A2')">C# Example 50: Configure Face Recognition</a></span></p>
+<div id="TOGGLE0186A2" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// cfg is a PXCMFaceConfiguration instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMFaceConfiguration.RecognitionConfiguration rcfg=cfg.QueryRecognition();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Enable face recognition</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">rcfg.Enable();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Create a recognition database</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMFaceConfiguration.RecognitionConfiguration.RecognitionStorageDesc desc=new PXCMFaceConfiguration.RecognitionConfiguration.RecognitionStorageDesc();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">desc.maxUsers=10;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">rcfg.CreateStorage(&quot;MyDB&quot;, desc);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">rcfg.UseStorage(&quot;MyDB&quot;);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Set the registeration mode</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">rcfg.SetRegistrationMode(PXCMFaceConfiguration.RecognitionConfiguration.RecognitionRegistrationMode.REGISTRATION_MODE_CONTINUOUS);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Make it effective</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">cfg.ApplyChanges();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A3')">Java Example 50: Configure Face Recognition</a></span></p>
+<div id="TOGGLE0186A3" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// cfg is a PXCMFaceConfiguration instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMFaceConfiguration.RecognitionConfiguration rcfg=cfg.QueryRecognition();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Enable face recognition</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">rcfg.Enable();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Create a recognition database</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMFaceConfiguration.RecognitionConfiguration.RecognitionStorageDesc desc=new PXCMFaceConfiguration.RecognitionConfiguration.RecognitionStorageDesc();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">desc.maxUsers=10;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">rcfg.CreateStorage(&quot;MyDB&quot;, desc);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">rcfg.UseStorage(&quot;MyDB&quot;);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Set the registeration mode</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">rcfg.SetRegistrationMode(PXCMFaceConfiguration.RecognitionConfiguration.RecognitionRegistrationMode.REGISTRATION_MODE_CONTINUOUS);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Make it effective</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">cfg.ApplyChanges();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Recognizing a Face</span></p>
+<p class="p_InternalHeading"><span class="f_Body">When you complete configuration, perform the remaining face recognition operations using the </span><span class="f_CodeExample"><a href="recognitiondata_pxcfacedata.html" class="topiclink">RecognitionData</a></span><span class="f_Body"> interface, as shown in Example 51.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A4')">C++ Example 51: Face Recognition Operation</a> </span></p>
+<div id="TOGGLE0186A4" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// fdata is a PXCFaceData instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">pxcI32 nfaces=fdata-&gt;QueryNumberOfDetectedFaces();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">for (pxcI32 i=0;i&lt;nfaces;i++) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Retrieve the recognition data instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCFaceData::Face *face=fdata-&gt;QueryFaceByIndex(i);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCFaceData::RecognitionData *rdata=fdata-&gt;QueryRecognition();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// recognize the current face?</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pxcI32 uid=rdata-&gt;QueryUserID();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;if (uid&gt;=0) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// do something with the recognized user.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;....</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A5')">C# Example 51: Face Recognition Operation</a></span></p>
+<div id="TOGGLE0186A5" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// fdata is a PXCMFaceData instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">Int32 nfaces=fdata.QueryNumberOfDetectedFaces();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">for (Int32 i=0;i&lt;nfaces;i++) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Retrieve the recognition data instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCMFaceData.Face face=fdata.QueryFaceByIndex(i);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCMFaceData.RecognitionData rdata=fdata.QueryRecognition();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// recognize the current face?</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;Int32 uid=rdata.QueryUserID();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;if (uid&gt;=0) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// do something with the recognized user.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;....</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A6')">Java Example 51: Face Recognition Operation</a></span></p>
+<div id="TOGGLE0186A6" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// fdata is a PXCMFaceData instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">int nfaces=fdata.QueryNumberOfDetectedFaces();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">for (int i=0;i&lt;nfaces;i++) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Retrieve the recognition data instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCMFaceData.Face face=fdata.QueryFaceByIndex(i);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCMFaceData.RecognitionData rdata=fdata.QueryRecognition();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// recognize the current face?</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;int uid=rdata.QueryUserID();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;if (uid&gt;=0) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// do something with the recognized user.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;....</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Loading/Saving Recognition Database</span></p>
+<p class="p_InternalHeading"><span class="f_Body">Example 52 illustrates how to load/save the recognition database.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A7')">C++ Example 52: Load/Save Face Recognition Database</a> </span></p>
+<div id="TOGGLE0186A7" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// rdata is a PXCFaceData::RecognitionData instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// rcfg is a PXCFaceConfiguration::RecognitionConfiguration instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// allocate the buffer to save the database</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCFaceData::RecognitionModuleData *rmd=rdata-&gt;QueryRecognitionModule();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">pxcI32 nbytes=rmd-&gt;QueryDatabaseSize();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">pxcBYTE *buffer=new pxcBYTE[nbytes];</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// retrieve the database buffer</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">rmd-&gt;QueryDatabaseBuffer(buffer);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Save the buffer to a file. Apply industry standard encryption to protect privacy.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">....</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Now load the database buffer back.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">rcfg-&gt;SetDatabaseBuffer(buffer,nbytes);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">delete[] buffer;</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A8')">C# Example 52: Load/Save Recognition Database</a></span></p>
+<div id="TOGGLE0186A8" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// rdata is a PXCMFaceData.RecognitionData instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// rcfg is a PXCMFaceConfiguration.RecognitionConfiguration instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// allocate the buffer to save the database</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMFaceData.RecognitionModuleData rmd=rdata.QueryRecognitionModule();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">Int32 nbytes=rmd.QueryDatabaseSize();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">Byte[] buffer=new Byte[nbytes];</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// retrieve the database buffer</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">rmd.QueryDatabaseBuffer(buffer);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Save the buffer to a file. Apply industry standard encryption to protect privacy.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">....</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Now load the database buffer back.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">rcfg.SetDatabaseBuffer(buffer);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A9')">Java Example 52: Load/Save Recognition Database</a> </span></p>
+<div id="TOGGLE0186A9" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// rdata is a PXCMFaceData.RecognitionData instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// rcfg is a PXCMFaceConfiguration.RecognitionConfiguration instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// allocate the buffer to save the database</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMFaceData.RecognitionModuleData rmd=rdata.QueryRecognitionModule();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">int nbytes=rmd.QueryDatabaseSize();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">byte[] buffer=new byte[nbytes];</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// retrieve the database buffer</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">rmd.QueryDatabaseBuffer(buffer);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Save the buffer to a file. Apply industry standard encryption to protect privacy.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">....</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Now load the database buffer back.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">rcfg.SetDatabaseBuffer(buffer);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_ImageCaption"><span class="f_ImageCaption">&nbsp;</span></p>
+
+</td></tr></table>
+
+<script type="text/javascript">
+HMInitToggle('TOGGLE0186A1','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A2','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A3','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A4','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A5','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A6','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A7','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A8','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A9','hm.type','dropdown','hm.state','0');
+</script>
+</body>
+</html>

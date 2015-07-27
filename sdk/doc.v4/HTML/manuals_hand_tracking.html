@@ -1,0 +1,125 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Hand Tracking</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_hand_tracking.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Hand Tracking</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_emotion_data.html">Previous</a>&nbsp;
+     <a href="manuals_class_overview.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">The SDK hand tracking module provides real-time 3D hand motion tracking, using a single depth sensor. The hand module can track one or two hands, providing precise joint-level locations and positions. The module can also identify “gestures”, which are certain significant hand postures or motions, for example a wave, tap or thumbs-up sign.</span></p>
+<p class="p_Body"><span class="f_Body">Using the hand module, you can enable your application to be controlled by hand motions, using visual cues alone (without a touch interface). For instance, you can interpret a hand tap as selection, a hand swipe as scrolling, and so on.</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Tracking Modes</span></p>
+<p class="p_Body"><span class="f_Body">The hand module has two main tracking modes, which differ by the information they provide and the computation resources that they require:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Full-hand</span><span class="f_Body"> - returns the full 3D skeleton of the hand, including all 22 joints, fingers information, gestures, and more.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Extremities</span><span class="f_Body"> – returns the general location of the hand, its silhouette, and the extremities of the hand: the hand’s top-most, bottom-most, right-most, left-most, center and closest (to the sensor) points.</span></td></tr></table></div><p class="p_Body"><span class="f_Body">While the hand module is the best choice when hand specific features are required, it is not the only option for incorporating hand tracking into your application. Depending on the requirements of your application, you may wish to use the blob module instead (see <a href="manuals_blob_tracking.html" class="topiclink">Blob Tracking</a>). If your application requires tracking of any object and not necessarily the hand, you may prefer to use the blob module, which uses fewer system resources. If you specifically require hand identification and more detailed information such as hand side, joint positions and gesture recognition, you will need to use the hand module. </span></p>
+<p class="p_Body"><span class="f_Body">Table 8 below summarizes the three tracking options:</span></p>
+<div style="text-align: center; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table style="margin:0 auto; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:93px; padding:4px; border:solid 1px #999999;"><p class="p_Body"><span class="f_Body" style="font-weight: bold;">Tracking Mode</span></p>
+</td>
+<td style="vertical-align:top; width:78px; padding:4px; border:solid 1px #999999;"><p class="p_Body"><span class="f_Body" style="font-weight: bold;">Hand only?</span></p>
+</td>
+<td style="vertical-align:top; width:262px; padding:4px; border:solid 1px #999999;"><p class="p_Body"><span class="f_Body" style="font-weight: bold;">Outputs</span></p>
+</td>
+<td style="vertical-align:top; width:147px; padding:4px; border:solid 1px #999999;"><p class="p_Body"><span class="f_Body" style="font-weight: bold;">Computational resources</span></p>
+</td>
+<td style="vertical-align:top; width:171px; padding:4px; border:solid 1px #999999;"><p class="p_Body"><span class="f_Body" style="font-weight: bold;">Limitations</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:93px; padding:4px; border:solid 1px #999999;"><p class="p_Body"><span class="f_Body">Full Hand </span></p>
+</td>
+<td style="vertical-align:top; width:78px; padding:4px; border:solid 1px #999999;"><p class="p_Body"><span class="f_Body">Yes</span></p>
+</td>
+<td style="vertical-align:top; width:262px; padding:4px; border:solid 1px #999999;"><p class="p_Body"><span class="f_Body">Segmentation image, extremity points, hand side, alerts, joints info, fingers info, openness, gestures</span></p>
+</td>
+<td style="vertical-align:top; width:147px; padding:4px; border:solid 1px #999999;"><p class="p_Body"><span class="f_Body">Highest,</span><br />
+<span class="f_Body">multiple threads</span></p>
+</td>
+<td style="vertical-align:top; width:171px; padding:4px; border:solid 1px #999999;"><p class="p_Body"><span class="f_Body">2 hands, </span><br />
+<span class="f_Body">60 cm range, </span><br />
+<span class="f_Body">slower hand speed</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:93px; padding:4px; border:solid 1px #999999;"><p class="p_Body"><span class="f_Body">Extremities</span></p>
+</td>
+<td style="vertical-align:top; width:78px; padding:4px; border:solid 1px #999999;"><p class="p_Body"><span class="f_Body">Yes</span></p>
+</td>
+<td style="vertical-align:top; width:262px; padding:4px; border:solid 1px #999999;"><p class="p_Body"><span class="f_Body">Segmentation image, extremity points, hand side, alerts</span></p>
+</td>
+<td style="vertical-align:top; width:147px; padding:4px; border:solid 1px #999999;"><p class="p_Body"><span class="f_Body">Medium,</span><br />
+<span class="f_Body">single thread</span></p>
+</td>
+<td style="vertical-align:top; width:171px; padding:4px; border:solid 1px #999999;"><p class="p_Body"><span class="f_Body">2 hands, </span><br />
+<span class="f_Body">60 cm range, </span><br />
+<span class="f_Body">medium hand speed</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:93px; padding:4px; border:solid 1px #999999;"><p class="p_Body"><span class="f_Body">Blob</span></p>
+</td>
+<td style="vertical-align:top; width:78px; padding:4px; border:solid 1px #999999;"><p class="p_Body"><span class="f_Body">No</span></p>
+</td>
+<td style="vertical-align:top; width:262px; padding:4px; border:solid 1px #999999;"><p class="p_Body"><span class="f_Body">Segmentation image, extremity points, contour line</span></p>
+</td>
+<td style="vertical-align:top; width:147px; padding:4px; border:solid 1px #999999;"><p class="p_Body"><span class="f_Body">Low,</span><br />
+<span class="f_Body">single thread</span></p>
+</td>
+<td style="vertical-align:top; width:171px; padding:4px; border:solid 1px #999999;"><p class="p_Body"><span class="f_Body">4 objects, </span><br />
+<span class="f_Body">100 cm range,</span><br />
+<span class="f_Body">fast speed</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Table 8: Tracking Options</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Optimal Conditions for Using the Hand Module</span></p>
+<p class="p_Body"><span class="f_Body">Hand tracking and gesture identification works best with the following conditions:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">A minimum palm width of </span><span class="f_CodeExample">5.5cm</span><span class="f_Body"> (this is usually suited to a 5-year-old child or older.)</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Hand motion speed:</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 17px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Courier New';color:#000000;">o</span></td><td style="border:none"><span class="f_Body">For a VGA </span><span class="f_CodeExample">(640x480)</span><span class="f_Body"> depth image resolution, up to </span><span class="f_CodeExample">0.75m/s</span><span class="f_Body">.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 17px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Courier New';color:#000000;">o</span></td><td style="border:none"><span class="f_Body">For an HVGA </span><span class="f_CodeExample">(640x240)</span><span class="f_Body"> depth image resolution, up to </span><span class="f_CodeExample">2m/s</span><span class="f_Body">.</span></td></tr></table></div><p class="p_Body"><img src="note.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">The optimal frame rate for the depth stream is </span><span class="f_CodeExample">60 fps</span><span class="f_Body">. Hand tracking accuracy may deteriorate for a frame rate below </span><span class="f_CodeExample">50 fps</span><span class="f_Body">.</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Power Management</span></p>
+<p class="p_Body"><span class="f_Body">To save power when the system is idle, the SDK supports two modes of operation: performance-mode and battery-mode. In the performance mode, the maximal frame-rate of the camera is utilized and the best tracking algorithms is applied, to ensure the best quality of the tracking data. In the battery mode, the camera frame rate drops significantly and only minimal computational resources is used, to save power. The hand module allows to switch to the battery mode only if no hand-like object is detected for a period of time (inactivity interval). As soon as a hand is seen in the field of view, the performance mode is applied and tracking resumes. Switching from the battery to the performance mode is fast, so even quick hand motions can be detected successfully.</span></p>
+<p class="p_Body"><span class="f_Body">See </span><span class="f_CodeExample"><a href="pxcpowerstate.html" class="topiclink">PXC[M]PowerState</a></span><span class="f_Body"> interface for more details on controlling the power states and setting inactivity interval.</span></p>
+<p class="p_Body"><img src="note.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">Dynamic frame rate is not available for every camera driver. When this option is not supported, the performance mode is applied for the entire session.</span></p>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

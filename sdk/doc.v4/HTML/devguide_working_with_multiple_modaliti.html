@@ -1,0 +1,813 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Working with Multiple Modalities</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "devguide_working_with_multiple_modaliti.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Working with Multiple Modalities</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="devguide_example_notification_page.html">Previous</a>&nbsp;
+     <a href="devguide_coexisting_with_other_application.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">The SDK includes multiple algorithms (modalities or modules, used interchangeably) and each extends your application's interaction with the user. When enabling multiple modalities in your application, you must observe the following limitations/considerations:</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Stream Resolution and Frame Rate</span></p>
+<p class="p_Body"><span class="f_Body">Multiple modalities must agree on the stream resolutions and frame rates. For example, a face tracking module that needs color </span><span class="f_CodeExample">1920x1080x30fps</span><span class="f_Body"> cannot work together with the object tracking module that works only with color </span><span class="f_CodeExample">640x480x30fps</span><span class="f_Body">. An agreed upon stream configuration must be set for the two modules to function together. The configuration is stream based thus a module that uses the color stream does not conflict with a module that works with a depth stream.</span></p>
+<p class="p_Body"><span class="f_Body">The following table shows the modules and their available configurations:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table style="width:820px; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:271px; padding:5px; border:solid 1px #000000; border-bottom:none;"><p class="p_TableText2"><span class="f_TableText2" style="font-weight: bold;">Camera F200</span></p>
+</td>
+<td colspan="6" style="vertical-align:top; width:363px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2" style="text-align: center;"><span class="f_TableText2" style="font-weight: bold;">Color Resolution</span></p>
+</td>
+<td colspan="3" style="vertical-align:top; width:46px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2" style="text-align: center;"><span class="f_TableText2" style="font-weight: bold;">Depth Resolution</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:271px; padding:5px; border:solid 1px #000000; border-top:none; border-bottom:none;"><p class="p_TableText2" style="text-align: right;"><span class="f_TableText2">width</span></p>
+</td>
+<td style="vertical-align:top; width:46px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">320</span></p>
+</td>
+<td style="vertical-align:top; width:45px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">640</span></p>
+</td>
+<td style="vertical-align:top; width:52px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">640</span></p>
+</td>
+<td style="vertical-align:top; width:52px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">960</span></p>
+</td>
+<td style="vertical-align:top; width:51px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">1280</span></p>
+</td>
+<td style="vertical-align:top; width:46px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">1920</span></p>
+</td>
+<td style="vertical-align:top; width:57px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">320</span></p>
+</td>
+<td style="vertical-align:top; width:41px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">640</span></p>
+</td>
+<td style="vertical-align:top; width:41px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">640</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:271px; padding:5px; border:solid 1px #000000; border-top:none;"><p class="p_TableText2" style="text-align: right;"><span class="f_TableText2">height</span></p>
+</td>
+<td style="vertical-align:top; width:46px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">240</span></p>
+</td>
+<td style="vertical-align:top; width:45px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">360</span></p>
+</td>
+<td style="vertical-align:top; width:52px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">480</span></p>
+</td>
+<td style="vertical-align:top; width:52px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">540</span></p>
+</td>
+<td style="vertical-align:top; width:51px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">720</span></p>
+</td>
+<td style="vertical-align:top; width:46px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">1080</span></p>
+</td>
+<td style="vertical-align:top; width:57px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">240</span></p>
+</td>
+<td style="vertical-align:top; width:41px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">480</span></p>
+</td>
+<td style="vertical-align:top; width:41px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">240</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:271px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Face Tracking (2D)</span></p>
+</td>
+<td style="vertical-align:top; width:46px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:45px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:52px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+<td style="vertical-align:top; width:52px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:51px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:46px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:57px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">NA</span></p>
+</td>
+<td style="vertical-align:top; width:41px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">NA</span></p>
+</td>
+<td style="vertical-align:top; width:41px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">NA</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:271px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Face Tracking (3D)</span></p>
+</td>
+<td style="vertical-align:top; width:46px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:45px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+<td style="vertical-align:top; width:52px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+<td style="vertical-align:top; width:52px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+<td style="vertical-align:top; width:51px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+<td style="vertical-align:top; width:46px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+<td style="vertical-align:top; width:57px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+<td style="vertical-align:top; width:41px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+<td style="vertical-align:top; width:41px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:271px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Hand Tracking</span></p>
+</td>
+<td style="vertical-align:top; width:46px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">NA</span></p>
+</td>
+<td style="vertical-align:top; width:45px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">NA</span></p>
+</td>
+<td style="vertical-align:top; width:52px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">NA</span></p>
+</td>
+<td style="vertical-align:top; width:52px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">NA</span></p>
+</td>
+<td style="vertical-align:top; width:51px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">NA</span></p>
+</td>
+<td style="vertical-align:top; width:46px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">NA</span></p>
+</td>
+<td style="vertical-align:top; width:57px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+<td style="vertical-align:top; width:41px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+<td style="vertical-align:top; width:41px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:271px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">User segmentation</span></p>
+</td>
+<td style="vertical-align:top; width:46px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+<td style="vertical-align:top; width:45px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+<td style="vertical-align:top; width:52px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+<td style="vertical-align:top; width:52px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+<td style="vertical-align:top; width:51px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+<td style="vertical-align:top; width:46px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:57px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:41px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+<td style="vertical-align:top; width:41px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:271px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Emotion Detection</span></p>
+</td>
+<td style="vertical-align:top; width:46px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+<td style="vertical-align:top; width:45px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:52px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+<td style="vertical-align:top; width:52px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:51px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:46px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:57px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">NA</span></p>
+</td>
+<td style="vertical-align:top; width:41px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">NA</span></p>
+</td>
+<td style="vertical-align:top; width:41px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">NA</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:271px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Object Tracking (2D)</span></p>
+</td>
+<td style="vertical-align:top; width:46px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+<td style="vertical-align:top; width:45px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+<td style="vertical-align:top; width:52px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+<td style="vertical-align:top; width:52px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+<td style="vertical-align:top; width:51px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+<td style="vertical-align:top; width:46px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:57px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">NA</span></p>
+</td>
+<td style="vertical-align:top; width:41px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">NA</span></p>
+</td>
+<td style="vertical-align:top; width:41px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">NA</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:271px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Object Tracking (3D)</span></p>
+</td>
+<td style="vertical-align:top; width:46px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+<td style="vertical-align:top; width:45px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+<td style="vertical-align:top; width:52px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+<td style="vertical-align:top; width:52px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+<td style="vertical-align:top; width:51px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+<td style="vertical-align:top; width:46px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:57px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:41px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+<td style="vertical-align:top; width:41px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:271px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Touchless Controller</span></p>
+</td>
+<td style="vertical-align:top; width:46px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">NA</span></p>
+</td>
+<td style="vertical-align:top; width:45px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">NA</span></p>
+</td>
+<td style="vertical-align:top; width:52px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">NA</span></p>
+</td>
+<td style="vertical-align:top; width:52px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">NA</span></p>
+</td>
+<td style="vertical-align:top; width:51px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">NA</span></p>
+</td>
+<td style="vertical-align:top; width:46px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">NA</span></p>
+</td>
+<td style="vertical-align:top; width:57px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+<td style="vertical-align:top; width:41px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+<td style="vertical-align:top; width:41px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:271px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">3D Scanning</span></p>
+</td>
+<td style="vertical-align:top; width:46px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:45px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:52px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:52px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+<td style="vertical-align:top; width:51px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:46px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:57px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:41px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+<td style="vertical-align:top; width:41px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:271px; padding:5px; border:solid 1px #000000; border-bottom:none;"><p class="p_TableText2"><span class="f_TableText2" style="font-weight: bold;">Camera R200</span></p>
+</td>
+<td colspan="6" style="vertical-align:top; width:363px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2" style="text-align: center;"><span class="f_TableText2" style="font-weight: bold;">Color Resolution</span></p>
+</td>
+<td colspan="3" style="vertical-align:top; width:42px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2" style="text-align: center;"><span class="f_TableText2" style="font-weight: bold;">Depth Resolution</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:271px; padding:5px; border:solid 1px #000000; border-top:none; border-bottom:none;"><p class="p_TableText2" style="text-align: right;"><span class="f_TableText2">width</span></p>
+</td>
+<td style="vertical-align:top; width:46px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">320</span></p>
+</td>
+<td rowspan="6" style="vertical-align:top; width:45px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:52px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">640</span></p>
+</td>
+<td rowspan="6" style="vertical-align:top; width:52px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:51px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">1280</span></p>
+</td>
+<td style="vertical-align:top; width:46px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">1920</span></p>
+</td>
+<td style="vertical-align:top; width:57px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">320</span></p>
+</td>
+<td style="vertical-align:top; width:21px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">480</span></p>
+</td>
+<td style="vertical-align:top; width:21px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">628</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:271px; padding:5px; border:solid 1px #000000; border-top:none;"><p class="p_TableText2" style="text-align: right;"><span class="f_TableText2">height</span></p>
+</td>
+<td style="vertical-align:top; width:46px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">240</span></p>
+</td>
+<td style="vertical-align:top; width:52px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">480</span></p>
+</td>
+<td style="vertical-align:top; width:51px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">720</span></p>
+</td>
+<td style="vertical-align:top; width:46px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">720</span></p>
+</td>
+<td style="vertical-align:top; width:57px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">240</span></p>
+</td>
+<td style="vertical-align:top; width:21px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">360</span></p>
+</td>
+<td style="vertical-align:top; width:21px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">468</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:271px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Face Tracking</span></p>
+</td>
+<td style="vertical-align:top; width:46px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:52px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+<td style="vertical-align:top; width:51px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+<td style="vertical-align:top; width:46px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:57px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:21px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+<td style="vertical-align:top; width:21px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:271px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Enhanced Photography</span></p>
+</td>
+<td style="vertical-align:top; width:46px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+<td style="vertical-align:top; width:52px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+<td style="vertical-align:top; width:51px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+<td style="vertical-align:top; width:46px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+<td style="vertical-align:top; width:57px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:21px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:21px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:271px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Scene Perception</span></p>
+</td>
+<td style="vertical-align:top; width:46px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+<td style="vertical-align:top; width:52px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+<td style="vertical-align:top; width:51px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:46px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:57px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+<td style="vertical-align:top; width:21px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+<td style="vertical-align:top; width:21px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:271px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">3D Scanning</span></p>
+</td>
+<td style="vertical-align:top; width:46px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:52px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+<td style="vertical-align:top; width:51px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:46px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:57px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:21px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">X</span></p>
+</td>
+<td style="vertical-align:top; width:21px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample" style="text-align: center;"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><img src="note.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">This table is for reference only and may change over SDK releases. You should not hard code the settings. Instead, use </span><span class="f_CodeExample"><a href="manuals_streaming_through_pxcmsenseman.html" class="topiclink">SenseManager</a></span><span class="f_Body"> to auto-negotiate a working configuration.</span></p>
+<p class="p_Body"><span class="f_Body">The </span><span class="f_CodeExample"><a href="pxcsensemanager.html" class="topiclink">PXC[M]SenseManager</a></span><span class="f_Body"> interface auto-negotiates the stream configuration when you enable multiple modalities. The </span><span class="f_CodeExample"><a href="init_pxcsensemanager.html" class="topiclink">Init</a></span><span class="f_Body"> function returns successfully if there is an agreed upon stream configuration. Example 3 shows how to enable face and hand modules and auto-negotiate the configuration.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A1')">C++ Example 3: Enable Two Modalities and Auto-Negotiate Configurations</a></span></p>
+<div id="TOGGLE0186A1" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Create a SenseManager instance.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCSenseManager *sm=PXCSenseManager::CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Enable face &amp; hand tracking.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm-&gt;EnableFace();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm-&gt;EnableHand();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// additional face and hand configuration.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Init</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">pxcStatus sts=sm-&gt;Init();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">if (sts&gt;=PXC_STATUS_NO_ERROR) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// two modalities can work together.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">} else {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// conflict in modalities.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A2')">C# Example 3: Enable Two Modalities and Auto-Negotiate Configurations</a></span></p>
+<div id="TOGGLE0186A2" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Create a SenseManager instance.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSenseManager sm=PXCMSenseManager.CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Enable face &amp; hand tracking.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm.EnableFace();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm.EnableHand();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// additional face and hand configuration.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Init</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">pxcmStatus sts=sm.Init();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">if (sts&gt;=pxcmStatus.PXCM_STATUS_NO_ERROR) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// two modalities can work together.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">} else {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// conflict in modalities.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A3')">Java Example 3: Enable Two Modalities and Auto-Negotiate Configurations</a></span></p>
+<div id="TOGGLE0186A3" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Create a SenseManager instance.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSenseManager sm=PXCMSenseManager.CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Enable face &amp; hand tracking.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm.EnableFace();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm.EnableHand();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// additional face and hand configuration.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Init</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">pxcmStatus sts=sm.Init();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">if (sts&gt;=pxcmStatus.PXCM_STATUS_NO_ERROR) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// two modalities can work together.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">} else {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// conflict in modalities.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Device Properties</span></p>
+<p class="p_Body"><span class="f_Body">The camera device exposes many device properties to adjust the behavior of the capturing process. These device properties affect the captured image qualities. Different SDK modalities work best under different sets of device properties, due to the nature of the algorithms. For example, using a deeper smoothing setting smoothies the captured images thus is good for modalities that needs smoother edges and clean images. &nbsp;Since the local details are lost, such setting is not good for modalities that need to detect and respond to fast local movements. </span></p>
+<p class="p_Body"><span class="f_Body">For an application that works with a single modality, with a bit of trail and error, it is possible to find the setting that works better than others. The following table shows the depth settings for different modalities:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table style="width:820px; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:147px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2" style="font-weight: bold;">Camera F200</span></p>
+</td>
+<td style="vertical-align:top; width:84px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2" style="font-weight: bold;">Confidence Threshold</span></p>
+</td>
+<td style="vertical-align:top; width:81px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2" style="font-weight: bold;">Filter Option</span></p>
+</td>
+<td style="vertical-align:top; width:77px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2" style="font-weight: bold;">Laser Power</span></p>
+</td>
+<td style="vertical-align:top; width:100px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2" style="font-weight: bold;">Motion Range Trade off</span></p>
+</td>
+<td style="vertical-align:top; width:95px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2" style="font-weight: bold;">Accuracy</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:147px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Factory Default</span></p>
+</td>
+<td style="vertical-align:top; width:84px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">6</span></p>
+</td>
+<td style="vertical-align:top; width:81px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">5</span></p>
+</td>
+<td style="vertical-align:top; width:77px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">16</span></p>
+</td>
+<td style="vertical-align:top; width:100px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">0</span></p>
+</td>
+<td style="vertical-align:top; width:95px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Median</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:147px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Face Tracking</span></p>
+</td>
+<td style="vertical-align:top; width:84px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">1</span></p>
+</td>
+<td style="vertical-align:top; width:81px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">6</span></p>
+</td>
+<td style="vertical-align:top; width:77px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">16</span></p>
+</td>
+<td style="vertical-align:top; width:100px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">21</span></p>
+</td>
+<td style="vertical-align:top; width:95px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Median</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:147px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Hand Tracking</span></p>
+</td>
+<td style="vertical-align:top; width:84px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">1</span></p>
+</td>
+<td style="vertical-align:top; width:81px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">6</span></p>
+</td>
+<td style="vertical-align:top; width:77px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">16</span></p>
+</td>
+<td style="vertical-align:top; width:100px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">0</span></p>
+</td>
+<td style="vertical-align:top; width:95px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Median</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:147px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">User Segmentation</span></p>
+</td>
+<td style="vertical-align:top; width:84px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">0</span></p>
+</td>
+<td style="vertical-align:top; width:81px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">6</span></p>
+</td>
+<td style="vertical-align:top; width:77px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">16</span></p>
+</td>
+<td style="vertical-align:top; width:100px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">21</span></p>
+</td>
+<td style="vertical-align:top; width:95px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Coarse</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:147px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Object Tracking</span></p>
+</td>
+<td style="vertical-align:top; width:84px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">6</span></p>
+</td>
+<td style="vertical-align:top; width:81px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">5</span></p>
+</td>
+<td style="vertical-align:top; width:77px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">16</span></p>
+</td>
+<td style="vertical-align:top; width:100px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">0</span></p>
+</td>
+<td style="vertical-align:top; width:95px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Median</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:147px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Touchless Controller</span></p>
+</td>
+<td style="vertical-align:top; width:84px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">1</span></p>
+</td>
+<td style="vertical-align:top; width:81px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">6</span></p>
+</td>
+<td style="vertical-align:top; width:77px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">16</span></p>
+</td>
+<td style="vertical-align:top; width:100px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">0</span></p>
+</td>
+<td style="vertical-align:top; width:95px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Median</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:147px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">3D Scanning</span></p>
+</td>
+<td style="vertical-align:top; width:84px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">5</span></p>
+</td>
+<td style="vertical-align:top; width:81px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">4</span></p>
+</td>
+<td style="vertical-align:top; width:77px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">16</span></p>
+</td>
+<td style="vertical-align:top; width:100px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">0</span></p>
+</td>
+<td style="vertical-align:top; width:95px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Finest</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><img src="note.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">The table is shown only for reference. The settings may change (or relaxed) over different SDK releases as the modality algorithms improve.</span></p>
+<p class="p_Body"><span class="f_Body">When enabling multiple modalities, you need to carefully trade off what is most important, as it is often the case that the best setting of the modalities differs. You can set the device properties in the following ways:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 17px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Courier New';color:#000000;">o</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Happy Median</span><span class="f_Body">: Choose the setting that may not be the best for each modality but good enough for the application context. This works when there is no dominant interaction. Each interaction must be accurate (unambiguous). </span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 17px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Courier New';color:#000000;">o</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Dominant Instance</span><span class="f_Body">: Choose the setting that works best for the dominant interaction. For example, if the application context is to use face tracking to identify a region of interest on the screen and then use hand tracking to manipulate the objects in the region, it is possible to set the setting best for face tracking initially and switch to the setting best for hand tracking when needed.</span></td></tr></table></div><p class="p_Body"><span class="f_Body">See also <a href="devguide_sharing_device_properties.html" class="topiclink">Sharing Device Properties</a> for more details how to manage device properties.</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Power and Performance</span></p>
+<p class="p_Body"><span class="f_Body">Consider power and performance as well. Each SDK modality incurs nontrivial workloads, although the SDK continues to optimize for the platform. No data to share as this is highly platform and application context dependent. You must experiment with the actual workloads to understand your application needs on the target platform.</span></p>
+<p class="p_Body"><span class="f_Body">It is recommended to design your application context to time share multiple modalities, that is, to enable different modalities at different time. The user gets to enjoy different interactions thus keeps the user engaged. Furthermore, the user is less likely to get muscle fatigue by doing a single interaction too long. To do so, enable multiple modalities at initialization and then pause/resume the modalities, as illustrated in Example 4. The alternative is to close the </span><span class="f_CodeExample"><a href="pxcsensemanager.html" class="topiclink">SenseManager</a></span><span class="f_Body"> pipeline and reinitialize for each modality interaction, which works best if the application context switch is long enough to allow camera close and reopen.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A4')">C++ Example 4: Pause Face Computation</a></span></p>
+<div id="TOGGLE0186A4" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// pp is a PXCSenseManager instance.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">pp-&gt;PauseFace(true);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">pp-&gt;PauseFace(false);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A5')">C# Example 4: Pause Face Computation</a></span></p>
+<div id="TOGGLE0186A5" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// pp is a PXCMSenseManager instance.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">pp.PauseFace(true);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">pp.PauseFace(false);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A6')">Java Example 4: Pause Face Computation</a></span></p>
+<div id="TOGGLE0186A6" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// pp is a PXCMSenseManager instance.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">pp.PauseFace(true);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">pp.PauseFace(false);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Coordinate Systems</span></p>
+<p class="p_Body"><span class="f_Body">Finally, it is important to understand the coordinate system that each modality operates when there is a need to combine different modality data together. See <a href="manuals_coordinate_systems.html" class="topiclink">Coordinate Systems</a> for the coordinate system definitions. The following table shows the coordinate systems that the modalities operate on for reference:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table style="width:820px; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:151px; padding:5px; border:solid 1px #000000;"><br />
+</td>
+<td style="vertical-align:top; width:649px; padding:5px; border:solid 1px #000000;"><p>Coordinate System Used</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:151px; padding:5px; border:solid 1px #000000;"><p>Face Tracking (2D)</p>
+</td>
+<td style="vertical-align:top; width:649px; padding:5px; border:solid 1px #000000;"><p>Use the color image coordinates.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:151px; padding:5px; border:solid 1px #000000;"><p>Face Tracking (3D)</p>
+</td>
+<td style="vertical-align:top; width:649px; padding:5px; border:solid 1px #000000;"><p>Use the camera coordinate system (depth sensor origin).</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:151px; padding:5px; border:solid 1px #000000;"><p>Hand Tracking</p>
+</td>
+<td style="vertical-align:top; width:649px; padding:5px; border:solid 1px #000000;"><p>Use the camera coordinate system (depth sensor origin).</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:151px; padding:5px; border:solid 1px #000000;"><p>Object Tracking</p>
+</td>
+<td style="vertical-align:top; width:649px; padding:5px; border:solid 1px #000000;"><p>Use the camera coordinate system (color sensor origin).</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body">For example, you may use hand tracking to identify the hand position and use object tracking to locate a virtual object. You must use the </span><span class="f_CodeExample"><a href="pxcprojection.html" class="topiclink">PXC[M]Projection</a></span><span class="f_Body"> interface to map the coordinates of the output data to the same coordinate system, or you would find that the hand and the virtual object are at two distinct places. Example 5 shows how to do color/depth coordinates conversion.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A7')">C++ Example 5: Color/Depth Coordinates Conversion</a> </span></p>
+<div id="TOGGLE0186A7" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// device is a PXCCapture::Device instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCProjection *projection=device-&gt;CreateProjection();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Convert from depth(u,v,z) to color(i,j)</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCPoint3DF32 depth = {u, v, z};</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCPointF32 color;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;projection-&gt;MapDepthToColor(1, &amp;depth, &amp;color);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;i = color.x;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;j = color.y;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Convert from color(i,j) to depth(u,v)</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// sample is a PXCCapture::Sample instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCPointF32 color = {x, y};</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCPointF32 depth;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;projection-&gt;MapColorToDepth(sample-&gt;depth, 1, &amp;color, &amp;depth);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;u = depth.x;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;v = depth.y;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">projection-&gt;Release();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A8')">C# Example 5: Color/Depth Coordinates Conversion</a></span></p>
+<div id="TOGGLE0186A8" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// device is a PXCMCapture.Device instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMProjection projection=device.CreateProjection();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Convert from depth(u,v,z) to color(i,j)</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCMPoint3DF32[] depth=new PXCMPoint3DF32[1];</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;depth[0].x=u;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;depth[0].y=v;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;depth[0].z=z;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCMPointF32[] color;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;projection.MapDepthToColor(depth, out color);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;i = color[0].x;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;j = color[0].y;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Convert from color(i,j) to depth(u,v)</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// sample is a PXCMCapture.Sample instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCMPointF32[] color = new PXCMPointF32[1];</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;color[0].x=x;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;color[0].y=y;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCMPointF32[] depth;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;projection.MapColorToDepth(sample.depth, color, out depth);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;u = depth[0].x;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;v = depth[0].y;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">projection.Dispose();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A9')">Java Example 5: Color/Depth Coordinates Conversion</a></span></p>
+<div id="TOGGLE0186A9" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// device is a PXCMCapture.Device instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMProjection projection=device.CreateProjection();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Convert from depth(u,v,z) to color(i,j)</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCMPoint3DF32[] depth=new PXCMPoint3DF32[1];</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;depth[0]=new PXCMPoint3DF32();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;depth[0].x=u;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;depth[0].y=v;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;depth[0].z=z;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCMPointF32[] color=new PXCMPoint3DF32[1];</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCMPointF32[0]=new PXCMPoint3DF32();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;projection.MapDepthToColor(depth, color);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;i = color[0].x;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;j = color[0].y;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Convert from color(i,j) to depth(u,v)</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// sample is a PXCMCapture.Sample instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">{</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCMPointF32[] color = new PXCMPointF32[1];</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;color[0]=new PXCMPointF32();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;color[0].x=x;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;color[0].y=y;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCMPointF32[] depth=new PXCMPointF32[1];</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCMPointF32[0]=new PXCMPointF32();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;projection.MapColorToDepth(sample.depth, color, depth);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;u = depth[0].x;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;v = depth[0].y;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">projection.close();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+<script type="text/javascript">
+HMInitToggle('TOGGLE0186A1','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A2','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A3','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A4','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A5','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A6','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A7','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A8','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A9','hm.type','dropdown','hm.state','0');
+</script>
+</body>
+</html>

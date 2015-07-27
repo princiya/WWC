@@ -1,0 +1,245 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Appendix C: Recorded File Format</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Recorded File Format" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "appendix_recorded_file_forma.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Appendix C: Recorded File Format</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="appendix_sdk_api_conventions.html">Previous</a>&nbsp;
+     
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">The </span><span class="f_CodeExample"><a href="pxccapturemanager.html" class="topiclink">PXC[M]CaptureManager</a></span><span class="f_Body"> interface records any captured samples to a file. This section describes the recorded file format.</span></p>
+<p class="p_Body"><span class="f_Body">The recorded file contains a fixed-size header as follows:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">struct Header {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pxcI32  &nbsp; ID; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// PXC_UID('R','S','C','F')</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pxcI32  &nbsp; fileVersion; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // file version</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pxcI32  &nbsp; firstFrameOffset; &nbsp; &nbsp; &nbsp;// The byte offset to the meta data of the first frame.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pxcI32 &nbsp; &nbsp;nstreams; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// The number of streams.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pxcI64 &nbsp; &nbsp;frameIndexingOffset; &nbsp; // Optional frame indexing offset, zero if not available.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp;  <a href="pxcsession.html" class="topiclink">PXCSession</a>::<a href="coordinatesystem_pxcsession.html" class="topiclink">CoordinateSystem</a> coordinateSystem; // The coordinate system setting.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pxcI32  &nbsp; reserved[26];</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">};</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body">Immediately following the header are multiple data chunks as follows. The chunk data structure can contain any arbitrary data identified by the chunk identifier and the chunk size. They can be configuration parameters as well as the image frame data. The order that the trunk data present in the file is not important with the general rule that if there are dependencies between two chunks, the dependent chunk should be placed later in the file.</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">struct ChunkData {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;enum ChunkId {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;CHUNK_DEVICEINFO &nbsp; &nbsp; &nbsp; = &nbsp; 1,</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;CHUNK_STREAMINFO &nbsp; &nbsp; &nbsp; = &nbsp; 2,</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;CHUNK_PROPERTIES &nbsp; &nbsp; &nbsp; = &nbsp; 3,</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;CHUNK_PROFILES &nbsp; &nbsp; &nbsp; &nbsp; = &nbsp; 4,</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;CHUNK_SERIALIZEABLE &nbsp; &nbsp;= &nbsp; 5,</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;CHUNK_FRAME_META_DATA &nbsp;= &nbsp; 6,</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;CHUNK_FRAME_DATA &nbsp; &nbsp; &nbsp; = &nbsp; 7,</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;CHUNK_IMAGE_META_DATA &nbsp;= &nbsp; 8,</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;CHUNK_FRAME_INDEXING &nbsp; = &nbsp; 9,</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;} &nbsp; &nbsp; &nbsp; &nbsp; chunkId; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // The chunk identifier</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pxcI32 &nbsp; &nbsp;chunkSize; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // The chunk size in bytes-8.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pxcBYTE &nbsp; chunkData[chunkSize]; &nbsp;// The chunk data buffer</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">} chunks[];</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body">The image frame of any stream are recorded sequentially after the header and any chunks needed for configurations as follows. The image data starts from </span><span class="f_CodeExample">ChunkFrameMetaData </span><span class="f_Body">and ends with </span><span class="f_CodeExample">ChunkFrameData</span><span class="f_TableText">.</span><span class="f_Body"> In between, there could be multiple data chunks that describe the meta data of the image frame. The meta data should be interpreted as delta or changes against what are defined in the file header section. This saves size if certain meta data are common for all frames.</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">struct StreamFrame {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;ChunkFrameMetaData frame_header;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// in no defined order</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;ChunkImageMetaData image_meta_data;  &nbsp; &nbsp; // if any.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">  &nbsp; // there could be more chunks here.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">  &nbsp; ChunkFrameData &nbsp; &nbsp; frame_data;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">} frames[]</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body">The followings are the definitions of each trunk data structure:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">struct ChunkDeviceInfo {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;ChunkId &nbsp; chunkId=CHUNK_DEVICEINFO;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pxcI32 &nbsp; &nbsp;chunkSize=sizeof(deviceInfo);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp;  <a href="pxccapture.html" class="topiclink">PXCCapture</a>::<a href="deviceinfo_pxccapture.html" class="topiclink">DeviceInfo</a> deviceInfo;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">};</span></p>
+</td>
+</tr>
+</table>
+</div>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">struct ChunkStreamInfo {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;ChunkId &nbsp; chunkId=CHUNK_STREAMINFO;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pxcI32 &nbsp; &nbsp;chunkSize=sizeof(streamInfo);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;struct {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp;  <a href="pxccapture.html" class="topiclink">PXCCapture</a>::<a href="streamtype_pxccapture.html" class="topiclink">StreamType</a> streamType;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;enum CompressionType {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;COMPRESSION_NONE=0,</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;COMPRESSION_H264=1,</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;COMPRESSION_LZO =2,</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;} compressionType;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;pxcI32 nframes; &nbsp; &nbsp; &nbsp; &nbsp; // number of frames.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;} streamInfo[header.nstreams];</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">};</span></p>
+</td>
+</tr>
+</table>
+</div>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">struct ChunkProperties {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;ChunkId &nbsp; chunkId=CHUNK_PROPERTIES;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pxcI32 &nbsp; &nbsp;chunkSize=sizeof(properties);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp;  <a href="pxcvideomodule.html" class="topiclink">PXCVideoModule</a>::<a href="devicecap_pxcvideomodule.html" class="topiclink">DeviceCap</a> properties[nproperties];</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">};</span></p>
+</td>
+</tr>
+</table>
+</div>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">struct ChunkProfiles {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;ChunkId &nbsp; chunkId=CHUNK_PROFILES;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pxcI32 &nbsp; &nbsp;chunkSize=sizeof(profiles);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp;  <a href="pxccapture.html" class="topiclink">PXCCapture</a>::<a href="device_pxccapture.html" class="topiclink">Device</a>::<a href="streamprofileset_device_pxccapture.html" class="topiclink">StreamProfileSet</a> profiles;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">};</span></p>
+</td>
+</tr>
+</table>
+</div>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">struct ChunkSerializeable {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;ChunkId &nbsp; chunkId=CHUNK_SERIALIZEABLE;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pxcI32 &nbsp; &nbsp;chunkSize=sizeof(sdata)+sizeof(sdp);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp;  <a href="pxccapture.html" class="topiclink">PXCCapture</a>::<a href="device_pxccapture.html" class="topiclink">Device</a>::<a href="property_device_pxccapture.html" class="topiclink">Property</a> sdp; &nbsp; // The device property this serializable corresponds to</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pxcBYTE &nbsp; sdata[sdata_bytes];</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">};</span></p>
+</td>
+</tr>
+</table>
+</div>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">struct ChunkFrameMetaData {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;ChunkId &nbsp; chunkId=CHUNK_FRAME_META_DATA;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pxcI32 &nbsp; &nbsp;chunkSize=sizeof(metaData);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;struct {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;pxcI32 &nbsp; &nbsp;frameNumber; &nbsp;// frame number in the current stream</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp;  <a href="pxccapture.html" class="topiclink">PXCCapture</a>::<a href="streamtype_pxccapture.html" class="topiclink">StreamType</a> streamType; &nbsp; </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;pxcI64 &nbsp; &nbsp;timeStamp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp;  <a href="pxcimage.html" class="topiclink">PXCImage</a>::<a href="option_pxcimage.html" class="topiclink">Option</a> options;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;} metaData;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">};</span></p>
+</td>
+</tr>
+</table>
+</div>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">struct ChunkImageMetaData {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;ChunkId &nbsp; chunkId=CHUNK_IMAGE_META_DATA;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pxcI32 &nbsp; &nbsp;chunkSize=sizeof(buffer)+sizeof(id);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pxcUID &nbsp; &nbsp;id; &nbsp;// meta data identifier</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pxcBYTE &nbsp; buffer[chunkSize-sizeof(id)];</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">};</span></p>
+</td>
+</tr>
+</table>
+</div>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">struct ChunkFrameDataUncompressed {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;ChunkId &nbsp; chunkId=CHUNK_FRAME_DATA;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pxcI32 &nbsp; &nbsp;chunkSize=sizeof(imageData);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;struct {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;pxcI32 &nbsp;pitches[PXCImage::NUM_OF_PLANES];</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;pxcBYTE plane0[pitches[0]*height];</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;pxcBYTE planeN[pitches[PXCImage::NUM_OF_PLANES-1]*height];</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;} imageData</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">};</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">struct ChunkFrameDataCompressed {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;ChunkId &nbsp; chunkId=CHUNK_FRAME_DATA;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pxcI32 &nbsp; &nbsp;chunkSize=sizeof(imageData);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;struct {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;pxcI32 &nbsp;pitches[PXCImage::NUM_OF_PLANES]; // pitches of uncompressed image planes.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;enum {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;H264=0x343632,</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;LZO=0x4f5a4c,</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;} CompressionIdentifier;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;pxcBYTE compressed_data[];</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;} imageData</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">};</span></p>
+</td>
+</tr>
+</table>
+</div>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">struct ChunkFrameIndexing {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;ChunkId &nbsp; chunkId=CHUNK_FRAME_INDEXING;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pxcI32 &nbsp; &nbsp;chunkSize=sizeof(imageData);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pxcI32 &nbsp; &nbsp;nframes[PXCCapture::STREAM_LIMIT];</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;struct FrameIndexing {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;PXCCapture::StreamType type; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// the stream type</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;pxcI64 &nbsp;offset; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // the byte offset of where the frame data is.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;pxcI64 &nbsp;timeStamp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// the frame time stamp, in 100ns.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;pxcI32 &nbsp;frameNumber; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// the absolute frame number.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;} frameIndexing[PXCCapture::STREAM_LIMIT]; &nbsp;// the frame indexing.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">};</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

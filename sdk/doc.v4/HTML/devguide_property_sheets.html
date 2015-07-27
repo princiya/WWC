@@ -1,0 +1,76 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Importing the SDK Property Sheets</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="property sheets" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "devguide_property_sheets.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Importing the SDK Property Sheets</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="devguide_cpp_application.html">Previous</a>&nbsp;
+     <a href="devguide_project_settings.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">For easy integration into the Microsoft Visual Studio development environment, use the property sheets located under the </span><span class="f_CodeExample">$(RSSDK_DIR)/props</span><span class="f_Body"> directory. Table 1 lists available property sheets.</span></p>
+<div style="text-align: center; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="margin:0 auto; width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:307px; padding:5px;"><p class="p_Body"><span class="f_Body" style="font-weight: bold;">Property Sheet</span></p>
+</td>
+<td style="vertical-align:top; width:493px; padding:5px;"><p class="p_Body"><span class="f_Body" style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:307px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">VS2010-13.Integration.MD.props</span></p>
+</td>
+<td style="vertical-align:top; width:493px; padding:5px;"><p class="p_Body"><span class="f_Body">Microsoft Visual Studio 2010-2013 property sheet for applications that compile with the dynamic runtime option.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:307px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">VS2010-13.Integration.MT.props</span></p>
+</td>
+<td style="vertical-align:top; width:493px; padding:5px;"><p class="p_Body"><span class="f_Body">Microsoft Visual Studio 2010-2013 property sheet for applications that compile with the static runtime option.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_ImageCaption"><span class="f_ImageCaption"> Table 1: Visual Studio Integration Property Sheets</span></p>
+<p class="p_Body"><span class="f_Body">To import the property sheets, complete the following steps:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Create a new project or open an existing project.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Open the property manager by </span><span class="f_CodeExample">View-&gt;Property Manager</span><span class="f_Body">.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Right click on the project name and choose </span><span class="f_CodeExample">Add Existing Property Sheet.</span><span class="f_Body"> </span><span class="f_Body">Add </span><span class="f_CodeExample">VS2010-13.Integration.MD.props</span><span class="f_Body"> or </span><span class="f_CodeExample">VS2010-13.Integration.MT.props </span><span class="f_Body">for the application that requires dynamic or static runtime, respectively.</span></td></tr></table></div><p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

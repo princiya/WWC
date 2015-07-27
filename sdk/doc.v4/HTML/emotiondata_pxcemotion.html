@@ -1,0 +1,183 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>EmotionData</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="EmotionData" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "emotiondata_pxcemotion.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">EmotionData</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_structures3.html">Previous</a>&nbsp;
+     <a href="pxchandconfiguration.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_InternalHeading"><span class="f_InternalHeading">Name Space Hierarchy</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table style="width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_TableText"><span class="f_TableText">C++</span></p>
+</td>
+<td style="vertical-align:top; width:752px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="pxcemotion.html" class="topiclink">PXCEmotion</a>::EmotionData</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_TableText"><span class="f_TableText">C#</span></p>
+</td>
+<td style="vertical-align:top; width:752px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="pxcemotion.html" class="topiclink">PXCMEmotion</a>.EmotionData</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_TableText"><span class="f_TableText">Java</span></p>
+</td>
+<td style="vertical-align:top; width:752px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="pxcemotion.html" class="topiclink">PXCMEmotion</a>.EmotionData</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Definition</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 14px 0px;"><table style="width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:60px; padding:5px;"><p>C++</p>
+</td>
+<td style="vertical-align:top; width:740px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">struct EmotionData {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pxcI64 &nbsp; &nbsp; timeStamp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pxcUID &nbsp; &nbsp; fid;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp;  <a href="emotion_pxcemotion.html" class="topiclink">Emotion</a> &nbsp; &nbsp;eid;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pxcF32 &nbsp; &nbsp; intensity;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pxcI32 &nbsp; &nbsp; evidence;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp;  <a href="pxcrecti32.html" class="topiclink">PXCRectI32</a> rectangle;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">};</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:60px; padding:5px;"><p>C#</p>
+</td>
+<td style="vertical-align:top; width:740px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">struct EmotionData {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;Int64 &nbsp; &nbsp; &nbsp; timeStamp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;Int32 &nbsp; &nbsp; &nbsp; fid;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp;  <a href="emotion_pxcemotion.html" class="topiclink">Emotion</a> &nbsp; &nbsp; eid;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;Single &nbsp; &nbsp; &nbsp;intensity;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;Int32 &nbsp; &nbsp; &nbsp; evidence;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp;  <a href="pxcrecti32.html" class="topiclink">PXCMRectI32</a> rectangle;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">};</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:60px; padding:5px;"><p>Java</p>
+</td>
+<td style="vertical-align:top; width:740px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">struct EmotionData {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;long &nbsp; &nbsp; &nbsp; &nbsp;timeStamp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;int &nbsp; &nbsp; &nbsp; &nbsp; fid;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp;  <a href="emotion_pxcemotion.html" class="topiclink">Emotion</a> &nbsp; &nbsp; eid;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;float &nbsp; &nbsp; &nbsp; intensity;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;int &nbsp; &nbsp; &nbsp; &nbsp; evidence;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp;  <a href="pxcrecti32.html" class="topiclink">PXCMRectI32</a> rectangle;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">};</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Description</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table style="width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><br />
+</td>
+<td style="vertical-align:top; width:842px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The </span><span class="f_CodeExample">EmotionData</span><span class="f_TableText"> structure describes the parameters of a detected emotion.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Members</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table style="width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:196px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">timeStamp</span></p>
+</td>
+<td style="vertical-align:top; width:529px; padding:5px;"><p class="p_TableText"><span class="f_TableText">Time stamp, in 100ns, when the emotion data is detected.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:196px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">fid</span></p>
+</td>
+<td style="vertical-align:top; width:529px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The unique face identifier for the detected face.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:196px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">eid</span></p>
+</td>
+<td style="vertical-align:top; width:529px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The detected emotion state; see the <a href="emotion_pxcemotion.html" class="topiclink">Emotion</a> enumerator for definitions.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:196px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">intensity</span></p>
+</td>
+<td style="vertical-align:top; width:529px; padding:5px;"><p class="p_TableText"><span class="f_TableText">In range [0,1]. The intensity value indicates the presence likelihood of the detected emotion state:</span></p>
+<p class="p_TableText"><span class="f_TableText">[0.0, 0.2): expression is likely absent.</span></p>
+<p class="p_TableText"><span class="f_TableText">[0.2, 0.4): expression is of low intensity.</span></p>
+<p class="p_TableText"><span class="f_TableText">[0.4, 0.6): expression is of medium intensity.</span></p>
+<p class="p_TableText"><span class="f_TableText">[0.6, 0.8): expression is of high intensity.</span></p>
+<p class="p_TableText"><span class="f_TableText">[0.8, 1.0]: expression is of very high intensity.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:196px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">evidence</span></p>
+</td>
+<td style="vertical-align:top; width:529px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The evidence value, between -5 and &nbsp;5, represents the odds in 10-based logarithmic scale of a target expression being present. For instance, value 2 indicates that an emotion is 100 (10^2) times more likely to be categorized as its presence than not presence; while value -2 indicates that an emotion is 100 times more likely to be categorized as its not presence than presence.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:196px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">rectangle</span></p>
+</td>
+<td style="vertical-align:top; width:529px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The detection face rectangle.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

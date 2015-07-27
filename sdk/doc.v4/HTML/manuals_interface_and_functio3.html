@@ -1,0 +1,131 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Interface and Function Reference: F200 Algorithms</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Front Facing Algorithms,Front Facing Interfaces" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_interface_and_functio3.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Interface and Function Reference: F200 Algorithms</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="createoutput_pxcfacemodule.html">Previous</a>&nbsp;
+     <a href="pxc3dseg.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">This section describes the SDK algorithm interfaces that work for the front-facing Intel® RealSense™ camera, model F200.</span></p>
+<p class="p_Body"><span class="f_Body">In each interface description, only commonly used status codes are documented. The function may return additional status codes in certain cases. See the </span><span class="f_CodeExample"><a href="pxcstatus.html" class="topiclink">pxc[m]Status</a></span><span class="f_Body"> enumerator for a list of all status codes.</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Naming Conventions</span></p>
+<p class="p_Body"><span class="f_Body">This manual uses </span><span class="f_CodeExample">[M]</span><span class="f_Body"> (where </span><span class="f_CodeExample">M</span><span class="f_Body"> stands for &quot;managed&quot;) in the interface names to represent interfaces that are available in a managed environment (such as C# and Java). For example, </span><span class="f_CodeExample"><a href="pxccapture.html" class="topiclink">PXC[M]Capture</a></span><span class="f_Body"> represents the C++ interface </span><span class="f_CodeExample"><a href="pxccapture.html" class="topiclink">PXCCapture</a></span><span class="f_Body"> and the C# or Java interface </span><span class="f_CodeExample"><a href="pxccapture.html" class="topiclink">PXCMCapture</a></span><span class="f_Body">. </span></p>
+<p class="p_Body"><span class="f_Body">The manual uses additional markings after the interface or method names as follows:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table style="width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:124px; padding:5px;"><p><span style="font-weight: bold;">Marking</span></p>
+</td>
+<td style="vertical-align:top; width:317px; padding:5px;"><p><span style="font-weight: bold;">Example</span></p>
+</td>
+<td style="vertical-align:top; width:349px; padding:5px;"><p><span style="font-weight: bold;">Comment</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:124px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">None</span></p>
+</td>
+<td style="vertical-align:top; width:317px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="pxcbase.html" class="topiclink">PXC[M]Base</a></span></p>
+</td>
+<td style="vertical-align:top; width:349px; padding:5px;"><p>Common for all languages and frameworks, except JavaScript. JavaScript interfaces or methods are listed separately.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:124px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">(C++)</span></p>
+</td>
+<td style="vertical-align:top; width:317px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="release_pxcbase.html" class="topiclink">PXCBase.Release</a></span></p>
+</td>
+<td style="vertical-align:top; width:349px; padding:5px;"><p>C++ specific interface or methods.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:124px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">(C#)</span></p>
+</td>
+<td style="vertical-align:top; width:317px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="dispose_pxcmbase.html" class="topiclink">PXCMBase.Dispose</a></span></p>
+</td>
+<td style="vertical-align:top; width:349px; padding:5px;"><p>C# and Unity C# specific interface or methods.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:124px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">(C#.NET4)</span></p>
+</td>
+<td style="vertical-align:top; width:317px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="tobitmap_imagedata_pxcmimage.html" class="topiclink">PXCMImage.ImageData.ToBitmap</a></span></p>
+</td>
+<td style="vertical-align:top; width:349px; padding:5px;"><p>C# .NET4 specific interface or methods. Not available in Unity C#.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:124px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">(Unity)</span></p>
+</td>
+<td style="vertical-align:top; width:317px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="totexture2d_imagedata_pxcmimage.html" class="topiclink">PXCMImage.ImageData.ToTexture2D</a></span></p>
+</td>
+<td style="vertical-align:top; width:349px; padding:5px;"><p>Unity C# specific interface or methods. Not available in C#.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:124px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">(Java)</span></p>
+</td>
+<td style="vertical-align:top; width:317px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="close_pxcmbase.html" class="topiclink">PXCMBase.close</a></span></p>
+</td>
+<td style="vertical-align:top; width:349px; padding:5px;"><p>Java and Processing specific interface or methods.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:124px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">(Processing)</span></p>
+</td>
+<td style="vertical-align:top; width:317px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">PXCMImage.ImageData.ToPImage</span></p>
+</td>
+<td style="vertical-align:top; width:349px; padding:5px;"><p>Processing specific interface or methods. Not available in Java.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:124px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">(JavaScript)</span></p>
+</td>
+<td style="vertical-align:top; width:317px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="createimpl_pxcsession_javascript.html" class="topiclink">PXCSession.CreateImpl</a></span></p>
+</td>
+<td style="vertical-align:top; width:349px; padding:5px;"><p>JavaScript interface or methods.</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

@@ -1,0 +1,170 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Creating Module Instance</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="create module instance" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_create_module_instances.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Creating Module Instance</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_explicitly_load_unload_modules.html">Previous</a>&nbsp;
+     <a href="manuals_module_configuration.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">The simplest way is to create a module instance based on its interface. As illustrated in Example 119, you can create an instance of the capture module by using the </span><span class="f_CodeExample"><a href="createimpl_pxcsession.html" class="topiclink">CreateImpl</a></span><span class="f_Body"> function. The SDK searches for the first module that implements the specified interface and creates an instance of the module. This works best if you simply uses the interface functionalities and does not customize the results for a particular module.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A1')">C++ Example 119: Create the Module Instance with the Interface Identifier</a></span></p>
+<div id="TOGGLE0186A1" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// session is a PXCSession instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCCapture *capture;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">session-&gt;CreateImpl&lt;PXCCapture&gt;(&amp;capture);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A2')">C# Example 119: Create the Module Instance with the Interface Identifier</a></span></p>
+<div id="TOGGLE0186A2" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// session is a PXCMSession instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMCapture capture;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">session.CreateImpl&lt;PXCMCapture&gt;(out capture);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A3')">Java Example 119: Create the Module Instance with the Interface Identifier</a></span></p>
+<div id="TOGGLE0186A3" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// session is a PXCMSession instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMCapture capture=new PXCMCapture();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">session.CreateImpl(capture);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body">In some cases, you may need to pinpoint a module for customization. This can be done in two ways:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:36px"><span style="font-size:11pt; font-family: 'Calibri';color:#000000;">1.</span></td><td style="border:none"><span class="f_List" style="font-family: Calibri;">If you already knows the module’s implementation identifier, you can call the </span><span class="f_CodeExample"><a href="createimpl_pxcsession.html" class="topiclink">CreateImpl</a></span><span class="f_List" style="font-family: Calibri;"> function with the implementation identifier, as illustrated in Example 120. The interface identifier and the implementation identifier uniquely identify a module implementation. You can find the implementation identifier by calling the </span><span class="f_CodeExample"><a href="queryimpl_pxcsession.html" class="topiclink">QueryImpl</a></span><span class="f_List" style="font-family: Calibri;"> function, which enumerates all available modules. See <a href="manuals_enumerate_modules.html" class="topiclink">Enumerating Modules</a> for details.</span></td></tr></table></div><p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A4')">C++ Example 120: Create the Module Instance with the Unique Module Identifier</a></span></p>
+<div id="TOGGLE0186A4" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// session is a PXCSession instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCFaceModule *fd;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">session-&gt;CreateImpl&lt;PXCFaceModule&gt;(0x43434343&amp;fd);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A5')">C# Example 120: Create the Module Instance with the Unique Module Identifier</a></span></p>
+<div id="TOGGLE0186A5" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Create an algorithm instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMFace3D face;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">session.CreateImpl&lt;PXCMFace3D&gt;(0x43434343, out face);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A6')">Java Example 120: Create the Module Instance with the Unique Module Identifier</a></span></p>
+<div id="TOGGLE0186A6" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Create an algorithm instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMFaceModule face=new PXCMFaceModule();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">session.CreateImpl(0x43434343, face);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:36px"><span style="font-size:11pt; font-family: 'Calibri';color:#000000;">2.</span></td><td style="border:none"><span class="f_List" style="font-family: Calibri;">Alternatively, you can fill out the </span><span class="f_CodeExample"><a href="impldesc_pxcsession.html" class="topiclink">ImplDesc</a></span><span class="f_List" style="font-family: Calibri;"> structure that details different aspects of a module. The </span><span class="f_CodeExample"><a href="createimpl_pxcsession.html" class="topiclink">CreateImpl</a></span><span class="f_List" style="font-family: Calibri;"> function finds a match and creates an instance of the module, as illustrated by Example 121. Here the </span><span class="f_CodeExample"><a href="impldesc_pxcsession.html" class="topiclink">ImplDesc</a></span><span class="f_List" style="font-family: Calibri;"> structure serves as a search template if not completely filled. Zero values in a structure field match any values. A bit-pattern in a bit-OR’ed field matches any bit patterns that are a super set.</span></td></tr></table></div><p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A7')">C++ Example 121: Create Module Instance with Descriptor</a></span></p>
+<div id="TOGGLE0186A7" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// session is a PXCSession instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCSession::ImplDesc desc;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">memset(&amp;desc,0,sizeof(desc));</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">desc.group=PXCSession::IMPL_GROUP_OBJECT_RECOGNITION;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">desc.subgroup=PXCSession::IMPL_SUBGROUP_FACE_ANALYSIS;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">desc.vendor=0x8086; &nbsp; &nbsp; &nbsp; &nbsp;// Intel</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCFaceModule *fd;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">session-&gt;CreateImpl&lt;PXCFaceModule&gt;(&amp;desc,&amp;fd);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A8')">C# Example 121: Create Module Instance with Descriptor</a></span></p>
+<div id="TOGGLE0186A8" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// session is a PXCMSession instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSession.ImplDesc desc=new PXCMSession.ImplDesc();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">desc.group=PXCMSession.ImplGroup.IMPL_GROUP_OBJECT_RECOGNITION;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">desc.subgroup=PXCMSession.ImplSubgroup.IMPL_SUBGROUP_FACE_ANALYSIS;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">desc.vendor=0x8086; &nbsp; &nbsp; &nbsp; &nbsp;// Intel</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMFaceModule face;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">session.CreateImpl&lt;PXCMFaceModule&gt;(desc, out face);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A9')">Java Example 121: Create Module Instance with Descriptor</a></span></p>
+<div id="TOGGLE0186A9" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// session is a PXCMSession instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSession.ImplDesc desc=new PXCMSession.ImplDesc();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">desc.group=PXCMSession.ImplGroup.IMPL_GROUP_OBJECT_RECOGNITION;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">desc.subgroup=PXCMSession.ImplSubgroup.IMPL_SUBGROUP_FACE_ANALYSIS;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">desc.vendor=0x8086; &nbsp; &nbsp; &nbsp; &nbsp;// Intel</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMFaceModule face=new PXCMFaceModule();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">session.CreateImpl(desc, face);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_List"><span class="f_List">&nbsp;</span></p>
+
+</td></tr></table>
+
+<script type="text/javascript">
+HMInitToggle('TOGGLE0186A1','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A2','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A3','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A4','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A5','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A6','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A7','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A8','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A9','hm.type','dropdown','hm.state','0');
+</script>
+</body>
+</html>

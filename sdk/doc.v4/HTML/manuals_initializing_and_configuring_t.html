@@ -1,0 +1,141 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Initializing and Configuring the Hand Module</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_initializing_and_configuring_t.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Initializing and Configuring the Hand Module</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_class_overview.html">Previous</a>&nbsp;
+     <a href="manuals_configuring_tracking_options.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">Before hand tracking can start, you must initialize </span><span class="f_CodeExample"><a href="pxcsensemanager.html" class="topiclink">PXC[M]SenseManager</a></span><span class="f_Body"> for hand tracking. Then you can optionally change its default configuration.</span></p>
+<p class="p_Body"><span class="f_Body">Example 61 demonstrates how to initialize </span><span class="f_CodeExample"><a href="pxcsensemanager.html" class="topiclink">PXC[M]SenseManager</a></span><span class="f_Body"> for hand tracking and how to configure the hand module.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A1')">C++ Example 61: Initialize SenseManager and the Hand Module</a></span></p>
+<div id="TOGGLE0186A1" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Create an instance of the SenseManager</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCSenseManager* sm=PXCSenseManager::CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Enable hand tracking</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm-&gt;EnableHand();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Get an instance of PXCHandModule </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCHandModule *handModule=sm-&gt;QueryHand();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Get an instance of PXCHandConfiguration</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCHandConfiguration* handConfig=handModule-&gt;CreateActiveConfiguration();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Make configuration changes and apply them</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handConfig-&gt;EnableJointSpeed(…);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handConfig-&gt;SetTrackingBounds(…);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// … set other configuration options</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handConfig-&gt;ApplyChanges(); // Changes only take effect when you call ApplyChanges</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Initialize the SenseManager pipeline</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm-&gt;Init();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A2')">C# Example 61: Initialize the SenseManager and the Hand Module</a></span></p>
+<div id="TOGGLE0186A2" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Create an instance of the SenseManager</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSenseManager sm=PXCMSenseManager.CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Enable hand tracking</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm.EnableHand();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Get an instance of PXCMHandModule </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMHandModule handModule=sm.QueryHand();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Get an instance of PXCMHandConfiguration</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMHandConfiguration handConfig=handModule.CreateActiveConfiguration();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Make configuration changes and apply them</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handConfig.EnableJointSpeed(…);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handConfig.SetTrackingBounds(…);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// … set other configuration options</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handConfig.ApplyChanges(); // Changes only take effect when you call ApplyChanges</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Initialize the SenseManager pipeline</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm.Init();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A3')">Java Example 61: Initialize the SenseManager and the Hand Module</a> </span></p>
+<div id="TOGGLE0186A3" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Create an instance of the SenseManager</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSenseManager sm=PXCMSenseManager.CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Enable hand tracking</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm.EnableHand();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Get an instance of PXCMHandModule </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMHandModule handModule=sm.QueryHand();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Get an instance of PXCMHandConfiguration</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMHandConfiguration handConfig=handModule.CreateActiveConfiguration();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Make configuration changes and apply them</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handConfig.EnableJointSpeed(…);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handConfig.SetTrackingBounds(…);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// … set other configuration options</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handConfig.ApplyChanges(); // Changes only take effect when you call ApplyChanges</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Initialize the SenseManager pipeline</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm.Init();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><img src="note.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">Changes to the hand module configuration only take effect when you call the </span><span class="f_CodeExample"><a href="applychanges_pxchandconfiguration.html" class="topiclink">ApplyChanges</a></span><span class="f_Body"> function.</span></p>
+<p class="p_Body"><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">See the </span><span class="f_CodeExample"><a href="pxchandconfiguration.html" class="topiclink">PXC[M]HandConfiguration</a></span><span class="f_Body"> interface for detailed descriptions of the configuration methods.</span></p>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+<script type="text/javascript">
+HMInitToggle('TOGGLE0186A1','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A2','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A3','hm.type','dropdown','hm.state','0');
+</script>
+</body>
+</html>

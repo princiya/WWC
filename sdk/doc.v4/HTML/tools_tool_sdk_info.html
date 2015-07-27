@@ -1,0 +1,131 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Tool: sdk_info</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="sdk_info" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "tools_tool_sdk_info.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Tool: sdk_info</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="tools_tool_capture_viewer.html">Previous</a>&nbsp;
+     <a href="tools_tool_clip_editor.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">The </span><span class="f_CodeExample">sdk_info</span><span class="f_Body"> tool displays the SDK setup information for trouble shooting purposes. You can review the SDK setup information on the local machine or save the information for remote diagnosis. The </span><span class="f_CodeExample">sdk_info</span><span class="f_Body"> tool organizes the setup information into multiple tabs as follows:</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">The System Tab</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table style="width:100%; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:middle; width:510px; padding:5px;"><div class="p_Body" style="text-align: center;"><div style="margin:0px auto 0px auto;width:566px;padding:0px 0px 0px 0px"><img src="sdk_info_about.png" width="566" height="448" style="border:none" alt="System Information&nbsp;" title="System Information&nbsp;" /><p style="text-align:center"><span class="f_ImageCaption">System Information<br/>
+</span></p></div></div>
+</td>
+<td style="vertical-align:top; padding:5px;"><p class="p_Body"><span class="f_Body">The </span><span class="f_CodeExample" style="font-weight: bold;">System</span><span class="f_Body"> tab displays the system related information: OS, processor, graphic driver, registry settings, and environment variables etc. </span></p>
+<p class="p_Body"><span class="f_Body">Click on any line that has a plus icon in front to expand the line into more details. For example, expanding the </span><span class="f_CodeExample">PATH</span><span class="f_Body"> environment variable will show the value of the </span><span class="f_CodeExample">PATH</span><span class="f_Body"> environment variable. Similarly, click on any line that has a minus icon in front to close the details.</span></p>
+<p class="p_Body"><span class="f_Body">Click the </span><span class="f_CodeExample">Mode</span><span class="f_Body"> menu to select between the </span><span class="f_CodeExample">Basic</span><span class="f_Body"> mode or the </span><span class="f_CodeExample">Advanced</span><span class="f_Body"> mode. The </span><span class="f_CodeExample">Advanced</span><span class="f_Body"> mode lists a bit more debugging information: for example, the list of all installed files.</span></p>
+<p class="p_Body"><span class="f_Body">Click the </span><span class="f_CodeExample">Save</span><span class="f_Body"> menu to save the information to a text file for remote diagnosis. The saved file includes information from all tabs.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">The Installation Tab</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table style="width:100%; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:5px;"><p class="p_InternalHeading"><span class="f_Body">The </span><span class="f_CodeExample" style="font-weight: bold;">Installation</span><span class="f_Body"> tab shows the SDK installer logs. Multiple installer logs are named and ordered after their creation date and time. For example, the log </span><span class="f_CodeExample">2015.02.09_22.33.18_00002a78</span><span class="f_Body"> is an SDK installation at 10:33 pm on Sep 2</span><span class="f_Body" style="font-size: 7pt; vertical-align: super;">nd</span><span class="f_Body">, 2015.</span></p>
+<p class="p_Body"><span class="f_Body">By default, the </span><span class="f_CodeExample">sdk_info</span><span class="f_Body"> tool shows the details of the most recent installation log. You can load and unload any installer log by right clicking on the line (which pops up a context menu) and then choose </span><span class="f_CodeExample">Load</span><span class="f_Body">/</span><span class="f_CodeExample">Unload</span><span class="f_Body"> in the context menu.</span></p>
+</td>
+<td style="vertical-align:top; width:510px; padding:5px;"><div class="p_Body"><div style="width:566px;padding:0px"><img src="sdk_info_install.png" width="566" height="448" style="border:none" alt="Installation Information" title="Installation Information" /><p style="text-align:center"><span class="f_ImageCaption">Installation Information</span></p></div></div>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">The Module Tab</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table style="width:100%; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:510px; padding:5px;"><div class="p_Body"><div style="width:566px;padding:0px"><img src="sdk_info_module.png" width="566" height="448" style="border:none" alt="Module Information" title="Module Information" /><p style="text-align:center"><span class="f_ImageCaption">Module Information</span></p></div></div>
+</td>
+<td style="vertical-align:top; padding:5px;"><p class="p_Body"><span class="f_Body">The </span><span class="f_CodeExample" style="font-weight: bold;">Module</span><span class="f_Body"> tab shows the details of installed SDK runtime libraries. Click on each line to review the details of each module installation.</span></p>
+<p class="p_Body"><span class="f_Body">Click on the </span><span class="f_CodeExample">Mode</span><span class="f_Body"> menu to select between the </span><span class="f_CodeExample">Basic</span><span class="f_Body"> mode and </span><span class="f_CodeExample">Advanced</span><span class="f_Body"> mode. The </span><span class="f_CodeExample">Basic</span><span class="f_Body"> mode lists all installed module names, while the </span><span class="f_CodeExample">Advanced</span><span class="f_Body"> mode additionally shows the module descriptor details.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">The Camera Tab</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table style="width:100%; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:5px;"><p class="p_InternalHeading"><span class="f_Body">The </span><span class="f_CodeExample" style="font-weight: bold;">Camera</span><span class="f_Body"> tab shows the following information about any cameras on the system:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">USB Connection Topology</span><span class="f_Body">: The data includes the USB controllers, hubs, and devices on the system, and how they are connected to the system.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Intel® RealSense™ 3D Camera</span><span class="f_Body">: The data includes the 3D camera, model F200, as well as the </span><span class="f_CodeExample">Depth Camera Management</span><span class="f_Body"> (DCM) service information.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Intel® RealSense™ 3D Camera R200</span><span class="f_Body">: The data includes the 3D camera, model R200, as well as the </span><span class="f_CodeExample">Depth Camera Management</span><span class="f_Body"> (DCM) service information.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Generic Audio and video Devices</span><span class="f_Body">: The data includes a scanning of all audio and video devices on the system.</span></td></tr></table></div><p class="p_Body"><span class="f_Body">Click the </span><span class="f_CodeExample">Rescan</span><span class="f_Body"> menu to rescan the USB bus if a device is newly plugged into the system.</span></p>
+</td>
+<td style="vertical-align:top; width:510px; padding:5px;"><div class="p_InternalHeading"><div style="width:566px;padding:0px"><img src="sdk_info_camera.png" width="566" height="448" style="border:none" alt="Camera Information" title="Camera Information" /><p style="text-align:center"><span class="f_ImageCaption">Camera Information</span></p></div></div>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">The Logging Tab</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table style="width:100%; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:370px; padding:5px;"><div class="p_Body"><div style="width:535px;padding:0px"><img src="sdk_info_trace_zoom83.png" width="535" height="578" style="border:none" alt="Logging Control" title="Logging Control" /><p style="text-align:center"><span class="f_ImageCaption">Logging Control</span></p></div></div>
+</td>
+<td style="vertical-align:top; padding:5px;"><p class="p_Body"><span class="f_Body">The </span><span class="f_CodeExample" style="font-weight: bold;">Logging</span><span class="f_Body"> tab configures the SDK logging and tracing feature. You must run the </span><span class="f_CodeExample">sdk_info</span><span class="f_Body"> tool with the administrator privilege to show this tab.</span></p>
+<p class="p_Body"><span class="f_Body">Complete the following steps to enable the SDK logging feature:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:20px"><span style="font-size:11pt; font-family: 'Intel Clear';color:#000000;">1.</span></td><td style="border:none"><span class="f_Body">Run the sdk_info tool with the administrator privilege.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:20px"><span style="font-size:11pt; font-family: 'Intel Clear';color:#000000;">2.</span></td><td style="border:none"><span class="f_Body">Click on the </span><span class="f_CodeExample" style="font-weight: bold;">Logging</span><span class="f_Body"> tab.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:20px"><span style="font-size:11pt; font-family: 'Intel Clear';color:#000000;">3.</span></td><td style="border:none"><span class="f_Body">There are multiple sections of configurations for different SDK components: SDK application and the DCM services. Set the logging destination using the </span><span class="f_CodeExample">Output</span><span class="f_Body"> selection box and the logging level using the </span><span class="f_CodeExample">Level</span><span class="f_Body"> selection, in the respective SDK component section.</span></td></tr></table></div><p class="p_Body"><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">It is not recommended to log to a file or log realtime to </span><span class="f_CodeExample">DebugView</span><span class="f_Body">. Doing so slows down the SDK application or the system significantly.</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:20px"><span style="font-size:11pt; font-family: 'Intel Clear';color:#000000;">4.</span></td><td style="border:none"><span class="f_Body" style="font-family: Calibri;">Run the SDK application. The SDK sends the logging information to the specified destination at the specified level.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:20px"><span style="font-size:11pt; font-family: 'Intel Clear';color:#000000;">5.</span></td><td style="border:none"><span class="f_Body" style="font-family: Calibri;">Reset the logging configuration or simply close the </span><span class="f_CodeExample">sdk_info</span><span class="f_Body" style="font-family: Calibri;"> tool to disable the logging feature.</span></td></tr></table></div></td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">The Windows Update Tab</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table style="width:100%; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:5px;"><p class="p_InternalHeading"><span class="f_Body">The </span><span class="f_CodeExample" style="font-weight: bold;">Windows Update</span><span class="f_Body"> tab lists the installed windows updates on the system as well as suggested ones.</span></p>
+</td>
+<td style="vertical-align:top; width:445px; padding:5px;"><div class="p_InternalHeading"><div style="width:595px;padding:0px"><img src="sdk_info_kbupdates.png" width="595" height="319" style="border:none" alt="Windows Updates Information" title="Windows Updates Information" /><p style="text-align:center"><span class="f_ImageCaption">Windows Updates Information</span></p></div></div>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">The Version Tab</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table style="width:100%; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:370px; padding:5px;"><div class="p_InternalHeading"><div style="width:616px;padding:0px"><img src="sdk_info_version.png" width="616" height="403" style="border:none" alt="Version Information" title="Version Information" /><p style="text-align:center"><span class="f_ImageCaption">Version Information</span></p></div></div>
+</td>
+<td style="vertical-align:top; padding:5px;"><p class="p_InternalHeading"><span class="f_Body">The </span><span class="f_CodeExample" style="font-weight: bold;">Version</span><span class="f_Body"> tab lists the SDK installed components and their versions. The tab also shows any available updates and the corresponding URLs. You can click on the URLs to get the updates.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

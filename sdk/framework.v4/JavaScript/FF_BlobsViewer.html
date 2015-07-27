@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Intel(R) RealSense(TM) SDK Web Sample</title>
+
+    <script type="text/javascript" src="..\common\JavaScript\jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="..\common\JavaScript\promise-1.0.0.min.js"></script>
+    <script type="text/javascript" src="..\common\JavaScript\realsense.js"></script>
+    <script type="text/javascript" src="..\common\JavaScript\realsenseinfo.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var sense;
+            var imageSize;
+            var blobModule;
+            var blobData;
+            var blobConfiguration;
+
+            // check platform compatibility
+            RealSenseInfo(['blob'], function (info) {
+                if (info.IsReady == true) {
+                    $('#info').append('<b>Platform supports Intel(R) RealSense(TM) SDK feature</b>');
+                    status('OK');
+                    document.getElementById("Start").disabled = false;
+                } else {
+                    status('Platform not supported: ' + info.responseText);
+                    if (info.IsPlatformSupported != true) {
+                        $('#info').append('<b>Intel® RealSense™ 3D camera not found</b>');
+                    } else if (info.IsBrowserSupported != true) {
+                        $('#info').append('<b>Please update your browser to latest version</b>');
+                    } else {
+                        $('#info').append('<b>Please download and install the following update(s) before running sample: </b>');
+                        for (i = 0; i < info.Updates.length; i++) {
+                            $('#info').append('<a href="' + info.Updates[i].url + '">' + info.Updates[i].href + '</a><br>');
+                        }
+                    }
+                }
+            })
+
+            $('#Start').click(function () {
+                document.getElementById("Start").disabled = true;
+                PXCMSenseManager_CreateInstance().then(function (result) {
+                    sense = result;
+                    return sense.EnableBlob(onBlobData);
+                }).then(function (result) {
+                    blobModule = result;
+                    status('Init started');
+                    return sense.Init(onConnect, onStatus);
+                }).then(function (result) {
+                    return blobModule.CreateActiveConfiguration();
+                }).then(function (result) {
+                    blobConfiguration = result;
+                    return blobModule.CreateOutput();
+                }).then(function (result) {
+                    blobData = result;
+                    return blobConfiguration.ApplyChanges();
+                }).then(function (result) {
+                    return sense.QueryCaptureManager();
+                }).then(function (capture) {
+                    return capture.QueryImageSize(pxcmConst.PXCMCapture.STREAM_TYPE_DEPTH);
+                }).then(function (result) {
+                    imageSize = result.size;
+                    return sense.StreamFrames();
+                }).then(function (result) {
+                    status('Streaming ' + imageSize.width + 'x' + imageSize.height);
+                    document.getElementById("Stop").disabled = false;
+                }).catch(function (error) {
+                    status('Init failed: ' + JSON.stringify(error));
+                    document.getElementById("Start").disabled = false;
+                });
+            });
+
+            function clear() {
+                $('#blobs_status').text('');
+                document.getElementById("Start").disabled = false;
+                var canvas = document.getElementById('myCanvas');
+                var context = canvas.getContext('2d');
+                context.clearRect(0, 0, canvas.width, canvas.height);
+            }
+
+            $('#Stop').click(function () {
+                document.getElementById("Stop").disabled = true;
+                sense.Close().then(function (result) {               
+                    status('Stopped');
+                    clear();
+                });
+            });
+
+            function onBlobData(mid, module, data) {
+                var numBlobs = 0;
+                var numContours = 0;
+                var numContourPoints = 0; 
+                var canvas = document.getElementById('myCanvas');
+                var context = canvas.getContext('2d');
+
+                canvas.width = imageSize.width;
+                canvas.height = imageSize.height;
+
+                blobData.Update().then(function (result) {
+                    return blobData.QueryNumberOfBlobs();
+                }).then(function (result) {
+                    numBlobs = result;
+                    for (idx = 0; idx < numBlobs; idx++) {
+                        var blob;
+                        blobData.QueryBlobByAccessOrder(idx, pxcmConst.PXCMBlobData.ACCESS_ORDER_RIGHT_TO_LEFT).then(function (result) {
+                            blob = result;
+                            if (blob != null)
+                                return blob.QueryNumberOfContours();
+                            else return 0;
+                        }).then(function (result) {
+                            numContours = (numContours + result);
+                            $('#blobs_frame_summary').text('Number of blobs: ' + numBlobs + '; Number of contours: ' + numContours);
+                            if (result > 0) {
+                                return blob.QueryContourSize(0).then(function (csize) {
+                                    numContourPoints = csize;
+                                    if (csize > 0)
+                                        return blob.QueryContourPoints(0, csize);
+                                    else return null;
+                                }).then(function (cpoints) {
+                                    if (cpoints != null) {
+                                        for (var i = 0; i < numContourPoints; i++) {
+                                            if (cpoints != null) {
+                                                context.beginPath();
+                                                context.arc(cpoints[i].x, cpoints[i].y, 2, 0, 2 * Math.PI);
+                                                context.lineWidth = 2;
+                                                context.strokeStyle = 'blue';
+                                                context.stroke();
+                                            }
+                                        }
+                                    }
+                                }); 
+                            }
+                            
+                        }).catch(function (error) {
+                            status('Failed to query blob data: ' + JSON.stringify(error));
+                        });
+                    }
+                    $('#blobs_frame_summary').text('Number of blobs: ' + numBlobs + '; Number of contours: ' + numContours);
+                }).catch(function (error) {
+                    status('BlobData Update Failed: ' + JSON.stringify(error));
+                });
+                // $('#blobs_frame_summary').text('Number of blobs: ' + numBlobs + '; Number of contours: ' + numContours);
+            }
+
+            function onConnect(data) {
+                if (data.connected == false) {
+                    $('#blobs_status').append('OnConnect Message: ' + JSON.stringify(data) + '<br>');
+                }
+            }
+
+            function onStatus(data) {
+                if (data.sts < 0) {
+                    status('Error ' + data.sts);
+                    clear();
+                }
+            }
+
+            function status(msg) {
+                $('#status').text(msg);
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="container">
+
+            <h1>Intel(R) RealSense(TM) SDK Blob Viewer Web Sample</h1>
+            <div id="info"></div>
+            <br>
+            <br>
+            <button id="Start">Start</button>
+            <button id="Stop" disabled="disabled">Stop</button>
+            <br>
+            <br>
+
+            <canvas id="myCanvas" style="border:1px solid #000000;"></canvas>
+
+            <br>
+            <br>
+            Frame Summary:<div id="blobs_frame_summary"></div>
+            <br>
+            Status:<div id="status"></div>
+        </div>
+    </div>
+</body>
+</html>

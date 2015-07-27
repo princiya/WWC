@@ -1,0 +1,162 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Extracting the Blob Data</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_extracting_blob_data.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Extracting the Blob Data</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_configuring_the_blob_module.html">Previous</a>&nbsp;
+     <a href="manuals_understanding_the_blob_data.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">You can extract blob data from any depth image produced by your application’s sensor. A depth image is a 16-bit gray-scale image in which a point’s color value indicates its distance from the sensor.</span></p>
+<p class="p_Body"><span class="f_Body">The blobs and contour lines are extracted from the images that are currently “seen” by the sensor. To get the current data, call the </span><span class="f_CodeExample"><a href="createoutput_pxcblobmodule.html" class="topiclink">CreateOutput</a></span><span class="f_Body"> function. You can then iterate over the identified blobs and examine their data (see <a href="manuals_understanding_the_blob_data.html" class="topiclink">Understanding the Blob Data</a>), using the </span><span class="f_CodeExample"><a href="queryblobbyaccessorder_pxcblobdata.html" class="topiclink">QueryBlobByAccessOrder</a></span><span class="f_Body"> function. You can specify the access order (see </span><span class="f_CodeExample"><a href="accessordertype_pxcblobdata.html" class="topiclink">AccessOrderType</a></span><span class="f_Body">) to access the set of extracted blobs in the right-to-left order, from the nearest to the farthest blob, or from the largest to the smallest blob.</span></p>
+<p class="p_Body"><span class="f_Body">The following code sample demonstrates how to iterate over blobs:</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A1')">C++ Example 57: Access the Blob Data</a></span></p>
+<div id="TOGGLE0186A1" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Create an output.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCBlobData * blobData = blobModule-&gt;CreateOutput();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Streaming</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">while (sm-&gt;AcquireFrame(true) &gt;= PXC_STATUS_NO_ERROR) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Get extracted blobs</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;blobData-&gt;Update(); // update to the current blob data</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Iterate over blobs from right to left</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCI32 iBlobsNum = blobData-&gt;QueryNumberOfBlobs();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;for (int i = 0; i &lt; iBlobsNum; i++) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;PXCBlobData::IBlob * pBlob = NULL;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;blobData-&gt;QueryBlobByAccessOrder(i, PXCBlobData::ACCESS_ORDER_RIGHT_TO_LEFT, &amp;pBlob);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// handle extracted blob data</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;PXCI32 nContours = pBlob-&gt;QueryNumberOfContours();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;…</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Next frame</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;sm-&gt;ReleaseFrame();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean Up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">blobData-&gt;Release();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A2')">C# Example 57: Access the Blob Data</a></span></p>
+<div id="TOGGLE0186A2" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Create an output.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMBlobData blobData = blobModule.CreateOutput();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Streaming</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">while (sm.AcquireFrame(true) &gt;= pxcmStatus.PXCM_STATUS_NO_ERROR) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Get extracted blobs</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;blobData.Update(); // update to the current blob data</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Iterate over blobs from right to left</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;Int32 iBlobsNum = blobData.QueryNumberOfBlobs();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;for (int i = 0; i &lt; iBlobsNum; i++) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;PXCMBlobData.IBlob pBlob;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;blobData.QueryBlobByAccessOrder(i, PXCMBlobData.AccessOrder.ACCESS_ORDER_RIGHT_TO_LEFT, out pBlob);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// handle extracted blob data</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;Int32 nContours = pBlob.QueryNumberOfContours();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;…</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Next frame</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;sm.ReleaseFrame();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean Up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">blobData.Dispose();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A3')">Java Example 57: Access the Blob Data</a></span></p>
+<div id="TOGGLE0186A3" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Create an output.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMBlobData blobData = blobModule.CreateOutput();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Streaming</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">while (sm.AcquireFrame(true) &gt;= pxcmStatus.PXCM_STATUS_NO_ERROR) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Get extracted blobs</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;blobData.Update(); // update to the current blob data</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Iterate over blobs from right to left</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;Int32 iBlobsNum = blobData.QueryNumberOfBlobs();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;for (int i = 0; i &lt; iBlobsNum; i++) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;PXCMBlobData.IBlob pBlob=new PXCMBlobData.IBlob();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;blobData.QueryBlobByAccessOrder(i, PXCMBlobData.AccessOrder.ACCESS_ORDER_RIGHT_TO_LEFT, pBlob);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// handle extracted blob data</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;Int32 nContours = pBlob.QueryNumberOfContours();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;…</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Next frame</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;sm.ReleaseFrame();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean Up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">blobData.close();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body">Figure 22 to Figure 24 show examples of segmentation image and contour, extracted from the detected blob in the depth image:</span></p>
+<p class="p_Body" style="text-align: center;"><img src="manuals_clip0116.png" width="549" height="392" alt="" style="margin:0px auto 0px auto;width:549px;height:392px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 22: Input depth image</span></p>
+<p class="p_Body" style="text-align: center;"><img src="manuals_clip0117.png" width="638" height="475" alt="" style="margin:0px auto 0px auto;width:638px;height:475px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 23: Output segmentation image</span></p>
+<p class="p_Body" style="text-align: center;"><img src="manuals_clip0118.png" width="637" height="475" alt="" style="margin:0px auto 0px auto;width:637px;height:475px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 24: Output contour line</span></p>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+<script type="text/javascript">
+HMInitToggle('TOGGLE0186A1','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A2','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A3','hm.type','dropdown','hm.state','0');
+</script>
+</body>
+</html>

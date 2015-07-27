@@ -1,0 +1,126 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Accessing EP Features</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_accessing_ep_features.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Accessing EP Features</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_access_photo.html">Previous</a>&nbsp;
+     <a href="manuals_scene_perception.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">To use the Enhanced Photography features, create an instance of the </span><span class="f_CodeExample"><a href="pxcenhancedphotography.html" class="topiclink">PXC[M]EnhancedPhotography</a></span><span class="f_Body"> interface from </span><span class="f_CodeExample"><a href="pxcsession.html" class="topiclink">PXC[M]Session</a></span><span class="f_Body">. Then call the corresponding member functions. For example, call the </span><span class="f_CodeExample"><a href="depthrefocus_pxcenhancedphotography.html" class="topiclink">DepthRefocus</a></span><span class="f_Body"> function for refocusing a picture, or the </span><span class="f_CodeExample"><a href="measuredistance_pxcenhancedphotography.html" class="topiclink">MeasureDistance</a></span><span class="f_Body"> function for measuring distance of two points in the picture. Example 95 shows how to perform refocusing given a focus point.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A1')">C++ Example 95: Photo Refocus</a></span></p>
+<div id="TOGGLE0186A1" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// session is a PXCSession instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Create an EP instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCEnhancedPhotography *ep;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">session-&gt;CreateImpl&lt;PXCEnhancedPhotography&gt;(&amp;ep);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Refocus the image.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// photo is a PXCPhoto instance.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCPointI32 focusPoint={ 20, 20 };</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCPhoto *photo2=ep-&gt;DepthRefocus(photo, focusPoint);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Do something with the processed photo2</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">photo2-&gt;Release();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">ep-&gt;Release();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A2')">C# Example 95: Photo Refocus</a></span></p>
+<div id="TOGGLE0186A2" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// session is a PXCMSession instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Create an EP instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMEnhancedPhotography ep;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">session.CreateImpl&lt;PXCEnhancedPhotography&gt;(out ep);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Refocus the image.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// photo is a PXCMPhoto instance.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMPointI32 focusPoint=new PXCMPointI32(20, 20);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMPhoto photo2=ep.DepthRefocus(photo, focusPoint);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Do something with the processed photo2</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">photo2.Dispose();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">ep.Dispose();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A3')">Java Example 95: Photo Refocus</a></span></p>
+<div id="TOGGLE0186A3" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// session is a PXCMSession instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Create an EP instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMEnhancedPhotography ep=new PXCMEnhancedPhotography();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">session.CreateImpl(ep);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Refocus the image.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// photo is a PXCMPhoto instance.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMPointI32 focusPoint=new PXCMPointI32(20, 20);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMPhoto photo2=ep.DepthRefocus(photo, focusPoint);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Do something with the processed photo2</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">photo2.close();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">ep.close();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">&nbsp;</span></p>
+
+</td></tr></table>
+
+<script type="text/javascript">
+HMInitToggle('TOGGLE0186A1','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A2','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A3','hm.type','dropdown','hm.state','0');
+</script>
+</body>
+</html>

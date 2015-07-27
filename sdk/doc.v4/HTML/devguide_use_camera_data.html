@@ -1,0 +1,119 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Use Camera Data</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "devguide_use_camera_data.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Use Camera Data</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     
+     
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">Different cameras may vary with the data format in their stream data. The application should anticipate data format variations. Don't hard-code the data format based on a specific camera. </span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Width Alignment (Pitch)</span></p>
+<p class="p_Body"><span class="f_Body">The application should not ignore the </span><span class="f_CodeExample">pitches</span><span class="f_Body"> field of the </span><span class="f_CodeExample">ImageData</span><span class="f_Body"> structure (in the </span><span class="f_CodeExample"><a href="pxcimage.html" class="topiclink">PXC[M]Image</a></span><span class="f_Body"> interface). The </span><span class="f_CodeExample">pitches</span><span class="f_Body"> array specifies the bytes for each line of data for each data plane.The camera data usually comes in lines aligned to a 4-byte boundary. Such alignment is device specific. </span></p>
+<p class="p_Body"><span class="f_Body">Also be aware of negative pitch values as some cameras (especially web cams) present images in a bottom-up style. The pitch values are set to be negative.</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Color Data</span></p>
+<p class="p_Body"><span class="f_Body">The color data may come in any of the four color formats that the SDK supports (See the </span><span class="f_CodeExample">ColorFormat</span><span class="f_Body"> enumerator.) Some cameras support </span><span class="f_CodeExample">RGB24</span><span class="f_Body"> while others support </span><span class="f_CodeExample">RGB32</span><span class="f_Body"> or </span><span class="f_CodeExample">YUY2</span><span class="f_Body">. The SDK </span><span class="f_CodeExample"><a href="pxcimage.html" class="topiclink">PXC[M]Image</a></span><span class="f_Body"> interface performs format conversion if the output format is specified in the </span><span class="f_CodeExample"><a href="acquireaccess_pxcimage.html" class="topiclink">AcquireAccess</a></span><span class="f_Body"> function. Example 161 shows how to access color data regardless of the device data format.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A1')">C++ Example 161: Access Color Data with Color Conversion</a> </span></p>
+<div id="TOGGLE0186A1" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// image is a PXCImage instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCImage::ImageData data;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">image-&gt;AcquireAccess(PXCImage::ACCESS_READ,PXCImage::COLOR_FORMAT_RGB32,&amp;data);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">... // color data in data.planes[0] in RGB32.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">image-&gt;ReleaseAccess(&amp;data);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A2')">C# Example 161: Access Color Data with Color Conversion</a> </span></p>
+<div id="TOGGLE0186A2" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// image is a PXCMImage instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMImage.ImageData data;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">image.AcquireAccess(PXCMImage.Access.ACCESS_READ,PXCMImage.ColorFormat.COLOR_FORMAT_RGB32,out data);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">... // color data in data.planes[0] in RGB32.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">image.ReleaseAccess(ref data);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Depth Map</span></p>
+<p class="p_Body"><span class="f_Body">The SDK generalizes the depth map as a plane of pixels with each pixel a 16-bit unsigned integer. The interpretation of the values is subject to the following three device-specific parameters:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table style="width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">PROPERTY_DEPTH_UNIT</span></p>
+</td>
+<td style="vertical-align:top; padding:5px;"><p><span class="f_Body">This device property specifies the depth value unit, in micrometers. The </span><span class="f_CodeExample">DEPTH_RAW</span><span class="f_Body"> image format must use together with the </span><span class="f_CodeExample">PROPERTY_DEPTH_UNIT</span><span class="f_Body"> value to interpret the values.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">PROPERTY_DEPTH_SATURATION_VALUE</span></p>
+</td>
+<td style="vertical-align:top; padding:5px;"><p><span class="f_Body">This device property specifies the depth value if the specific depth pixel is saturated.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">PROPERTY_DEPTH_LOW_CONFI</span><span class="f_CodeExample">D</span><span class="f_CodeExample">ENCE_VALUE</span></p>
+</td>
+<td style="vertical-align:top; padding:5px;"><p><span class="f_Body">This device property specifies the depth value if the specific depth pixel is of low confidence.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_CodeExample"><span class="f_Body">It is recommended that the application always retrieve these device properties to correctly interpret the depth values, if the application does more than simple visualization of the depth data.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Infrared Map</span></p>
+<p class="p_Body"><span class="f_Body">The infrared map represents the intensity of received laser beams. The value range and interpretation are device specific. It is recommended that the application do not use any hard-coded thresholds on the infrared map pixel values. Instead, only use the statistical values (such as a histogram) to evaluate how well the laser beam works.</span></p>
+<p class="p_Body"><span class="f_Body">The infrared map of the SoftKinetic DepthSense 32X cameras can be also interpreted as depth pixel confidence scores. However, this may not be true for all cameras. It is recommended that the application do not rely on this behavior.</span></p>
+<p class="p_Body"><span class="f_Body">The infrared map is an optional plane for the camera depth stream. It is recommended that the application always check the image option or the plane pointer before accessing to its values.</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">UV Map, Vertices Stream and Projection</span></p>
+<p class="p_Body"><span class="f_Body">The UV map provides a direct mapping of depth coordinates to color coordinates for every pixel in the depth map. The vertices stream provides a direct mapping of the depth coordinates to the world coordinates for every pixel in the depth map. The </span><span class="f_CodeExample"><a href="pxcprojection.html" class="topiclink">PXC[M]Projection</a></span><span class="f_Body"> interface provides similar functionalities except that the functions work on a set of pixels, which is usually the case.</span></p>
+<p class="p_Body"><span class="f_Body">It is recommended that the application use the The </span><span class="f_CodeExample"><a href="pxcprojection.html" class="topiclink">PXC[M]Projection</a></span><span class="f_Body"> interface for any depth/color coordinates translation.</span></p>
+<p class="p_Body"><span class="f_Body">The infrared map is an optional plane for the camera depth stream. It is recommended that the application always check the image option or the plane pointer before accessing to its values.</span></p>
+<p class="p_Body"><span class="f_Body">The vertices stream may not be available on all cameras. It is recommended that the application use the </span><span class="f_CodeExample"><a href="pxcprojection.html" class="topiclink">PXC[M]Projection</a></span><span class="f_Body"> interface for the same functionality.</span></p>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+<script type="text/javascript">
+HMInitToggle('TOGGLE0186A1','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A2','hm.type','dropdown','hm.state','0');
+</script>
+</body>
+</html>

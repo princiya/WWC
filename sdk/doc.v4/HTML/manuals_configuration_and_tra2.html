@@ -1,0 +1,107 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Configuration and Tracking Data</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_configuration_and_tra2.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Configuration and Tracking Data</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_scene_perception_via_sensemanager.html">Previous</a>&nbsp;
+     <a href="manuals_programming_guide_utilities.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_InternalHeading"><span class="f_InternalHeading">Configuring Scene Perception</span></p>
+<p class="p_Body"><span class="f_Body">You can optionally configure the following aspects of the scene perception process, before the module works on the first frame of camera data: </span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Initial Camera Pose</span><span class="f_Body">: Use the </span><span class="f_CodeExample"><a href="setinitialpose_pxcsceneperception.html" class="topiclink">SetInitialPose</a></span><span class="f_Body"> function to set the initial camera pose.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Meshing Thresholds</span><span class="f_Body">: Use the </span><span class="f_CodeExample"><a href="setmeshingthresholds_pxcsceneperception.html" class="topiclink">SetMeshingThresholds</a></span><span class="f_Body"> function to configure the meshing process (for the </span><span class="f_CodeExample"><a href="domeshingupdate_pxcsceneperception.html" class="topiclink">DoMeshingUpdate</a></span><span class="f_Body"> function).</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Voxel Resolution</span><span class="f_Body">: Use the </span><span class="f_CodeExample"><a href="setvoxelresolution_pxcsceneperception.html" class="topiclink">SetVoxelResolution</a></span><span class="f_Body"> function to set the voxel resolution. Generally, use the low resolution for reconstructing large-scale scenes, and the high resolution for small-scale scenes.</span></td></tr></table></div><p class="p_InternalHeading"><span class="f_InternalHeading">Starting Scene Quality</span></p>
+<p class="p_InternalHeading"><span class="f_Body">It is important to check the quality of the scene before starting Scene Perception. Use the </span><span class="f_CodeExample"><a href="checkscenequality_pxcsceneperception.html" class="topiclink">CheckSceneQuality</a></span><span class="f_Body"> function to check the scene quality. If the function returns a value close to </span><span class="f_CodeExample">1.0</span><span class="f_Body">, the scene is good to start Scene Perception. Use the </span><span class="f_CodeExample"><a href="enablescenereconstruction_pxcsceneperception.html" class="topiclink">EnableSceneReconstruction</a></span><span class="f_Body"> function to enable scene perception, as shown in Example 98:</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A1')">C++ Example 98: Checking Scene Quality Before Starting Scene Perception</a></span></p>
+<div id="TOGGLE0186A1" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// sm is a PXCSenseManager instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// sp is a PXCScenePerception instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCCapture::Sample *sample=sm-&gt;QueryScenePerceptionSample();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">if (sample) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;if (sp-&gt;CheckSceneQuality(sample)&gt;=0.7f) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;sp-&gt;EnableSceneReconstruction(true);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A2')">C# Example 98: Checking Scene Quality Before Starting Scene Perception</a></span></p>
+<div id="TOGGLE0186A2" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// sm is a PXCMSenseManager instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// sp is a PXCMScenePerception instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMCapture.Sample sample=sm.QueryScenePerceptionSample();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">if (sample!=null) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;if (sp.CheckSceneQuality(sample)&gt;=0.7f) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;sp.EnableSceneReconstruction(true);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A3')">Java Example 98: Checking Scene Quality Before Starting Scene Perception</a></span></p>
+<div id="TOGGLE0186A3" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// sm is a PXCMSenseManager instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// sp is a PXCMScenePerception instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMCapture.Sample sample=sm.QueryScenePerceptionSample();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">if (sample!=null) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;if (sp.CheckSceneQuality(sample)&gt;=0.7f) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;sp.EnableSceneReconstruction(true);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Tracking Data</span></p>
+<p class="p_Body"><span class="f_Body">Scene Perception generates the following tracking data:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Camera Pose</span><span class="f_Body">: The camera pose parameters contains a rotation matrix and a translation vector of the camera position in the scene. Use the </span><span class="f_CodeExample"><a href="getcamerapose_pxcsceneperception.html" class="topiclink">GetCameraPose</a></span><span class="f_Body"> function to retrieve the camera pose parameters. </span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Volume Preview</span><span class="f_Body">: Use the </span><span class="f_CodeExample"><a href="queryvolumepreview_pxcsceneperception.html" class="topiclink">QueryVolumePreview</a></span><span class="f_Body"> function to retrieve the preview image. You can render the preview image to visualize the scene reconstruction process. As more camera data becomes available, the scene becomes more detailed.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Mesh Data</span><span class="f_Body">: Use the </span><span class="f_CodeExample"><a href="createpxcblockmeshingdata_pxcsceneperception.html" class="topiclink">CreatePXC[M]BlockMeshingData</a></span><span class="f_Body"> function to create a storage of the mesh data. The mesh data storage can be reused to retrieve mesh data from multiple frames. Use the </span><span class="f_CodeExample"><a href="domeshingupdate_pxcsceneperception.html" class="topiclink">DoMeshingUpdate</a></span><span class="f_Body"> function to generate the scene mesh data. This is a lengthy process thus you need to call the function in a dedicated thread. The mesh data includes vertices (including vertex color buffers), mesh faces organized into mesh blocks. See the </span><span class="f_CodeExample"><a href="pxcblockmeshingdata.html" class="topiclink">PXC[M]BlockMeshingData</a></span><span class="f_Body"> interface for member functions to access the block mesh data. To export the mesh data to an obj file, use the </span><span class="f_CodeExample"><a href="savemesh_pxcsceneperception.html" class="topiclink">SaveMesh</a></span><span class="f_Body"> function.</span></td></tr></table></div><p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+<script type="text/javascript">
+HMInitToggle('TOGGLE0186A1','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A2','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A3','hm.type','dropdown','hm.state','0');
+</script>
+</body>
+</html>

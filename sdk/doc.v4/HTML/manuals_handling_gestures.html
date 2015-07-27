@@ -1,0 +1,387 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Handling Gestures</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_handling_gestures.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Handling Gestures</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_handling_alerts.html">Previous</a>&nbsp;
+     <a href="manuals_object_tracking.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">Gestures are specific hand motions or postures. It is often convenient to have your application respond only to pre-defined gestures, rather than having to process raw position data.</span></p>
+<p class="p_Body"><span class="f_Body">Table 11 summarizes the gestures supported in the default gesture pack. Certain pairs of gestures are similar, and gesture detection can confuse them. Therefore, it’s advisable not to enable both gestures at once. Table 11 also summarizes the restrictions. In general, it is best practice to enable only those gestures that are relevant to the specific stage in your application, rather than enabling all gestures at all times. At the beginning of each stage, enable the required gestures and disable the gestures that are not required.</span></p>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+<p class="p_ImageCaption" style="text-align: left;"><span class="f_ImageCaption">Table 11: The Gesture Table</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table style="width:851px; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<th style="vertical-align:top; width:141px; padding:6px; border:solid 1px #000000;"><p class="p_TableText"><span class="f_TableText" style="font-weight: bold;">Gesture</span></p>
+</th>
+<th style="vertical-align:top; width:123px; padding:6px; border:solid 1px #000000;"><p class="p_TableText"><span class="f_TableText" style="font-weight: bold;">Illustration</span></p>
+</th>
+<th style="vertical-align:top; width:169px; padding:6px; border:solid 1px #000000;"><p class="p_TableText"><span class="f_TableText" style="font-weight: bold;">Don’t Enable with:</span></p>
+</th>
+<th style="vertical-align:top; width:353px; padding:6px; border:solid 1px #000000;"><p class="p_TableText"><span class="f_TableText" style="font-weight: bold;">Description</span></p>
+</th>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:141px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">click</span></p>
+</td>
+<td style="vertical-align:top; width:123px; padding:6px; border:solid 1px #000000;"><p class="p_Body"><img src="manuals_clip0096_zoom24.png" width="138" height="138" alt="" style="width:138px;height:138px;border:none" /></p>
+</td>
+<td style="vertical-align:top; width:169px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">two_fingers_pinch_open</span></p>
+</td>
+<td style="vertical-align:top; width:353px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Open hand facing the camera, moves the index finger quickly toward the palm center.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:141px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">fist</span></p>
+</td>
+<td style="vertical-align:top; width:123px; padding:6px; border:solid 1px #000000;"><p class="p_Body"><img src="manuals_clip0097_zoom143.png" width="138" height="124" alt="" style="width:138px;height:124px;border:none" /></p>
+</td>
+<td style="vertical-align:top; width:169px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">full_pinch</span></p>
+</td>
+<td style="vertical-align:top; width:353px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">All fingers folded into a fist. The fist can be in different orientations as long as the palm is in the general direction of the camera.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:141px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">full_pinch</span></p>
+</td>
+<td style="vertical-align:top; width:123px; padding:6px; border:solid 1px #000000;"><p class="p_Body"><img src="manuals_clip0098_zoom155.png" width="138" height="129" alt="" style="width:138px;height:129px;border:none" /></p>
+</td>
+<td style="vertical-align:top; width:169px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">fist</span></p>
+</td>
+<td style="vertical-align:top; width:353px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">All fingers extended and touching the thumb. The pinched fingers can be anywhere between pointing directly to the screen or in profile.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:141px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">spreadfingers</span></p>
+</td>
+<td style="vertical-align:top; width:123px; padding:6px; border:solid 1px #000000;"><p class="p_Body"><img src="manuals_clip0099_zoom162.png" width="138" height="156" alt="" style="width:138px;height:156px;border:none" /></p>
+</td>
+<td style="vertical-align:top; width:169px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">NA</span></p>
+</td>
+<td style="vertical-align:top; width:353px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Hand open, facing the camera.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:141px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">swipe_down</span></p>
+</td>
+<td style="vertical-align:top; width:123px; padding:6px; border:solid 1px #000000;"><p class="p_Body"><img src="manuals_clip0100_zoom24.png" width="138" height="138" alt="" style="width:138px;height:138px;border:none" /></p>
+</td>
+<td style="vertical-align:top; width:169px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">NA</span></p>
+</td>
+<td style="vertical-align:top; width:353px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Hand with palm facing the camera, moves</span><br />
+<span class="f_TableText2">down and immediately back to the starting position.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:141px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">swipe_left</span></p>
+</td>
+<td style="vertical-align:top; width:123px; padding:6px; border:solid 1px #000000;"><p class="p_Body"><img src="manuals_clip0101_zoom24.png" width="138" height="138" alt="" style="width:138px;height:138px;border:none" /></p>
+</td>
+<td style="vertical-align:top; width:169px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">wave</span></p>
+</td>
+<td style="vertical-align:top; width:353px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Hand with palm facing the camera, moves</span><br />
+<span class="f_TableText2">left and immediately back to the starting position.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:141px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">swipe_right</span></p>
+</td>
+<td style="vertical-align:top; width:123px; padding:6px; border:solid 1px #000000;"><p class="p_Body"><img src="manuals_clip0102_zoom24.png" width="138" height="138" alt="" style="width:138px;height:138px;border:none" /></p>
+</td>
+<td style="vertical-align:top; width:169px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">wave</span></p>
+</td>
+<td style="vertical-align:top; width:353px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Hand with palm facing the camera, moves</span><br />
+<span class="f_TableText2">right and immediately back to the starting position.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:141px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">swipe_up</span></p>
+</td>
+<td style="vertical-align:top; width:123px; padding:6px; border:solid 1px #000000;"><p class="p_Body"><img src="manuals_clip0103_zoom24.png" width="138" height="138" alt="" style="width:138px;height:138px;border:none" /></p>
+</td>
+<td style="vertical-align:top; width:169px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">NA</span></p>
+</td>
+<td style="vertical-align:top; width:353px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Hand with palm facing the camera, moves</span><br />
+<span class="f_TableText2">up and immediately back to the starting position.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:141px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">tap</span></p>
+</td>
+<td style="vertical-align:top; width:123px; padding:6px; border:solid 1px #000000;"><p class="p_Body"><img src="manuals_clip0104_zoom111.png" width="138" height="87" alt="" style="width:138px;height:87px;border:none" /></p>
+</td>
+<td style="vertical-align:top; width:169px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">NA</span></p>
+</td>
+<td style="vertical-align:top; width:353px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">A hand in a natural relaxed pose is moved forward as if pressing a button.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:141px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">thumb_down</span></p>
+</td>
+<td style="vertical-align:top; width:123px; padding:6px; border:solid 1px #000000;"><p class="p_Body"><img src="manuals_clip0105_zoom147.png" width="138" height="103" alt="" style="width:138px;height:103px;border:none" /></p>
+</td>
+<td style="vertical-align:top; width:169px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">NA</span></p>
+</td>
+<td style="vertical-align:top; width:353px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Hand closed with thumb pointing down.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:141px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">thumb_up</span></p>
+</td>
+<td style="vertical-align:top; width:123px; padding:6px; border:solid 1px #000000;"><p class="p_Body"><img src="manuals_clip0106_zoom179.png" width="138" height="138" alt="" style="width:138px;height:138px;border:none" /></p>
+</td>
+<td style="vertical-align:top; width:169px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">NA</span></p>
+</td>
+<td style="vertical-align:top; width:353px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Hand closed with thumb pointing up.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:141px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">two_fingers_pinch_open</span></p>
+</td>
+<td style="vertical-align:top; width:123px; padding:6px; border:solid 1px #000000;"><p class="p_Body"><img src="manuals_clip0107_zoom126.png" width="138" height="132" alt="" style="width:138px;height:132px;border:none" /></p>
+</td>
+<td style="vertical-align:top; width:169px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">click</span></p>
+</td>
+<td style="vertical-align:top; width:353px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Hand open with thumb and index finger touching each other.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:141px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">v_sign</span></p>
+</td>
+<td style="vertical-align:top; width:123px; padding:6px; border:solid 1px #000000;"><p class="p_Body"><img src="manuals_clip0108_zoom206.png" width="138" height="167" alt="" style="width:138px;height:167px;border:none" /></p>
+</td>
+<td style="vertical-align:top; width:169px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">NA</span></p>
+</td>
+<td style="vertical-align:top; width:353px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Hand closed with index finger and middle finger pointing up.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:141px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">wave</span></p>
+</td>
+<td style="vertical-align:top; width:123px; padding:6px; border:solid 1px #000000;"><p class="p_Body"><img src="manuals_clip0109_zoom117.png" width="138" height="99" alt="" style="width:138px;height:99px;border:none" /></p>
+</td>
+<td style="vertical-align:top; width:169px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">swipe_left</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">swipe_right</span></p>
+</td>
+<td style="vertical-align:top; width:353px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">An open hand facing the screen. The wave can include any number of repetitions.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body">You can either poll for gestures in your main processing loop, or register gesture handlers whose callback functions are called when gestures are fired.</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Polling for Gestures within the Main Processing Loop</span></p>
+<p class="p_InternalHeading"><span class="f_Body">There are different ways to query for fired gestures within the main processing loop:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Call </span><span class="f_CodeExample"><a href="isgesturefired_pxchanddata.html" class="topiclink">IsGestureFired</a></span><span class="f_Body"> for a specific gesture.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Call </span><span class="f_CodeExample"><a href="isgesturefiredbyhand_pxchanddata.html" class="topiclink">IsGestureFiredByHand</a></span><span class="f_Body"> for a specific gesture and a specific hand.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Call </span><span class="f_CodeExample"><a href="queryfiredgesturesnumber_pxchanddata.html" class="topiclink">QueryFiredGesturesNumber</a></span><span class="f_Body">, and then iterate over the fired gestures by calling </span><span class="f_CodeExample"><a href="queryfiredgesturedata_pxchanddata.html" class="topiclink">QueryFiredGestureData</a></span><span class="f_Body"> with indexes from </span><span class="f_CodeExample">0</span><span class="f_Body"> to </span><span class="f_CodeExample"><a href="queryfiredgesturesnumber_pxchanddata.html" class="topiclink">QueryFiredGesturesNumber</a>()–1</span><span class="f_Body">.</span></td></tr></table></div><p class="p_Body"><span class="f_Body">Example 68 illustrates how to poll for specific gestures within the main processing loop.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A1')">C++ Example 68: Poll for Specific Gestures</a></span></p>
+<div id="TOGGLE0186A1" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// handData is the PXCHandData instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// poll for gestures</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCHandData::GestureData data;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">if (handData-&gt;IsGestureFired(L“tap”, &amp;data)) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// handle tap gesture</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">if (handData-&gt;IsGestureFired(L“wave”, &amp;data)) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// handle wave gesture</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A2')">C# Example 68: Poll for Specific Gestures</a></span></p>
+<div id="TOGGLE0186A2" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// handData is the PXCMHandData instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// poll for gestures</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMHandData.GestureData data;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">if (handData.IsGestureFired(“tap”, out data)) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// handle tap gesture</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">if (handData.IsGestureFired(“wave”, out data)) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// handle wave gesture</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A3')">Java Example 68: Poll for Specific Gestures</a></span></p>
+<div id="TOGGLE0186A3" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// handData is the PXCMHandData instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// poll for gestures</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMHandData.GestureData data=new PXCMHandData.GestureData();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">if (handData.IsGestureFired(“tap”, data)) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// handle tap gesture</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">if (handData.IsGestureFired(“wave”, data)) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// handle wave gesture</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Creating and Registering a Gesture Handler</span></p>
+<p class="p_Body"><span class="f_Body">Example 69 illustrates how to create and register a gesture handler.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A4')">C++ Example 69: Subscribe to Gestures</a></span></p>
+<div id="TOGGLE0186A4" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">class MyHandler:public PXCHandConfiguration::GestureHandler {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">public:</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;virtual void PXCAPI OnFiredGesture(const PXCHandData::GestureData &amp;data) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// handle gestures</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;if (!wcscmp(data.name, L“tap”) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// handle the tap gesture</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;} else if (!wcscmp(data.name, L“wave”) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// handle the wave gesture</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">};</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// handModule is a PXCHandModule instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Subscribe to the gesture notification event</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCHandConfiguration *handConfig=handModule-&gt;CreateActiveConfiguration();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">MyHandler handler;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handConfig-&gt;SubscribeGesture(&amp;handler);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handConfig-&gt;ApplyChanges();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// streaming &amp; receiving gestures</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handConfig-&gt;UnsubscribeGesture(&amp;handler);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handConfig-&gt;Release();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A5')">C# Example 69: Subscribe to Gestures</a></span></p>
+<div id="TOGGLE0186A5" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">void OnFiredGesture(PXCMHandData.GestureData data) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// handle gestures</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;if (data.name.CompareTo(“tap”)==0) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// handle the tap gesture</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;} else if (data.name.CompareTo(“wave”)==0) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// handle the wave gesture</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// handModule is a PXCMHandModule instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Subscribe to the gesture notification event</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMHandConfiguration handConfig=handModule.CreateActiveConfiguration();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handConfig.SubscribeGesture(OnFiredGesture);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handConfig.ApplyChanges();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// streaming &amp; receiving gestures</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handConfig.UnsubscribeGesture(OnFiredGesture);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handConfig.Dispose();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A6')">Java Example 69: Subscribe to Gestures</a></span></p>
+<div id="TOGGLE0186A6" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">class MyHandler implements PXCMHandConfiguration.GestureHandler {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">public:</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;void OnFiredGesture(PXCMHandData.GestureData data) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// handle gestures</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;if (data.name.compareTo(“tap”)==0) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// handle the tap gesture</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;…</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;} else if (data.name.compareTo(“wave”)==0) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// handle the wave gesture</span></p>
+<p class="p_CodeExample"><span style="width:60px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample">…</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">};</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// handModule is a PXCMHandModule instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Subscribe to the gesture notification event</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMHandConfiguration handConfig=handModule.CreateActiveConfiguration();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">MyHandler handler=new MyHandler();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handConfig.SubscribeGesture(handler);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handConfig.ApplyChanges();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// streaming &amp; receiving gestures</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handConfig.UnsubscribeGesture(handler);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handConfig.close();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+<script type="text/javascript">
+HMInitToggle('TOGGLE0186A1','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A2','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A3','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A4','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A5','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A6','hm.type','dropdown','hm.state','0');
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Handling Controls with Automatic Injection and Event Handler</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_handling_controls_with_automat.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Handling Controls with Automatic Injection and Event Handler</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_enabling_events.html">Previous</a>&nbsp;
+     <a href="manuals_integrating_with_the_module.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">When one of the UI control events occurs, your application must respond accordingly. For instance, if the user triggered a scrolling operation, your application must scroll its display.</span></p>
+<p class="p_Body"><span class="f_Body">Most of the UI control events (all except for <a href="manuals_ui_controls.html#cursornavigation" class="topiclink">Cursor Navigation</a>) can be handled in one of two ways:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Injection</span><span class="f_Body"> – the module automatically “translates” the controls into standard system touch events (for <a href="manuals_ui_controls.html#select" class="topiclink">Select</a>, <a href="manuals_ui_controls.html#scroll" class="topiclink">Scroll</a> and <a href="manuals_ui_controls.html#zoom" class="topiclink">Zoom</a>) or keyboard events (for <a href="manuals_ui_controls.html#back" class="topiclink">Back</a> and <a href="manuals_ui_controls.html#gotostartscreen" class="topiclink">Go to Start Screen</a>). This means that you do not have to contain special code to handle these events, but rather responds to standard system events. To work in this mode, set the </span><span class="f_CodeExample">Configuration_Enable_Injection</span><span class="f_Body"> flag in the configuration profile (see <a href="manuals_configuring_the_touchless_cont.html" class="topiclink">Configuring the Touchless Controller Module</a> for more details).</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Event handler</span><span class="f_Body"> – You implement and register an event handler object. When an enabled event fires, the event handler’s callback function is called. The callback function must handle all fired events. See Code Examples for an example of how to implement and register an event handler.</span></td></tr></table></div><p class="p_Body"><img src="note.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">If you need to handle <a href="manuals_ui_controls.html#cursornavigation" class="topiclink">Cursor Navigation</a> events, you must implement an event handler for these events.</span></p>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

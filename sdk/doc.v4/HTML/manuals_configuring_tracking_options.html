@@ -1,0 +1,137 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Configuring Tracking Options</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_configuring_tracking_options.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Configuring Tracking Options</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_initializing_and_configuring_t.html">Previous</a>&nbsp;
+     <a href="manuals_tracking_boundaries.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">You can configure the hand module to produce different types of tracking data; for instance hand segmentation images, joint tracking data, etc. In addition, you can activate several features that modify the raw tracking data to produce enhanced data. The enhanced data is easier for your application to process and improves the user experience.</span></p>
+<p class="p_Body"><span class="f_Body">The following table summarizes the hand module tracking configuration options:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table style="width:856px; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<th style="vertical-align:top; width:238px; padding:6px; border:solid 1px #000000;"><p class="p_Body"><span class="f_Body" style="font-weight: bold;">Function</span></p>
+</th>
+<th style="vertical-align:top; width:285px; padding:6px; border:solid 1px #000000;"><p class="p_Body"><span class="f_Body" style="font-weight: bold;">Description</span></p>
+</th>
+<th style="vertical-align:top; width:292px; padding:6px; border:solid 1px #000000;"><p class="p_Body"><span class="f_Body" style="font-weight: bold;">Recommended Configuration</span></p>
+</th>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:238px; height:95px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="settrackingmode_pxcfaceconfiguration.html" class="topiclink">SetTrackingMode </a></span></p>
+</td>
+<td style="vertical-align:top; width:285px; height:95px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Set the tracking mode. (See <a href="manuals_tracking_modes.html" class="topiclink">Tracking Modes</a>.)</span></p>
+</td>
+<td style="vertical-align:top; width:292px; height:95px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Unless the joint information is needed, set to the extremities mode to conserve CPU and memory resources.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:238px; height:113px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="enabletrackedjoints_pxchandconfiguration.html" class="topiclink">EnableTrackedJoints </a></span></p>
+</td>
+<td style="vertical-align:top; width:285px; height:113px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Enable the retrieval of tracked joints information. (See <a href="manuals_tracking_joints.html" class="topiclink">Tracking Joints</a>.)</span></p>
+<p class="p_TableText2"><span style="width:60px">&nbsp;</span><span class="f_TableText2"> </span></p>
+</td>
+<td style="vertical-align:top; width:292px; height:113px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Enable joint tracking if your application uses specific joint positions; otherwise disable in order to conserve memory resources.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:238px; height:96px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="enablenormalizedjoints_pxchandconfiguration.html" class="topiclink">EnableNormalizedJoints</a> </span></p>
+</td>
+<td style="vertical-align:top; width:285px; height:96px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Enable the calculation of a normalized skeleton. (See <a href="manuals_skeleton_normalization.html" class="topiclink">Skeleton Normalization</a>.)</span></p>
+</td>
+<td style="vertical-align:top; width:292px; height:96px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">False. Enable the feature when your application requires a standard size hand, and not the precise locations of the specific hand joints.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:238px; height:119px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="enablesegmentationimage_pxcblobconfiguration.html" class="topiclink">EnableSegmentationImage</a> </span></p>
+</td>
+<td style="vertical-align:top; width:285px; height:119px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Enable calculation of the hand segmentation image. (See <a href="manuals_segmentation_images.html" class="topiclink">Segmentation Images</a>.)</span></p>
+</td>
+<td style="vertical-align:top; width:292px; height:119px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Set to false unless you need the segmentation image, e.g. for display purposes. Disabling the feature conserves memory (but not CPU, as segmentation is calculated in any case).</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:238px; height:119px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="enablejointspeed_pxchandconfiguration.html" class="topiclink">EnableJointSpeed </a></span></p>
+</td>
+<td style="vertical-align:top; width:285px; height:119px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Activate calculation of the speed (in world coordinates and meters/second) of a specific joint. (See <a href="manuals_tracking_joints.html" class="topiclink">Tracking Joints</a>.)</span></p>
+</td>
+<td style="vertical-align:top; width:292px; height:119px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">By default, joint speed calculation is disabled for all joints, in order to conserve CPU and memory resources. Leave it disabled unless it’s important for your application to be aware of hand speed.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:238px; height:119px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="enablestabilizer_pxchandconfiguration.html" class="topiclink">EnableStabilizer</a></span></p>
+</td>
+<td style="vertical-align:top; width:285px; height:119px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Enable the stabilizer feature. (See <a href="manuals_stabilization.html" class="topiclink">Stabilization</a>.)</span></p>
+</td>
+<td style="vertical-align:top; width:292px; height:119px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Set to “true” (stabilizer enabled).</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:238px; height:119px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="setsmoothingvalue_pxchandconfiguration.html" class="topiclink">SetSmoothingValue</a></span></p>
+</td>
+<td style="vertical-align:top; width:285px; height:119px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Sets the degree of hand motion smoothing (a number between 0 and 1). (See <a href="manuals_smoothing.html" class="topiclink">Smoothing</a>.)</span></p>
+</td>
+<td style="vertical-align:top; width:292px; height:119px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">The recommended smoothing value is 1.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:238px; height:119px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="setusername_pxchandconfiguration.html" class="topiclink">SetUserName</a></span></p>
+</td>
+<td style="vertical-align:top; width:285px; height:119px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Specify a name string for your application’s current user. (See <a href="manuals_skeleton_calibration.html" class="topiclink">Skeleton Calibration</a>.)</span></p>
+</td>
+<td style="vertical-align:top; width:292px; height:119px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">N/A</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:238px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="settrackingbounds_pxchandconfiguration.html" class="topiclink">SetTrackingBounds</a></span></p>
+</td>
+<td style="vertical-align:top; width:285px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Set the boundaries of the tracking area. (See <a href="manuals_tracking_boundaries.html" class="topiclink">Tracking Boundaries</a>.)</span></p>
+</td>
+<td style="vertical-align:top; width:292px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">The Hand Module’s default values. You may choose to set the tracking boundaries to be slightly smaller than the actual sensor’s field of view, in order to receive earlier alerts for out-of-boundaries events.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_ImageCaption"><span class="f_ImageCaption">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Main Concepts</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "toolkit_main_concepts_and_usage.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Main Concepts</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="toolkit_unity_toolkit.html">Previous</a>&nbsp;
+     <a href="toolkit_actions.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">The SDK Unity Toolkit consists of the following main components:</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Actions</span></p>
+<p class="p_Body"><span class="f_CodeExample">Actions</span><span class="f_Body"> are </span><span class="f_CodeExample">MonoBehavior</span><span class="f_Body"> scripts. Each action defines a certain behavior on a game object. For example, the </span><span class="f_CodeExample">Hide</span><span class="f_Body"> action disables the </span><span class="f_CodeExample">Mesh Renderer</span><span class="f_Body">.</span></p>
+<p class="p_Body" style="text-align: center;"><img src="toolkit_clip0001.png" width="411" height="117" alt="" style="margin:0px auto 0px auto;width:411px;height:117px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 81: The Hide Action</span></p>
+<p class="p_Body"><span class="f_Body">In Figure 81, the </span><span class="f_CodeExample">Event Source</span><span class="f_Body"> is the trigger associated with the </span><span class="f_CodeExample">Hide</span><span class="f_Body"> action. Each action has a set of triggers. The action is executed whenever one of its triggers is fired.</span></p>
+<p class="p_Body"><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">See <a href="toolkit_actions.html" class="topiclink">Actions</a> for the detailed description of available actions ready to be used in the toolkit.</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Triggers and Rules</span></p>
+<p class="p_Body"><span class="f_Body">A </span><span class="f_CodeExample">Trigger</span><span class="f_Body"> defines a family of interactions that can be implemented in several ways. For example, the </span><span class="f_CodeExample">Tracking Trigger</span><span class="f_Body"> defines all interactions that track a certain object in the real world such as a hand or a face. Each interaction is implemented as a </span><span class="f_CodeExample">Rule.</span><span class="f_Body"> Thus each trigger has its own set of rules.</span></p>
+<p class="p_Body"><span class="f_Body">A trigger also contains a set of properties that can be accessed by the action. These properties are information that relates to the interaction. For instance, the </span><span class="f_CodeExample">Tracking Trigger</span><span class="f_Body"> contains the position of the tracked object and its orientation. The action can access these properties and move the game object as needed.</span></p>
+<p class="p_Body"><span class="f_CodeExample">Event Source</span><span class="f_Body"> is the trigger for general events from the SDK. In Figure 82, the game object has one rule attached, &nbsp;which is the </span><span class="f_CodeExample">Gesture Detected</span><span class="f_Body"> rule.</span></p>
+<p class="p_Body" style="text-align: center;"><img src="toolkit_clip0002.png" width="411" height="117" alt="" style="margin:0px auto 0px auto;width:411px;height:117px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 82: The Hide Action With Gesture Detected Attached</span></p>
+<p class="p_Body"><span class="f_Body">A rule implements a defined interaction. For example, the </span><span class="f_CodeExample">Hand Detected</span><span class="f_Body"> rule uses the hand tracking module in the SDK to fire an event whenever a hand is detected. This specific rule belongs to the </span><span class="f_CodeExample">Event Trigger,</span><span class="f_Body"> which indicates that an event has occurred.</span></p>
+<p class="p_Body"><span class="f_Body">In Figure 83, </span><span class="f_CodeExample">Gesture Detected</span><span class="f_Body"> is a rule for the gesture detected event. You can choose which gesture to monitor as well as which hand in the rule's parameters.</span></p>
+<p class="p_Body" style="text-align: center;"><img src="toolkit_clip0003.png" width="650" height="221" alt="" style="margin:0px auto 0px auto;width:650px;height:221px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 83: The Hide Action With Gesture Detected Parameters</span></p>
+<p class="p_Body"><span class="f_Body">This design (see Figure 84) provides flexibilities in the Unity game development. The triggers act as a buffer between the Unity game object manipulations (</span><span class="f_CodeExample">Actions</span><span class="f_Body">) and the SDK implementation (</span><span class="f_CodeExample">Rules</span><span class="f_Body">). You can build many actions without the need to write code if the actions can be based on available triggers and rules provided in the toolkit.</span></p>
+<p class="p_Body" style="text-align: center;"><img src="toolkit_clip0004.png" width="192" height="315" alt="" style="margin:0px auto 0px auto;width:192px;height:315px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 84: Unity Toolkit Components</span></p>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

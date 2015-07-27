@@ -1,0 +1,269 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>ImplDesc</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="ImplDesc" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "impldesc_pxcsession.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">ImplDesc</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_structures6.html">Previous</a>&nbsp;
+     <a href="implversion_pxcsession.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_InternalHeading"><span class="f_InternalHeading">Namespace Hierarchy</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table style="width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:90px; padding:5px;"><p class="p_TableText"><span class="f_TableText">C++</span></p>
+</td>
+<td style="vertical-align:top; width:710px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="pxcsession.html" class="topiclink">PXCSession</a>::ImplDesc</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:90px; padding:5px;"><p class="p_TableText"><span class="f_TableText">C#</span></p>
+</td>
+<td style="vertical-align:top; width:710px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="pxcsession.html" class="topiclink">PXCMSession</a>.ImplDesc</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:90px; padding:5px;"><p class="p_TableText"><span class="f_TableText">Java</span></p>
+</td>
+<td style="vertical-align:top; width:710px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="pxcsession.html" class="topiclink">PXCMSession</a>.ImplDesc</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Definition</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 14px 0px;"><table style="width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:90px; padding:5px;"><p>C++</p>
+</td>
+<td style="vertical-align:top; width:710px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">struct ImplDesc {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp;  <a href="implgroup_pxcsession.html" class="topiclink">ImplGroup</a> &nbsp; &nbsp;group;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp;  <a href="implsubgroup_pxcsession.html" class="topiclink">ImplSubgroup</a> subgroup;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pxcUID &nbsp; &nbsp; &nbsp; algorithm;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pxcUID &nbsp; &nbsp; &nbsp; iuid;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp;  <a href="implversion_pxcsession.html" class="topiclink">ImplVersion</a> &nbsp;version;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pxcI32 &nbsp; &nbsp; &nbsp; merit;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pxcI32 &nbsp; &nbsp; &nbsp; vendor;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pxcUID &nbsp; &nbsp; &nbsp; cuids[4];</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pxcCHAR &nbsp; &nbsp; &nbsp;friendlyName[256];</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">};</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:90px; padding:5px;"><p>C#</p>
+</td>
+<td style="vertical-align:top; width:710px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">class ImplDesc {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp;  <a href="implgroup_pxcsession.html" class="topiclink">ImplGroup</a> &nbsp; &nbsp;group;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp;  <a href="implsubgroup_pxcsession.html" class="topiclink">ImplSubgroup</a> subgroup;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;Int32 &nbsp; &nbsp; &nbsp; &nbsp;algorithm;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;Int32 &nbsp; &nbsp; &nbsp; &nbsp;iuid;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp;  <a href="implversion_pxcsession.html" class="topiclink">ImplVersion</a> &nbsp;version;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;Int32 &nbsp; &nbsp; &nbsp; &nbsp;merit;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;Int32 &nbsp; &nbsp; &nbsp; &nbsp;vendor;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;Int32[] &nbsp; &nbsp; &nbsp;cuids;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;String &nbsp; &nbsp; &nbsp; friendlyName;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">};</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:90px; padding:5px;"><p>Java</p>
+</td>
+<td style="vertical-align:top; width:710px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">class ImplDesc {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;EnumSet&lt;<a href="implgroup_pxcsession.html" class="topiclink">ImplGroup</a>&gt; &nbsp; &nbsp;group;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;EnumSet&lt;<a href="implsubgroup_pxcsession.html" class="topiclink">ImplSubgroup</a>&gt; subgroup;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;int &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; algorithm;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;int &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; iuid;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp;  <a href="implversion_pxcsession.html" class="topiclink">ImplVersion</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; version;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;int &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; merit;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;int &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; vendor;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;int[] &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; cuids;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;string &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;friendlyName;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">};</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Description</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table style="width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><br />
+</td>
+<td style="vertical-align:top; width:842px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The </span><span class="f_CodeExample">ImplDesc</span><span class="f_TableText"> structure describes a module implementation. The application can use this structure as a template to search for modules. In this case, zero in a structure field will match any values. A bit-pattern in a bit-OR’ed field will match any bit patterns that are a superset.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Members</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table style="width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:196px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">group</span></p>
+</td>
+<td style="vertical-align:top; width:529px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The module group; see the </span><span class="f_CodeExample"><a href="implgroup_pxcsession.html" class="topiclink">ImplGroup</a></span><span class="f_TableText"> enumerator for details.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:196px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">subgroup</span></p>
+</td>
+<td style="vertical-align:top; width:529px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The module subgroup; see the </span><span class="f_CodeExample"><a href="implsubgroup_pxcsession.html" class="topiclink">ImplSubgroup</a></span><span class="f_TableText"> enumerator for details.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:196px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">algorithm</span></p>
+</td>
+<td style="vertical-align:top; width:529px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The algorithm identifier in the module implementation; see the module interface for the algorithm enumerations.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:196px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">iuid</span></p>
+</td>
+<td style="vertical-align:top; width:529px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The module implementation identifier. </span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:196px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">version</span></p>
+</td>
+<td style="vertical-align:top; width:529px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The module implementation version; see the </span><span class="f_CodeExample"><a href="implversion_pxcsession.html" class="topiclink">ImplVersion</a></span><span class="f_TableText"> structure for details.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:196px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">merit</span></p>
+</td>
+<td style="vertical-align:top; width:529px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The preference value. Modules with a higher merit value take precedence in the module inquiry (</span><span class="f_CodeExample"><a href="queryimpl_pxcsession.html" class="topiclink">QueryImpl</a></span><span class="f_TableText">) and creation (</span><span class="f_CodeExample"><a href="createimpl_pxcsession.html" class="topiclink">CreateImpl</a></span><span class="f_TableText">). </span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:196px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">vendor</span></p>
+</td>
+<td style="vertical-align:top; width:529px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The vendor identifier. The Intel vendor identifier is 0x8086. Other vendors that implement the modules may define their own identifiers.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:196px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">cuids</span></p>
+</td>
+<td style="vertical-align:top; width:529px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The first four exposed interface identifiers.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:196px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">friendlyName</span></p>
+</td>
+<td style="vertical-align:top; width:529px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The &nbsp;user-friendly module name string.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Remarks</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table style="width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><br />
+</td>
+<td style="vertical-align:top; width:842px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The </span><span class="f_CodeExample">group</span><span class="f_TableText"> and </span><span class="f_CodeExample">subgroup</span><span class="f_TableText"> values uniquely identify an SDK interface. The </span><span class="f_CodeExample">iuid</span><span class="f_TableText"> value uniquely identifies a module implementation that implements a particular SDK interface. Thus within an SDK session, the following combinations uniquely identify a module implementation:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 14px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:18px"><span style="font-size:10pt; font-family: 'Courier New';color:#000000;">(1)</span></td><td style="border:none"><span class="f_CodeExample">group</span><span class="f_TableText">, </span><span class="f_CodeExample">subgroup</span><span class="f_TableText">, and </span><span class="f_CodeExample">iuid</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 14px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:18px"><span style="font-size:10pt; font-family: 'Courier New';color:#000000;">(2)</span></td><td style="border:none"><span class="f_CodeExample">cuid</span><span class="f_TableText"> and </span><span class="f_CodeExample">iuid</span></td></tr></table></div><p class="p_TableText"><span class="f_TableText">Here </span><span class="f_CodeExample">cuid</span><span class="f_TableText"> refers to the identifier of the primary interface implemented by the module.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Example</span></p>
+<p class="p_Body"><span class="f_Body">Example 142 shows how to enumerate all module information.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A1')">C++ Example 142: Enumerate All Modules</a></span></p>
+<div id="TOGGLE0186A1" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// session is a PXCSession instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">for (int i=0;;i++) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCSession::ImplDesc desc;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;if (session-&gt;QueryImpl(0,i,&amp;desc)&lt;PXC_STATUS_NO_ERROR) break;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;wprintf_s(L&quot;module[%d]: name=%s\n&quot;, i, desc.friendlyName);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A2')">C# Example 142: Enumerate All Modules</a></span></p>
+<div id="TOGGLE0186A2" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// session is a PXCMSession instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">for (int i=0;;i++) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCMSession.ImplDesc desc;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;if (session.QueryImpl(i,out desc)&lt;pxcmStatus.PXCM_STATUS_NO_ERROR) break;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;Console.WriteLn(&quot;module{0}: name={1}&quot;, i, desc.friendlyName);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A3')">Java Example 141: Enumerate All Modules</a></span></p>
+<div id="TOGGLE0186A3" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// session is a PXCMSession instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">for (i=0;;i++) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCMSession.ImplDesc desc=new PXCMSession.ImplDesc();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;if (session.getValue().QueryImpl(i,desc)&lt;pxcmStatus.PXCM_STATUS_NO_ERROR) break;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;System.out.printf(&quot;module%d: name=%s&quot;, i, desc.friendlyName);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">&nbsp;</span></p>
+
+</td></tr></table>
+
+<script type="text/javascript">
+HMInitToggle('TOGGLE0186A1','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A2','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A3','hm.type','dropdown','hm.state','0');
+</script>
+</body>
+</html>

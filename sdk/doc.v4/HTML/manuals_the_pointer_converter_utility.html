@@ -1,0 +1,526 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>The Pointer Converter Utility</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_the_pointer_converter_utility.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">The Pointer Converter Utility</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_the_rotation_utility.html">Previous</a>&nbsp;
+     <a href="manuals_browser_support.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">The </span><span class="f_CodeExample"><a href="pxcpointconverter.html" class="topiclink">PXC[M]PointConverter</a></span><span class="f_Body"> utility converts a point in 2D or 3D space to a point with the same number of dimensions but different value ranges. For example, you might want to convert a 2D point derived from a sensor image, whose width and height are </span><span class="f_CodeExample">(640, 480)</span><span class="f_Body">, to a point on your screen, whose resolution is </span><span class="f_CodeExample">(1280, 960)</span><span class="f_Body">. Another example is to convert the 3D world position of a fingertip, into the coordinate system of a 3D game engine. In effect, this allows you to move, stretch or shrink a coordinate system so that it corresponds to another coordinate system.</span></p>
+<p class="p_Body"><span class="f_Body">Use the following two interfaces for point conversion:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_CodeExample"><a href="pxcpointconverterfactory.html" class="topiclink">PXC[M]PointConverterFactory</a></span><span class="f_Body">: used to create the specific point converter instance</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_CodeExample"><a href="pxcpointconverter.html" class="topiclink">PXC[M]PointConverter</a></span><span class="f_Body">: represent a single converter instance and is used to setup and perform the conversion per frame.</span></td></tr></table></div><p class="p_Body"><span class="f_Body">You can create a point converter for specifically for the hand module's extremity points, the hand module's joint positions, the blob module's extremity points, or a generic point converter. The first three are tailored to the relative modules’ data and performs the conversion automatically once the tracking data is available. The last one is a general utility, which can be used for any input data points.</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Setting-Up a Point Converter</span></p>
+<p class="p_Body"><span class="f_Body">There are 3 steps for setting up a point converter instance:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:20px"><span style="font-size:11pt; font-family: 'Intel Clear';color:#000000;">1.</span></td><td style="border:none"><span class="f_Body">Create the </span><span class="f_CodeExample"><a href="pxcpointconverterfactory.html" class="topiclink">PXC[M]PointConverterFactory</a></span><span class="f_Body"> instance</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:20px"><span style="font-size:11pt; font-family: 'Intel Clear';color:#000000;">2.</span></td><td style="border:none"><span class="f_Body">Create the specific </span><span class="f_CodeExample"><a href="pxcpointconverter.html" class="topiclink">PXC[M]Pointconverter</a></span><span class="f_Body"> instance</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:20px"><span style="font-size:11pt; font-family: 'Intel Clear';color:#000000;">3.</span></td><td style="border:none"><span class="f_Body">Set the source and target details </span></td></tr></table></div><p class="p_Body"><span class="f_Body">In step 2, you use the </span><span class="f_CodeExample"><a href="pxcpointconverterfactory.html" class="topiclink">PXC[M]PointConverterFactory</a></span><span class="f_Body"> interface functions to create the point converter instances:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_CodeExample"><a href="createhandjointconverter_pxcpointconverterfactory.html" class="topiclink">CreateHandJointConverter</a>(handData, accessOrder, index, jointType)</span></td></tr></table></div><p class="p_Body" style="margin: 7px 0px 7px 24px;"><span class="f_Body">Creates a point converter based on the specified hand joint position with the following parameters:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 34px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#9642;</span></td><td style="border:none"><span class="f_CodeExample">handData</span><span class="f_Body">: specify the hand module data instance. You need to update the output data before querying the converted point’s data. </span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 34px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#9642;</span></td><td style="border:none"><span class="f_CodeExample">accessOrder</span><span class="f_Body">: specify how the hand should be enumerated. </span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 34px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#9642;</span></td><td style="border:none"><span class="f_CodeExample">index</span><span class="f_Body">: specify the hand to be retrieved, in the </span><span class="f_CodeExample">accessOrder</span><span class="f_Body"> enumeration order.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 34px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#9642;</span></td><td style="border:none"><span class="f_CodeExample">jointType</span><span class="f_Body">: defines the hand joint to be converted. </span></td></tr></table></div><p class="p_Body" style="margin: 7px 0px 7px 24px;"><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">See </span><span class="f_CodeExample"><a href="queryhanddata_pxchanddata.html" class="topiclink">QueryHandData</a></span><span class="f_Body"> for more details how to define the </span><span class="f_CodeExample">accessOrder</span><span class="f_Body">, </span><span class="f_CodeExample">index</span><span class="f_Body">, and </span><span class="f_CodeExample">JointType</span><span class="f_Body"> values.</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_CodeExample">CreateHandExtremityConverter (handData, accessOrder, index, extremityType)</span></td></tr></table></div><p class="p_Body" style="margin: 7px 0px 7px 24px;"><span class="f_Body">Creates a point converter based on the specified hand extremity point with the following parameters:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 34px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#9642;</span></td><td style="border:none"><span class="f_CodeExample">handData</span><span class="f_Body">: specify the hand module data instance. You need to update the output data before querying the converted point’s data. </span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 34px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#9642;</span></td><td style="border:none"><span class="f_CodeExample">accessOrder</span><span class="f_Body">: specify how the hand should be enumerated. </span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 34px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#9642;</span></td><td style="border:none"><span class="f_CodeExample">index</span><span class="f_Body">: specify the hand to be retrieved, in the </span><span class="f_CodeExample">accessOrder</span><span class="f_Body"> enumeration order.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 34px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#9642;</span></td><td style="border:none"><span class="f_CodeExample">extremityType</span><span class="f_Body">: defines the hand extremity point to be converted. </span></td></tr></table></div><p class="p_Body" style="margin: 7px 0px 7px 24px;"><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">See </span><span class="f_CodeExample"><a href="queryhanddata_pxchanddata.html" class="topiclink">QueryHandData</a></span><span class="f_Body"> for more details how to define the </span><span class="f_CodeExample">accessOrder</span><span class="f_Body">, </span><span class="f_CodeExample">index</span><span class="f_Body">, and </span><span class="f_CodeExample">extremityType</span><span class="f_Body"> values.</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_CodeExample">CreateBlobPointConverter(blobData, accessOrder, index, extremityType)</span></td></tr></table></div><p class="p_Body" style="margin: 7px 0px 7px 24px;"><span class="f_Body">Creates a point converter based on the specified blob extremity point with the following parameters:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 34px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#9642;</span></td><td style="border:none"><span class="f_CodeExample">blobData</span><span class="f_Body">: specify the blob module data instance. You need to update the output data before querying the converted point’s data. </span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 34px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#9642;</span></td><td style="border:none"><span class="f_CodeExample">accessOrder</span><span class="f_Body">: specify how the blob should be enumerated. </span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 34px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#9642;</span></td><td style="border:none"><span class="f_CodeExample">index</span><span class="f_Body">: specify the blob to be retrieved, in the </span><span class="f_CodeExample">accessOrder</span><span class="f_Body"> enumeration order.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 34px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#9642;</span></td><td style="border:none"><span class="f_CodeExample">extremityType</span><span class="f_Body">: defines the blob extremity point to be converted. </span></td></tr></table></div><p class="p_Body" style="margin: 7px 0px 7px 24px;"><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">See </span><span class="f_CodeExample"><a href="queryblobbyaccessorder_pxcblobdata.html" class="topiclink">QueryBlobByAccessOrder</a></span><span class="f_Body"> for more details how to define the </span><span class="f_CodeExample">accessOrder</span><span class="f_Body">, </span><span class="f_CodeExample">index</span><span class="f_Body">, and </span><span class="f_CodeExample">extremityType</span><span class="f_Body"> values.</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">CreateCustomPointConverter()</span></td></tr></table></div><p class="p_Body" style="margin: 7px 0px 7px 24px;"><span class="f_Body">Creates a general purpose point converter. Set the point data using </span><span class="f_CodeExample"><a href="set2dpoint_pxcpointconverter.html" class="topiclink">Set2DPoint</a></span><span class="f_Body"> or </span><span class="f_CodeExample"><a href="set3dpoint_pxcpointconverter.html" class="topiclink">Set3DPoint</a></span><span class="f_Body"> before retrieving the converted data.</span></p>
+<p class="p_Body"><span class="f_Body">Example 105 shows how to initialize the </span><span class="f_CodeExample"><a href="pxcpointconverter.html" class="topiclink">PXC[M]PointConverter</a></span><span class="f_Body"> instance for the output of the hand module.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A1')">C++ Example 105: Initialize a Point Converter for Hand</a></span></p>
+<div id="TOGGLE0186A1" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Hand Module Setup</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCSenseManager* senseManager = PXCSenseManager::CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">senseManager-&gt;EnableHand();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCHandModule* handModule = senseManager-&gt;QueryHand();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCHandData* handDataOutput = handModule-&gt;CreateOutput();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Create an instance of PXCPointConverterFactory </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCPointConverterFactory* pointConverter = NULL;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">senseManager-&gt;QuerySession()-&gt;CreateImpl&lt;PXCPointConverterFactory&gt;(&amp;pointConverter);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Create a point converter for the wrist of the first detected hand</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCPointConverter* converter=pointConverter-&gt;CreateHandJointConverter(handDataOutput, PXCHandData::ACCESS_ORDER_BY_TIME, 0, PXCHandData::JOINT_WRIST);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A2')">C# Example 105: Initialize a Point Converter for Hand</a></span></p>
+<div id="TOGGLE0186A2" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Hand Module Setup</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSenseManager senseManager = PXCMSenseManager.CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">senseManager.EnableHand();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMHandModule handModule = senseManager.QueryHand();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMHandData handDataOutput = handModule.CreateOutput();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Create an instance of PXCMPointConverterFactory </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMPointConverterFactory pointConverter;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">senseManager.session.CreateImpl&lt;PXCMPointConverterFactory&gt;(out pointConverter);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Create a point converter for the wrist of the first detected hand</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMPointConverter converter=pointConverter.CreateHandJointConverter(handDataOutput, PXCMHandData.AccessOrder.ACCESS_ORDER_BY_TIME, 0, PXCMHandData.JointType.JOINT_WRIST);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A3')">Java Example 105: Initialize a Point Converter for Hand</a></span></p>
+<div id="TOGGLE0186A3" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Hand Module Setup</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSenseManager senseManager = PXCMSenseManager.CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">senseManager.EnableHand();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMHandModule handModule = senseManager.QueryHand();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMHandData handDataOutput = handModule.CreateOutput();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Create an instance of PXCMPointConverterFactory </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMPointConverterFactory pointConverter=new PXCMPointConverterFactory();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">senseManager.session.CreateImpl(pointConverter);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Create a point converter for the wrist of the first detected hand</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMPointConverter converter=pointConverter.CreateHandJointConverter(handDataOutput, PXCMHandData.AccessOrder.ACCESS_ORDER_BY_TIME, 0, PXCMHandData.JointType.JOINT_WRIST);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Converting 2D Points</span></p>
+<p class="p_Body"><span class="f_Body">To convert 2D points, define the source and target areas that define the conversion. The areas are the rectangles. The input point is linearly projected from the source rectangle to the relative location in the target rectangle.</span></p>
+<p class="p_Body"><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">you don’t have to map the entire source image area. Use a smaller rectangle to allow large motions on the screen. </span></p>
+<p class="p_Body"><span class="f_Body">Example 106 maps the coordinate of the depth image to screen coordinates (1280x960).</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A4')">C++ Example 106: Convert 2D Points</a></span></p>
+<div id="TOGGLE0186A4" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Setting source image-rectangle to the entire depth image</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCRectF32 sourceRect2D = {0,0,640,480};</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">converter-&gt;Set2DSourceRectangle(sourceRect2D);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Setting Target to full screen size (for resolution 1280x960)</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCRectF32 targetRect2D = {0,0,1280,960};</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">converter-&gt;Set2DTargetRectangle(targetRect2D); </span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A5')">C# Example 106: Convert 2D Points</a></span></p>
+<div id="TOGGLE0186A5" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Setting source image-rectangle to the entire depth image</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMRectF32 sourceRect2D = new PXCMRectF32(0,0,640f,480f);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">converter.Set2DSourceRectangle(sourceRect2D);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Setting Target to full screen size (for resolution 1280x960)</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMRectF32 targetRect2D = new PXCMRectF32(0,0,1280f,960f);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">converter.Set2DTargetRectangle(targetRect2D);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A6')">Java Example 106: Convert 2D Points</a></span></p>
+<div id="TOGGLE0186A6" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Setting source image-rectangle to the entire depth image</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMRectF32 sourceRect2D = new PXCMRectF32(0,0,640f,480f);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">converter.Set2DSourceRectangle(sourceRect2D);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Setting Target to full screen size (for resolution 1280x960)</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMRectF32 targetRect2D = new PXCMRectF32(0,0,1280f,960f);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">converter.Set2DTargetRectangle(targetRect2D);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body">To convert 3D points, define the source and target volumes that define the conversion. The volumes are rectangular boxes. The input point is linearly projected from the source box to the relative location in the target box.</span></p>
+<p class="p_Body"><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">You can set the source (and target) ranges dynamically, which can be used to adapt the current working area to the user’s preferred locations (e.g. the mean hand position in the last few frames).</span></p>
+<p class="p_Body"><span class="f_Body">Example 107 sets a 3D World Box to be mapped to a user defined target box with range [0-1]. The source box is located at a natural position of the user’s right hand: 15 cm to the right of the camera-center, 5 cm below the camera-center, at 30 cm distance from the camera. The box’s size is 20 cm to each direction.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A7')">C++ Example 107: Convert 3D Points</a></span></p>
+<div id="TOGGLE0186A7" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Setting source &quot;World box&quot;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCBox3DF32 sourceBox3D = {15,-5,30,20,20,20};</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">converter-&gt;Set3DSourceBox(sourceBox3D);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Setting Target</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCBox3DF32 targetBox3D = {0,0,0,1,1,1};</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">converter-&gt;Set3DTargetBox(targetBox3D);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A8')">C# Example 107: Convert 3D Points</a></span></p>
+<div id="TOGGLE0186A8" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Setting source &quot;World box&quot;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMBox3DF32 sourceBox3D = new PXCMBox3DF32();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sourceBox3D.centerOffset=new PXCMPoint3DF32(15f,-5f,30f);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sourceBox3D.dimension=new PXCMPoint3DF32(20f,20f,20f);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">converter.Set3DSourceBox(sourceBox3D);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Setting Target</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMBox3DF32 targetBox3D = new PXCMBox3DF32();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">targetBox3D.centerOffset=new PXCMPoint3DF32(0,0,0);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">targetBox3D.dimension=new PXCMPoint3DF32(1f,1f,1f);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">converter.Set3DTargetBox(targetBox3D);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A9')">Java Example 107: Convert 3D Points</a></span></p>
+<div id="TOGGLE0186A9" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Setting source &quot;World box&quot;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMBox3DF32 sourceBox3D = new PXCMBox3DF32();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sourceBox3D.centerOffset=new PXCMPoint3DF32(15f,-5f,30f);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sourceBox3D.dimension=new PXCMPoint3DF32(20f,20f,20f);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">converter.Set3DSourceBox(sourceBox3D);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Setting Target</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMBox3DF32 targetBox3D = new PXCMBox3DF32();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">targetBox3D.centerOffset=new PXCMPoint3DF32(0,0,0);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">targetBox3D.dimension=new PXCMPoint3DF32(1f,1f,1f);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">converter.Set3DTargetBox(targetBox3D);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Using Point Converter to Invert Axes</span></p>
+<p class="p_Body"><span class="f_Body">The point converter also allows you to optionally invert any of the X, Y, Z axes, as illustrated in Example 108:</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186AA')">C++ Example 108: Invert the Y Axis</a> </span></p>
+<div id="TOGGLE0186AA" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// inverting y axis in three dimensional coordinate system</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">converter-&gt;Invert3DAxis(false,true,false);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186AB')">C# Example 108: Invert the Y Axis</a></span></p>
+<div id="TOGGLE0186AB" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// inverting y axis in three dimensional coordinate system</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">converter.Invert3DAxis(false,true,false);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186AC')">Java Example 108: Invert the Y Axis</a></span></p>
+<div id="TOGGLE0186AC" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// inverting y axis in three dimensional coordinate system</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">converter.Invert3DAxis(false,true,false);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Module Based Point Converters</span></p>
+<p class="p_InternalHeading"><span class="f_Body">To use the point converters on a module’s output, you need to ensure that module’s output is up-to-date, and then query the position of the converted point. Example 109 shows the code that should be called every frame, for converters that are based on the hand module. Similar code can be used for the blob module output.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186AD')">C++ Example 109: Update Module Data Before Retrieving Converted Data</a> </span></p>
+<div id="TOGGLE0186AD" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Make sure to update hand output</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handDataOutput-&gt;Update();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Getting converted point</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCPoint3DF32 point = converter-&gt;GetConverted3DPoint();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186AE')">C# Example 109: Update Module Data Before Retrieving Converted Data</a></span></p>
+<div id="TOGGLE0186AE" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Make sure to update hand output</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handDataOutput.Update();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Getting converted point</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMPoint3DF32 point = converter.GetConverted3DPoint();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186AF')">Java Example 109: Update Module Data Before Retrieving Converted Data</a></span></p>
+<div id="TOGGLE0186AF" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Make sure to update hand output</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handDataOutput.Update();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Getting converted point</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMPoint3DF32 point = converter.GetConverted3DPoint();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Custom Point Converter</span></p>
+<p class="p_InternalHeading"><span class="f_Body">To use the custom point converter, you need to set the position, and then retrieve the converted position, as illustrated in Example 110:</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186B0')">C++ Example 110: Use Customized Converter</a> </span></p>
+<div id="TOGGLE0186B0" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Get the input point that should be converted</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCPoint3DF32 inputPoint = …</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">converter-&gt;Set3DPoint(inputPoint);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Getting converted point</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCPoint3DF32 convertedPoint = converter-&gt;GetConverted3DPoint();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186B1')">C# Example 110: Use Customized Converter</a></span></p>
+<div id="TOGGLE0186B1" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Get the input point that should be converted</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMPoint3DF32 inputPoint = …</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">converter.Set3DPoint(inputPoint);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Getting converted point</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMPoint3DF32 convertedPoint = converter.GetConverted3DPoint();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186B2')">Java Example 110: Use Customized Converter</a></span></p>
+<div id="TOGGLE0186B2" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Get the input point that should be converted</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMPoint3DF32 inputPoint = …</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">converter.Set3DPoint(inputPoint);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Getting converted point</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMPoint3DF32 convertedPoint = converter.GetConverted3DPoint();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Full Code Sample</span></p>
+<p class="p_Body"><span class="f_Body">Example 111 uses the </span><span class="f_CodeExample"><a href="pxcpointconverter.html" class="topiclink">PXC[M]PointConverter</a></span><span class="f_Body"> interface with the hand module to convert the position of the index fingertip to a 3D box in a game coordinate system.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186B3')">C++ Example 111: Convert 3D Points</a></span></p>
+<div id="TOGGLE0186B3" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Init</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCSenseManager* senseManager = PXCSenseManager::CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Hand Module Setup</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">senseManager-&gt;EnableHand();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCHandModule* handModule = senseManager-&gt;QueryHand();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCHandData* handDataOutput = handModule-&gt;CreateOutput();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Creating PXCPointConverter instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCPointConverterFactory* pointConverterFactory;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">senseManager-&gt;QuerySession()-&gt;CreateImpl&lt;PXCPointConverterFactory&gt;(&amp;pointConverterFactory);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Creating hand point converter with first hand entered in FOV and JOINT_INDEX_TIP</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCPointConverter* handPointConverter = NULL;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handPointConverter = pointConverterFactory-&gt;CreateHandPointConverter(handDataOutput, PXCHandData::ACCESS_ORDER_BY_TIME, 0, PXCHandData::JOINT_INDEX_TIP);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Setting source &quot;World box&quot;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCBox3DF32 sourceBox3D = {0,0,0,60,60,60};</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handPointConverter-&gt;Set3DSourceBox(sourceBox3D);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Setting Target</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCBox3DF32 targetBox3D = {0,0,0,1,1,1};</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handPointConverter-&gt;Set3DTargetBox(targetBox3D);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// First Initializing the sense manager</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">if (senseManager-&gt;Init() &gt;= PXC_STATUS_NO_ERROR) { &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Acquiring frames from input device</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;while (senseManager-&gt;AcquireFrame(true) &gt;= PXC_STATUS_NO_ERROR) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// Get current frame hand output</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;handDataOutput-&gt;Update();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;if (handDataOutput-&gt;QueryNumberOfHands() &gt; 0) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;PXCPoint3DF32 converted3dPoint = handPointConverter-&gt;GetConverted3DPoint();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Do some work with converted3dPoint</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// Finished working on current frame</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;senseManager-&gt;ReleaseFrame();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;} // end while acquire frame</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">} // end if Init</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">//Release memory</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handPointConverter-&gt;Release();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">pointConverterFactory-&gt;Release();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handDataOutput-&gt;Release();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">senseManager-&gt;Release();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186B4')">C# Example 111: Convert 3D Points</a></span></p>
+<div id="TOGGLE0186B4" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Init</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSenseManager senseManager = PXCMSenseManager.CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Hand Module Setup</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">senseManager.EnableHand();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMHandModule handModule = senseManager.QueryHand();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMHandData handDataOutput = handModule.CreateOutput();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Creating PXCMPointConverter instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMPointConverterFactory pointConverterFactory;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">senseManager.session.CreateImpl&lt;PXCMPointConverterFactory&gt;(out pointConverterFactory);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Creating hand point converter with first hand entered in FOV and JOINT_INDEX_TIP</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMPointConverter handPointConverter;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handPointConverter = pointConverterFactory-&gt;CreateHandPointConverter(handDataOutput, PXCMHandData.AccessOrder.ACCESS_ORDER_BY_TIME, 0, PXCMHandData.JointType.JOINT_INDEX_TIP);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Setting source &quot;World box&quot;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMBox3DF32 sourceBox3D = new PXCMBox3DF32();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sourceBox3D.centerOffset=new PXCMPoint3DF32(0,0,0);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sourceBox3D.dimension=new PXCMPoint3DF32(60f,60f,60f);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handPointConverter.Set3DSourceBox(sourceBox3D);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Setting Target</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMBox3DF32 targetBox3D = new PXCMBox3DF32();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">targetBox3D.centerOffset=new PXCMPoint3DF32(0,0,0);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">targetBox3D.dimension=new PXCMPoint3DF32(1f,1f,1f);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handPointConverter.Set3DTargetBox(targetBox3D);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// First Initializing the sense manager</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">if (senseManager.Init() &gt;= pxcmStatus.PXCM_STATUS_NO_ERROR) { &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Acquiring frames from input device</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;while (senseManager.AcquireFrame(true) &gt;= pxcmStatus.PXCM_STATUS_NO_ERROR) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// Get current frame hand output</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;handDataOutput.Update();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;if (handDataOutput.QueryNumberOfHands() &gt; 0) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;PXCMPoint3DF32 converted3dPoint = handPointConverter.GetConverted3DPoint();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Do some work with converted3dPoint</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// Finished working on current frame</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;senseManager.ReleaseFrame();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;} // end while acquire frame</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">} // end if Init</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">//Release memory</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handPointConverter.Dispose();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">pointConverterFactory.Dispose();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handDataOutput.Dispose();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">senseManager.Dispose();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186B5')">Java Example 111: Convert 3D Points</a></span></p>
+<div id="TOGGLE0186B5" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Init</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSenseManager senseManager = PXCMSenseManager.CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Hand Module Setup</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">senseManager.EnableHand();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMHandModule handModule = senseManager.QueryHand();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMHandData handDataOutput = handModule.CreateOutput();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Creating PXCMPointConverter instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMPointConverterFactory pointConverterFactory=new PXCMPointConverterFactory();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">senseManager.session.CreateImpl(pointConverterFactory);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Creating hand point converter with first hand entered in FOV and JOINT_INDEX_TIP</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMPointConverter handPointConverter = pointConverterFactory-&gt;CreateHandPointConverter(handDataOutput, PXCMHandData.AccessOrder.ACCESS_ORDER_BY_TIME, 0, PXCMHandData.JointType.JOINT_INDEX_TIP);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Setting source &quot;World box&quot;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMBox3DF32 sourceBox3D = new PXCMBox3DF32();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sourceBox3D.centerOffset=new PXCMPoint3DF32(0,0,0);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sourceBox3D.dimension=new PXCMPoint3DF32(60f,60f,60f);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handPointConverter.Set3DSourceBox(sourceBox3D);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Setting Target</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMBox3DF32 targetBox3D = new PXCMBox3DF32();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">targetBox3D.centerOffset=new PXCMPoint3DF32(0,0,0);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">targetBox3D.dimension=new PXCMPoint3DF32(1f,1f,1f);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handPointConverter.Set3DTargetBox(targetBox3D);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// First Initializing the sense manager</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">if (senseManager.Init() &gt;= pxcmStatus.PXCM_STATUS_NO_ERROR) { &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Acquiring frames from input device</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;while (senseManager.AcquireFrame(true) &gt;= pxcmStatus.PXCM_STATUS_NO_ERROR) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// Get current frame hand output</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;handDataOutput.Update();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;if (handDataOutput.QueryNumberOfHands() &gt; 0) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;PXCMPoint3DF32 converted3dPoint = handPointConverter.GetConverted3DPoint();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Do some work with converted3dPoint</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// Finished working on current frame</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;senseManager.ReleaseFrame();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;} // end while acquire frame</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">} // end if Init</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">//Release memory</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handPointConverter.close();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">pointConverterFactory.close();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handDataOutput.close();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">senseManager.close();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">&nbsp;</span></p>
+
+</td></tr></table>
+
+<script type="text/javascript">
+HMInitToggle('TOGGLE0186A1','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A2','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A3','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A4','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A5','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A6','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A7','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A8','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A9','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186AA','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186AB','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186AC','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186AD','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186AE','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186AF','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186B0','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186B1','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186B2','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186B3','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186B4','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186B5','hm.type','dropdown','hm.state','0');
+</script>
+</body>
+</html>

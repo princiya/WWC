@@ -1,0 +1,321 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Accessing Image and Audio Data</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="access image and audio data,access sample data,audio,image" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_image_and_audio_data.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Accessing Image and Audio Data</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_known_limitations.html">Previous</a>&nbsp;
+     <a href="manuals_i_o_devices_enumeration_and_se.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p><span class="f_Body">For shared access or interoperability with other libraries, the SDK uses the </span><span class="f_CodeExample"><a href="pxcimage.html" class="topiclink">PXC[M]Image</a></span><span class="f_Body"> interface to abstract the image storage, and the </span><span class="f_CodeExample"><a href="pxcaudio.html" class="topiclink">PXC[M]Audio</a></span><span class="f_Body"> interface to abstract the audio storage.</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Access Image Data</span></p>
+<p class="p_Body"><span class="f_Body">To access the image buffers, use the image </span><span class="f_CodeExample"><a href="acquireaccess_pxcimage.html" class="topiclink">AcquireAccess</a></span><span class="f_Body"> function to lock access to the image storage and retrieve the storage details in the </span><span class="f_CodeExample"><a href="imagedata_pxcimage.html" class="topiclink">ImageData</a> </span><span class="f_Body">structure. The data planes are pointers by </span><span class="f_CodeExample">data.planes[0-3]</span><span class="f_Body"> and the pitches are stored in </span><span class="f_CodeExample">data.pitches[0-3]</span><span class="f_Body">. When the access is completed, use the </span><span class="f_CodeExample"><a href="releaseaccess_pxcimage.html" class="topiclink">ReleaseAccess</a></span><span class="f_Body"> function to release the lock. Example 29 shows how to read image buffers.</span></p>
+<p class="p_Body"><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">The SDK supports different pixel formats. See the </span><span class="f_CodeExample"><a href="pixelformat_pxcimage.html" class="topiclink">PixelFormat</a></span><span class="f_Body"> enumerator for details about the pixel formats and their memory layouts. </span></p>
+<p class="p_Body"><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">The SDK provides pixel format conversion. The application may request a different pixel format (from the internal pixel format) in the image </span><span class="f_CodeExample"><a href="acquireaccess_pxcimage.html" class="topiclink">AcquireAccess</a></span><span class="f_Body"> function.</span></p>
+<p class="p_Body"><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">For C#, the data planes </span><span class="f_CodeExample">planes[0-3]</span><span class="f_Body"> in the </span><span class="f_CodeExample"><a href="imagedata_pxcimage.html" class="topiclink">ImageData</a></span><span class="f_Body"> structure are pointers in the unmanaged memory. See <a href="manuals_member_functions31.html" class="topiclink">Member Functions</a> for a set of helper functions to access the image data.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A1')">C++ Example 29: Read Image Buffers</a> </span></p>
+<div id="TOGGLE0186A1" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// image is a PXCImage instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCImage::ImageData data;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">image-&gt;AcquireAccess(PXCImage::ACCESS_READ,&amp;data);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">... // image planes are in data.planes[0-3] with pitch data.pitches[0-3]</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">image-&gt;ReleaseAccess(&amp;data);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A2')">C# Example 29: Read Image Buffers</a></span></p>
+<div id="TOGGLE0186A2" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// image is a PXCMImage instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMImage.ImageData data;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">image.AcquireAccess(PXCMImage.Access.ACCESS_READ,out data);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">... // image planes are in data.buffer.planes[0-3] with pitch data.buffer.pitches[0-3]</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">image.ReleaseAccess(data);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A3')">Java Example 29: Read Image Buffers</a></span></p>
+<div id="TOGGLE0186A3" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// image is a PXCMImage instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMImage.ImageData data;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">image.AcquireAccess(PXCMImage.Access.ACCESS_READ,data);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">... // image planes are in data.buffer.planes[0-3] with pitch data.buffer.pitches[0-3]</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">image.ReleaseAccess(data);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_InternalHeading">Create an Image Instance</span></p>
+<p class="p_Body"><span class="f_Body">To create a </span><span class="f_CodeExample"><a href="pxcimage.html" class="topiclink">PXC[M]Image</a></span><span class="f_Body"> instance from an image buffer, use the </span><span class="f_CodeExample"><a href="createimage_pxcsession.html" class="topiclink">CreateImage</a></span><span class="f_Body"> function from the </span><span class="f_CodeExample"><a href="pxcsession.html" class="topiclink">PXC[M]Session</a></span><span class="f_Body"> interface, as illustrated in Example 30 (C++) and Example 31 (C++). In Example 30, the application creates a </span><span class="f_CodeExample"><a href="pxcimage.html" class="topiclink">PXCImage</a></span><span class="f_Body"> instance that internally points to the imported image buffer. The application must maintain the life cycle of the imported image buffer to be longer than that of the </span><span class="f_CodeExample"><a href="pxcimage.html" class="topiclink">PXCImage</a></span><span class="f_Body"> instance. In Example 31, the application makes a copy of the imported image.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A4')">C++ Example 30: Create an Image Instance Without Data Copy</a> </span></p>
+<div id="TOGGLE0186A4" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Image info</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCImage::ImageInfo info={};</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">info.format=PXCImage::PIXEL_FORMAT_RGB32;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">info.width=image_width;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">info.height=image_height;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Image data</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCImage::ImageData data={};</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">data.format=PXCImage::PIXEL_FORMAT_RGB32;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">data.planes[0]=image_buffer;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">data.pitches[0]=ALIGN64(info.width*4);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Create the image instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCImage *image=session-&gt;CreateImage(&amp;info,0,&amp;data);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">image-&gt;Release();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A5')">C++ Example 31: Create an Image Instance With Data Copy</a> </span></p>
+<div id="TOGGLE0186A5" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Image info</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCImage::ImageInfo info={};</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">info.format=PXCImage::PIXEL_FORMAT_RGB32;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">info.width=image_width;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">info.height=image_height;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Create the image instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCImage image=session-&gt;CreateImage(&amp;info);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Write data</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCImage::ImageData data;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">image-&gt;AcquireAccess(PXCImage::ACCESS_WRITE,&amp;data);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">... // copy the imported image to data.planes[0]</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">image-&gt;ReleaseAccess(&amp;data);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body">For C# and Java, there is always a copy of the data as the imported image is in the managed memory while the image storage is in the unmanaged memory. Example 32 shows how to create a </span><span class="f_CodeExample"><a href="pxcimage.html" class="topiclink">PXCMImage</a></span><span class="f_Body"> instance from a bitmap.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A6')">C# Example 32: Create an Image Instance from Bitmap</a></span></p>
+<div id="TOGGLE0186A6" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Read bitmap into the memory</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">Bitmap bitmap = (Bitmap)Image.FromFile(file);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Image info</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMImage.ImageInfo iinfo = new PXCMImage.ImageInfo();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">iinfo.width &nbsp;= bitmap.Width;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">iinfo.height = bitmap.Height;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">iinfo.format = PXCMImage.PixelFormat.PIXEL_FORMAT_RGB32;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">/* Create the image */</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMImage image=session.CreateImage(iinfo);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">/* Copy the data */</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMImage.ImageData idata;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">image.AcquireAccess(PXCMImage.Access.ACCESS_WRITE, out idata);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">BitmapData bdata = new BitmapData();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">bdata.Scan0 = idata.buffer.planes[0];</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">bdata.Stride = idata.buffer.pitches[0];</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">bdata.PixelFormat = PixelFormat.Format32bppRgb;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">bdata.Width = bitmap.Width;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">bdata.Height = bitmap.Height;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">BitmapData bdata2 = bitmap.LockBits(new Rectangle(0, 0, bitmap.Width, bitmap.Height), </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ImageLockMode.ReadOnly | ImageLockMode.UserInputBuffer, </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; PixelFormat.Format32bppRgb, bdata);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">image.ReleaseAccess(idata);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">bitmap.UnlockBits(bdata2);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">... // do something with the image</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">image.Dispose();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Access Audio Data</span></p>
+<p class="p_Body"><span class="f_Body">To access the audio buffer, use the audio </span><span class="f_CodeExample"><a href="acquireaccess_pxcaudio.html" class="topiclink">AcquireAccess</a></span><span class="f_Body"> function to lock access to the audio storage and retrieve the storage details in the </span><span class="f_CodeExample"><a href="audiodata_pxcaudio.html" class="topiclink">AudioData</a> </span><span class="f_Body">structure. The audio data is pointed by </span><span class="f_CodeExample">data.dataPtr</span><span class="f_Body"> with the number of samples in </span><span class="f_CodeExample">data.dataSize</span><span class="f_Body">. After the access is completed, use the </span><span class="f_CodeExample"><a href="releaseaccess_pxcaudio.html" class="topiclink">ReleaseAccess</a></span><span class="f_Body"> function to release the lock. Example 33 shows how to read the audio buffer.</span></p>
+<p class="p_Body"><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">The SDK supports audio formats as listed in the </span><span class="f_CodeExample"><a href="audioformat_pxcaudio.html" class="topiclink">AudioFormat</a></span><span class="f_Body"> enumerator. See the </span><span class="f_CodeExample"><a href="audioformat_pxcaudio.html" class="topiclink">AudioFormat</a></span><span class="f_Body"> enumerator description for details. </span></p>
+<p class="p_Body"><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">The SDK provides audio sample format conversion. Thus the application may request a different audio sample format (from the internal audio format) in the </span><span class="f_CodeExample"><a href="acquireaccess_pxcaudio.html" class="topiclink">AcquireAccess</a></span><span class="f_Body"> function.</span></p>
+<p class="p_Body"><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">For C# and Java, the data buffer </span><span class="f_CodeExample">data.dataPtr</span><span class="f_Body"> is in the unmanaged memory. See <a href="manuals_member_functions25.html" class="topiclink">Member Functions</a> for a set of helper functions to access the audio data.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A7')">C++ Example 33: Read the Audio Buffer</a>  </span></p>
+<div id="TOGGLE0186A7" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// audio is a PXCAudio instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCAudio::AudioData data;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">audio-&gt;AcquireAccess(PXCAudio::ACCESS_READ,&amp;data);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">... // audio buffer is in data.dataPtr with number of samples in data.dataSize</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">audio-&gt;ReleaseAccess(&amp;data);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A8')">C# Example 33: Read the Audio Buffer</a></span></p>
+<div id="TOGGLE0186A8" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// audio is a PXCMAudio instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMAudio.AudioData data;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">audio.AcquireAccess(PXCMAudio.Access.ACCESS_READ,out data);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">... // audio buffer is in data.dataPtr with number of samples in data.dataSize</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">audio.ReleaseAccess(data);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A9')">Java Example 33: Read the Audio Buffer</a></span></p>
+<div id="TOGGLE0186A9" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// audio is a PXCMAudio instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMAudio.AudioData data;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">audio.AcquireAccess(PXCMAudio.Access.ACCESS_READ,data);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">... // audio buffer is in data.dataPtr with number of samples in data.dataSize</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">audio.ReleaseAccess(data);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_InternalHeading">Audio Instance Creation</span></p>
+<p class="p_Body"><span class="f_Body">To create a </span><span class="f_CodeExample"><a href="pxcaudio.html" class="topiclink">PXC[M]Audio</a></span><span class="f_Body"> instance from an audio buffer, use the </span><span class="f_CodeExample"><a href="createaudio_pxcsession.html" class="topiclink">CreateAudio</a></span><span class="f_Body"> function from the </span><span class="f_CodeExample"><a href="pxcsession.html" class="topiclink">PXC[M]Session</a></span><span class="f_Body"> interface, as illustrated in Example 34.</span></p>
+<p class="p_Body"><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">For C# and Java, as the data buffer </span><span class="f_CodeExample">data.dataPtr</span><span class="f_Body"> is in the unmanaged memory, use the <a href="manuals_member_functions25.html" class="topiclink">Member Functions</a> for a set of helper functions to copy the audio data.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186AA')">C++ Example 34: Create an Audio Instance</a> </span></p>
+<div id="TOGGLE0186AA" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Audio info</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCAudio::AudioInfo info={};</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">info.bufferSize=8200;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">info.format=PXCAudio::AUDIO_FORMAT_PCM;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">info.sampleRate=44100;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">info.nchannels=2;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Create the audio instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCAudio *audio=session-&gt;CreateAudio(&amp;info);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Fill the data</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCAudio::AudioData data;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">audio-&gt;AcquireAccess(PXCAudio::ACCESS_WRITE,&amp;data);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">... // Copy the imported audio buffer to data.dataPtr</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">... // Update data.dataSize</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">audio-&gt;ReleaseAccess(&amp;data);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">audio-&gt;Release();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186AB')">C# Example 34: Create an Audio Instance</a></span></p>
+<div id="TOGGLE0186AB" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Audio info</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMAudio.AudioInfo info=new PXCMAudio.AudioInfo();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">info.bufferSize=8200;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">info.format=PXCMAudio.AudioFormat.AUDIO_FORMAT_PCM;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">info.sampleRate=44100;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">info.nchannels=2;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Create the audio instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMAudio audio=session.CreateAudio(info);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Fill the data</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMAudio.AudioData data;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">audio.AcquireAccess(PXCMAudio.Access.ACCESS_WRITE,out data);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">... // Marshal.Copy the imported audio buffer to data.dataPtr</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">... // Update data.dataSize</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">audio.ReleaseAccess(data);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">audio.Dispose();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186AC')">Java Example 34: Create an Audio Instance</a></span></p>
+<div id="TOGGLE0186AC" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Audio info</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMAudio.AudioInfo info=new PXCMAudio.AudioInfo();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">info.bufferSize=8200;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">info.format=PXCMAudio.AudioFormat.AUDIO_FORMAT_PCM;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">info.sampleRate=44100;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">info.nchannels=2;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Create an audio instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMAudio audio=session.CreateAudio(info);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Fill the data</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMAudio.AudioData data=new PXCMAudio.AudioData();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">audio.AcquireAccess(PXCMAudio.Access.ACCESS_WRITE,data);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">... // copy the imported audio buffer to data.dataPtr</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">... // Update data.dataSize</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">audio.ReleaseAccess(data);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">audio.close();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+<script type="text/javascript">
+HMInitToggle('TOGGLE0186A1','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A2','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A3','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A4','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A5','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A6','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A7','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A8','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A9','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186AA','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186AB','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186AC','hm.type','dropdown','hm.state','0');
+</script>
+</body>
+</html>

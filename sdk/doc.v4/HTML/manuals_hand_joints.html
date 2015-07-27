@@ -1,0 +1,252 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Hand Joints</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_hand_joints.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Hand Joints</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_accessing_joint_data.html">Previous</a>&nbsp;
+     <a href="manuals_jointdata_properties.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">Figure 33 and Table 9 describe the joints that the hand module tracks and uses to represent hand and finger positions. The wrist joint and all the finger joints correspond to actual joints in the hand (where two bones connect). The palm-center joint is a “virtual joint” that corresponds to the center of the palm.</span></p>
+<p class="p_Body"><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">The joint name values are defined in the </span><span class="f_CodeExample"><a href="jointtype_pxchanddata.html" class="topiclink">JointType</a></span><span class="f_Body"> enumerator.</span></p>
+<p class="p_Body"><span class="f_Body">Note that the joints are arranged in a tree-like structure, where each joint has a “parent” joint, and the root is the wrist joint. The parent-child relationships are used to express joint rotation. See <a href="manuals_local_and_global_joint_rotatio.html" class="topiclink">Local and Global Joint Rotation</a>.</span></p>
+<div style="text-align: center; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="margin:0 auto; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<th style="vertical-align:top; width:35px; padding:6px; border:solid 1px #000000;"><p class="p_TableText"><span class="f_TableText">#</span></p>
+</th>
+<th style="vertical-align:top; width:192px; padding:6px; border:solid 1px #000000;"><p class="p_TableText"><span class="f_TableText">Joint Name</span></p>
+</th>
+<th style="vertical-align:top; width:110px; padding:6px; border:solid 1px #000000;"><p class="p_TableText"><span class="f_TableText">Joint Parent</span></p>
+</th>
+<th style="vertical-align:top; width:37px; padding:6px; border:solid 1px #000000;"><p class="p_TableText"><span class="f_TableText">&nbsp;</span></p>
+</th>
+<th style="vertical-align:top; width:41px; padding:6px; border:solid 1px #000000;"><p class="p_TableText"><span class="f_TableText">#</span></p>
+</th>
+<th style="vertical-align:top; width:175px; padding:6px; border:solid 1px #000000;"><p class="p_TableText"><span class="f_TableText">Joint Name</span></p>
+</th>
+<th style="vertical-align:top; width:109px; padding:6px; border:solid 1px #000000;"><p class="p_TableText"><span class="f_TableText">Joint Parent</span></p>
+</th>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:35px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">0</span></p>
+</td>
+<td style="vertical-align:top; width:192px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">JOINT_WRIST</span></p>
+</td>
+<td style="vertical-align:top; width:110px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">NA</span></p>
+</td>
+<td style="vertical-align:top; width:37px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:41px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">11</span></p>
+</td>
+<td style="vertical-align:top; width:175px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">JOINT_MIDDLE_JT1</span></p>
+</td>
+<td style="vertical-align:top; width:109px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">10</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:35px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">1</span></p>
+</td>
+<td style="vertical-align:top; width:192px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">JOINT_CENTER</span></p>
+</td>
+<td style="vertical-align:top; width:110px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">0</span></p>
+</td>
+<td style="vertical-align:top; width:37px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:41px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">12</span></p>
+</td>
+<td style="vertical-align:top; width:175px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">JOINT_MIDDLE_JT2</span></p>
+</td>
+<td style="vertical-align:top; width:109px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">11</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:35px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">2</span></p>
+</td>
+<td style="vertical-align:top; width:192px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">JOINT_THUMB_BASE</span></p>
+</td>
+<td style="vertical-align:top; width:110px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">0</span></p>
+</td>
+<td style="vertical-align:top; width:37px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:41px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">13</span></p>
+</td>
+<td style="vertical-align:top; width:175px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">JOINT_MIDDLE_TIP</span></p>
+</td>
+<td style="vertical-align:top; width:109px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">12</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:35px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">3</span></p>
+</td>
+<td style="vertical-align:top; width:192px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">JOINT_THUMB_JT1</span></p>
+</td>
+<td style="vertical-align:top; width:110px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">2</span></p>
+</td>
+<td style="vertical-align:top; width:37px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:41px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">14</span></p>
+</td>
+<td style="vertical-align:top; width:175px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">JOINT_RING_BASE</span></p>
+</td>
+<td style="vertical-align:top; width:109px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">0</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:35px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">4</span></p>
+</td>
+<td style="vertical-align:top; width:192px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">JOINT_THUMB_JT2</span></p>
+</td>
+<td style="vertical-align:top; width:110px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">3</span></p>
+</td>
+<td style="vertical-align:top; width:37px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:41px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">15</span></p>
+</td>
+<td style="vertical-align:top; width:175px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">JOINT_RING_JT1</span></p>
+</td>
+<td style="vertical-align:top; width:109px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">14</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:35px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">5</span></p>
+</td>
+<td style="vertical-align:top; width:192px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">JOINT_THUMB_TIP</span><span class="f_TableText2"> </span></p>
+</td>
+<td style="vertical-align:top; width:110px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">4</span></p>
+</td>
+<td style="vertical-align:top; width:37px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:41px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">16</span></p>
+</td>
+<td style="vertical-align:top; width:175px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">JOINT_RING_JT2</span></p>
+</td>
+<td style="vertical-align:top; width:109px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">15</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:35px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">6</span></p>
+</td>
+<td style="vertical-align:top; width:192px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">JOINT_INDEX_BASE</span></p>
+</td>
+<td style="vertical-align:top; width:110px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">0</span></p>
+</td>
+<td style="vertical-align:top; width:37px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:41px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">17</span></p>
+</td>
+<td style="vertical-align:top; width:175px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">JOINT_RING_TIP</span></p>
+</td>
+<td style="vertical-align:top; width:109px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">16</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:35px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">7</span></p>
+</td>
+<td style="vertical-align:top; width:192px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">JOINT_INDEX_JT1</span></p>
+</td>
+<td style="vertical-align:top; width:110px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">6</span></p>
+</td>
+<td style="vertical-align:top; width:37px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:41px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">18</span></p>
+</td>
+<td style="vertical-align:top; width:175px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">JOINT_PINKY_BASE</span></p>
+</td>
+<td style="vertical-align:top; width:109px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">0</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:35px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">8</span></p>
+</td>
+<td style="vertical-align:top; width:192px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">JOINT_INDEX_JT2</span></p>
+</td>
+<td style="vertical-align:top; width:110px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">7</span></p>
+</td>
+<td style="vertical-align:top; width:37px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:41px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">19</span></p>
+</td>
+<td style="vertical-align:top; width:175px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">JOINT_PINKY_JT1</span></p>
+</td>
+<td style="vertical-align:top; width:109px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">18</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:35px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">9</span></p>
+</td>
+<td style="vertical-align:top; width:192px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">JOINT_INDEX_TIP</span></p>
+</td>
+<td style="vertical-align:top; width:110px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">8</span></p>
+</td>
+<td style="vertical-align:top; width:37px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:41px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">20</span></p>
+</td>
+<td style="vertical-align:top; width:175px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">JOINT_PINKY_JT2</span></p>
+</td>
+<td style="vertical-align:top; width:109px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">19</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:35px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">10</span></p>
+</td>
+<td style="vertical-align:top; width:192px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">JOINT_MIDDLE_BASE</span></p>
+</td>
+<td style="vertical-align:top; width:110px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">1</span></p>
+</td>
+<td style="vertical-align:top; width:37px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:41px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">21</span></p>
+</td>
+<td style="vertical-align:top; width:175px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">JOINT_PINKY_TIP</span></p>
+</td>
+<td style="vertical-align:top; width:109px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">20</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Table 9: The Joint Name and Index.</span></p>
+<p class="p_Body" style="text-align: center;"><img src="manuals_clip0092_zoom25.png" width="462" height="462" alt="" style="margin:0px auto 0px auto;width:462px;height:462px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 33: Tracked Hand Joints</span></p>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

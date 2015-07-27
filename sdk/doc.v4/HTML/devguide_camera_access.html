@@ -1,0 +1,122 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Access Camera Device</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "devguide_camera_access.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Access Camera Device</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     
+     
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p>The SDK is designed around depth cameras that can stream color and depth streams. It is natural to start the discussion on the depth cameras.</p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Camera Name</span></p>
+<p class="p_Body"><span class="f_Body">The SDK was initially released in late 2012 with a Creative depth camera as the development platform. The camera was initially named as &quot;</span><span class="f_CodeExample">Creative Gesture Interactive Cam</span><span class="f_Body">&quot; and later renamed as &quot;</span><span class="f_CodeExample">Creative Senz 3D</span><span class="f_Body">&quot;. The camera name changes over time. It is critical that the developers do not hard-code their applications to look for a specific camera name, for example &quot;</span><span class="f_CodeExample">Creative Senz 3D</span><span class="f_Body">&quot;. Doing so would restrict the applications to work only with the specific camera. </span></p>
+<p class="p_Body"><span class="f_Body">The SDK is designed around the concept that processing modules are isolated from the camera devices. Each processing module presents its input requirements and the SDK (the </span><span class="f_CodeExample"><a href="pxcsensemanager.html" class="topiclink">PXC[M]SenseManager</a></span><span class="f_Body"> interface) searches for an input device that can match the input requirements. A camera will be selected regardless of its name as long as the camera can provide the required input data. Example 159 shows an example of the finger tracking initialization. For applications that use </span><span class="f_CodeExample"><a href="pxcsensemanager.html" class="topiclink">PXC[M]SenseManager</a></span><span class="f_Body">, a similar initialization process is hidden under the hood. </span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A1')">C++ Example 159: Initialize Finger Tracking Module using PXCPipelineUtil</a></span></p>
+<div id="TOGGLE0186A1" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// session is a PXCSession instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCSenseManager *putil;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">session-&gt;CreateSenseManager(&amp;putil);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">putil-&gt;EnableHandAnalysis();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">putil-&gt;Init();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A2')">C# Example 159: Initialize Finger Tracking Module using PXCMPipelineUtil</a></span></p>
+<div id="TOGGLE0186A2" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// session is a PXCMSession instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSenseManager putil;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">session.CreateSenseManager(out putil);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">putil.EnableHandAnalysis();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">putil.Init();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Peripheral Cameras</span></p>
+<p class="p_Body"><span class="f_Body">The application should anticipate that any peripheral cameras can be unplugged (and subsequently replugged) during streaming. See the </span><span class="f_CodeExample">Device Disconnection and Reconnection</span><span class="f_Body"> section of the SDK reference manual for details how to handle device disconnection and reconnection. If the application does not support camera reconnection, the application must exit gracefully.</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Camera Streams</span></p>
+<p class="p_Body"><span class="f_Body">The application should not assume that any camera contains a color stream, a depth stream, an audio stream, and an accelerometer. The device capability may vary. There might be camera devices without integrated audio or an integrated accelerometer. There might be devices that might have multiple color streams. It is recommended that the application (or the processing modules) specifies the input requirements and uses the </span><span class="f_CodeExample"><a href="pxcsensemanager.html" class="topiclink">PXC[M]SenseManager</a></span><span class="f_Body"> interface to search for a camera device, rather than hard-coding a camera device, as shown in Example 159.</span></p>
+<p class="p_Body"><span class="f_Body">Similarly, the application should not assume that the color stream is at stream index </span><span class="f_CodeExample">0</span><span class="f_Body"> and the depth at stream index </span><span class="f_CodeExample">1</span><span class="f_Body">. The SDK provides functions to search for a specific stream, as illustrated in Example 160. If the application knows the exact color format, search the color format. Otherwise, search for the image type instead. The latter is recommended as it provides more flexibility.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A3')">C++ Example 160: Look for a Specific Stream</a></span></p>
+<div id="TOGGLE0186A3" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// pp is a PXCSenseManager instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">pp-&gt;QueryImageByType(PXCImage::IMAGE_TYPE_COLOR);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">pp-&gt;QueryImageByFormat(PXCImage::COLOR_FORMAT_RGB32);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A4')">C# Example 160: Look for a Specific Stream</a></span></p>
+<div id="TOGGLE0186A4" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// pp is a PXCSenseManager instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">pp.QueryImageByType(PXCMImage.ImageType.IMAGE_TYPE_COLOR);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">pp.QueryImageByFormat(PXCMImage.ColorFormat.COLOR_FORMAT_RGB32);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Camera Properties and Controls</span></p>
+<p class="p_Body"><span class="f_Body">The application can retrieve any camera property parameters, for example, the color brightness, hue, and contrast values. However, the application should not assume that the application can set these properties at any time. Some properties are read only. Others are writable only under certain conditions, for example, the application is the only one occupying the camera. </span></p>
+<p class="p_Body"><span class="f_Body">The SDK anticipates that multiple applications coexist to access a camera. It is recommended that the application works with the default camera parameters (including stream resolutions and frame rates). See the section </span><span class="f_CodeExample"><a href="devguide_coexisting_with_other_application.html" class="topiclink">Interoperate with Other Applications</a></span><span class="f_Body"> for additional details. </span></p>
+<p class="p_Body"><span class="f_Body">If the application must change certain camera parameters, the application should develop a fallback code path in the case that the desired settings are not available. </span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Configuration and Sample Streaming Order</span></p>
+<p class="p_Body"><span class="f_Body">Certain cameras may have restrictions on how the streams can be configured and streamed. For example, when streaming both the color and depth streams, the application must configure the streams before starting any streaming operations on the Creative cameras. It is recommended that the application use the following procedure to configure camera streams and stream data:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:20px"><span style="font-size:11pt; font-family: 'Intel Clear';color:#000000;">1.</span></td><td style="border:none"><span class="f_Body">Create the camera device instance.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:20px"><span style="font-size:11pt; font-family: 'Intel Clear';color:#000000;">2.</span></td><td style="border:none"><span class="f_Body">Create each camera stream instance to enumerate stream configurations and configure each stream.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:20px"><span style="font-size:11pt; font-family: 'Intel Clear';color:#000000;">3.</span></td><td style="border:none"><span class="f_Body">Stream data from one of the streams, or all of the streams.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:20px"><span style="font-size:11pt; font-family: 'Intel Clear';color:#000000;">4.</span></td><td style="border:none"><span class="f_Body">Release the stream instances.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:20px"><span style="font-size:11pt; font-family: 'Intel Clear';color:#000000;">5.</span></td><td style="border:none"><span class="f_Body">Release the device instance.</span></td></tr></table></div><p class="p_Body"><span class="f_Body">For applications that use the </span><span class="f_CodeExample"><a href="pxcsensemanager.html" class="topiclink">PXC[M]SenseManager</a></span><span class="f_Body"> interface, the above procedure is followed under the hood.</span></p>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">&nbsp;</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">&nbsp;</span></p>
+
+</td></tr></table>
+
+<script type="text/javascript">
+HMInitToggle('TOGGLE0186A1','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A2','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A3','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A4','hm.type','dropdown','hm.state','0');
+</script>
+</body>
+</html>

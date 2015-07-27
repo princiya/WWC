@@ -1,0 +1,98 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Rotation Trigger and Rules</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "toolkit_rotation_trigger_rules.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Rotation Trigger and Rules</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="toolkit_tracking_trigger_rules.html">Previous</a>&nbsp;
+     <a href="toolkit_scale_trigger_rules.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_InternalHeading"><span class="f_InternalHeading">Rotation Trigger and Trigger Values</span></p>
+<p class="p_InternalHeading">The <span class="f_CodeExample">Rotation Trigger</span> indicates that the user performed a rotation interaction.</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table style="width:820px; border:solid 2px #000000; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:109px; padding:5px; border:solid 1px #000000;"><p><span style="font-weight: bold;">Data Type</span></p>
+</td>
+<td style="vertical-align:top; width:204px; padding:5px; border:solid 1px #000000;"><p><span style="font-weight: bold;">Parameters</span></p>
+</td>
+<td style="vertical-align:top; width:471px; padding:5px; border:solid 1px #000000;"><p><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:109px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">float</span></p>
+</td>
+<td style="vertical-align:top; width:204px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">Pitch</span></p>
+</td>
+<td style="vertical-align:top; width:471px; padding:5px; border:solid 1px #000000;"><p>The angle around the X axis to rotate.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:109px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">float</span></p>
+</td>
+<td style="vertical-align:top; width:204px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">Yaw</span></p>
+</td>
+<td style="vertical-align:top; width:471px; padding:5px; border:solid 1px #000000;"><p>The angle around the Y axis to rotate.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:109px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">float</span></p>
+</td>
+<td style="vertical-align:top; width:204px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">Roll</span></p>
+</td>
+<td style="vertical-align:top; width:471px; padding:5px; border:solid 1px #000000;"><p>The angle around the Z axis to rotate.</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Rotation Trigger Rules</span><img src="toolkit_clip0037.png" width="238" height="50" alt="" style="float:right;margin:10px 10px 10px 10px; border:none" /></p>
+<p class="p_Body"><span class="f_Body">You can use the following rules with the </span><span class="f_CodeExample">Rotation Trigger</span><span class="f_Body">:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Two Hands Rotate</span></td></tr></table></div><p class="p_Body"><img src="toolkit_clip0038.png" width="237" height="78" alt="" style="width:237px;height:78px;border:none" /></p>
+<p class="p_Body" style="text-indent: 1px; margin: 7px 0px 7px 56px;"><span class="f_Body">The rule fires whenever the user’s two hands are performing a rotation gesture. This gesture is defined by moving the hands in 3D in the following manner:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 105px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Courier New';color:#000000;">o</span></td><td style="border:none"><span class="f_Body">To rotate the object around the Z axis, the user should move his hands up and down in opposite directions, as illustrated in Figure 94.</span></td></tr></table></div><p class="p_Body" style="text-align: center;"><img src="toolkit_clip0039_zoom36.png" width="374" height="262" alt="" style="margin:0px auto 0px auto;width:374px;height:262px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 94: Move Object Around the Z Axis</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 104px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Courier New';color:#000000;">o</span></td><td style="border:none"><span class="f_Body">To rotate the object around the Y axis, the user should move his hands toward and apart from each other, on the Z axis, as illustrated in Figure 95.</span></td></tr></table></div><p class="p_Body" style="text-align: center;"><img src="toolkit_clip0040_zoom39.png" width="337" height="322" alt="" style="margin:0px auto 0px auto;width:337px;height:322px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 95: Move Object Around the Y Axis</span></p>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+<p class="p_Body" style="margin: 7px 0px 7px 56px;"><span class="f_Body">You can specify the minimal distance the hands need to move from their initial location where they were detected to start the rotation. If the </span><span class="f_CodeExample">Distance Threshold</span><span class="f_Body"> is set to zero, the rotation will start immediately. Otherwise, it will start only when the distance between the hands passes the specified threshold.</span></p>
+<p class="p_Body" style="margin: 7px 0px 7px 56px;"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

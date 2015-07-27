@@ -1,0 +1,173 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>StreamCalibration</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="StreamCalibration" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "streamcalibration_pxccalibration.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">StreamCalibration</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_structures25.html">Previous</a>&nbsp;
+     <a href="streamtransform_pxccalibration.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_InternalHeading"><span class="f_InternalHeading">Namespace Hierarchy</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table style="width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_TableText"><span class="f_TableText">C++</span></p>
+</td>
+<td style="vertical-align:top; width:752px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="pxccalibration.html" class="topiclink">PXCCalibration</a>::StreamCalibration</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_TableText"><span class="f_TableText">C#</span></p>
+</td>
+<td style="vertical-align:top; width:752px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="pxccalibration.html" class="topiclink">PXCMCalibration</a>.StreamCalibration</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_TableText"><span class="f_TableText">Java</span></p>
+</td>
+<td style="vertical-align:top; width:752px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="pxccalibration.html" class="topiclink">PXCMCalibration</a>.StreamCalibration</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Definition</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 14px 0px;"><table style="width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:60px; padding:5px;"><p>C++</p>
+</td>
+<td style="vertical-align:top; width:740px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">struct StreamCalibration {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp;  <a href="pxcpointf32.html" class="topiclink">PXCPointF32</a> &nbsp;focalLength;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp;  <a href="pxcpointf32.html" class="topiclink">PXCPointF32</a> &nbsp;principalPoint;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pxcF32 &nbsp; &nbsp; &nbsp; radialDistortion[3];</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pxcF32 &nbsp; &nbsp; &nbsp; tangentialDistortion[2];</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp;  <a href="pxccapture.html" class="topiclink">PXCCapture</a>::<a href="devicemodel_pxccapture.html" class="topiclink">DeviceModel</a> model;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">};</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:60px; padding:5px;"><p>C#</p>
+</td>
+<td style="vertical-align:top; width:740px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">struct StreamCalibration {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp;  <a href="pxcpointf32.html" class="topiclink">PXCMPointF32</a> focalLength;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp;  <a href="pxcpointf32.html" class="topiclink">PXCMPointF32</a> principalPoint;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;Single[] &nbsp; &nbsp; radialDistortion;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;Single[] &nbsp; &nbsp; tangentialDistortion;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp;  <a href="pxccapture.html" class="topiclink">PXCMCapture</a>.<a href="devicemodel_pxccapture.html" class="topiclink">DeviceModel</a> model;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">};</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:60px; padding:5px;"><p>Java</p>
+</td>
+<td style="vertical-align:top; width:740px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">struct StreamCalibration {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp;  <a href="pxcpointf32.html" class="topiclink">PXCMPointF32</a> focalLength;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp;  <a href="pxcpointf32.html" class="topiclink">PXCMPointF32</a> principalPoint;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;float[] &nbsp; &nbsp; &nbsp;radialDistortion;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;float[] &nbsp; &nbsp; &nbsp;tangentialDistortion;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp;  <a href="pxccapture.html" class="topiclink">PXCMCapture</a>.<a href="devicemodel_pxccapture.html" class="topiclink">DeviceModel</a> model;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">};</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><a id="description"></a><span class="f_InternalHeading">Description</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table style="width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:61px; padding:5px;"><br />
+</td>
+<td style="vertical-align:top; width:739px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The </span><span class="f_CodeExample">StreamCalibration</span><span class="f_TableText"> structure describes the stream calibration parameters.</span></p>
+<p class="p_TableText"><span class="f_TableText">A 3D point </span><span class="f_CodeExample">(x,y,z)</span><span class="f_TableText"> in the camera coordinate system maps to a depth image pixel </span><span class="f_CodeExample">(u,v)</span><span class="f_TableText"> by the following formula:</span></p>
+<p class="p_TableText"><span class="f_TableText">For camera model F200:</span></p>
+<p class="p_TableText"><span class="f_TableText"> </span><img src="embim1.gif" width="288" height="290" style="margin:1px; border:none" alt="" /></p>
+<p class="p_TableText"><span class="f_TableText">For camera model R200:</span></p>
+<p class="p_TableText"><img src="embim2.gif" width="297" height="290" style="margin:1px; border:none" alt="" /></p>
+<p class="p_TableText"><img src="note.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_TableText">The camera equations vary with different camera models. </span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Members</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table style="width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:60px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:219px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">focalLength</span></p>
+</td>
+<td style="vertical-align:top; width:511px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The sensor focal length </span><span class="f_CodeExample">(f</span><span class="f_CodeExample" style="font-size: 7pt; vertical-align: sub;">x</span><span class="f_CodeExample">,f</span><span class="f_CodeExample" style="font-size: 7pt; vertical-align: sub;">y</span><span class="f_CodeExample">)</span><span class="f_TableText"> in pixels along the </span><span class="f_CodeExample">X</span><span class="f_TableText"> and </span><span class="f_CodeExample">Y</span><span class="f_TableText"> axes. The values vary with the stream resolution setting.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:60px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:219px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">principalPoint</span></p>
+</td>
+<td style="vertical-align:top; width:511px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The sensor principal point </span><span class="f_CodeExample">(p</span><span class="f_CodeExample" style="font-size: 7pt; vertical-align: sub;">x</span><span class="f_CodeExample">,p</span><span class="f_CodeExample" style="font-size: 7pt; vertical-align: sub;">y</span><span class="f_CodeExample">)</span><span class="f_TableText"> in pixels along the </span><span class="f_CodeExample">X</span><span class="f_TableText"> and </span><span class="f_CodeExample">Y</span><span class="f_TableText"> axes. The values vary with the stream resolution setting.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:60px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:219px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">radialDistortion</span></p>
+</td>
+<td style="vertical-align:top; width:511px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The radial distortion coefficients, </span><span class="f_CodeExample">(k</span><span class="f_CodeExample" style="font-size: 7pt; vertical-align: sub;">1</span><span class="f_CodeExample">,k</span><span class="f_CodeExample" style="font-size: 7pt; vertical-align: sub;">2</span><span class="f_CodeExample">,k</span><span class="f_CodeExample" style="font-size: 7pt; vertical-align: sub;">3</span><span class="f_CodeExample">)</span><span class="f_TableText">, as described by the camera model equations in the <a href="streamcalibration_pxccalibration.html#description" class="topiclink">Description</a> section.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:60px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:219px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">tangentialDistortion</span></p>
+</td>
+<td style="vertical-align:top; width:511px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The tangential distortion coefficients, </span><span class="f_CodeExample">(p</span><span class="f_CodeExample" style="font-size: 7pt; vertical-align: sub;">1</span><span class="f_CodeExample">,p</span><span class="f_CodeExample" style="font-size: 7pt; vertical-align: sub;">2</span><span class="f_CodeExample">)</span><span class="f_TableText">, as described by the camera model equations in the <a href="streamcalibration_pxccalibration.html#description" class="topiclink">Description</a> section.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:60px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:219px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">model</span></p>
+</td>
+<td style="vertical-align:top; width:511px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The device model identifier. See the </span><span class="f_CodeExample"><a href="devicemodel_pxccapture.html" class="topiclink">DeviceModel</a></span><span class="f_TableText"> enumerator for definitions.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

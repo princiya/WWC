@@ -1,0 +1,56 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Triggers and Rules</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "toolkit_rules.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Triggers and Rules</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="toolkit_send_message_action.html">Previous</a>&nbsp;
+     <a href="toolkit_event_trigger_rules.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_CodeExample">Triggers</span><span class="f_Body"> define the user interactions. They hold relevant data about the interactions. In some actions, the triggers are preset and you can only configure the rules attached to each trigger. This is true for actions where the interaction is tightly coded with a specific trigger such as </span><span class="f_CodeExample">Rotate</span><span class="f_Body"> action or </span><span class="f_CodeExample">Tracking</span><span class="f_Body"> action. In other actions, you can add and remove triggers to the action. That is true for more generic actions such as the </span><span class="f_CodeExample">Hide</span><span class="f_Body"> action or the </span><span class="f_CodeExample">Enable Behavior</span><span class="f_Body"> action</span><span class="f_CodeExample">.</span></p>
+<p class="p_Body"><span class="f_Body">The </span><span class="f_CodeExample">Rules</span><span class="f_Body"> are specific SDK code that implements certain Unity events, actions and data types. You can use rules in one or multiple triggers. When a rule is part of a trigger, the rule and its configuration parameters are shown in the Unity Editor's UI under the specific trigger(s).</span></p>
+<p class="p_Body"><span class="f_Body">When attaching more than one rule to a trigger, the rules are used in an OR relationship. This means that if one of the rules fires, the trigger is triggered with the firing rule’s values. The order of which they display in the Unity Editor's UI is the order of priority. Assume a trigger is consist of </span><span class="f_CodeExample">Face Detected</span><span class="f_Body"> and </span><span class="f_CodeExample">Gesture Detected</span><span class="f_Body"> rules, if face is detected, the trigger is fired with the face detection values and the gesture detected rule is ignored, as illustrated in Figure 92.</span></p>
+<p class="p_ImageCaption"><img src="toolkit_clip0023.png" width="352" height="66" alt="" style="margin:0px auto 0px auto;width:352px;height:66px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 92: Rules and The Rules Order</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

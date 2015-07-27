@@ -1,0 +1,266 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>User Segmentation</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="user segmentation" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_user_segmentation.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">User Segmentation</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_mapping_gestures_to_ui_control.html">Previous</a>&nbsp;
+     <a href="manuals_programming_guide_rear_facing_.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">The User Segmentation module generates a segmented image per frame which can be used to remove or replace portions of the image behind the user's head and shoulders (background).</span></p>
+<p class="p_Body"><span class="f_InternalHeading">Input and Output (Segmented) Images</span></p>
+<p class="p_Body"><span class="f_Body">The module works on synchronized color and depth images. Multiple resolutions are supported such as [color 320x240/depth 640x480] and [color 640x360/depth 640x480]. The resolution of the output image always matches the input color image resolution. The output image is in the 32-bit BGRA (</span><span class="f_CodeExample"><a href="pixelformat_pxcimage.html" class="topiclink">PIXEL_FORMAT_RGB32</a></span><span class="f_Body">) format and contains a copy of the input color data and a synthesized alpha channel (mask). Pixels which correspond to the background will contain an alpha channel of zero, and pixels which correspond to the user will have an alpha value greater than zero.</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">SenseManager Programming</span></p>
+<p class="p_Body"><span class="f_Body">To activate user segmentation in the </span><span class="f_CodeExample"><a href="pxcsensemanager.html" class="topiclink">PXC[M]SenseManager</a></span><span class="f_Body"> multimodal pipeline, use the </span><span class="f_CodeExample"><a href="enable3dseg_pxcsensemanager.html" class="topiclink">Enable3DSeg</a></span><span class="f_Body"> function. You can implement user segmentaion in your application in two ways: using SenseManager procedural functions of using SenseManager callback functions.</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">User Segmentation Using the SenseManager &nbsp;Procedural Functions</span></p>
+<p class="p_Body"><span class="f_Body">Example 90 shows an example of a typical user segmentation application. The example does the following:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 36px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:36px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#9642;</span></td><td style="border:none"><span class="f_IndentedList">Create an instance of the </span><span class="f_CodeExample"><a href="pxcsensemanager.html" class="topiclink">PXC[M]SenseManager</a></span><span class="f_IndentedList"> interface from the </span><span class="f_CodeExample"><a href="pxcsession.html" class="topiclink">PXC[M]Session</a></span><span class="f_IndentedList"> instance.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 36px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:36px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#9642;</span></td><td style="border:none"><span class="f_IndentedList">Activate user segmentation by using the </span><span class="f_CodeExample"><a href="enable3dseg_pxcsensemanager.html" class="topiclink">Enable3DSeg</a></span><span class="f_TableText2"> </span><span class="f_Body">function.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 36px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:36px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#9642;</span></td><td style="border:none"><span class="f_IndentedList">Initialize the </span><span class="f_CodeExample"><a href="pxcsensemanager.html" class="topiclink">PXC[M]SenseManager</a></span><span class="f_IndentedList"> pipeline (</span><span class="f_CodeExample"><a href="init_pxcsensemanager.html" class="topiclink">Init</a></span><span class="f_IndentedList">) and loop through the image frames (</span><span class="f_CodeExample"><a href="acquireframe_pxcsensemanager.html" class="topiclink">AcquireFrame</a></span><span class="f_IndentedList"> and </span><span class="f_CodeExample"><a href="releaseframe_pxcsensemanager.html" class="topiclink">ReleaseFrame</a></span><span class="f_IndentedList">). Whenever a segmented image is available, </span><span class="f_Body">the </span><span class="f_CodeExample"><a href="query3dseg_pxcsensemanager.html" class="topiclink">Query3DSeg</a></span><span class="f_Body"> function returns a valid instance. </span></td></tr></table></div><p class="p_IndentedList"><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">Such checking with the </span><span class="f_CodeExample"><a href="query3dseg_pxcsensemanager.html" class="topiclink">Query3DSeg</a></span><span class="f_Body"> function is optional if you call the </span><span class="f_CodeExample"><a href="acquireframe_pxcsensemanager.html" class="topiclink">AcquireFrame</a></span><span class="f_Body"> function with </span><span class="f_CodeExample">ifall=true</span><span class="f_Body">, which blocks until all modality results are ready for processing. </span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 36px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:36px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#9642;</span></td><td style="border:none"><span class="f_Body">During streaming, you may call the </span><span class="f_CodeExample"><a href="pause3dseg_pxcsensemanager.html" class="topiclink">Pause3DSeg</a></span><span class="f_Body"> function to pause/resume the module operation under certain conditions.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 36px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:36px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#9642;</span></td><td style="border:none"><span class="f_Body">Clean up the sample.</span></td></tr></table></div><p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A1')">C++ Example 90: User Segmentation using the SenseManager Procedural Functions</a></span></p>
+<div id="TOGGLE0186A1" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Create a SenseManager instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCSenseManager *sm=PXCSenseManager.CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Enable user segmentation</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm-&gt;Enable3DSeg();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Initialize the pipeline</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm-&gt;Init();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Stream data</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">while (sm-&gt;AcquireFrame(true)&gt;=PXC_STATUS_NO_ERROR) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; // Retrieve the results if ready</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; PXC3DSeg *seg=sm-&gt;Query3DSeg();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; if (seg) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; PXCImage *image=seg-&gt;AcquireSegmentedImage();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; ....</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; image-&gt;Release();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; }</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; // Resume next frame processing</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; sm-&gt;ReleaseFrame();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm-&gt;Release();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A2')">C# Example 90: User Segmentation using the SenseManager Procedural Functions</a></span></p>
+<div id="TOGGLE0186A2" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Create a SenseManager instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSenseManager sm=PXCMSenseManager.CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Enable user segmentation</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm.Enable3DSeg();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Initialize the pipeline</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm.Init();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Stream data</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">while (sm.AcquireFrame(true)&gt;=pxcmStatus.PXCM_STATUS_NO_ERROR) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Retrieve the results</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCM3DSeg seg=sm.Query3DSeg();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;if (seg!=null) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;PXCMImage image=seg.AcquireSegmentedImage();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;image.Dispose();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Resume next frame processing</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;sm.ReleaseFrame();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm.Dispose();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A3')">Java Example 90: User Segmentation using the SenseManager Procedural Functions</a></span></p>
+<div id="TOGGLE0186A3" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Create a SenseManager instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSenseManager sm=PXCMSenseManager.CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Enable user segmentation</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm.Enable3DSeg();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Initialize the pipeline</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm.Init();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Stream data</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">while (sm.AcquireFrame(true)&gt;=pxcmStatus.PXCM_STATUS_NO_ERROR) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Retrieve the results</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCM3DSeg seg=sm.Query3DSeg();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;if (seg!=null) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;PXCMImage image=seg.AcquireSegmentedImage();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;image.close();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Resume next frame processing</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;sm.ReleaseFrame();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm.close();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">User Segmentation Using the SenseManager Callback Functions</span></p>
+<p class="p_Body"><span class="f_Body">You may also use the </span><span class="f_CodeExample"><a href="pxcsensemanager.html" class="topiclink">PXC[M]SenseManager</a></span><span class="f_Body"> callback functions. Example 91 shows the user segmentation application using callbacks. The SDK invokes the </span><span class="f_CodeExample"><a href="onmoduleprocessedframe_handler_pxcsensemanager.html" class="topiclink">OnModuleProcessedFrame</a></span><span class="f_Body"> callback when there is some result for processing.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A4')">C++ Example 91: User Segmentation using the SenseManager Event Functions</a></span></p>
+<div id="TOGGLE0186A4" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">class MyHandler: public PXCSenseManager::Handler {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">public:</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;virtual pxcStatus PXCAPI OnModuleProcessedFrame(pxcUID mid, PXCBase *module, PXCCapture::Sample *sample) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// check if the callback is from the user segmentation module.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;if (mid==PXC3DSeg::CUID) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;PXC3DSeg *seg=module-&gt;QueryInstance&lt;PXC3DSeg&gt;();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// return NO_ERROR to continue, or any error to abort.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;return PXC_STATUS_NO_ERROR;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">};</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Create a SenseManager instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCSenseManager *sm=PXCSenseManager::CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Enable user segmentation</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm-&gt;Enable3DSeg();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Initialize and stream data.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">MyHandler handler;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm-&gt;Init(&amp;handler);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm-&gt;StreamFrames(true);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm-&gt;Release();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A5')">C# Example 91: User Segmentation using the SenseManager Event Functions</a></span></p>
+<div id="TOGGLE0186A5" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">pxcmStatus OnModuleProcessFrame(Int32 mid, PXCMBase module, PXCMCapture.Sample sample) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// check if the callback is from the user segmentation module.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;if (mid==PXCM3DSeg.CUID) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;PXCM3DSeg seg=module.QueryInstance&lt;PXCM3DSeg&gt;();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// return NO_ERROR to continue, or any error to abort.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;return pxcmStatus.PXCM_STATUS_NO_ERROR;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Create the SenseManager instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSenseManager sm=PXCMSenseManager.CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Enable user segmentation</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm.Enable3DSeg();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Initialize</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSenseManager.Handler handler=new PXCMSenseManager.Handler {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;onModuleProcessedFrame=OnModuleProcessedFrame</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">};</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm.Init(handler);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Streaming data</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm.StreamFrames(true);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm.Dispose();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A6')">Java Example 91: User Segmentation using the SenseManager Event Functions</a></span></p>
+<div id="TOGGLE0186A6" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">class MyHandler implements PXCMSenseManager.Handler {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;public pxcmStatus OnModuleProcessedFrame(int mid, PXCMBase module, PXCMCapture.Sample sample) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// check if the callback is from the user segmentation module.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;if (mid==PXCM3DSeg.CUID) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;PXCM3DSeg seg=(PXCM3DSeg)module.QueryInstance(PXCM3DSeg.CUID);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// return NO_ERROR to continue, or any error to abort.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;return pxcmStatus.PXCM_STATUS_NO_ERROR;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">};</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Create the SenseManager instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSenseManager sm=PXCMSenseManager.CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Enable user segmentation</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm.Enable3DSeg();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Initialize</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">MyHandler handler=new MyHandler();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm.Init(handler);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Streaming data</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm.StreamFrames(true);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm.close();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_ImageCaption"><span class="f_ImageCaption">&nbsp;</span></p>
+
+</td></tr></table>
+
+<script type="text/javascript">
+HMInitToggle('TOGGLE0186A1','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A2','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A3','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A4','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A5','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A6','hm.type','dropdown','hm.state','0');
+</script>
+</body>
+</html>

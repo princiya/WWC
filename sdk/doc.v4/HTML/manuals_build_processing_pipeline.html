@@ -1,0 +1,212 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Connecting I/O via CaptureManager</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="build pipeline" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_build_processing_pipeline.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Connecting I/O via CaptureManager</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_module_configuration.html">Previous</a>&nbsp;
+     <a href="manuals_interface_and_function_reference_core.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">The </span><span class="f_CodeExample"><a href="pxccapturemanager.html" class="topiclink">PXC[M]CaptureManager</a></span><span class="f_Body"> interface is a helper interface to simplify locating an input device and configuring its streams, given a set of module needs. Use the </span><span class="f_CodeExample"><a href="createcapturemanager_pxcsession.html" class="topiclink">CreateCaptureManager</a></span><span class="f_Body"> function to create an instance of the </span><span class="f_CodeExample"><a href="pxccapturemanager.html" class="topiclink">PXC[M]CaptureManager</a></span><span class="f_Body"> interface.</span></p>
+<p class="p_Body"><span class="f_Body">Do the following steps to locate an input device and configure the streams:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Use the </span><span class="f_CodeExample"><a href="requeststreams_pxccapturemanager.html" class="topiclink">RequestStreams</a></span><span class="f_Body"> function to specify the module input needs. If there are multiple modules consuming the input data, you can call the function multiple times specifying the needs of each module. The modules are identified by the module identifier, which can be any non-zero unique number.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Use the </span><span class="f_CodeExample"><a href="locatestreams_pxccapturemanager.html" class="topiclink">LocateStreams</a></span><span class="f_Body"> function to locate the input device and configure the streams. After the function returns, the device is fully configured to deliver data.</span></td></tr></table></div><p class="p_Body"><span class="f_Body">Example 123 illustrates how to configure the face tracking module, the hand tracking module, and the I/O device to work among them.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A1')">C++ Example 123: Configure Device For Face and Hand</a></span></p>
+<div id="TOGGLE0186A1" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// face is the PXCFaceModule instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// hand is the PXCHandModule instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// cm is a PXCCaptureManager instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Obtain the configuration instances</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCVideoModule *fvm=face-&gt;QueryInstance&lt;PXCVideoModule&gt;();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCVideoModule *hvm=face-&gt;QueryInstance&lt;PXCVideoModule&gt;();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Obtain the CaptureManager instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCCaptureManager *cm=session-&gt;CreateCaptureManager();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// The input descriptors</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCVideoModule::DataDesc fdesc;</span><br />
+<span class="f_CodeExample">PXCVideoModule::DataDesc hdesc;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Enumerate the face profiles.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">pxcStatus sts;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">for (int i=0;;i++) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;sts=fvm-&gt;QueryCaptureProfile(i, &amp;fdesc);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;if (sts&lt;PXC_STATUS_NO_ERROR) break;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Enumerate the hand profiles.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;for (int j=0;;j++) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;sts=hvm-&gt;QueryCaptureProfile(j, &amp;hdesc);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;if (sts&lt;PXC_STATUS_NO_ERROR) break;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// Feed the CaptureManager the face and hand needs.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;cm-&gt;RequestStreams(0, 0); &nbsp;// clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;cm-&gt;RequestStreams(1, &amp;fdesc);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;cm-&gt;RequestStreams(2, &amp;hdesc);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// Locate an I/O device and configure it.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;sts=cm-&gt;LocateStreams();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;if (sts&gt;=PXC_STATUS_NO_ERROR) break;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;if (sts&gt;=PXC_STATUS_NO_ERROR) break;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// OK then let's configure the face and hand modules.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">if (sts&gt;=PXC_STATUS_NO_ERROR) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;sts=fvm-&gt;SetCaptureProfile(&amp;fdesc);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;if (sts&gt;=PXC_STATUS_NO_ERROR)</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;sts=hvm-&gt;SetCaptureProfile(&amp;hdesc);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A2')">C# Example 123: Configure Device For Face and Hand</a></span></p>
+<div id="TOGGLE0186A2" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// face is the PXCMFaceModule instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// hand is the PXCMHandModule instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// cm is a PXCMCaptureManager instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Obtain the configuration instances</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMVideoModule fvm=face.QueryInstance&lt;PXCMVideoModule&gt;();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMVideoModule hvm=face.QueryInstance&lt;PXCMVideoModule&gt;();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Obtain the CaptureManager instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMCaptureManager cm=session.CreateCaptureManager();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// The input descriptors</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMVideoModule.DataDesc fdesc;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMVideoModule.DataDesc hdesc;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span><br />
+<span class="f_CodeExample">// Enumerate the face profiles.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">pxcmStatus sts;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">for (int i=0;;i++) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;sts=fvm.QueryCaptureProfile(i, out fdesc);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;if (sts&lt;pxcmStatus.PXCM_STATUS_NO_ERROR) break;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Enumerate the hand profiles.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;for (int j=0;;j++) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;sts=hvm.QueryCaptureProfile(j, out hdesc);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;if (sts&lt;pxcmStatus.PXCM_STATUS_NO_ERROR) break;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// Feed the CaptureManager the face and hand needs.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;cm.RequestStreams(0, 0); &nbsp;// clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;cm.RequestStreams(1, fdesc);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;cm.RequestStreams(2, hdesc);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// Locate an I/O device and configure it.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;sts=cm.LocateStreams();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;if (sts&gt;=pxcmStatus.PXCM_STATUS_NO_ERROR) break;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;if (sts&gt;=pxcmStatus.PXCM_STATUS_NO_ERROR) break;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// OK then let's configure the face and hand modules.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">if (sts&gt;=pxcmStatus.PXCM_STATUS_NO_ERROR) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;sts=fvm.SetCaptureProfile(fdesc);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;if (sts&gt;=pxcmStatus.PXCM_STATUS_NO_ERROR)</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;sts=hvm.SetCaptureProfile(hdesc);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A3')">Java Example 122: Configure Device For Face and Hand</a></span></p>
+<div id="TOGGLE0186A3" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// face is the PXCMFaceModule instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// hand is the PXCMHandModule instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// cm is a PXCMCaptureManager instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Obtain the configuration instances</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMVideoModule fvm=(PXCMVideoModule)face.QueryInstance(PXCMVideoModule.CUID);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMVideoModule hvm=(PXCMVideoModule)face.QueryInstance(PXCMVideoModule.CUID);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Obtain the CaptureManager instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMCaptureManager cm=session.CreateCaptureManager();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// The input descriptors</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMVideoModule.DataDesc fdesc=new PXCMVideoModule.DataDesc();</span><br />
+<span class="f_CodeExample">PXCMVideoModule.DataDesc hdesc=new PXCMVideoModule.DataDesc();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Enumerate the face profiles.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">pxcmStatus sts;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">for (int i=0;;i++) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;sts=fvm.QueryCaptureProfile(i, fdesc);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;if (sts&lt;pxcmStatus.PXCM_STATUS_NO_ERROR) break;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Enumerate the hand profiles.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;for (int j=0;;j++) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;sts=hvm.QueryCaptureProfile(j, hdesc);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;if (sts&lt;pxcmStatus.PXCM_STATUS_NO_ERROR) break;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// Feed the CaptureManager the face and hand needs.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;cm.RequestStreams(0, 0); &nbsp;// clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;cm.RequestStreams(1, fdesc);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;cm.RequestStreams(2, hdesc);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// Locate an I/O device and configure it.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;sts=cm.LocateStreams();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;if (sts&gt;=pxcmStatus.PXCM_STATUS_NO_ERROR) break;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;if (sts&gt;=pxcmStatus.PXCM_STATUS_NO_ERROR) break;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// OK then let's configure the face and hand modules.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">if (sts&gt;=pxcmStatus.PXCM_STATUS_NO_ERROR) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;sts=fvm.SetCaptureProfile(fdesc);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;if (sts&gt;=pxcmStatus.PXCM_STATUS_NO_ERROR)</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;sts=hvm.SetCaptureProfile(hdesc);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+<script type="text/javascript">
+HMInitToggle('TOGGLE0186A1','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A2','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A3','hm.type','dropdown','hm.state','0');
+</script>
+</body>
+</html>

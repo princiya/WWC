@@ -1,0 +1,61 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Understanding the Blob Data</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_understanding_the_blob_data.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Understanding the Blob Data</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_extracting_blob_data.html">Previous</a>&nbsp;
+     <a href="manuals_usage_example.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">The </span><span class="f_CodeExample"><a href="iblob_pxcblobdata.html" class="topiclink">IBlob</a></span><span class="f_Body"> interface provides details about the blob’s segmentation image and contour lines.</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Segmentation Image Data</span></p>
+<p class="p_Body"><span class="f_Body">The following parameters describe the segmentation image of a detected blob:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Segmentation image</span><span class="f_Body"> – the black-and white segmentation image, with the blob pixels in white. Use the </span><span class="f_CodeExample"><a href="querysegmentationimage_iblob_pxcblobdata.html" class="topiclink">QuerySegmentationImage</a></span><span class="f_Body"> function to access the segmentation image.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Extremity points</span><span class="f_Body"> – the left-most, right-most, top-most, bottom-most, center and closest (to the sensor) points of the segmentation image. Use the </span><span class="f_CodeExample"><a href="queryextremitypoint_iblob_pxcblobdata.html" class="topiclink">QueryExtremityPoint</a></span><span class="f_Body"> function to query for each point. If the stabilizer is enabled, the extremity points are smoothed to be more stable, and their motion smoother. No guarantee to be located precisely on the contour line.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Pixel count</span><span class="f_Body"> – the number of pixels in the segmentation image. Use the </span><span class="f_CodeExample"><a href="querypixelcount_iblob_pxcblobdata.html" class="topiclink">QueryPixelCount</a></span><span class="f_Body"> function to retrieve the number of pixels.</span></td></tr></table></div><p class="p_InternalHeading"><span class="f_InternalHeading">Contour Data</span></p>
+<p class="p_Body"><span class="f_Body">Each blob has an external contour line, and optionally one or more internal contour lines, depending on the blob’s shape. Each contour line is represented by a series of points. Drawing a straight line between each two consecutive points creates a polygon, which is an approximation of the contour line. The larger the configured minimal contour size, the more detailed the contour line is.</span></p>
+<p class="p_Body"><span class="f_Body">Outer contour lines (i.e. external borders) are defined by an array of points in counter-clock-wise order. Inner contour lines (i.e. &quot;holes&quot; in the mask), if any, are defined by arrays of points in clock-wise order.</span></p>
+<p class="p_Body"><span class="f_Body">Figure 25 illustrates how contour points are ordered.</span></p>
+<p class="p_Body" style="text-align: center;"><img src="manuals_clip0119.png" width="379" height="322" alt="" style="margin:0px auto 0px auto;width:379px;height:322px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 25: Point Order for Outer and Inner Contours</span></p>
+<p class="p_Body"><span class="f_Body">The following parameters define the contour lines:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Number of contours</span><span class="f_Body"> – the total number of outer and inner contour lines identified for the blob. Use the </span><span class="f_CodeExample"><a href="querynumberofcontours_iblob_pxcblobdata.html" class="topiclink">QueryNumberOfContours</a></span><span class="f_Body"> function to get the value.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Contour size</span><span class="f_Body"> – the number of points in the contour line. Use the </span><span class="f_CodeExample"><a href="querycontoursize_iblob_pxcblobdata.html" class="topiclink">QueryContourSize</a></span><span class="f_Body"> function to get the value.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Contour points</span><span class="f_Body"> – the array of contour points. These are 2D points, expressed in X and Y pixel coordinates. Use the </span><span class="f_CodeExample"><a href="querycontoursize_iblob_pxcblobdata.html" class="topiclink">QueryContourPoints</a></span><span class="f_Body"> function to access the points.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Inner/Outer flag</span><span class="f_Body"> – whether the specific contour line is external or internal. Use the </span><span class="f_CodeExample"><a href="iscontourouter_iblob_pxcblobdata.html" class="topiclink">IsContourOuter</a></span><span class="f_Body"> function to retrieve the data.</span></td></tr></table></div><p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

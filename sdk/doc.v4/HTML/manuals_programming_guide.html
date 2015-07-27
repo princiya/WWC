@@ -1,0 +1,59 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Programming Guide: Concept and Streaming</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="concept,programming guide" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_programming_guide.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Programming Guide: Concept and Streaming</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_architecture_and_programming.html">Previous</a>&nbsp;
+     <a href="manuals_algorithms_and_i_o_modules.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">The SDK consists of multiple C++/C# interfaces. Figure 9 illustrates the interface hierarchy.</span></p>
+<p class="p_Body" style="text-align: center;"><img src="hmfile_hash_d4a88586.png" width="903" height="389" alt="" style="margin:0px auto 0px auto;width:903px;height:389px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 9: &nbsp;SDK C++/C# Interface Hierarchy</span></p>
+<p class="p_Body"><span class="f_Body">The </span><span class="f_CodeExample"><a href="pxcsession.html" class="topiclink">PXC[M]Session</a></span><span class="f_Body"> interface manages the following modules: I/O modules, algorithm modules, and any other SDK interface implementations. First you need to create an instance of the </span><span class="f_CodeExample"><a href="pxcsession.html" class="topiclink">PXC[M]Session</a></span><span class="f_Body"> interface (through the </span><span class="f_CodeExample"><a href="createinstance_pxcsession.html" class="topiclink">CreateInstance</a></span><span class="f_Body"> function) in your application, and then create other module instances from the </span><span class="f_CodeExample"><a href="pxcsession.html" class="topiclink">PXC[M]Session</a></span><span class="f_Body"> instance. See <a href="manuals_algorithms_and_i_o_modules.html" class="topiclink">Session and Modules</a> for basic concepts.</span></p>
+<p class="p_Body"><span class="f_Body">For predefined usages such as hand tracking and face tracking, you can use the </span><span class="f_CodeExample"><a href="pxcsensemanager.html" class="topiclink">PXC[M]SenseManager</a></span><span class="f_Body"> interface. This interface organizes a multi-modal pipeline (that contains an I/O device and multiple algorithm modules) and controls the execution of the pipeline such as starting, stopping, pausing and resuming the pipeline. To create the </span><span class="f_CodeExample"><a href="pxcsensemanager.html" class="topiclink">PXC[M]SenseManager</a></span><span class="f_Body"> instance, use the </span><span class="f_CodeExample"><a href="createinstance_pxcsensemanager.html" class="topiclink">CreateInstance</a></span><span class="f_Body"> function.</span></p>
+<p class="p_Body"><span class="f_Body">Internally, the </span><span class="f_CodeExample"><a href="pxcsensemanager.html" class="topiclink">PXC[M]SenseManager</a></span><span class="f_Body"> interface uses the </span><span class="f_CodeExample"><a href="pxccapturemanager.html" class="topiclink">PXC[M]CaptureManager</a></span><span class="f_Body"> interface to select the I/O device and color/depth/audio streams. Retrieve the </span><span class="f_CodeExample"><a href="pxccapturemanager.html" class="topiclink">PXC[M]CaptureManager</a></span><span class="f_Body"> instance (from the </span><span class="f_CodeExample"><a href="pxcsensemanager.html" class="topiclink">PXC[M]SenseManager</a></span><span class="f_Body"> interface) to constrain the device search and/or to set file recording and playback during the pipeline initialization. You can subsequently retrieve the </span><span class="f_CodeExample"><a href="pxccapture.html" class="topiclink">PXC[M]Capture</a></span><span class="f_Body"> interface for physical camera operations, such as enumerating devices/streams, and querying stream configurations and device properties. See <a href="manuals_i_o_devices_enumeration_and_se.html" class="topiclink">I/O Device Operations</a> for more details.</span></p>
+<p class="p_Body"><span class="f_Body">During the pipeline execution, when some samples are ready from the I/O device, you can access the captured samples through the </span><span class="f_CodeExample"><a href="pxcimage.html" class="topiclink">PXC[M]Image</a></span><span class="f_Body"> interfaces, which abstract the image buffers. When an algorithm module in the pipeline is ready with some processing results, you need to access algorithm specific interfaces, such as </span><span class="f_CodeExample"><a href="pxchandmodule.html" class="topiclink">PXC[M]HandModule</a></span><span class="f_Body"> for hand tracking and </span><span class="f_CodeExample"><a href="pxcfacemodule.html" class="topiclink">PXC[M]FaceModule</a></span><span class="f_Body"> for face tracking. These interfaces provide algorithm specific functions to query/set algorithm configurations and algorithm data. </span></p>
+<p class="p_Body"><span class="f_Body">The audio path is a bit different where the application manages the audio source through the </span><span class="f_CodeExample"><a href="pxcaudiosource.html" class="topiclink">PXC[M]AudioSource</a></span><span class="f_Body"> interface, and specific voice features directly in the module interface, for example, </span><span class="f_CodeExample"><a href="pxcspeechrecognition.html" class="topiclink">PXC[M]SpeechRecognition</a></span><span class="f_Body">.</span></p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+
+</body>
+</html>

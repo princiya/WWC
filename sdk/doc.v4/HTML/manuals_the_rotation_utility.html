@@ -1,0 +1,331 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>The Rotation Utility</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Rotation" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_the_rotation_utility.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">The Rotation Utility</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_the_smoother_utility.html">Previous</a>&nbsp;
+     <a href="manuals_the_pointer_converter_utility.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">The </span><span class="f_CodeExample"><a href="pxcrotation.html" class="topiclink">PXC[M]Rotation</a></span><span class="f_Body"> class is a utility that allows conversion between different rotation representations of points in 3D space. It supports several commonly-used rotation algorithms. Quaternion, rotation matrix, Euler angles and Angle-Axis are all ways of representing 3D rotations. &nbsp;As of today, there is no unified method to handle rotation, and each algorithm uses its own conventions. </span></p>
+<p class="p_Body"><span class="f_Body">The purpose of this utility is to enable you to easily convert between rotation systems used by different modules.</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Rotation Representations</span></p>
+<p class="p_Body"><span class="f_Body">These are the representations that </span><span class="f_CodeExample"><a href="pxcrotation.html" class="topiclink">PXC[M]Rotation</a></span><span class="f_Body"> supports:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Quaternion</span><span class="f_Body"> – a 4D float vector </span><span class="f_CodeExample"><a href="pxcpoint4df32.html" class="topiclink">PXC[M]Point4DF32</a></span><span class="f_Body"> that represents a 3D rotation </span><span class="f_CodeExample">(w,x,y,z)</span><span class="f_Body">. </span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Rotation Matrix</span><span class="f_Body"> – a 3x3 float rotation matrix.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Euler Angles</span><span class="f_Body"> – a 3D float vector representing the angle of rotation around each axis (</span><span class="f_CodeExample">pitch/yaw/roll</span><span class="f_Body">).</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Angle + Axis</span><span class="f_Body"> - rotation angle (in Radians) around an axis.</span></td></tr></table></div><p class="p_InternalHeading"><span class="f_InternalHeading">Creating a Rotation Instance</span></p>
+<p class="p_Body"><span class="f_Body">There are two steps for initializing a rotation instance:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:20px"><span style="font-size:11pt; font-family: 'Intel Clear';color:#000000;">1.</span></td><td style="border:none"><span class="f_Body">Create the </span><span class="f_CodeExample"><a href="pxcrotation.html" class="topiclink">PXC[M]Rotation</a></span><span class="f_Body"> instance</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:20px"><span style="font-size:11pt; font-family: 'Intel Clear';color:#000000;">2.</span></td><td style="border:none"><span class="f_Body">Set the input representation of the rotation. You can use any of the following </span><span class="f_CodeExample"><a href="pxcrotation.html" class="topiclink">PXC[M]Rotation</a></span><span class="f_Body"> methods, depending on your input representation of the rotation:</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 17px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Courier New';color:#000000;">o</span></td><td style="border:none"><span class="f_CodeExample"><a href="setfromquaternion_pxcrotation.html" class="topiclink">SetFromQuaternion</a></span><span class="f_Body"> &nbsp;- set the input representation as the given quaternion.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 17px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Courier New';color:#000000;">o</span></td><td style="border:none"><span class="f_CodeExample"><a href="setfromrotationmatrix_pxcrotation.html" class="topiclink">SetFromRotationMatrix</a></span><span class="f_Body"> - set the input representation as the given rotation matrix.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 17px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Courier New';color:#000000;">o</span></td><td style="border:none"><span class="f_CodeExample"><a href="setfromeulerangles_pxcrotation.html" class="topiclink">SetFromEulerAngles</a></span><span class="f_Body"> - set the input representation as the given Euler angles.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 17px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Courier New';color:#000000;">o</span></td><td style="border:none"><span class="f_CodeExample"><a href="setfromangleaxis_pxcrotation.html" class="topiclink">SetFromAngleAxis</a></span><span class="f_Body"> - set the input representation as the given angle and axis.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 17px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Courier New';color:#000000;">o</span></td><td style="border:none"><span class="f_CodeExample"><a href="setfromslerp_pxcrotation.html" class="topiclink">SetFromSlerp</a></span><span class="f_Body"> - initialize the </span><span class="f_CodeExample"><a href="pxcrotation.html" class="topiclink">PXC[M]Rotation</a></span><span class="f_Body"> instance as the slerp of the two given </span><span class="f_CodeExample"><a href="pxcrotation.html" class="topiclink">PXC[M]Rotation</a></span><span class="f_Body"> instances and the “slerp factor”. &nbsp;A slerp is the spherical linear interpolation between two rotations. The slerp factor indicates how much should each given rotation influences the final result.</span></td></tr></table></div><p class="p_Body"><span class="f_Body">Example 102 demonstrates how to create a rotation instance from a rotation matrix.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A1')">C++ Example 102: Create a Rotation Instance</a></span></p>
+<div id="TOGGLE0186A1" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Create PXCsession instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCSession* session = PXCSession::CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Create PXCRotation instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCRotation* rotation;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">session-&gt;CreateImpl&lt;PXCRotation&gt;(&amp;rotation);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Set Rotation instance from 3x3 rotation matrix</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">pxcF32 rotationMatrix[3][3] = {{1,0,0}, {0,1,0}, {0,0,1}};</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">rotation-&gt;SetFromRotationMatrix(rotationMatrix);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A2')">C# Example 102: Create a Rotation Instance</a></span></p>
+<div id="TOGGLE0186A2" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Create PXCMsession instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSession session = PXCMSession.CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Create PXCMRotation instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMRotation rotation;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">session.CreateImpl&lt;PXCMRotation&gt;(out rotation);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Set Rotation instance from 3x3 rotation matrix</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">Single[][] rotationMatrix=new Single[][3] {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;new Single[3]{1,0,0}, new Single[3]{0,1,0}, new Single[3]{0,0,1}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">};</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">rotation.SetFromRotationMatrix(rotationMatrix);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A3')">Java Example 102: Create a Rotation Instance</a></span></p>
+<div id="TOGGLE0186A3" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Create PXCMsession instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSession session = PXCMSession.CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Create PXCMRotation instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMRotation rotation=new PXCMRotation();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">session.CreateImpl(rotation);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Set Rotation instance from 3x3 rotation matrix</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">float[][] rotationMatrix=new float[][3] {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;new float[3]{1,0,0}, new float[3]{0,1,0}, new float[3]{0,0,1}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">};</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">rotation.SetFromRotationMatrix(rotationMatrix);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Using the Rotation</span></p>
+<p class="p_InternalHeading"><span class="f_Body">Use the following methods to query a specific representation of the </span><span class="f_CodeExample"><a href="pxcrotation.html" class="topiclink">PXC[M]Rotation</a></span><span class="f_Body"> object, or to perform a new rotation:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">The </span><span class="f_CodeExample"><a href="queryquaternion_pxcrotation.html" class="topiclink">QueryQuaternion</a></span><span class="f_Body">, </span><span class="f_CodeExample"><a href="queryrotationmatrix_pxcrotation.html" class="topiclink">QueryRotationMatrix</a></span><span class="f_Body">, </span><span class="f_CodeExample"><a href="queryeulerangles_pxcrotation.html" class="topiclink">QueryEulerAngles</a></span><span class="f_Body"> and </span><span class="f_CodeExample"><a href="queryangleaxis_pxcrotation.html" class="topiclink">QueryAngleAxis</a></span><span class="f_Body"> functions return the current rotation in the specified representation. </span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">The </span><span class="f_CodeExample"><a href="queryroll_pxcrotation.html" class="topiclink">QueryRoll</a></span><span class="f_Body">, </span><span class="f_CodeExample"><a href="querypitch_pxcrotation.html" class="topiclink">QueryPitch</a></span><span class="f_Body"> and </span><span class="f_CodeExample"><a href="queryyaw_pxcrotation.html" class="topiclink">QueryYaw</a></span><span class="f_Body"> functions return the angle around the </span><span class="f_CodeExample">x</span><span class="f_Body">-axis, </span><span class="f_CodeExample">y</span><span class="f_Body">-axis and </span><span class="f_CodeExample">z</span><span class="f_Body">-axis respectively.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">The </span><span class="f_CodeExample"><a href="rotate_pxcrotation.html" class="topiclink">Rotate</a></span><span class="f_Body"> function performs a new rotation relative to the current one. I.e. concatenates the current rotation and the given one.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">The </span><span class="f_CodeExample"><a href="rotatevector_pxcrotation.html" class="topiclink">RotateVector</a></span><span class="f_Body"> function returns the given vector rotated according to the current rotation.</span></td></tr></table></div><p class="p_Body"><span class="f_Body">When using the </span><span class="f_CodeExample"><a href="queryeulerangles_pxcrotation.html" class="topiclink">QueryEulerAngles</a></span><span class="f_Body"> function, there are a few different representations for the same rotation angle. The </span><span class="f_CodeExample"><a href="eulerorder_pxcrotations.html" class="topiclink">EulerOrder</a></span><span class="f_Body"> enumeration indicates the order in which to extract the Euler angles. This order matters (e.g. </span><span class="f_CodeExample">ROLL_PITCH_YAW</span><span class="f_Body"> != </span><span class="f_CodeExample">ROLL_YAW_PITCH</span><span class="f_Body">), and will result in different output values, but they all correspond to the same rotation.</span></p>
+<p class="p_Body"><span class="f_Body">Example 103 demonstrates how to retrieve the rotation in different representations.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A4')">C++ Example 103: Retrieve Rotation In Different Representations</a></span></p>
+<div id="TOGGLE0186A4" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Get the current rotation in the Euler representation</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCPoint3DF32 eulerAngles = rotation-&gt;QueryEulerAngles(PXCRotation::PITCH_YAW_ROLL);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Get the current Angle+Axis representation</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMRotation::AngleAxis angleAxis = rotation-&gt;QueryAngleAxis();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A5')">C# Example 103: Retrieve Rotation In Different Representations</a></span></p>
+<div id="TOGGLE0186A5" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Get the current rotation in the Euler representation</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMPoint3DF32 eulerAngles = rotation.QueryEulerAngles(PXCMRotation.EulerOrder.PITCH_YAW_ROLL);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Get the current Angle+Axis representation</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMRotation.AngleAxis angleAxis = rotation.QueryAngleAxis();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A6')">Java Example 103: Retrieve Rotation In Different Representations</a></span></p>
+<div id="TOGGLE0186A6" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Get the current rotation in the Euler representation</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMPoint3DF32 eulerAngles = rotation.QueryEulerAngles(PXCMRotation.EulerOrder.PITCH_YAW_ROLL);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Get the current Angle+Axis representation</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMRotation.AngleAxis angleAxis = rotation.QueryAngleAxis();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Full Code Sample</span></p>
+<p class="p_InternalHeading"><span class="f_Body">Example 104 demonstrates the use of the rotation utility with the hand module. </span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A7')">C++ Example 104: Use Rotation with Hand</a></span></p>
+<div id="TOGGLE0186A7" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Init</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCSenseManager* senseManager = PXCSenseManager::CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Hand Module Setup</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">senseManager-&gt;EnableHand();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCHandModule* handModule = senseManager-&gt;QueryHand();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCHandData* handDataOutput = handModule-&gt;CreateOutput();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Creating PXCRotation instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCRotation* rotation;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">senseManager-&gt;QuerySession()-&gt;CreateImpl&lt;PXCRotation&gt;(&amp;rotation);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// First Initializing the sense manager</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">if(senseManager-&gt;Init() &gt;= PXC_STATUS_NO_ERROR) { &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Acquiring frames from input device</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;while(senseManager-&gt;AcquireFrame(true) &gt;= PXC_STATUS_NO_ERROR) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// Get current frame hand output</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;handDataOutput-&gt;Update();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;if(handDataOutput-&gt;QueryNumberOfHands() &gt; 0) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;PXCHandData::IHand *hd;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;pxcStatus status=handDataOutput-&gt;QueryHandData(PXCHandData::ACCESS_ORDER_BY_TIME,0,hd);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (status&gt;=PXC_STATUS_NO_ERROR &amp;&amp; hd-&gt;HasTrackedJoints()) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;PXCHandData::JointData jd;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;hd-&gt;QueryTrackedJoint(PXCHandData::JOINT_CENTER,jd);</span></p>
+<p class="p_CodeExample"><span style="width:60px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Set Rotation to the orientation of the hand’s center</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;PXCPoint4DF32 quaternion = jd.globalOrientation;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;rotation-&gt;SetFromQuaternion(quaternion); &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p class="p_CodeExample"><span style="width:60px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// You can get the current rotation in other representations.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;PXCPoint3DF32 eulerAngles = rotation-&gt;QueryEulerAngles();</span></p>
+<p class="p_CodeExample"><span style="width:60px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// You can rotate a vector with the current rotation.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;PXCPoint3DF32 vec = {1.f, 1.f, 1.f};</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;PXCPoint3DF32 rotatedVec = rotation-&gt;RotateVector(vec);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;} &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// Finished working on current frame</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;senseManager-&gt;ReleaseFrame();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;} // end while acquire frame</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">} // end if Init</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">//Release</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">rotation-&gt;Release();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handDataOutput-&gt;Release();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">senseManager-&gt;Release();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A8')">C# Example 104: Use Rotation with Hand</a></span></p>
+<div id="TOGGLE0186A8" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Init</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSenseManager senseManager = PXCMSession.CreateSenseManager();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Hand Module Setup</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">senseManager.EnableHand();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMHandModule handModule = senseManager.QueryHand();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMHandData handDataOutput = handModule.CreateOutput();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Creating PXCRotation instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMRotation rotation;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">senseManager.session.CreateImpl&lt;PXCMRotation&gt;(out rotation);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// First Initializing the sense manager</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">if(senseManager-&gt;Init() &gt;= pxcmStatus.PXCM_STATUS_NO_ERROR) { &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Acquiring frames from input device</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;while(senseManager.AcquireFrame(true) &gt;= pxcmStatus.PXCM_STATUS_NO_ERROR) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// Get current frame hand output</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;handDataOutput.Update();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;if(handDataOutput.QueryNumberOfHands() &gt; 0) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;PXCMHandData.IHand hd;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;pxcmStatus status=handDataOutput.QueryHandData(PXCMHandData.AccessOrder.ACCESS_ORDER_BY_TIME,0,out hd);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (status&gt;=pxcmStatus.PXCM_STATUS_NO_ERROR &amp;&amp; hd.HasTrackedJoints()) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;PXCMHandData.JointData jd;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;hd.QueryTrackedJoint(PXCMHandData.JointType.JOINT_CENTER,out jd);</span></p>
+<p class="p_CodeExample"><span style="width:60px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Set Rotation to the orientation of the hand’s center</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;PXCMPoint4DF32 quaternion = jd.globalOrientation;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;rotation.SetFromQuaternion(quaternion); &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p class="p_CodeExample"><span style="width:60px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// You can get the current rotation in other representations.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;PXCMPoint3DF32 eulerAngles = rotation.QueryEulerAngles();</span></p>
+<p class="p_CodeExample"><span style="width:60px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// You can rotate a vector with the current rotation.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;PXCMPoint3DF32 vec = new PXCMPoint3DF32(1.f, 1.f, 1.f);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;PXCMPoint3DF32 rotatedVec = rotation.RotateVector(vec);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;} &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// Finished working on current frame</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;senseManager.ReleaseFrame();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;} // end while acquire frame</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">} // end if Init</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">//Release</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">rotation.Dispose();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handDataOutput.Dispose();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">senseManager.Dispose();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A9')">Java Example 104: Use Rotation with Hand</a></span></p>
+<div id="TOGGLE0186A9" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Init</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSenseManager senseManager = PXCMSession.CreateSenseManager();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Hand Module Setup</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">senseManager.EnableHand();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMHandModule handModule = senseManager.QueryHand();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMHandData handDataOutput = handModule.CreateOutput();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Creating PXCRotation instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMRotation rotation=new PXCMRotation();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">senseManager.session.CreateImpl(rotation);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// First Initializing the sense manager</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">if(senseManager-&gt;Init() &gt;= pxcmStatus.PXCM_STATUS_NO_ERROR) { &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Acquiring frames from input device</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;while(senseManager.AcquireFrame(true) &gt;= pxcmStatus.PXCM_STATUS_NO_ERROR) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// Get current frame hand output</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;handDataOutput.Update();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;if(handDataOutput.QueryNumberOfHands() &gt; 0) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;PXCMHandData.IHand hd=new PXCMHandData.IHand();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;pxcmStatus status=handDataOutput.QueryHandData(PXCMHandData.AccessOrder.ACCESS_ORDER_BY_TIME,0,hd);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (status&gt;=pxcmStatus.PXCM_STATUS_NO_ERROR &amp;&amp; hd.HasTrackedJoints()) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;PXCMHandData.JointData jd=new PXCMHandData.JointData();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;hd.QueryTrackedJoint(PXCMHandData.JointType.JOINT_CENTER,jd);</span></p>
+<p class="p_CodeExample"><span style="width:60px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Set Rotation to the orientation of the hand’s center</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;PXCMPoint4DF32 quaternion = jd.globalOrientation;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;rotation.SetFromQuaternion(quaternion); &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p class="p_CodeExample"><span style="width:60px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// You can get the current rotation in other representations.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;PXCMPoint3DF32 eulerAngles = rotation.QueryEulerAngles();</span></p>
+<p class="p_CodeExample"><span style="width:60px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// You can rotate a vector with the current rotation.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;PXCMPoint3DF32 vec = new PXCMPoint3DF32(1.f, 1.f, 1.f);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;PXCMPoint3DF32 rotatedVec = rotation.RotateVector(vec);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;} &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// Finished working on current frame</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;senseManager.ReleaseFrame();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;} // end while acquire frame</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">} // end if Init</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">//Release</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">rotation.close();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handDataOutput.close();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">senseManager.close();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+<script type="text/javascript">
+HMInitToggle('TOGGLE0186A1','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A2','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A3','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A4','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A5','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A6','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A7','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A8','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A9','hm.type','dropdown','hm.state','0');
+</script>
+</body>
+</html>

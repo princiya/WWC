@@ -1,0 +1,79 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Translation Trigger and Rules</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "toolkit_translation_trigger_rules.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Translation Trigger and Rules</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="toolkit_scale_trigger_rules.html">Previous</a>&nbsp;
+     <a href="toolkit_animation_trigger_and_rules.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_InternalHeading"><span class="f_InternalHeading">Translation Trigger and Trigger Values</span></p>
+<p class="p_Body"><span class="f_Body">The </span><span class="f_CodeExample">Translation Trigger</span><span class="f_Body"> indicates that the user performed a translation interaction.</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table style="width:820px; border:solid 2px #000000; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:109px; padding:5px; border:solid 1px #000000;"><p><span style="font-weight: bold;">Data Type</span></p>
+</td>
+<td style="vertical-align:top; width:204px; padding:5px; border:solid 1px #000000;"><p><span style="font-weight: bold;">Parameters</span></p>
+</td>
+<td style="vertical-align:top; width:471px; padding:5px; border:solid 1px #000000;"><p><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:109px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">Vector3</span></p>
+</td>
+<td style="vertical-align:top; width:204px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">Translation</span></p>
+</td>
+<td style="vertical-align:top; width:471px; padding:5px; border:solid 1px #000000;"><p>The amount of movement of the tracked object.</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+<p class="p_Body"><span class="f_InternalHeading">Translation Trigger Rules</span></p>
+<p><img src="toolkit_clip0045.png" width="207" height="49" alt="" style="float:right;margin:10px 10px 10px 10px; border:none" /></p>
+<p class="p_InternalHeading"><span class="f_Body">The following rules work with the </span><span class="f_CodeExample">Translation Trigger</span><span class="f_Body">:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_InternalHeading">Hand Move</span></td></tr></table></div><p class="p_Body"><img src="toolkit_clip0046.png" width="435" height="109" alt="" style="width:435px;height:109px;border:none" /></p>
+<p class="p_Body" style="text-indent: 1px; margin: 7px 0px 7px 54px;"><span class="f_Body">The rule fires whenever the user’s hand moves. Similarly as in the </span><span class="f_CodeExample"><a href="toolkit_tracking_trigger_rules.html" class="topiclink">Hand Tracking</a></span><span class="f_Body"> rule, you can specify the tracked hand and joint together with the </span><span class="f_CodeExample">Real World Box</span><span class="f_Body">. In addition, the developer can specify the </span><span class="f_CodeExample">Thresholds</span><span class="f_Body"> which define the minimal movement that the user needs to move his joint in order to fire this rule. The thresholds help to prevent false movement.</span></p>
+<p class="p_Body" style="margin: 7px 0px 7px 55px;"><span class="f_Body">Continuous tracking overrides the hand index and tracks the same hand regardless whether other hands show or disappear during the run. For example, a right hand (</span><span class="f_CodeExample">index=0</span><span class="f_Body">) is visible to the camera and is in tracking. The index may be changed to other values. But the tracking will continue on the same right hand.</span></p>
+<p class="p_Body" style="text-indent: 1px; margin: 7px 0px 7px 54px;"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

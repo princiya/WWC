@@ -1,0 +1,283 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Face Tracking via SenseManager</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_general_procedure_face.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Face Tracking via SenseManager</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_programming_guide_face.html">Previous</a>&nbsp;
+     <a href="manuals_general_procedure_2_2.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">To activate face tracking algorithm in the </span><span class="f_CodeExample"><a href="pxcsensemanager.html" class="topiclink">PXC[M]SenseManager</a></span><span class="f_Body"> pipeline, use the </span><span class="f_CodeExample"><a href="enableface_pxcsensemanager.html" class="topiclink">EnableFace</a></span><span class="f_Body"> function. You can implement face tracking in your application in two ways: using the SenseManager procedural functions or using the SenseManager callback functions.</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Face Tracking Using the SenseManager Procedural Functions</span></p>
+<p class="p_InternalHeading"><span class="f_Body">Example 41 shows an example of a typical face detection application. The example does the following:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 36px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:36px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#9642;</span></td><td style="border:none"><span class="f_IndentedList">Create an instance of the </span><span class="f_CodeExample"><a href="pxcsensemanager.html" class="topiclink">PXC[M]SenseManager</a></span><span class="f_IndentedList"> interface.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 36px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:36px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#9642;</span></td><td style="border:none"><span class="f_IndentedList">Activate face tracking by using the </span><span class="f_CodeExample"><a href="enableface_pxcsensemanager.html" class="topiclink">EnableFace</a></span><span class="f_TableText2"> </span><span class="f_Body">function. &nbsp;At this point, you may retrieve an instance of the </span><span class="f_CodeExample"><a href="pxcfacemodule.html" class="topiclink">PXC[M]FaceModule</a></span><span class="f_Body"> interface (through the </span><span class="f_CodeExample"><a href="queryface_pxcsensemanager.html" class="topiclink">QueryFace</a></span><span class="f_Body"> function) for customized operations, such as configuring the face tracking features. </span></td></tr></table></div><p class="p_IndentedList"><img src="note.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">The </span><span class="f_CodeExample"><a href="pxcfacemodule.html" class="topiclink">PXC[M]FaceModule</a></span><span class="f_Body"> instance </span><span class="f_IndentedList">is valid until you calls the </span><span class="f_CodeExample"><a href="close_pxcsensemanager.html" class="topiclink">Close</a></span><span class="f_IndentedList"> function to close the pipeline.</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 36px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:36px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#9642;</span></td><td style="border:none"><span class="f_IndentedList">Initialize the </span><span class="f_CodeExample"><a href="pxcsensemanager.html" class="topiclink">PXC[M]SenseManager</a></span><span class="f_IndentedList"> pipeline (</span><span class="f_CodeExample"><a href="init_pxcsensemanager.html" class="topiclink">Init</a></span><span class="f_IndentedList">) and loop through the image frames (</span><span class="f_CodeExample"><a href="acquireframe_pxcsensemanager.html" class="topiclink">AcquireFrame</a></span><span class="f_IndentedList"> and </span><span class="f_CodeExample"><a href="releaseframe_pxcsensemanager.html" class="topiclink">ReleaseFrame</a></span><span class="f_IndentedList">). Whenever some face analysis result is available, such as a face is detected, </span><span class="f_Body">the </span><span class="f_CodeExample"><a href="queryface_pxcsensemanager.html" class="topiclink">QueryFace</a></span><span class="f_Body"> function returns a valid instance. </span></td></tr></table></div><p class="p_IndentedList"><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">Such checking with the </span><span class="f_CodeExample"><a href="queryface_pxcsensemanager.html" class="topiclink">QueryFace</a></span><span class="f_Body"> function is optional if you calls the </span><span class="f_CodeExample"><a href="acquireframe_pxcsensemanager.html" class="topiclink">AcquireFrame</a></span><span class="f_Body"> function with </span><span class="f_CodeExample">ifall=true</span><span class="f_Body">, which blocks until all modality results are ready for processing. </span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 36px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:36px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#9642;</span></td><td style="border:none"><span class="f_Body">During streaming, you may call the </span><span class="f_CodeExample"><a href="pauseface_pxcsensemanager.html" class="topiclink">PauseFace</a></span><span class="f_Body"> function to pause/resume face tracking under certain conditions.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 36px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:36px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#9642;</span></td><td style="border:none"><span class="f_Body">Clean up the sample.</span></td></tr></table></div><p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A1')">C++ Example 41: Face Tracking using the SenseManager Procedural Functions</a></span></p>
+<div id="TOGGLE0186A1" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Create the SenseManager instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCSenseManager *sm=PXCSenseManager.CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Enable face tracking</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm-&gt;EnableFace();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Get a face instance (or inside the AcquireFrame/ReleaseFrame loop) for configuration.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCFaceModule *face=sm-&gt;QueryFace();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Initialize the pipeline</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm-&gt;Init();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Stream data</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">while (sm-&gt;AcquireFrame(true)&gt;=PXC_STATUS_NO_ERROR) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; // retrieve the face tracking results</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; PXCFaceModule *face2=sm-&gt;QueryFace();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; if (face2) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; ...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; }</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; // Resume next frame processing</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; sm-&gt;ReleaseFrame();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm-&gt;Release();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A2')">C# Example 41: Face Tracking using the SenseManager Procedural Functions</a></span></p>
+<div id="TOGGLE0186A2" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Create the SenseManager instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSenseManager sm=PXCMSenseManager.CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Enable face trackcing</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm.EnableFace();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Get a face instance here (or inside the AcquireFrame/ReleaseFrame loop) for configuration</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMFaceModule face=sm.QueryFace();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Initialize the pipeline</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm.Init();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Stream data</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">while (sm.AcquireFrame(true)&gt;=pxcmStatus.PXCM_STATUS_NO_ERROR) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; // retrieve the face tracking results</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; PXCMFaceModule face2=sm.QueryFace();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; if (sm!=null) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp;...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; }</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; // Resume next frame processing</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; sm.ReleaseFrame();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm.Dispose();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A3')">Java Example 41: Face Tracking using the SenseManager Procedural Functions</a></span></p>
+<div id="TOGGLE0186A3" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Create the SenseManager instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSenseManager sm=PXCMSenseManager.CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Enable face trackcing</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm.EnableFace();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Get a face instance here (or inside the AcquireFrame/ReleaseFrame loop) for configuration</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMFaceModule face=sm.QueryFace();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Initialize the pipeline</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm.Init();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Stream data</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">while (sm.AcquireFrame(true)&gt;=pxcmStatus.PXCM_STATUS_NO_ERROR) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; // retrieve the face tracking results</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; PXCMFaceModule face2=sm.QueryFace();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; if (sm!=null) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp;...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; }</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; // Resume next frame processing</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; sm.ReleaseFrame();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm.close();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Face Tracking Using the SenseManager Callback Functions</span></p>
+<p class="p_Body"><span class="f_Body">You can also use the </span><span class="f_CodeExample"><a href="pxcsensemanager.html" class="topiclink">PXC[M]SenseManager</a></span><span class="f_Body"> callback functions. Example 42 shows the face tracking application using callbacks. The SDK invokes the </span><span class="f_CodeExample"><a href="onmoduleprocessedframe_handler_pxcsensemanager.html" class="topiclink">OnModuleProcessedFrame</a></span><span class="f_Body"> callback when there is some data for processing.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A4')">C++ Example 42: Face Tracking using the SenseManager Event Functions</a></span></p>
+<div id="TOGGLE0186A4" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">class MyHandler: public PXCSenseManager::Handler {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">public:</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;virtual pxcStatus PXCAPI OnModuleProcessedFrame(pxcUID mid, PXCBase *module, PXCCapture::Sample *sample) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// check if the callback is from the face tracking module.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;if (mid==PXCFaceModule::CUID) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;PXCFaceModule *face=module-&gt;QueryInstance&lt;PXCFaceModule&gt;();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// return NO_ERROR to continue, or any error to abort.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;return PXC_STATUS_NO_ERROR;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">};</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Create the SenseManager instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCSenseManager *sm=PXCSenseManager.CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Enable face tracking</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm-&gt;EnableFace();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Get a face instance for feature configuration</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCFaceModule *face=sm-&gt;QueryFace();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Initialize</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">MyHandler handler;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm-&gt;Init(&amp;handler);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Streaming data</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm-&gt;StreamFrames(true);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm-&gt;Release();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A5')">C# Example 42: Face Tracking using the SenseManager Event Functions</a></span></p>
+<div id="TOGGLE0186A5" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">pxcmStatus OnModuleProcessedFrame(int mid, PXCMBase module, PXCMCapture.Sample sample) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// check if the callback is from the face tracking module.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;if (mid==PXCMFaceModule.CUID) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;PXCMFaceModule face=module.QueryInstance&lt;PXCMFaceModule&gt;();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// return NO_ERROR to continue, or any error to abort.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;return pxcmStatus.PXCM_STATUS_NO_ERROR;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Create the SenseManager instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSenseManager sm=PXCMSenseManager.CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Enable face tracking</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm.EnableFace();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Get a face instance here for configuration</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMFaceModule face=sm.QueryFace();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Initialize</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSenseManager.Handler handler=new PXCMSenseManager.Handler {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;onModuleProcessedFrame=OnModuleProcessedFrame</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">};</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm.Init(handler);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Streaming data</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm.StreamFrames(true);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm.Dispose();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A6')">Java Example 42: Face Tracking using the SenseManager Event Functions</a></span></p>
+<div id="TOGGLE0186A6" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">class MyHandler implements PXCMSenseManager.Handler {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;public pxcmStatus OnModuleProcessedFrame(int mid, PXCMBase module, PXCMCapture.Sample sample) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// check if the callback is from the face tracking module.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;if (mid==PXCMFaceModule.CUID) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;PXCMFaceModule face=(PXCMFaceModule)module.QueryInstance(PXCMFaceModule.CUID);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// return NO_ERROR to continue, or any error to abort.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;return pxcmStatus.PXCM_STATUS_NO_ERROR;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">};</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Create the SenseManager instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSenseManager sm=PXCMSenseManager.CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Enable face tracking</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm.EnableFace();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Get a face instance for feature configuration</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMFaceModule face=sm.QueryFace();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Initialize</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">MyHandler handler=new MyHandler();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm.Init(handler);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Streaming data</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm.StreamFrames(true);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm.close();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_ImageCaption"><span class="f_ImageCaption">&nbsp;</span></p>
+
+</td></tr></table>
+
+<script type="text/javascript">
+HMInitToggle('TOGGLE0186A1','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A2','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A3','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A4','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A5','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A6','hm.type','dropdown','hm.state','0');
+</script>
+</body>
+</html>

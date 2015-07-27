@@ -1,0 +1,241 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Installation Features</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Installation Features,installer features" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "devguide_installation_features.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Installation Features</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="devguide_installer_command_options.html">Previous</a>&nbsp;
+     <a href="devguide_supporting_libraries.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">To describe different installation items, the SDK runtime installer uses the concept </span><span class="f_CodeExample">Feature</span><span class="f_Body"> to describe the set of installations that enable certain SDK functionality. For example, the </span><span class="f_CodeExample">core</span><span class="f_Body"> feature installs the runtime libraries needed for color and depth data capturing. Each feature include the 32-bit and 64-bit runtime dynamic libraries and the data files shared between 32-bit and 64-bit applications.</span></p>
+<p class="p_Body"><span class="f_Body">Use </span><span class="f_CodeExample">Feature</span><span class="f_Body"> in the following cases:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">In the application installer</span><span class="f_Body">: For example, specify </span><span class="f_CodeExample">--finstall=hand</span><span class="f_Body"> to install the hand tracking module: its runtime libraries and data files.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">With the </span><span class="f_CodeExample" style="font-weight: bold;"><a href="manuals_realsenseinfo.html" class="topiclink">RealSenseInfo</a></span><span class="f_Body" style="font-weight: bold;"> JavaScript</span><span class="f_Body">: &nbsp;For example, use </span><span class="f_CodeExample">RealSenseInfo(['voice', 'genie_en_us'], callback)</span><span class="f_Body"> to check and install the speech recognition and synthesis runtime with the US English language pack.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table style="width:820px; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:108px; padding:5px; border:solid 1px #000000;"><p><span style="font-weight: bold;">Camera</span></p>
+</td>
+<td colspan="2" style="vertical-align:top; width:217px; padding:5px; border:solid 1px #000000;"><p><span style="font-weight: bold;">Feature Name</span></p>
+</td>
+<td style="vertical-align:top; width:590px; padding:5px; border:solid 1px #000000;"><p><span style="font-weight: bold;">Feature Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:108px; background-color:#ffff99; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">Both</span></p>
+</td>
+<td colspan="2" style="vertical-align:top; width:217px; background-color:#ffff99; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">core</span></p>
+</td>
+<td style="vertical-align:top; width:590px; background-color:#ffff99; padding:5px; border:solid 1px #000000;"><p class="p_TableText"><span class="f_TableText">The SDK essentials including camera data capturing. This is must have for any SDK applications.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:108px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">F200</span></p>
+</td>
+<td colspan="2" style="vertical-align:top; width:217px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">blob</span></p>
+</td>
+<td style="vertical-align:top; width:590px; padding:5px; border:solid 1px #000000;"><p class="p_TableText"><span class="f_TableText">The blob/contour extraction algorithm.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:108px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">F200</span></p>
+</td>
+<td colspan="2" style="vertical-align:top; width:217px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">emotion</span></p>
+</td>
+<td style="vertical-align:top; width:590px; padding:5px; border:solid 1px #000000;"><p class="p_TableText"><span class="f_TableText">The emotion detection algorithm and data files.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:108px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">R200</span></p>
+</td>
+<td colspan="2" style="vertical-align:top; width:217px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">enhanced_photography</span></p>
+</td>
+<td style="vertical-align:top; width:590px; padding:5px; border:solid 1px #000000;"><p class="p_TableText"><span class="f_TableText">The enhanced photography algorithms.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:108px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">Both</span></p>
+</td>
+<td colspan="2" style="vertical-align:top; width:217px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">face3d</span></p>
+</td>
+<td style="vertical-align:top; width:590px; padding:5px; border:solid 1px #000000;"><p class="p_TableText"><span class="f_TableText">The face tracking algorithm and data files.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:108px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">F200</span></p>
+</td>
+<td colspan="2" style="vertical-align:top; width:217px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">hand</span></p>
+</td>
+<td style="vertical-align:top; width:590px; padding:5px; border:solid 1px #000000;"><p class="p_TableText"><span class="f_TableText">The hand tracking algorithm and data files.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:108px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">F200</span></p>
+</td>
+<td colspan="2" style="vertical-align:top; width:217px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">personify</span></p>
+</td>
+<td style="vertical-align:top; width:590px; padding:5px; border:solid 1px #000000;"><p class="p_TableText"><span class="f_TableText">The user segmentation algorithm.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:108px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">R200</span></p>
+</td>
+<td colspan="2" style="vertical-align:top; width:217px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">scene_perception</span></p>
+</td>
+<td style="vertical-align:top; width:590px; padding:5px; border:solid 1px #000000;"><p class="p_TableText"><span class="f_TableText">The scene perception algorithm and data files.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:108px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">Both</span></p>
+</td>
+<td colspan="2" style="vertical-align:top; width:217px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">scan3d</span></p>
+</td>
+<td style="vertical-align:top; width:590px; padding:5px; border:solid 1px #000000;"><p class="p_TableText"><span class="f_TableText">The 3D scanning algorithm and data files.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:108px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">F200</span></p>
+</td>
+<td colspan="2" style="vertical-align:top; width:217px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">touchlesscontroller</span></p>
+</td>
+<td style="vertical-align:top; width:590px; padding:5px; border:solid 1px #000000;"><p class="p_TableText"><span class="f_TableText">The touchless controller algorithm and data files.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:108px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">F200</span></p>
+</td>
+<td colspan="2" style="vertical-align:top; width:217px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">track3d_metaio</span></p>
+</td>
+<td style="vertical-align:top; width:590px; padding:5px; border:solid 1px #000000;"><p class="p_TableText"><span class="f_TableText">object tracking algorithm.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:108px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">F200</span></p>
+</td>
+<td colspan="2" style="vertical-align:top; width:217px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">utils</span></p>
+</td>
+<td style="vertical-align:top; width:590px; padding:5px; border:solid 1px #000000;"><p class="p_TableText"><span class="f_TableText">The SDK utility functions such as data smoothing.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td rowspan="10" style="vertical-align:top; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">Both</span></p>
+</td>
+<td colspan="2" style="vertical-align:top; width:217px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">voice</span></p>
+</td>
+<td style="vertical-align:top; width:590px; padding:5px; border:solid 1px #000000;"><p class="p_TableText"><span class="f_TableText">The speech recognition and synthesis algorithms.</span></p>
+<p class="p_TableText"><img src="note.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_TableText">The speech recognition feature requires at least one speech language pack to be installed on the system.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:23px; padding:5px; border:solid 1px #000000; border-right:none;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:171px; padding:5px; border:solid 1px #000000; border-left:none;"><p class="p_CodeExample"><span class="f_CodeExample">genie_en_us</span></p>
+</td>
+<td style="vertical-align:top; width:590px; padding:5px; border:solid 1px #000000;"><p class="p_TableText"><span class="f_TableText">The US English language pack.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:23px; padding:5px; border:solid 1px #000000; border-right:none;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:171px; padding:5px; border:solid 1px #000000; border-left:none;"><p class="p_CodeExample"><span class="f_CodeExample">genie_en_gb</span></p>
+</td>
+<td style="vertical-align:top; width:590px; padding:5px; border:solid 1px #000000;"><p class="p_TableText"><span class="f_TableText">The British English language pack.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:23px; padding:5px; border:solid 1px #000000; border-right:none;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:171px; padding:5px; border:solid 1px #000000; border-left:none;"><p class="p_CodeExample"><span class="f_CodeExample">genie_es_la</span></p>
+</td>
+<td style="vertical-align:top; width:590px; padding:5px; border:solid 1px #000000;"><p class="p_TableText"><span class="f_TableText">The Latin American Spanish language pack.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:23px; padding:5px; border:solid 1px #000000; border-right:none;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:171px; padding:5px; border:solid 1px #000000; border-left:none;"><p class="p_CodeExample"><span class="f_CodeExample">genie_pt_br</span></p>
+</td>
+<td style="vertical-align:top; width:590px; padding:5px; border:solid 1px #000000;"><p class="p_TableText"><span class="f_TableText">The Portuguese language pack.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:23px; padding:5px; border:solid 1px #000000; border-right:none;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:171px; padding:5px; border:solid 1px #000000; border-left:none;"><p class="p_CodeExample"><span class="f_CodeExample">genie_de_de</span></p>
+</td>
+<td style="vertical-align:top; width:590px; padding:5px; border:solid 1px #000000;"><p class="p_TableText"><span class="f_TableText">The German language pack.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:23px; padding:5px; border:solid 1px #000000; border-right:none;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:171px; padding:5px; border:solid 1px #000000; border-left:none;"><p class="p_CodeExample"><span class="f_CodeExample">genie_fr_fr</span></p>
+</td>
+<td style="vertical-align:top; width:590px; padding:5px; border:solid 1px #000000;"><p class="p_TableText"><span class="f_TableText">The French language pack.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:23px; padding:5px; border:solid 1px #000000; border-right:none;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:171px; padding:5px; border:solid 1px #000000; border-left:none;"><p class="p_CodeExample"><span class="f_CodeExample">genie_it_it</span></p>
+</td>
+<td style="vertical-align:top; width:590px; padding:5px; border:solid 1px #000000;"><p class="p_TableText"><span class="f_TableText">The Italian language pack.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:23px; padding:5px; border:solid 1px #000000; border-right:none;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:171px; padding:5px; border:solid 1px #000000; border-left:none;"><p class="p_CodeExample"><span class="f_CodeExample">genie_ja_jp</span></p>
+</td>
+<td style="vertical-align:top; width:590px; padding:5px; border:solid 1px #000000;"><p class="p_TableText"><span class="f_TableText">The Japanese language pack.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:23px; padding:5px; border:solid 1px #000000; border-right:none;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:171px; padding:5px; border:solid 1px #000000; border-left:none;"><p class="p_CodeExample"><span class="f_CodeExample">genie_zh_cn</span></p>
+</td>
+<td style="vertical-align:top; width:590px; padding:5px; border:solid 1px #000000;"><p class="p_TableText"><span class="f_TableText">The Chinese language pack.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

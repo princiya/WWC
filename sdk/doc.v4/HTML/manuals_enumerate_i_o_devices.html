@@ -1,0 +1,148 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Enumerating Devices</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_enumerate_i_o_devices.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Enumerating Devices</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_i_o_devices_enumeration_and_se.html">Previous</a>&nbsp;
+     <a href="manuals_get_set_device_properties.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">An SDK session may contain multiple capture modules and each module can manage multiple devices. Use the </span><span class="f_CodeExample"><a href="queryimpl_pxcsession.html" class="topiclink">QueryImpl</a></span><span class="f_Body"> function to enumerate each capture module, the </span><span class="f_CodeExample"><a href="createimpl_pxcsession.html" class="topiclink">CreateImpl</a></span><span class="f_Body"> function to create an instance of the module, and then the </span><span class="f_CodeExample"><a href="querydeviceinfo_pxccapture.html" class="topiclink">QueryDevice</a></span><span class="f_Body"> function to retrieve device specific information.</span></p>
+<p class="p_Body"><span class="f_Body">Example 35 shows how to enumerate video capture devices.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A1')">C++ Example 35: Enumerate Video Devices</a> </span></p>
+<div id="TOGGLE0186A1" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// session is a PXCSession instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCSession::ImplDesc desc1={};</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">desc1.group=PXCSession::IMPL_GROUP_SENSOR;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">desc1.subgroup=PXCSession::IMPL_SUBGROUP_VIDEO_CAPTURE;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">for (int m=0;;m++) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCSession::ImplDesc desc2;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;if (session-&gt;QueryImpl(&amp;desc1,m,&amp;desc2)&lt;PXC_STATUS_NO_ERROR) break;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;wprintf_s(L&quot;Module[%d]: %s\n&quot;, m, desc2.friendlyName);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCCapture *capture;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;session-&gt;CreateImpl&lt;PXCCapture&gt;(&amp;desc2,&amp;capture);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// print out all device information</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;for (int d=0;;d++) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;PXCCapture::DeviceInfo dinfo;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;if (capture-&gt;QueryDevice(d,&amp;dinfo)&lt;PXC_STATUS_NO_ERROR) break;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;wprintf_s(L&quot; &nbsp; &nbsp;Device[%d]: %s\n&quot;,d,dinfo.name);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;capture-&gt;Release();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A2')">C# Example 35: Enumerate Video Devices</a></span></p>
+<div id="TOGGLE0186A2" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// session is a PXCMSession instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSession.ImplDesc desc1=new PXCMSession.ImplDesc();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">desc1.group=PXCMSession.ImplGroup.IMPL_GROUP_SENSOR;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">desc1.subgroup=PXCMSession.ImplSubgroup.IMPL_SUBGROUP_VIDEO_CAPTURE;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">for (int m=0;;m++) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCMSession.ImplDesc desc2;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;if (session.QueryImpl(desc1,m,out desc2)&lt;pxcmStatus.PXCM_STATUS_NO_ERROR) break;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;Console.WriteLn(&quot;Module[{0}]: {1}&quot;, m, desc2.friendlyName);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCMCapture capture;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;session.CreateImpl&lt;PXCMCapture&gt;(desc2, out capture);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// print out all device information</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;for (int d=0;;d++) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;PXCMCapture.DeviceInfo dinfo;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;if (capture.QueryDevice(d,out dinfo)&lt;pxcmStatus.PXCM_STATUS_NO_ERROR) break;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;Console.WriteLn(&quot; &nbsp; &nbsp;Device[{0}]: {1}&quot;,d,dinfo.name);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;capture.Dispose();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A3')">Java Example 35: Enumerate Video Devices</a></span></p>
+<div id="TOGGLE0186A3" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// session is a PXCMSession instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSession.ImplDesc desc1=new PXCMSession.ImplDesc();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">desc1.group=EnumSet.of(PXCMSession.ImplGroup.IMPL_GROUP_SENSOR);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">desc1.subgroup=EnumSet.of(PXCMSession.ImplSubgroup.IMPL_SUBGROUP_VIDEO_CAPTURE);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">for (int m=0;;m++) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCMSession.ImplDesc desc2=new PXCMSession.ImplDesc();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;if (session.QueryImpl(desc1,m,desc2)&lt;pxcmStatus.PXCM_STATUS_NO_ERROR) break;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;System.printf(&quot;Module[%d]: %d%n&quot;, m, desc2.friendlyName);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCMCapture capture=new PXCMCapture();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;session.CreateImpl(desc2, capture);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// print out all device information </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;for (int d=0;;d++) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;PXCMCapture.DeviceInfo dinfo=new PXCMCapture.DeviceInfo();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;if (capture.QueryDevice(d, dinfo)&lt;pxcmStatus.PXCM_STATUS_NO_ERROR) break;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;System.out.printf(&quot; &nbsp; &nbsp;Device[%d]: %d%n&quot;, d, dinfo.name);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;capture.close();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+<script type="text/javascript">
+HMInitToggle('TOGGLE0186A1','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A2','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A3','hm.type','dropdown','hm.state','0');
+</script>
+</body>
+</html>

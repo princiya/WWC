@@ -1,0 +1,81 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Unity Sample: FF_HandsAnimation</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="FF_HandsAnimation,Unity sample" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "samples_unity_hands_animation.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Unity Sample: FF_HandsAnimation</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="samples_sample_cubesense.html">Previous</a>&nbsp;
+     <a href="samples_sample_ninecubes.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">The </span><span class="f_CodeExample">FF_HandsAnimation</span><span class="f_Body"> sample visualizes a 3D hand skeleton (or two hands) in the scene when the sample detects that there is a hand in front of the camera. The sample demonstrates the hand tracking module features. If there are hand gestures, the sample displays the recognized gesture text on top of the screen. This sample requires Unity v4.1.0 PRO.</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Directory Structure</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:372px; padding:4px;"><p class="p_Body"><span class="f_Body" style="font-weight: bold;">Directory/File</span></p>
+</td>
+<td style="vertical-align:top; width:372px; padding:4px;"><p class="p_Body"><span class="f_Body" style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:372px; padding:4px;"><p class="p_Body"><span class="f_Body">Assets</span></p>
+</td>
+<td rowspan="2" style="vertical-align:top; width:372px; padding:4px;"><p class="p_Body"><span class="f_Body">The Unity assets and project setting directories that contain source code.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:372px; padding:4px;"><p class="p_Body"><span class="f_Body">ProjectSettings</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Operation Instructions</span></p>
+<p class="p_Body"><span class="f_Body">The sample is located under </span><span class="f_CodeExample">$(RSSDK_DIR)/framework/Unity/FF_HandsAnimation</span><span class="f_Body">. Copy the sample source to a writable location and then click on </span><span class="f_CodeExample">Assets/Scenes/FF_HandsAnimation.unity</span><span class="f_Body"> &nbsp;to execute the sample.</span></p>
+<p class="p_Body"><span class="f_Body">Raise your hand(s) in front of the camera. The sample should show the hand skeleton(s) in the cloud, similar to Figure 163. </span></p>
+<p class="p_Body"><span class="f_Body">You can additionally change the view perspective (rotate the main camera) by using the left and right arrows. Use the </span><span class="f_CodeExample">R</span><span class="f_Body"> key to reset/restart, and the </span><span class="f_CodeExample">Q</span><span class="f_Body"> key to quit.</span></p>
+<p class="p_Body" style="text-align: center;"><img src="sample_unity_hands_viewer_zoom43.png" width="835" height="449" alt="" style="margin:0px auto 0px auto;width:835px;height:449px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 163: The Hands Animation Main Window.</span></p>
+<p class="p_Body"><img src="note.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">If you see a warning message &quot;</span><span class="f_CodeExample">NullReferenceException: Object reference not set to an instance of an object UnityEditor.DockArea.OnGUI()</span><span class="f_Body">&quot; while running your application in Unity Editor, close the </span><span class="f_CodeExample">Game</span><span class="f_Body"> and </span><span class="f_CodeExample">Scene</span><span class="f_Body"> windows and redo the window layout. The warning message should go away after the layout change. See also <a href="http://neareal.net/index.php?ComputerGraphics%2FUnity%2FTips%2FError%20UnityEditor.DockArea.OnGui(" target="_blank" class="weblink">http://neareal.net/index.php?ComputerGraphics%2FUnity%2FTips%2FError%20UnityEditor.DockArea.OnGui(</a>) (In Japanese.)</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Design Points</span></p>
+<p class="p_Body"><span class="f_Body">The script </span><span class="f_CodeExample">Scripts/HandsViewer.cs</span><span class="f_Body"> implements the </span><span class="f_CodeExample">SenseManager</span><span class="f_Body"> logic that initiates the hand tracking module, retrieves the hand location data when ready, and then maps to the hand skeleton, as a prefeb under </span><span class="f_CodeExample">Prefebs</span><span class="f_Body">.</span></p>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

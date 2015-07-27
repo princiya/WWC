@@ -1,0 +1,199 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>PXC[M]DataSmoothing [Deprecated]</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="PXCDataSmoothing,PXCMDataSmoothing" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "pxcdatasmoothing.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">PXC[M]DataSmoothing [Deprecated]</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="querysmoothing_pxccontourextractor.html">Previous</a>&nbsp;
+     <a href="manuals_constants11.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_InternalHeading"><img src="note.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_InternalHeading">THIS UTILITY IS DEPRECATED. PLEASE USE </span><span class="f_CodeExample"><a href="pxcsmoother.html" class="topiclink">PXC[M]Smoother</a></span><span class="f_InternalHeading"> INSTEAD.</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Namespace Hierarchy</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table style="width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_TableText"><span class="f_TableText">C++</span></p>
+</td>
+<td style="vertical-align:top; width:752px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">PXCDataSmoothing</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_TableText"><span class="f_TableText">C#</span></p>
+</td>
+<td style="vertical-align:top; width:752px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">PXCMDataSmoothing</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_TableText"><span class="f_TableText">Java</span></p>
+</td>
+<td style="vertical-align:top; width:752px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">PXCMDataSmoothing</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Description</span></p>
+<p class="p_InternalHeading"><span class="f_Body">The </span><span class="f_CodeExample">PXC[M]DataSmoothing</span><span class="f_Body"> utility interface can be used to reduce data noise. The utility interface enables data types for 1D, 2D, 3D data points.</span></p>
+<p class="p_InternalHeading"><span class="f_Body">The interface supports the following smoothing algorithms:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Stabilizer Smoother</span><span class="f_Body"> – The stabilizer smoother keeps the smoothed data point stable as long as it has not moved more than a given threshold.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Weighted Smoother</span><span class="f_Body"> – The weighted smoother applies a (possibly) different weight to each of the previous data samples.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Quadratic Smoother</span><span class="f_Body"> – The quadratic smoother is a time based smoother ideal for UI (User Interface) purposes.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Spring Smoother</span><span class="f_Body"> – The spring smoother is a time based smoother ideal for gaming purposes.</span></td></tr></table></div><p class="p_InternalHeading"><span class="f_InternalHeading">Reference</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:5px;"><p class="p_TableText"><span class="f_TableText">C++</span></p>
+</td>
+<td style="vertical-align:top; width:586px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">utilities\pxcdatasmoothing.h</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:5px;"><p class="p_TableText"><span class="f_TableText">C# .NET4</span></p>
+</td>
+<td style="vertical-align:top; width:586px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">libpxcclr.cs.dll</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:5px;"><p class="p_TableText"><span class="f_TableText">Unity</span></p>
+</td>
+<td style="vertical-align:top; width:586px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">libpxcclr.unity.dll</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:5px;"><p class="p_TableText"><span class="f_TableText">Unity Web</span></p>
+</td>
+<td style="vertical-align:top; width:586px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">libpxcclr.unityweb.dll</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:99px; padding:5px;"><p class="p_TableText"><span class="f_TableText">Java</span></p>
+</td>
+<td style="vertical-align:top; width:586px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">libpxcclr.java.jar</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:99px; padding:5px;"><p class="p_TableText"><span class="f_TableText">Runtime</span></p>
+</td>
+<td style="vertical-align:top; width:586px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">utils</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Example</span></p>
+<p class="p_Body"><span class="f_Body">Example 153 shows how to use the </span><span class="f_CodeExample">PXC[M]DataSmoothing</span><span class="f_Body"> interface.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A1')">C++ Example 153: Use 1D Spring Smoothing</a></span></p>
+<div id="TOGGLE0186A1" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// session is a PXCSession instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Get the the DataSmoothing instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCDataSmoothing *ds=0;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">session-&gt;CreateImpl&lt;PXCDataSmoothing&gt;(&amp;ds);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Create a 1D Spring algorithm</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCDataSmoothing::Smoother1D* ds1d=ds-&gt;Create1DSpring();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Smoothing operations</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">pxcF32 point = 0.3f;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Add the data point to be smoothed</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">ds1d-&gt;AddSample(point);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Get the smoothed data point</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">pxcF32 pointSmoothed = ds1d-&gt;GetSample(); &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">ds1d-&gt;Release();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">ds-&gt;Release();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A2')">C# Example 153: Use 1D Spring Smoothing</a></span></p>
+<div id="TOGGLE0186A2" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// session is a PXCMSession instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Get the the DataSmoothing instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMDataSmoothing ds;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">session.CreateImpl&lt;PXCMDataSmoothing&gt;(out ds);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Create a 1D Spring algorithm</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMDataSmoothing.Smoother1D ds1d=ds.Create1DSpring();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Smoothing operations</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">Single point = 0.3f;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Add the data point to be smoothed</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">ds1d.AddSample(point);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Get the smoothed data point</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">Single pointSmoothed = ds1d.GetSample(); &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">ds1d.Dispose();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">ds.Dispose();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A3')">Java Example 153: Use 1D Spring Smoothing</a> </span></p>
+<div id="TOGGLE0186A3" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// session is a PXCMSession instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Get the the DataSmoothing instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMDataSmoothing ds=new PXCMDataSmoothing();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">session.CreateImpl(ds);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Create a 1D Spring algorithm</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMDataSmoothing.Smoother1D ds1d=ds.Create1DSpring();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Smoothing operations</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">float point = 0.3f;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Add the data point to be smoothed</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">ds1d.AddSample(point);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Get the smoothed data point</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">float pointSmoothed = ds1d.GetSample(); &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">ds1d.close();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">ds.close();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">&nbsp;</span></p>
+
+</td></tr></table>
+
+<script type="text/javascript">
+HMInitToggle('TOGGLE0186A1','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A2','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A3','hm.type','dropdown','hm.state','0');
+</script>
+</body>
+</html>

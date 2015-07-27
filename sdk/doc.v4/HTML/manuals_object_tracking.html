@@ -1,0 +1,125 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Object Tracking</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="object tracking" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_object_tracking.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Object Tracking</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_handling_gestures.html">Previous</a>&nbsp;
+     <a href="manuals_the_metaio_toolbox.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_InternalHeading"><span class="f_InternalHeading">Tracking Techniques</span></p>
+<p class="p_Body"><span class="f_Body">The Metaio* 3D object tracking module provides optical-based tracking techniques that can detect and track known or unknown objects in a video sequence or scene. The Metaio Toolbox is provided to train, create, and edit 3D models that can be passed to various object detection and tracking algorithms.</span></p>
+<p class="p_Body"><span class="f_Body">Table 12 provides an overview of various tracking techniques and how they can be configured.</span></p>
+<div style="text-align: center; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table style="margin:0 auto; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:281px; background-color:#aaacb7; padding:4px; border:solid 2px #aaacb7; border-right:none; border-bottom:none;"><p class="p_Body"><span class="f_Body">Tracking Method</span></p>
+</td>
+<td style="vertical-align:top; width:428px; background-color:#aaacb7; padding:4px; border:solid 2px #aaacb7; border-bottom:none; border-left:none;"><p class="p_Body"><span class="f_Body">Configuration/Input</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:281px; height:38px; padding:4px; border:solid 2px #aaacb7; border-top:none; border-right:none; border-bottom:none;"><p class="p_Body"><span class="f_Body">2D objects tracking (planar objects)</span></p>
+</td>
+<td style="vertical-align:top; width:428px; height:38px; padding:4px; border:solid 2px #aaacb7; border-top:none; border-bottom:none; border-left:none;"><p class="p_Body"><span class="f_Body">Input a reference image.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:281px; padding:4px; border:solid 2px #aaacb7; border-top:none; border-right:none; border-bottom:none;"><p class="p_Body"><span class="f_Body">Feature based 3D tracking</span></p>
+</td>
+<td style="vertical-align:top; width:428px; padding:4px; border:solid 2px #aaacb7; border-top:none; border-bottom:none; border-left:none;"><p class="p_Body"><span class="f_Body">Use the toolbox to create a point cloud. Save the configuration in a .slam file.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:281px; padding:4px; border:solid 2px #aaacb7; border-top:none; border-right:none; border-bottom:none;"><p class="p_Body"><span class="f_Body">Edge based 3D tracking from CAD models </span></p>
+</td>
+<td style="vertical-align:top; width:428px; padding:4px; border:solid 2px #aaacb7; border-top:none; border-bottom:none; border-left:none;"><p class="p_Body"><span class="f_Body">Provide a CAD model (.obj) and use the </span><span class="f_CodeExample">Edge Creation</span><span class="f_Body"> tool to extract prominent edges and then save the configuration in a .xml file.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:281px; height:4px; padding:4px; border:solid 2px #aaacb7; border-top:none; border-right:none;"><p class="p_Body"><span class="f_Body">Instant 3D tracking</span></p>
+</td>
+<td style="vertical-align:top; width:428px; height:4px; padding:4px; border:solid 2px #aaacb7; border-top:none; border-left:none;"><p class="p_Body"><span class="f_Body">Track the camera ego motion in an unknown configuration.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Table 12: The Tracking Techniques</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Object Tracking</span></p>
+<p class="p_Body"><span class="f_Body">The 2D tracking algorithm is configured with a reference image. The algorithm tracks the image in a video sequence and returns the tracking parameters. The application can augment the scene with any 3D objects, such as the 3D reference axes as illustrated in Figure 35.</span></p>
+<div style="text-align: center; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table style="margin:0 auto; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:140px; padding:4px;"><p class="p_Body"><img src="manuals_clip0025.png" width="200" height="200" alt="" style="width:200px;height:200px;border:none" /></p>
+</td>
+<td style="vertical-align:top; width:432px; padding:4px;"><p class="p_Body"><img src="manuals_clip0026_zoom57.png" width="436" height="335" alt="" style="width:436px;height:335px;border:none" /></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 35: Markerless 2D Tracking with Reference Image (left) and Augmented with 3D Model (Right)</span></p>
+<p class="p_ImageCaption" style="text-align: left;"><span class="f_ImageCaption">&nbsp;</span></p>
+<p class="p_ImageCaption" style="text-align: left;"><span class="f_InternalHeading">Feature Based 3D Tracking</span></p>
+<p class="p_InternalHeading"><span class="f_Body">The 3D feature-based tracking can track any real world 3D object. The tracking is based on a 3D feature map, a *.slam file that can be generated using the provided </span><span class="f_CodeExample">Metaio Toolbox</span><span class="f_Body"> application. The toolbox can further edit and append the 3D maps for later or more sophisticated usage. See Figure 36 for an example of 3D feature-based tracking in action.</span></p>
+<p class="p_Body" style="text-align: center;"><img src="manuals_clip0027_zoom51.png" width="392" height="300" alt="" style="margin:0px auto 0px auto;width:392px;height:300px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 36: Feature-based 3D Tracking</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">&nbsp;</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Edge Based 3D Tracking From CAD Models</span></p>
+<p class="p_InternalHeading"><span class="f_Body">For better tracking of objects with the features that are hard to detect, the SDK provides a more precise edge-based 3D markless tracking algorithm. For example, the following objects are usually difficult to track in feature-based 3D tracking: </span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Low-textured or highly specular (reflective) objects</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Objects changing their appearances over time, for example, a building that changes its color after painting its facade.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Objects in different/dynamic lightening conditions, for example, adding high level of invariance to illumination. </span></td></tr></table></div><p class="p_Body"><span class="f_Body">The edge based 3D tracking algorithm uses a 3D CAD model, mesh model, or 3D-point cloud of the target object as input. Usually, the 3D model comes as a wavefront .obj file exported from any content creation or CAD tool. The Metaio Toolbox processes the 3D model to extract edge features and create an .xml 3D map as the algorithm input, as illustrated in Figure 37.</span></p>
+<p class="p_Body" style="text-align: center;"><img src="manuals_clip0028.png" width="220" height="118" alt="" style="margin:0px auto 0px auto;width:220px;height:118px;border:none" /><img src="manuals_clip0029.png" width="220" height="118" alt="" style="margin:0px auto 0px auto;width:220px;height:118px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 37: CAD Model of a Car (Left) and Extracted Edges (Right)</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Instant 3D tracking</span></p>
+<p class="p_Body"><span class="f_Body">Instant 3D tracking feature enables the capability of the creation of the point cloud (3D map) of the scene on the fly and immediately use it as a tracking reference. </span></p>
+<p class="p_Body"><span class="f_Body">The main advantage of the instant 3D tracking, also commonly referred to as the SLAM technology, is that the user doesn't need any input map file or an input planar image in order to track objects in a scene. The SLAM learns the surrounding on the fly and tracks object in a scene automatically and in real time. </span></p>
+<p class="p_Body"><span class="f_Body">See </span><span class="f_CodeExample"><a href="manuals_object_tracking.html#knownlimitation" class="topiclink">Known Limitations</a></span><span class="f_Body"> for the usage restrictions.</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">SLAM and Extensible Learning</span></p>
+<p class="p_Body"><span class="f_Body">Similar to 3D instant tracking, the 2D and 3D feature based tracking supports an extensible (learning) mode, where additional feature points are acquired from the environment. This may improve tracking performance in certain scenarios. However, the learning algorithm assumes that the tracked objects do not move with respect to the environment, the so called “rigid world” assumption. For user facing cameras, this assumption may not hold true as the camera position is fixed and the objects move in the camera field of view. You may need to experiment to see if this mode helps in your application scenarios. </span></p>
+<p class="p_InternalHeading"><a id="knownlimitation"></a><span class="f_InternalHeading">Known Limitations</span></p>
+<p class="p_Body"><span class="f_Body">Extensible tracking is available for 2D and 3D object tracking. During the tracking process, features are learned from the environment and appended to the input map. &nbsp;This can result in more accurate tracking, but requires that the tracked object remains fixed with respect to the rest of the scene. For example, tracking the board of a game fixed on a table is a good use case, while tracking objects on that board which move should not use extensible tracking.</span></p>
+<p class="p_Body"><span class="f_Body">3D Instant tracking or instant scene tracking detects features in the scene (environment), and attempts to track movement of that scene. Additional features are continually being added as well, similar to extensible tracking. Therefore, some use cases will detect and track objects much better than others. The largest limiting factor is whether the background has features which are detected in addition to the target object. If enough background features are static with respect to the moving target object, instant scene tracking will not perform well. </span></p>
+<p class="p_Body"><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">Detected features in a scene can be visualized through the toolbox while training a model. The same features are used for instant tracking.</span></p>
+<p class="p_Body"><span class="f_Body">One scenario which works well is tracking a user (head and shoulders) against a plain background such as a wall. Since almost all of the detected features will be on the user, the user can be successfully tracked in front of the wall. If the user is holding an object in their hands, the object itself is unlikely to be tracked accurately in this release. Instead, the user-object combination will be tracked as one entity.</span></p>
+<p class="p_Body"><span class="f_Body">3D edge based tracking is especially useful for tracking objects which do not have a large set of features. Typical characteristics which limit feature extraction include smoothness, dark and/or uniform coloring and shininess. A black ceramic vase may be a good candidate for edge based tracking.</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Tips</span></p>
+<p class="p_Body"><span class="f_Body">2D tracking may be unreliable depending on the exact source image and the environment in which tracking occurs (lighting, distorted printed tracking target, etc). In general, 2D tracking is much more reliable if the image has been directly captured from the camera in the environment, since this captures local lighting and printing distortions. Alternatively, a 3D map may be created ahead of time from a printed 2D pattern. 3D tracking is much more tolerant of image differences and lighting variations. &nbsp;For example, a hand-drawn copy of a simple symbol may be tracked just like the printed version if the proportions are accurate.</span></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

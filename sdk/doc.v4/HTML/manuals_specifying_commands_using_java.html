@@ -1,0 +1,152 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Java Speech Grammar Format</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_specifying_commands_using_java.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Java Speech Grammar Format</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_command_control_and_dictation.html">Previous</a>&nbsp;
+     <a href="manuals_handle_recognition_events.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">The SDK supports command and control grammars specified in a JSGF file. The file defines the grammar using rules and allows to define a less restrictive grammar than what a string list can do. The full rule structure is defined as a W3C standard at <a href="http://www.w3.org/TR/jsgf/" target="_blank" class="weblink">http://www.w3.org/TR/jsgf</a>. This section shows a few key methods and examples.</span></p>
+<p class="p_Body"><span class="f_Body">Suppose you want to recognize a sequence of three digits. While the string list approach could be used to specify an appropriate grammar, the grammar would consist of one thousand commands. Needless to say, this is difficult to write and maintain. The JSGF file that recognizes a sequence of three digits contains the following lines:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">#JSGF V1.0;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">grammar ThreeDigits;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">public &lt;ThreeDigits&gt; = &lt;digit&gt; &lt;digit&gt; &lt;digit&gt;;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&lt;digit&gt; = ( zero | one | two | three | four | five | six | seven | eight | nine );</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body">Each line is terminated with a semicolon. The first line contains the required JSGF identifier. This is required for all JSGF grammars. The next line defines the grammar name. </span></p>
+<p class="p_Body"><span class="f_Body">The rules of the grammar are defined in angle brackets: </span><span class="f_CodeExample">“&lt;”</span><span class="f_Body">, </span><span class="f_CodeExample">“&gt;”</span><span class="f_Body">. The first rule is a public rule, that is, it is a rule that is exposed externally from the grammar. Public rules are the sentences or word sequences that the grammar may be used to recognize.</span></p>
+<p class="p_Body"><span class="f_Body">The </span><span class="f_CodeExample">&lt;ThreeDigits&gt;</span><span class="f_Body"> rule is defined as a sequence of three of the </span><span class="f_CodeExample">&lt;digits&gt;</span><span class="f_Body"> rules. This means that there needs to be three things matching the </span><span class="f_CodeExample">&lt;digits&gt;</span><span class="f_Body"> rule to match the </span><span class="f_CodeExample">&lt;ThreeDigits&gt;</span><span class="f_Body"> rule.</span></p>
+<p class="p_Body"><span class="f_Body">The </span><span class="f_CodeExample">&lt;digits&gt;</span><span class="f_Body"> rule uses the or operator </span><span class="f_CodeExample">“|”</span><span class="f_Body"> to define a list of alternatives, and the parentheses </span><span class="f_CodeExample">“(“</span><span class="f_Body">, and </span><span class="f_CodeExample">”)”</span><span class="f_Body"> are used to delimit this list. Thus the </span><span class="f_CodeExample">&lt;digit&gt;</span><span class="f_Body"> rule can match any of the digits from zero to nine.</span></p>
+<p class="p_Body"><span class="f_Body">The JSGF file can specify repeating of words. The following example shows how to recognize a sequence of digits of any length:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">#JSGF V1.0;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">grammar Digits;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">public &lt;Digits&gt; = ( &lt;digit&gt; ) + ;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&lt;digit&gt; = ( zero | one | two | three | four | five | six | seven | eight | nine );</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body">The new element here is the plus sign </span><span class="f_CodeExample">“+”</span><span class="f_Body"> at the end of the </span><span class="f_CodeExample">&lt;Digits&gt;</span><span class="f_Body"> rule. This means that what comes before it should occur one or more times. In this case, what comes before it is what is in the parentheses. Also available in JSGF is the asterisk, </span><span class="f_CodeExample">“*”</span><span class="f_Body">, which means that what comes before it should occur zero or more times.</span></p>
+<p class="p_Body"><span class="f_Body">As a final demonstration of JSGF, the following example shows how to use grammar tags. Grammar tags are used to locate recognized words or phrases:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">#JSGF V1.0;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Inspired by and extending example in http://www.w3.org/TR/jsgf/</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">grammar cncexample;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">public &lt;cnccommand&gt; = [ &lt;start-polite&gt; ] &lt;command&gt; ;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&lt;start-polite&gt; = ( please | would you | could you | kindly ) + ;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&lt;command&gt; = &lt;operation&gt; [ &lt;determiner&gt; ] &lt;object&gt; ;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&lt;operation&gt; = ( open | move | copy | delete | close ) {OPERATION} ;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&lt;determiner&gt; = ( a | an | the ) ;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&lt;object&gt; = ( file | window | menu | link | directory) {OBJECT} ;</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body">The grammar recognizes sentences such as </span><span class="f_CodeExample">“please open the file”</span><span class="f_Body"> or </span><span class="f_CodeExample">“kindly close the menu.”</span><span class="f_Body"> </span></p>
+<p class="p_Body"><span class="f_Body">Line two is a comment. JSGF uses Java (and C++) conventions for comments. The </span><span class="f_CodeExample">/* comment */</span><span class="f_Body"> style also works. </span></p>
+<p class="p_Body"><span class="f_Body">On line three, the </span><span class="f_CodeExample">&lt;start-polite&gt;</span><span class="f_Body"> rule is within the square brackets, </span><span class="f_CodeExample">“[“</span><span class="f_Body"> and </span><span class="f_CodeExample">“]”</span><span class="f_Body">, which indicates that the rule is optional.</span></p>
+<p class="p_Body"><span class="f_Body">Finally there are the braces, </span><span class="f_CodeExample">“{“</span><span class="f_Body"> and </span><span class="f_CodeExample">“}”</span><span class="f_Body">. These designate the tags. Tags identify the OPERATION and the OBJECT of the command. If the spoken text is </span><span class="f_CodeExample">“please close the file,”</span><span class="f_Body"> tags are returned as the text string:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_Body"><span class="f_Body">“{ “tags” : { “cncexample#OPERATION” : ”close” } { “cncexample#OBJECT” : “file” } }”</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body">The same tags would be returned if </span><span class="f_CodeExample">“would you kindly close a file”</span><span class="f_Body"> was spoken. </span></p>
+<p class="p_Body"><span class="f_Body">Grammar tags allow an application to quickly find the words of interest, to isolate and possibly normalize the spoken commands for execution. Tags also allow unimportant words to be recognized incorrectly (politeness and determiners in this case) while still have the correct command executed.</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Building Grammar with JSGF</span></p>
+<p class="p_InternalHeading"><span class="f_Body">Use the </span><span class="f_CodeExample"><a href="buildgrammarfromfile_pxcspeechrecognition.html" class="topiclink">BuildGrammarFromFile</a></span><span class="f_Body"> function to compile the JSGF grammar once developed. Example 79 shows how to compile and activate the command and control grammar specified in the JSGF file.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A1')">C++ Example 79: Configure theJSGF Grammar</a></span></p>
+<div id="TOGGLE0186A1" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// sr is a PXCSpeechRecognition instance.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Build the grammar.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sr-&gt;BuildGrammarFromFile(1, PXCSpeechRecognition::GFT_JSGF, L&quot;myfile.jsgf&quot;);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Set the active grammar.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sr-&gt;SetGrammar(1);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A2')">C# Example 79: Configure the JSGF Grammar</a></span></p>
+<div id="TOGGLE0186A2" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// sr is a PXCMSpeechRecognition instance.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Build the grammar.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sr.BuildGrammarFromFile(1, PXCMSpeechRecognition.GrammarFileType.GFT_JSGF, &quot;myfile.jsgf&quot;);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Set the active grammar.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sr.SetGrammar(1);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A3')">Java Example 79: Configure the JSGF Grammar</a></span></p>
+<div id="TOGGLE0186A3" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// sr is a PXCMSpeechRecognition instance.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Build the grammar.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sr.BuildGrammarFromFile(1, PXCMSpeechRecognition.GrammarFileType.GFT_JSGF, &quot;myfile.jsgf&quot;);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Set the active grammar.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sr.SetGrammar(1);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body">Alternatively, the JSGF grammar may be created in memory as a text string. Then use the </span><span class="f_CodeExample"><a href="buildgrammarfrommemory_pxcspeechrecognition.html" class="topiclink">BuildGrammarFromMemory</a></span><span class="f_Body"> function to compile. If the compilation is not successful, the function returns a status code less than </span><span class="f_CodeExample">PXC[M]_STATUS_NO_ERROR</span><span class="f_Body">. You can retrieve the detailed compilation error by using the </span><span class="f_CodeExample"><a href="getgrammarcompileerrors_pxcspeechrecognition.html" class="topiclink">GetGrammarCompileErrors</a></span><span class="f_Body"> function.</span></p>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+<script type="text/javascript">
+HMInitToggle('TOGGLE0186A1','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A2','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A3','hm.type','dropdown','hm.state','0');
+</script>
+</body>
+</html>

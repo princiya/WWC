@@ -1,0 +1,115 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Face Pose Data [F200]</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="face pose,pose detection,pose tracking" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_face_pose_data.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Face Pose Data [F200]</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_face_landmark_data.html">Previous</a>&nbsp;
+     <a href="manuals_facial_expression_data.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">If you enable pose detection (</span><span class="f_CodeExample"><a href="pxcfaceconfiguration.html" class="topiclink">PXC[M]FaceConfiguration</a>.pose.IsEnabled=true</span><span class="f_Body">), you can use the </span><span class="f_CodeExample"><a href="querypose_face_pxcfacedata.html" class="topiclink">QueryPose</a></span><span class="f_Body"> function to retrieve any detected pose data, which includes the following information:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Head Position:</span><span class="f_Body"> Use the  </span><span class="f_CodeExample"><a href="queryheadposition_posedata_pxcfacedata.html" class="topiclink">QueryHeadPosition</a></span><span class="f_Body"> to retrieve the head position parameters.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Euler Angles:</span><span class="f_Body"> The Euler angles indicates where the face pose is in terms of rotation along the three axes as illustrated in Figure 18. Use the </span><span class="f_CodeExample"><a href="queryposeangles_posedata_pxcfacedata.html" class="topiclink">QueryPoseAngles</a></span><span class="f_Body"> function to retrieve the Euler angle values.</span></td></tr></table></div><p class="p_InternalHeading" style="text-align: center;"><img src="face_pose_euler_angles_zoom78.png" width="399" height="318" alt="" style="margin:0px auto 0px auto;width:399px;height:318px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">19: Face Euler Angles Illustration</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Position Quaternion</span><span class="f_Body">: Use the </span><span class="f_CodeExample"><a href="queryposequaternion_posedata_pxcfacedata.html" class="topiclink">QueryPoseQuaternion</a></span><span class="f_Body"> to retrieve the face position in the world coordinates.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Rotation Matrix:</span><span class="f_Body"> Use the </span><span class="f_CodeExample"><a href="queryrotationmatrix_posedata_pxcfacedata.html" class="topiclink">QueryRotationMatrix</a></span><span class="f_Body"> to retrieve the rotation matrix that represents the face pose.</span></td></tr></table></div><p class="p_Body"><span class="f_Body">Example 47 illustrates the steps to retrieve the face pose data.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A1')">C++ Example 47: Retrieve Pose Estimation Data</a></span></p>
+<div id="TOGGLE0186A1" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// fdata is a PXCFaceData instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">pxcI32 nfaces=fdata-&gt;QueryNumberOfDetectedFaces();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">for (pxcI32 i=0;i&lt;nfaces;i++) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Retrieve the face landmark data instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCFaceData::Face *face=fdata-&gt;QueryFaceByIndex(i);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCFaceData::PoseData *pdata=fdata-&gt;QueryPose();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// retrieve the pose information</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCFaceData::<a href="poseeulerangles_pxcfacedata.html" class="topiclink" style="font-style: normal; font-weight: normal; color: #000000; background-color: transparent; text-decoration: none;">PoseEulerAngles</a> angles;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pdata-&gt;QueryPoseAngles(&amp;angles);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A2')">C# Example 47: Retrieve Pose Estimation Data</a></span></p>
+<div id="TOGGLE0186A2" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// fdata is a PXCMFaceData instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">Int32 nfaces=fdata.QueryNumberOfDetectedFaces();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">for (Int32 i=0;i&lt;nfaces;i++) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Retrieve the face landmark data instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCMFaceData.Face face=fdata.QueryFaceByIndex(i);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCMFaceData.PoseData pdata=fdata.QueryPose();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// retrieve the pose information</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCMFaceData.<a href="poseeulerangles_pxcfacedata.html" class="topiclink" style="font-style: normal; font-weight: normal; color: #000000; background-color: transparent; text-decoration: none;">PoseEulerAngles</a> angles;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pdata.QueryPoseAngles(out angles);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A3')">Java Example 47: Retrieve Pose Estimation Data</a></span></p>
+<div id="TOGGLE0186A3" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// fdata is a PXCMFaceData instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">int nfaces=fdata.QueryNumberOfDetectedFaces();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">for (int i=0;i&lt;nfaces;i++) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Retrieve the face landmark data instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCMFaceData.Face face=fdata.QueryFaceByIndex(i);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCMFaceData.PoseData pdata=fdata.QueryPose();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// retrieve the pose information</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCMFaceData.<a href="poseeulerangles_pxcfacedata.html" class="topiclink" style="font-style: normal; font-weight: normal; color: #000000; background-color: transparent; text-decoration: none;">PoseEulerAngles</a> angles=new PXCMFaceData.PoseEulerAngles();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pdata.QueryPoseAngles(angles);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_ImageCaption"><span class="f_ImageCaption">&nbsp;</span></p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+
+<script type="text/javascript">
+HMInitToggle('TOGGLE0186A1','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A2','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A3','hm.type','dropdown','hm.state','0');
+</script>
+</body>
+</html>

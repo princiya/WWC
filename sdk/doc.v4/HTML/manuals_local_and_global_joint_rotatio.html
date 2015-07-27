@@ -1,0 +1,116 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Local and Global Joint Rotation</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_local_and_global_joint_rotatio.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Local and Global Joint Rotation</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_jointdata_properties.html">Previous</a>&nbsp;
+     <a href="manuals_handling_alerts.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">A joint’s rotation refers to the angle of the joint’s bone, which is the bone that ends at the joint and starts at the joint’s parent. The hand module expresses joint rotation in two ways:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Local rotation</span><span class="f_Body"> – the angle between the joint’s bone and its parent’s bone. This value is stored in the </span><span class="f_CodeExample">localRotation</span><span class="f_Body"> property of </span><span class="f_CodeExample"><a href="jointdata_pxchanddata.html" class="topiclink">JointData</a></span><span class="f_Body">.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Global rotation</span><span class="f_Body"> – the angle between the joint’s bone and the camera coordinate system (Y axis). This value is stored in the </span><span class="f_CodeExample">globalOrientation</span><span class="f_Body"> property of </span><span class="f_CodeExample"><a href="jointdata_pxchanddata.html" class="topiclink">JointData</a></span><span class="f_Body">.</span></td></tr></table></div><p class="p_Body"><span class="f_Body">Figure 34 and Table 10 illustrate the local and global rotation angles for the joints highlighted in orange. (Note that the diagram is a simplification, as it shows the rotation on a single axis rather than in quaternion values.)</span></p>
+<p class="p_Body"><img src="note.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">By convention, the local and global rotations of the root node (wrist = 0) are the same, to allow completeness of the local rotations data.</span></p>
+<div style="text-align: center; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table style="margin:0 auto; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:417px; padding:6px;"><p class="p_Body"><img src="manuals_clip0093.png" width="380" height="443" alt="" style="width:380px;height:443px;border:none" /></p>
+</td>
+<td style="vertical-align:top; width:417px; padding:6px;"><p class="p_Body"><span class="f_Body"> <img src="manuals_clip0094_zoom99.png" width="280" height="442" alt="" style="width:280px;height:442px;border:none" /></span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 34: Local and Global Joint Rotation</span></p>
+<div style="text-align: center; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 7px 0px;"><table style="margin:0 auto; width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:5px;"><p class="p_Body"><span class="f_Body">Joint</span></p>
+</td>
+<td style="vertical-align:top; padding:5px;"><p class="p_Body"><span class="f_Body">Local Rotation</span></p>
+</td>
+<td style="vertical-align:top; padding:5px;"><p class="p_Body"><span class="f_Body">Global Rotation</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:5px;"><p>0</p>
+</td>
+<td style="vertical-align:top; padding:5px;"><p>5</p>
+</td>
+<td style="vertical-align:top; padding:5px;"><p>5</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:5px;"><p>1</p>
+</td>
+<td style="vertical-align:top; padding:5px;"><p>0</p>
+</td>
+<td style="vertical-align:top; padding:5px;"><p>5</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:5px;"><p>2</p>
+</td>
+<td style="vertical-align:top; padding:5px;"><p>30</p>
+</td>
+<td style="vertical-align:top; padding:5px;"><p>35</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:5px;"><p>3</p>
+</td>
+<td style="vertical-align:top; padding:5px;"><p>55</p>
+</td>
+<td style="vertical-align:top; padding:5px;"><p>90</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:5px;"><p>4</p>
+</td>
+<td style="vertical-align:top; padding:5px;"><p>25</p>
+</td>
+<td style="vertical-align:top; padding:5px;"><p>115</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body" style="text-align: center;"><span class="f_ImageCaption">Table 10: Local and Global Joint Rotation</span></p>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

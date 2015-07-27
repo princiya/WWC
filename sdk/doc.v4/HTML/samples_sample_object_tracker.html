@@ -1,0 +1,79 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Sample: FF_ObjectTracking[.cs]</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="C# sample,C++ sample,FF_ObjectTracking,FF_ObjectTracking.cs" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "samples_sample_object_tracker.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Sample: FF_ObjectTracking[.cs]</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="samples_sample_iq_sample_tool_cs.html">Previous</a>&nbsp;
+     <a href="samples_using_the_metaio_tool_box.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_InternalHeading"><span class="f_InternalHeading">Introduction</span></p>
+<p class="p_Body"><span class="f_Body">The </span><span class="f_CodeExample">FF_ObjectTracking[.cs]</span><span class="f_Body"> are two samples that demonstrates the capabilities of the SDK object tracking module. The samples track 2D and 3D objects within a scene. The sample without suffix is a C++ sample and the one with the </span><span class="f_CodeExample">.cs</span><span class="f_Body"> suffix is a C# sample.</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Launch</span></p>
+<p class="p_Body"><span class="f_Body">You can launch the prebuilt sample directly from the </span><span class="f_CodeExample">$(RSSDK_DIR)/bin/$(Platform)</span><span class="f_Body"> folder of the SDK installation, or compile and execute within the Microsoft Visual Studio. The project and source files are located under </span><span class="f_CodeExample">$(RSSDK_DIR)/sample/FF_ObjectTracking</span><span class="f_Body"> (C++) or </span><span class="f_CodeExample">$(RSSDK_DIR)/framework/CSharp/FF_ObjectTracking.cs </span><span class="f_Body">(C#)</span><span class="f_CodeExample">.</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Menu Options</span></p>
+<p class="p_Body"><span class="f_Body">From the menu, you can select the input device, the Metaio* object tracking recognition module, the type of tracking the user wants to load (2D, 3D or Instant 3D) and the operating mode (live streaming mode, playback mode, and record mode). The GUI is shown in Figure 141.</span></p>
+<p class="p_Body" style="text-align: center;"><img src="samples_clip0004.png" width="516" height="543" alt="" style="margin:0px auto 0px auto;width:516px;height:543px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 141: Sample object_tracker Menus</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">2D Tracking</span></p>
+<p class="p_Body"><span class="f_Body">From the </span><span class="f_CodeExample">Tracking Type</span><span class="f_Body"> menu, you can select the 2D Tracking mode and load in a </span><span class="f_CodeExample">.png</span><span class="f_Body"> or </span><span class="f_CodeExample">.jpg</span><span class="f_Body"> reference image for 2D tracking. The sample 2D tracking images are available under </span><span class="f_CodeExample">Assets/2DTargets</span><span class="f_Body"> shown in Figure 142.</span></p>
+<p class="p_Body" style="text-align: center;"><img src="samples_clip0005.png" width="683" height="480" alt="" style="margin:0px auto 0px auto;width:683px;height:480px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 142: Sample object_tracker select 2D tracking image</span></p>
+<p class="p_Body"><span class="f_Body">After selecting the image, the user can press the </span><span class="f_CodeExample">Start</span><span class="f_Body"> button to begin to track the corresponding image. There will be projected axes on the tracked object as shown in Figure 143.</span></p>
+<p class="p_Body" style="text-align: center;"><img src="samples_clip0006.png" width="516" height="543" alt="" style="margin:0px auto 0px auto;width:516px;height:543px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 143: Sample object_tracker tracked 2D image</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">3D Tracking</span></p>
+<p class="p_InternalHeading"><span class="f_Body">From the </span><span class="f_CodeExample">Tracking Type</span><span class="f_Body"> menu, you can select the 3D tracking mode and load in a </span><span class="f_CodeExample">.slam</span><span class="f_Body"> or </span><span class="f_CodeExample">.xml</span><span class="f_Body"> file for 3D tracking, as illustrated in Figure 144. </span><span style="font-family: Calibri;">Instant 3D tracking is similar to regular 3D tracking, but the targets are automatically determined from the scene. Therefore, no targets need to be created and loaded ahead of time.</span></p>
+<p class="p_Body" style="text-align: center;"><img src="samples_clip0007.png" width="516" height="543" alt="" style="margin:0px auto 0px auto;width:516px;height:543px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 144: Sample object_tracker tracked 3D image</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Other GUI Options</span></p>
+<p class="p_Body"><span class="f_Body">Click the </span><span class="f_CodeExample">Start</span><span class="f_Body"> button to activate the object tracker module. Check the </span><span class="f_CodeExample">Scale</span><span class="f_Body"> option to scale the images to the size of the display panel, and the </span><span class="f_CodeExample">Location</span><span class="f_Body"> option to toggle all axes on and off. Check the X axis, Y axis, and Z axis buttons to turn on and off the axes individually that projected on the tracked object. The</span><span class="f_CodeExample"> Load</span><span class="f_Body"> Targets button will load different target files depending on the tracking type selected. &nbsp;Multiple targets can be loaded and tracked at the same time.</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Map Creation, Extension and Alignment</span></p>
+<p class="p_Body"><span class="f_Body">The C++ sample also implements the 3D map creation functionality similar to the Metaio Toolbox application. The UI is similar to Figure 145. You can create a new map, extend an existing map with new features, and align a map to specify the coordinate system orientation and origin. The three buttons below the video panel allow switching between operations.</span></p>
+<p style="text-align: center; line-height: 1.70; margin: 0px 0px 13px 0px;"><img src="samples_clip0060.png" width="781" height="742" alt="" style="margin:0px auto 0px auto;width:781px;height:742px;border:none" /></p>
+<p style="text-align: center; line-height: 1.70; margin: 0px 0px 13px 0px;"><span class="f_ImageCaption">Figure 145: Map Creation, Extension and Alignment</span></p>
+<p class="p_Body"><span class="f_Body">On the map creation tab, the </span><span class="f_CodeExample">Start/Stop</span><span class="f_Body"> buttons control whether features are being detected for tracking purposes. If the </span><span class="f_CodeExample">Start</span><span class="f_Body"> button is not enabled, the condition is not met for the current operation (no map loaded, marker ID not specified, etc.). Once an operation is complete, the map file must be explicitly saved. It is not performed automatically.</span></p>
+<p class="p_Body"><span class="f_Body">While performing a map creation operation, the current status is provided in the status bar, including the number of features detected on the object. The sample application does not draw the feature points themselves, but the coordinate system pose is drawn as in tracking modes.</span></p>
+<p class="p_Body"><span class="f_Body">A region of interest can be specified for map creation and instant 3D tracking. The check box is enabled only when the region may be used. To specify a region, the video must be streaming. Left click once on the video to specify the first corner. Left click again to specify the opposite corner. The active region is drawn in real time as the mouse is moved.</span></p>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

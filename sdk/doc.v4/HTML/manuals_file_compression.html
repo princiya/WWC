@@ -1,0 +1,69 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>File Compression [Experimental]</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="compression,file compression" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_file_compression.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">File Compression [Experimental]</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_playback_modes_and_repeatability.html">Previous</a>&nbsp;
+     <a href="manuals_known_limitations.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">Recording raw color and depth samples to a disk imposes huge burden on the system. For example, with color configuration </span><span class="f_CodeExample">RGB32x1920x1080x30fps</span><span class="f_Body"> and depth configuration </span><span class="f_CodeExample">640x480x30fps</span><span class="f_Body">, the SDK needs about </span><span class="f_CodeExample">272MB/s</span><span class="f_Body"> disk I/O bandwidth to write the samples to the disk. This requirement makes most spinning disks and certain slow SSD inapplicable for file recording.</span></p>
+<p class="p_Body"><span class="f_Body">To solve the issue, the SDK provides an experimental feature to compress the samples before writing to the disk. The feature is based on H.264 encoding (I-frame only, constant QP) on color samples and lossless Lempel–Ziv–Oberhumer (LZO) encoding on depth samples. The compression rate is roughly 10:1 for color samples and 2:1 for depth samples. In the previous example, the disk I/O bandwidth is now reduced to be about </span><span class="f_CodeExample">32MB/s</span><span class="f_Body">.</span></p>
+<p class="p_Body"><span class="f_Body">The system requirement is as follows:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Intel® Iris™ Graphics with the latest Intel Iris Graphics Driver</span></td></tr></table></div><p class="p_Body"><span class="f_Body">You can control the recording features with the following registry settings:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">Windows Registry Editor Version 5.00</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">[HKEY_CURRENT_USER\SOFTWARE\Intel\RSSDK\FileRecording]</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&quot;DisableH264Compression&quot;=dword:0</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&quot;H264_QPI&quot;=dword:8</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&quot;DisableLZOCompression&quot;=dword:0</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">By default, the H.264 compression is enabled on the color stream, and the LZO compression is enabled on all other streams. </span></p>
+<p class="p_Body"><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">The H.264 QPI (I-frame quantization parameter) value ranges from </span><span class="f_CodeExample">0</span><span class="f_Body"> (least compression) to </span><span class="f_CodeExample">51</span><span class="f_Body"> (most compression).</span></p>
+<p class="p_Body"><img src="note.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">A recorded file with the H.264 compression can only be played back on systems with Intel Iris Graphics.</span></p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+
+</body>
+</html>

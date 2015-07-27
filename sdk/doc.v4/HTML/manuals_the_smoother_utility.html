@@ -1,0 +1,359 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>The Smoother Utility</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Smoother" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_the_smoother_utility.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">The Smoother Utility</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_programming_guide_utilities.html">Previous</a>&nbsp;
+     <a href="manuals_the_rotation_utility.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">The </span><span class="f_CodeExample"><a href="pxcsmoother.html" class="topiclink">PXC[M]Smoother</a></span><span class="f_Body"> utility can be used to smooth data series containing points of 1, 2 or 3 dimensions in a variety of algorithms. The purpose of a smoothing algorithm is to omit &quot;noise&quot; in the data series, caused either by a true atypical sample, or by an error in sampling. Similarly, smoothing a series of points over time (e.g. smoothing a hand or joint position over time) results in a more stable and less jittery tracking location of the smoothed object.</span></p>
+<p class="p_Body"><span class="f_Body">Figure 68 illustrates smoothing of a data series.</span></p>
+<p class="p_Body" style="text-align: center;"><img src="manuals_clip0111.png" width="737" height="379" alt="" style="margin:0px auto 0px auto;width:737px;height:379px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 68: Data Smoothing</span></p>
+<p class="p_Body"><span class="f_Body">You can use the smoothing utility to smooth any online data series (it does not have to represent a hand or even a physical object). “Online” here, means that the series values are given one by one and immediately smoothed, as opposed to “offline” algorithms, which read all the data series first and then smooth it entirely.</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Smoothing Algorithms</span></p>
+<p class="p_Body"><span class="f_Body">There are four different smoothing algorithms that may be applied to data series containing points of 1, 2 or 3 dimensions. Therefore 12 types of smoothers can be created (depending on the algorithm and on the point dimension). See </span><span class="f_CodeExample"><a href="pxcsmoother.html" class="topiclink">PXC[M]Smoother</a></span><span class="f_Body"> for more information about the 12 data smoothing classes.</span></p>
+<p class="p_Body"><span class="f_Body">The available smoothing algorithms are:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Stabilizer</span><span class="f_Body"> - for stabilizing a point in space that represents a stationary object. Ignores small changes under a given threshold and represents close points as the same point. Motion smoothing is also applied when the new point exceeds the stabilization radius.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Weighted</span><span class="f_Body"> - replaces the current point with a weighted average of the last N points, according to the chosen weights.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Quadratic</span><span class="f_Body"> - (time-based smoothing<a href="manuals_the_smoother_utility.html#timebasedsmoothing" class="topiclink">*</a>) uses a quadratic equation to interpolate between the previous point and the current one. This produces both stabilization and smoothing of the motion, depending how far the new point is from the current one.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Spring</span><span class="f_Body"> - (time-based smoothing<a href="manuals_the_smoother_utility.html#timebasedsmoothing" class="topiclink">*</a>) uses a linear equation to interpolate between the previous point and the current one (results in a stabilization effect).</span></td></tr></table></div><p class="p_Body"><a id="timebasedsmoothing"></a><span class="f_Body">* In “time-based smoothing&quot;, the interpolation value depends on the time that passed between the acqusition of two samples.</span></p>
+<p class="p_Body"><span class="f_Body">Test all the relevant smoothing algorithms, and try different smoothing parameters, when applying smoothing on your data. The influence of the algorithm depends on the data itself, so don’t assume that the same setup will have similar results, when applied to new data types.</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Creating a Smoother Instance</span></p>
+<p class="p_Body"><span class="f_Body">Setup up a smoother instance as follows:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:20px"><span style="font-size:11pt; font-family: 'Intel Clear';color:#000000;">1.</span></td><td style="border:none"><span class="f_Body">Create the </span><span class="f_CodeExample"><a href="pxcsmoother.html" class="topiclink">PXC[M]Smoother</a></span><span class="f_Body"> class factory. This step only creates the factory handle, and should be called only once.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:20px"><span style="font-size:11pt; font-family: 'Intel Clear';color:#000000;">2.</span></td><td style="border:none"><span class="f_Body">Use the </span><span class="f_CodeExample"><a href="pxcsmoother.html" class="topiclink">PXC[M]Smoother</a></span><span class="f_Body"> to create the specific smoother instances. There are 4 different smoothing algorithms and 3 input data types (1-dimensional, 2-dimensional and 3-dimensional points), so in total there are 12 different ways to create a smoother:</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 20px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:20px"><span style="font-size:11pt; font-family: 'Intel Clear';color:#000000;">a.</span></td><td style="border:none"><span class="f_CodeExample"><a href="create1dstabilizer_pxcsmoother.html" class="topiclink">Create1DStabilizer</a>/<a href="create2dstabilizer_pxcsmoother.html" class="topiclink">Create2DStabilizer</a>/<a href="create3dstabilizer_pxcsmoother.html" class="topiclink">Create3DStabilizer</a>(stabilizeStrength, stabilizeRadius)</span><br />
+<span class="f_Body">The parameter </span><span class="f_CodeExample">stabilizerRadius</span><span class="f_Body"> defines the range in which a motion is ignored.</span><br />
+<span class="f_Body">The parameter </span><span class="f_CodeExample">stabilizerStrength</span><span class="f_Body"> defines how much smoothing is applied to the motion, when it exceeds the stabilization radius. The values range from </span><span class="f_CodeExample">0</span><span class="f_Body"> to </span><span class="f_CodeExample">1</span><span class="f_Body">, where </span><span class="f_CodeExample">1</span><span class="f_Body"> is the smoothest (and adds more latency).</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 20px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:20px"><span style="font-size:11pt; font-family: 'Intel Clear';color:#000000;">b.</span></td><td style="border:none"><span class="f_CodeExample"><a href="create1dweighted_pxcsmoother.html" class="topiclink">Create1DWeighted</a>/<a href="create2dweighted_pxcsmoother.html" class="topiclink">Create2DWeighted</a>/<a href="create3dweighted_pxcsmoother.html" class="topiclink">Create3DWeighted</a>(numWeights, weights)</span><br />
+<span class="f_Body">The parameter </span><span class="f_CodeExample">numWeigths</span><span class="f_Body"> defines the number of weights that is used for smoothing, where each weight represent a previous position.</span><br />
+<span class="f_Body">The parameter </span><span class="f_CodeExample">weights</span><span class="f_Body"> is an array of weights, of size </span><span class="f_CodeExample">numWeights</span><span class="f_Body">, which is multiplied by the previous position values. If we are at point </span><span class="f_CodeExample">N</span><span class="f_Body">, then the weight in cell </span><span class="f_CodeExample">i</span><span class="f_Body"> will be multiplied by the position at frame </span><span class="f_CodeExample">N-(numWeights-i)</span><span class="f_Body">. if the weights array is not assigned, all weights will have the value of </span><span class="f_CodeExample">1/numWeights</span><span class="f_Body">.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 20px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:20px"><span style="font-size:11pt; font-family: 'Intel Clear';color:#000000;">c.</span></td><td style="border:none"><span class="f_CodeExample"><a href="create1dquadratic_pxcsmoother.html" class="topiclink">Create1DQuadratic</a>/<a href="create2dquadratic_pxcsmoother.html" class="topiclink">Create2DQuadratic</a>/<a href="create3dquadratic_pxcsmoother.html" class="topiclink">Create3DQuadratic</a>(smoothStrength)</span><br />
+<span class="f_Body">The parameter </span><span class="f_CodeExample">smoothStrength</span><span class="f_Body"> defines how much smoothing is applied to the motion at each frame. The values range from </span><span class="f_CodeExample">0</span><span class="f_Body"> to </span><span class="f_CodeExample">1</span><span class="f_Body">, where </span><span class="f_CodeExample">1</span><span class="f_Body"> is the smoothest (and adds more latency).</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 20px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:20px"><span style="font-size:11pt; font-family: 'Intel Clear';color:#000000;">d.</span></td><td style="border:none"><span class="f_CodeExample"><a href="create1dspring_pxcsmoother.html" class="topiclink">Create1DSpring</a>/<a href="create1dspring_pxcsmoother.html" class="topiclink">Create1DSpring</a>/<a href="create1dspring_pxcsmoother.html" class="topiclink">Create1DSpring</a>(smoothStrength)</span><br />
+<span class="f_Body">The parameter </span><span class="f_CodeExample">smoothStrength</span><span class="f_Body"> defines how much smoothing is applied to the motion at each frame. The values range from </span><span class="f_CodeExample">0</span><span class="f_Body"> to </span><span class="f_CodeExample">1</span><span class="f_Body">, where </span><span class="f_CodeExample">1</span><span class="f_Body"> is the smoothest (and adds more latency).</span></td></tr></table></div><p class="p_Body"><img src="note.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">Since different algorithms are used and the data varies, you should assume that the same </span><span class="f_CodeExample">smoothStrength</span><span class="f_Body"> (or </span><span class="f_CodeExample">stabilizerStrength</span><span class="f_Body">) parameters have different effects on the smoothed data. Experiment with different algorithms (according to your needs), using various smoothing parameters, in order to find the setup that best matches your scenario.</span></p>
+<p class="p_Body"><span class="f_Body">Example 99 shows how to create a quadratic smoother for 3-dimensional points.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A1')">C++ Example 99: Create 3-dimensional Quadratic Smoother</a></span></p>
+<div id="TOGGLE0186A1" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Create an instance of PXCSession</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCSession* session = PXCSession::CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Create an instance of PXCSmoother </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCSmoother* smoother = NULL;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">session-&gt;CreateImpl&lt;PXCSmoother&gt;(&amp;smoother);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Create a 3D smoother, using quadratic algorithm, with smooth strength [0-1]</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCSmoother::Smoother3D smoother3D = smoother-&gt;Create3DQuadratic(0.8f);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A2')">C# Example 99: Create 3-dimensional Quadratic Smoother</a></span></p>
+<div id="TOGGLE0186A2" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Create an instance of PXCMSession</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSession session = PXCMSession.CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Create an instance of PXCMSmoother </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSmoother smoother;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">session.CreateImpl&lt;PXCMSmoother&gt;(out smoother);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Create a 3D smoother, using quadratic algorithm, with smooth strength [0-1]</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSmoother.Smoother3D smoother3D = smoother.Create3DQuadratic(0.8f);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A3')">Java Example 99: Create 3-dimensional Quadratic Smoother</a></span></p>
+<div id="TOGGLE0186A3" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Create an instance of PXCMSession</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSession session = PXCMSession.CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Create an instance of PXCMSmoother </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSmoother smoother=new PXCMSmoother();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">session.CreateImpl&lt;PXCMSmoother&gt;(smoother);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Create a 3D smoother, using quadratic algorithm, with smooth strength [0-1]</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSmoother.Smoother3D smoother3D = smoother.Create3DQuadratic(0.8f);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Using the Smoother</span></p>
+<p class="p_InternalHeading"><span class="f_Body">Example 100 shows how to smooth the 3D world position of a joint:</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A4')">C++ Example 100: Use the 3-dimensional Quadratic Smoother</a></span></p>
+<div id="TOGGLE0186A4" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Main processing loop</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// sm is a PXCSenseManager instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">while (sm-&gt;AcquireFrame(true)&gt;=PXC_STATUS_NO_ERROR) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Retrieve current hand tracking results for a specific joint (jointData)</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;… &nbsp; &nbsp; &nbsp; &nbsp; </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Smooth joint position value</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// smoother3D is a PXCSmoother::Smoother3D instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCPoint3DF32 smoothedPoint = smoother3D-&gt;SmoothValue(jointData.positionWorld);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Resume next frame processing</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;sm-&gt;ReleaseFrame();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A5')">C# Example 100: Use the 3-dimensional Quadratic Smoother</a></span></p>
+<div id="TOGGLE0186A5" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Main processing loop</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// sm is a PXCMSenseManager instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">while (sm.AcquireFrame(true)&gt;=pxcmStatus.PXCM_STATUS_NO_ERROR) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Retrieve current hand tracking results for a specific joint (jointData)</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;… &nbsp; &nbsp; &nbsp; &nbsp; </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Smooth joint position value</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// smoother3D is a PXCMSmoother.Smoother3D instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCMPoint3DF32 smoothedPoint = smoother3D.SmoothValue(jointData.positionWorld);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Resume next frame processing</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;sm.ReleaseFrame();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A6')">Java Example 100: Use the 3-dimensional Quadratic Smoother</a></span></p>
+<div id="TOGGLE0186A6" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Main processing loop</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// sm is a PXCMSenseManager instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">while (sm.AcquireFrame(true)&gt;=pxcmStatus.PXCM_STATUS_NO_ERROR) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Retrieve current hand tracking results for a specific joint (jointData)</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;… &nbsp; &nbsp; &nbsp; &nbsp; </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Smooth joint position value</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// smoother3D is a PXCMSmoother.Smoother3D instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCMPoint3DF32 smoothedPoint = smoother3D.SmoothValue(jointData.positionWorld);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Resume next frame processing</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;sm.ReleaseFrame();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Full Code Sample</span></p>
+<p class="p_InternalHeading"><span class="f_Body">Example 101 demonstrates how to smooth the 3D position of the index finger, using the quadratic smoothing algorithm.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A7')">C++ Example 101: Smooth Index Finger Data</a></span></p>
+<div id="TOGGLE0186A7" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Init</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCSenseManager* senseManager = PXCSenseManager::CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Hand Module Setup</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">senseManager-&gt;EnableHand();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCHandModule* handModule = senseManager-&gt;QueryHand();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCHandData* handDataOutput = handModule-&gt;CreateOutput();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Creating PXCSmoother instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCSmoother* smootherFactory;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">senseManager-&gt;QuerySession()-&gt;CreateImpl&lt;PXCSmoother&gt;(&amp;smootherFactory);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Creating 3D smoother with quadratic algorithm with smooth value of 0.8</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCSmoother::Smoother3D* smoother3D = smootherFactory-&gt;Create3DQuadratic(0.8f);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// First Initializing the sense manager</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">if(senseManager-&gt;Init() &gt;= PXC_STATUS_NO_ERROR) { &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Acquiring frames from input device</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;while(senseManager-&gt;AcquireFrame(true) &gt;= PXC_STATUS_NO_ERROR) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// Get current frame hand output</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;handDataOutput-&gt;Update();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;if(handDataOutput-&gt;QueryNumberOfHands() &gt; 0) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Getting first hand entered in FOV (index = 0)</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;PXCHandData::IHand *hand;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;handDataOutput-&gt;QueryHandData(PXCHandData::ACCESS_ORDER_BY_TIME,0,hand);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Getting Index fingertip data</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;PXCHandData::JointData jointData;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if(hand-&gt;QueryTrackedJoint(PXCHandData::JOINT_INDEX_TIP, jointData) &gt;= PXC_STATUS_NO_ERROR) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Smoothing the value of the Index fingertip world coordinates, output to smoothed3DPoint</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;PXCPoint3DF32 smoothed3DPoint = smoother3D-&gt;SmoothValue(jointData.positionWorld);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Use smoothed3DPoint values</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//... </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// Finished working on current frame</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;senseManager-&gt;ReleaseFrame();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;} // end while acquire frame</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">} // end if Init</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">smoother3D-&gt;Release();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">smootherFactory-&gt;Release();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handDataOutput-&gt;Release();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">senseManager-&gt;Release();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A8')">C# Example 101: Smooth Index Finger Data</a></span></p>
+<div id="TOGGLE0186A8" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Init</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSenseManager senseManager = PXCMSenseManager.CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Hand Module Setup</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">senseManager.EnableHand();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMHandModule handModule = senseManager.QueryHand();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMHandData handDataOutput = handModule.CreateOutput();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Creating PXCMSmoother instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSmoother smootherFactory;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">senseManager.session.CreateImpl&lt;PXCMSmoother&gt;(out smootherFactory);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Creating 3D smoother with quadratic algorithm with smooth value of 0.8</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSmoother.Smoother3D smoother3D = smootherFactory.Create3DQuadratic(0.8f);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// First Initializing the sense manager</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">if(senseManager.Init() &gt;= pxcmStatus.PXCM_STATUS_NO_ERROR) { &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Acquiring frames from input device</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;while(senseManager.AcquireFrame(true) &gt;= pxcmStatus.PXCM_STATUS_NO_ERROR) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// Get current frame hand output</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;handDataOutput.Update();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;if(handDataOutput.QueryNumberOfHands() &gt; 0) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Getting first hand entered in FOV (index = 0)</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;PXCMHandData.IHand hand;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;handDataOutput.QueryHandData(PXCMHandData.AccessOrder.ACCESS_ORDER_BY_TIME,0,out hand);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Getting Index fingertip data</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;PXCMHandData.JointData jointData;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if(hand.QueryTrackedJoint(PXCMHandData.JointType.JOINT_INDEX_TIP, out jointData) &gt;= pxcmStatus.PXCM_STATUS_NO_ERROR) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Smoothing the value of the Index fingertip world coordinates, output to smoothed3DPoint</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;PXCMPoint3DF32 smoothed3DPoint = smoother3D.SmoothValue(jointData.positionWorld);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Use smoothed3DPoint values</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//... </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// Finished working on current frame</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;senseManager.ReleaseFrame();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;} // end while acquire frame</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">} // end if Init</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">smoother3D.Dispose();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">smootherFactory.Dispose();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handDataOutput.Dispose();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">senseManager.Dispose();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A9')">Java Example 101: Smooth Index Finger Data</a></span></p>
+<div id="TOGGLE0186A9" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Init</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSenseManager senseManager = PXCMSenseManager.CreateInstance();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Hand Module Setup</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">senseManager.EnableHand();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMHandModule handModule = senseManager.QueryHand();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMHandData handDataOutput = handModule.CreateOutput();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Creating PXCMSmoother instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSmoother smootherFactory=new PXCMSmoother();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">senseManager.session.CreateImpl(smootherFactory);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Creating 3D smoother with quadratic algorithm with smooth value of 0.8</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSmoother.Smoother3D smoother3D = smootherFactory.Create3DQuadratic(0.8f);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// First Initializing the sense manager</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">if(senseManager.Init() &gt;= pxcmStatus.PXCM_STATUS_NO_ERROR) { &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Acquiring frames from input device</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;while(senseManager.AcquireFrame(true) &gt;= pxcmStatus.PXCM_STATUS_NO_ERROR) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// Get current frame hand output</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;handDataOutput.Update();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;if(handDataOutput.QueryNumberOfHands() &gt; 0) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Getting first hand entered in FOV (index = 0)</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;PXCMHandData.IHand hand=new PXCMHandData.IHand();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;handDataOutput.QueryHandData(PXCMHandData.AccessOrder.ACCESS_ORDER_BY_TIME,0,hand);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Getting Index fingertip data</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;PXCMHandData.JointData jointData=new PXCMHandData.JointData();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if(hand.QueryTrackedJoint(PXCMHandData.JointType.JOINT_INDEX_TIP,jointData) &gt;= pxcmStatus.PXCM_STATUS_NO_ERROR) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Smoothing the value of the Index fingertip world coordinates, output to smoothed3DPoint</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;PXCMPoint3DF32 smoothed3DPoint = smoother3D.SmoothValue(jointData.positionWorld);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Use smoothed3DPoint values</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//... </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;// Finished working on current frame</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;senseManager.ReleaseFrame();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;} // end while acquire frame</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">} // end if Init</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">smoother3D.close();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">smootherFactory.close();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handDataOutput.close();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">senseManager.close();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+<script type="text/javascript">
+HMInitToggle('TOGGLE0186A1','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A2','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A3','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A4','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A5','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A6','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A7','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A8','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A9','hm.type','dropdown','hm.state','0');
+</script>
+</body>
+</html>

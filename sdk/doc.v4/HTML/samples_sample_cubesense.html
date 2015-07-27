@@ -1,0 +1,63 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Unity Sample: FF_CubeSense</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="FF_CubeSense,Unity sample" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "samples_sample_cubesense.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Unity Sample: FF_CubeSense</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="samples_unity_sample_face_tracking.html">Previous</a>&nbsp;
+     <a href="samples_unity_hands_animation.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">This sample </span><span class="f_CodeExample">FF_CubeSense</span><span class="f_Body"> shows how to run the SDK with the Unity game engine supporting the web player platform. The sample requires Unity v4.1.0 or later.</span></p>
+<p class="p_Body"><span class="f_Body">Copy the sample source to a writable folder and double click </span><span class="f_CodeExample">Assets/CubeSense.unity</span><span class="f_Body"> to launch the Unity editor, and then run the game. The screen shot is similar to Figure 161 (in Unity Editor) or Figure 162 (in an internet browser). By default, the sample initializes to run face tracking only. Click the buttons on the left upper corner to switch to the hand tracking mode, or adding the image display mode.</span></p>
+<p class="p_Body"><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">The image mode is a stretch for the network transmission bandwidth. The application will slow down significantly with constant image streaming.</span></p>
+<p class="p_Body"><span class="f_Body">The script </span><span class="f_CodeExample">SenseInput.cs</span><span class="f_Body"> initializes the camera streaming, face and hand tracking. When there are available data (samples from the camera, or data from face tracking or hand tracking), the script sends events to the </span><span class="f_CodeExample">CubeMotion.cs</span><span class="f_Body"> script.</span></p>
+<p class="p_Body"><span class="f_Body">The script </span><span class="f_CodeExample">CubeMotion.cs</span><span class="f_Body"> visualizes face and hand tracking data. The script visualizes the face tracking data by pointing the cube to the normalized view port position of the detected nose position coordinates. The script visualizes the hand tracking data by rotating the cube left if the detected hand position is at the left side of the screen, and rotating the cube right if the hand position is at the right side. </span></p>
+<p class="p_Body"><span class="f_Body">The script </span><span class="f_CodeExample">TextWindow.cs</span><span class="f_Body"> prints out the detected face and hand tracking data using a grayed color in the background. </span></p>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+<p class="p_ImageCaption"><img src="cubesenseineditor.png" width="756" height="642" alt="" style="margin:0px auto 0px auto;width:756px;height:642px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 161: The CubeSense Sample Window in Unity Editor</span></p>
+<p class="p_ImageCaption"><img src="cubesenseinbrowser.png" width="745" height="668" alt="" style="margin:0px auto 0px auto;width:745px;height:668px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 162: The CubeSense Sample Window in the Google Chrome Browser</span></p>
+<p class="p_Body"><img src="note.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">If you see a warning message &quot;</span><span class="f_CodeExample">NullReferenceException: Object reference not set to an instance of an object UnityEditor.DockArea.OnGUI()</span><span class="f_Body">&quot; while running your application in Unity Editor, close the </span><span class="f_CodeExample">Game</span><span class="f_Body"> and </span><span class="f_CodeExample">Scene</span><span class="f_Body"> windows and redo the window layout. The warning message should go away after the layout change. See also <a href="http://neareal.net/index.php?ComputerGraphics%2FUnity%2FTips%2FError%20UnityEditor.DockArea.OnGui(" target="_blank" class="weblink">http://neareal.net/index.php?ComputerGraphics%2FUnity%2FTips%2FError%20UnityEditor.DockArea.OnGui(</a>) (In Japanese.)</span></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

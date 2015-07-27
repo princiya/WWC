@@ -1,0 +1,71 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Blob Tracking</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Blob Tracking" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_blob_tracking.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Blob Tracking</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_user_facing_algorithms.html">Previous</a>&nbsp;
+     <a href="manuals_initializing_the_blob_module.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">A “blob”, in this context, is a shape identified within an image, which represents a single object.</span></p>
+<p class="p_Body"><span class="f_Body">The </span><span class="f_CodeExample"><a href="pxcblobmodule.html" class="topiclink">PXC[M]BlobModule</a></span><span class="f_Body"> interface and its related interfaces allow you to detect objects in front of the camera (i.e. blobs) and extract the segmentation images, contour lines, and points of interest for these blobs. </span></p>
+<p class="p_Body"><span class="f_Body">A segmentation image is an image representing a single blob, in which the blob’s pixels are white (255) and the background pixels are black (0). Contour lines are the outer and inner border lines that separate the object from its background. Figure 20 and Figure 21 show an example of a segmentation image and its contour lines. The white area is the blob representing an object, the black areas are the background, and the red lines are contour lines.</span></p>
+<p class="p_Body"><img src="note.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">The object in the example has one “hole” in it, and therefore it has an internal contour line, in addition to the external contour line.</span></p>
+<div style="text-align: center; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table style="margin:0 auto; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:417px; padding:6px;"><p class="p_Body" style="text-align: center;"><img src="manuals_clip0112.png" width="315" height="278" alt="" style="margin:0px auto 0px auto;width:315px;height:278px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 20: Segmentation Image</span></p>
+</td>
+<td style="vertical-align:top; width:417px; padding:6px;"><p class="p_Body" style="text-align: center;"><img src="manuals_clip0113.png" width="315" height="278" alt="" style="margin:0px auto 0px auto;width:315px;height:278px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 21: Contour Lines</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body">You may use the blob module to track any object in front of the camera. This includes the application user’s face, his hands or any other object. For example, you can use the blob module if you only need the overall location of the object, to serve as a pointer in your application, or if you need the object’s contour to “collect” items in a game.</span></p>
+<p class="p_Body"><span class="f_Body">The blob module can detect a maximum of four objects, at a distance of 20–100 cm from the camera. If more than four objects are visible, the largest four are selected for tracking. Note that 100 cm is the maximal distance, assuming the object is large enough. Small objects (e.g. a single finger) may not be visible to the depth camera even at smaller distances. It is recommended to test the ranges of detection for your specific scenario, before setting the limits in your application.</span></p>
+<p class="p_Body"><span class="f_Body">The blob module can be a convenient alternative to the hand tracking module (see <a href="manuals_hand_tracking.html" class="topiclink">Hand Tracking</a>), if your application does not specifically require hand identification. The module has a smaller impact on system resources, and therefore is preferable if its output is sufficient for your application. </span></p>
+<p class="p_Body"><span class="f_Body">If your application requires a full segmentation of the user from the background, you may prefer to use the user segmentation module (see <a href="manuals_user_segmentation.html" class="topiclink">User Segmentation</a>).</span></p>
+<p class="p_Body"><span class="f_Body">There are three interfaces related to blob processing:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_CodeExample"><a href="pxcblobmodule.html" class="topiclink">PXC[M]BlobModule</a></span><span class="f_Body"> – the main interface of the module.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_CodeExample"><a href="pxcblobconfiguration.html" class="topiclink">PXC[M]BlobConfiguration</a></span><span class="f_Body"> – an interface for configuring the module.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_CodeExample"><a href="pxcblobdata.html" class="topiclink">PXC[M]BlobData</a></span><span class="f_Body"> – an interface that contains all the extracted blobs’ data.</span></td></tr></table></div><p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

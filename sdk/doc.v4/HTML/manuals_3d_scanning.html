@@ -1,0 +1,198 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>3D Scanning</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_3d_scanning.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">3D Scanning</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_programming_guide_orientation_.html">Previous</a>&nbsp;
+     <a href="manuals_programming_guide_face.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">The SDK 3D scanning module generates 3D mesh data from the camera images. The module works in two modes: </span><span class="f_CodeExample">TARGETING</span><span class="f_Body"> and </span><span class="f_CodeExample">SCANNING</span><span class="f_Body">. You must explicitly switch between the two modes. The </span><span class="f_CodeExample">TARGETING</span><span class="f_Body"> mode is used to reset the target scanning volume and optionally detect objects (or faces) in the scene. This is the default starting mode, if not explicitly set.</span></p>
+<p class="p_Body" style="text-align: center;"><img src="preview.png" width="355" height="290" alt="" style="margin:0px auto 0px auto;width:355px;height:290px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 14: The Preview Image</span></p>
+<p class="p_Body"><span class="f_Body">Figure 14 shows a doll object in the </span><span class="f_CodeExample">TARGETTING</span><span class="f_Body"> mode. Once the target object/volume is established, the scanning process can be started by switching to the </span><span class="f_CodeExample">SCANNING</span><span class="f_Body"> mode.</span></p>
+<p class="p_Body"><span class="f_Body">In the </span><span class="f_CodeExample">SCANNING</span><span class="f_Body"> mode, the target object can be rotated in front of the camera to collect additional surfaces and color data. Alternatively, the camera can be rotated around the target object. Either approach works since the camera tracking algorithm is sophisticated enough to ignore the background while determining the camera motion relative to the target object.</span></p>
+<p class="p_Body"><span class="f_Body">While in the </span><span class="f_CodeExample">SCANNING</span><span class="f_Body"> mode, the state of the scanning volume can be converted to a standard mesh file format, as illustrated in Figure 15:</span></p>
+<p class="p_Body" style="text-align: center;"><img src="mesh_zoom50.png" width="227" height="263" alt="" style="margin:0px auto 0px auto;width:227px;height:263px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 15: The Scanned Mesh of the 3D Object.</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Limitation</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">The scanning volume size is limited by the range and field of view of the camera. Usually, it is best to place the target object 15-30 inches in front of the camera.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">The algorithm is designed to capture rigid objects. If a portion of the object moves (relative to other portions) while in the </span><span class="f_CodeExample">SCANNING</span><span class="f_Body"> mode, the scanned data may be ill-formed. If this happens, restart the scanning by switching back to the </span><span class="f_CodeExample">TARGETING</span><span class="f_Body"> mode.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">When orbiting the object (or camera) in the </span><span class="f_CodeExample">SCANNING</span><span class="f_Body"> mode, be careful not to move too fast since this can cause the camera tracking algorithm to fail. If this happens, restart the scanning by switching back to the </span><span class="f_CodeExample">TARGETING</span><span class="f_Body"> mode.</span></td></tr></table></div><p class="p_InternalHeading"><span class="f_InternalHeading">Output Data</span></p>
+<p class="p_Body"><span class="f_Body">In the </span><span class="f_CodeExample">TARGETING</span><span class="f_Body"> mode, you can retrieve the preview image (through the </span><span class="f_CodeExample"><a href="acquirepreviewimage_pxc3dscan.html" class="topiclink">AcquirePreviewImage</a></span><span class="f_Body"> function) to visualize the camera images, the camera position and the scanning volume. In the </span><span class="f_CodeExample">SCANNING</span><span class="f_Body"> mode, you can retrieve the preview image that shows an approximation of the accumulated target object data within the scanning volume. Finally, you can generate the 3D object mesh file from a scanning volume in various standard formats: </span><span class="f_CodeExample">STL</span><span class="f_Body">, </span><span class="f_CodeExample">OBJ</span><span class="f_Body"> and </span><span class="f_CodeExample">PLY</span><span class="f_Body">.</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Programming</span></p>
+<p class="p_Body"><span class="f_Body">Example 40 shows a typical 3D scanning program.</span></p>
+<p class="p_InternalHeading"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A1')">C++ Example 40: 3D Scanning</a></span></p>
+<div id="TOGGLE0186A1" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Create a SenseManager instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCSenseManager *sm=PXCSenseManager::CreateSenseManager();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Enable 3D Scanning</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm-&gt;Enable3DScan();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Get a 3D scanning handler here for configuration.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXC3DScan *scan=sm-&gt;Query3DScan();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Initialize the pipeline</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm-&gt;Init();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Stream data</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">while (sm-&gt;AcquireFrame(true)&gt;=PXC_STATUS_NO_ERROR) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Preview the scanning results</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCImage *image=scan-&gt;AcquirePreview();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;... </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;image-&gt;Release();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// If targetting is done, set the scanning mode.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;if (targetting_completed) </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;scan-&gt;SetMode(PXCScan::SCANNING);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// If scanning is completed, break out.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;if (scan_completed) break;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Resume processing next frame</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;sm-&gt;ReleaseFrame();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Save the scanned object</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">scan-&gt;Reconstruct(PXC3DScan::STL, L&quot;C:\\mywork\\myobject.stl&quot;);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm-&gt;Release();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A2')">C# Example 40: 3D Scanning</a></span></p>
+<div id="TOGGLE0186A2" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Create a SenseManager instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSenseManager sm=PXCMSenseManager.CreateSenseManager();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Enable 3D Scanning</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm.Enable3DScan();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Get a 3D scanning instance here for configuration</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCM3DScan scan=sm.Query3DScan();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Initialize the pipeline</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm.Init();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Stream data</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">while (sm.AcquireFrame(true)&gt;=pxcmStatus.PXCM_STATUS_NO_ERROR) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Retrieve the 3D scanning results</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCMImage image=scan.AcquirePreview();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;... </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;image.Dispose();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// If targetting is done, set the scanning mode.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;if (targetting_completed) </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;scan.SetMode(PXCMScan.Mode.SCANNING);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// If scanning is completed, break out.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;if (scan_completed) break;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Resume next frame processing</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;sm.ReleaseFrame();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Save the scanned object</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">scan.Reconstruct(PXCM3DScan.FileFormat.STL, &quot;C:\\mywork\\myobject.stl&quot;);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm.Dispose();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A3')">Java Example 40: 3D Scanning</a></span></p>
+<div id="TOGGLE0186A3" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Create a SenseManager instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSenseManager sm=PXCMSenseManager.CreateSenseManager();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Enable 3D Scanning</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm.Enable3DScan();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Get a 3D scanning instance here for configuration</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCM3DScan scan=sm.Query3DScan();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Initialize the pipeline</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm.Init();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Stream data</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">while (sm.AcquireFrame(true)&gt;=pxcmStatus.PXCM_STATUS_NO_ERROR) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Retrieve the 3D scanning results</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCMImage image=scan.AcquirePreview();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;... </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;image.Dispose();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// If targetting is done, set the scanning mode.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;if (targetting_completed) </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp; &nbsp; &nbsp;scan.SetMode(PXCMScan.Mode.SCANNING);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// If scanning is completed, break out.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;if (scan_completed) break;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Resume next frame processing</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;sm.ReleaseFrame();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Save the scanned object</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">scan.Reconstruct(PXCM3DScan.FileFormat.STL, &quot;C:\\mywork\\myobject.stl&quot;);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sm.close();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">&nbsp;</span></p>
+
+</td></tr></table>
+
+<script type="text/javascript">
+HMInitToggle('TOGGLE0186A1','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A2','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A3','hm.type','dropdown','hm.state','0');
+</script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Module Configuration</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="configure module,module configuration" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_module_configuration.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Module Configuration</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_create_module_instances.html">Previous</a>&nbsp;
+     <a href="manuals_build_processing_pipeline.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">Certain SDK interfaces require special data handling, such as </span><span class="f_CodeExample"><a href="pxcspeechrecognition.html" class="topiclink">PXC[M]SpeechRecognition</a></span><span class="f_Body"> and </span><span class="f_CodeExample"><a href="pxcspeechsynthesis.html" class="topiclink">PXC[M]SpeechSynthesis</a></span><span class="f_Body"> (see <a href="manuals_speech_recognition_procedure.html" class="topiclink">Speech Recognition</a> and <a href="manuals_speech_synthesis.html" class="topiclink">Speech Synthesis</a> respectively.) Most others follow a generic pattern (see </span><span class="f_CodeExample"><a href="pxcvideomodule.html" class="topiclink">PXC[M]VideoModule</a></span><span class="f_Body">) to configure the module and work with the input device (the I/O module).</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">The Configuration Interface</span></p>
+<p class="p_Body"><span class="f_Body">You can derive the </span><span class="f_CodeExample"><a href="pxcvideomodule.html" class="topiclink">PXC[M]VideoModule</a></span><span class="f_Body"> instance from the module instance. Example 122 illustrates how to get the </span><span class="f_CodeExample"><a href="pxcvideomodule.html" class="topiclink">PXC[M]VideoModule</a></span><span class="f_Body"> instance from the face module.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A1')">C++ Example 122: Retrieve the Configuration Instance</a> </span></p>
+<div id="TOGGLE0186A1" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// face is a PXCFaceModule instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCVideoModule *vm=face-&gt;QueryInstance&lt;PXCVideoModule&gt;();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A2')">C# Example 122: Retrieve the Configuration Instance</a></span></p>
+<div id="TOGGLE0186A2" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// face is a PXCMFaceModule instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMVideoModule vm=face.QueryInstance&lt;PXCMVideoModule&gt;();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A3')">Java Example 121: Retrieve the Configuration Instance</a></span></p>
+<div id="TOGGLE0186A3" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// face is a PXCMFaceModule instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMVideoModule vm=(PXCMVideoModule)face.QueryInstance(PXCMVideoModule.CUID);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">The Configuration Process</span></p>
+<p class="p_InternalHeading"><span class="f_Body">The SDK module configuration is a process that the module negotiates the data needs with the input device. Do the following steps:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Use the </span><span class="f_CodeExample"><a href="querycaptureprofile_pxcvideomodule.html" class="topiclink">QueryCaptureProfile</a></span><span class="f_Body"> function to retrieve available profiles. Each profile (the </span><span class="f_CodeExample"><a href="datadesc_pxcvideomodule.html" class="topiclink">DataDesc</a></span><span class="f_Body"> structure) describes a set of input data needs that the module can work on. The information includes:</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 17px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Courier New';color:#000000;">o</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Data Stream Configuration</span><span class="f_Body">: The module may specify the resolution and/or frame rates directly or as a range of parameters. You need to configure the input device to meet the stream requirements. If the module specifies more than a stream, you need to synchronize the streams and deliver them together to the module. </span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 17px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Courier New';color:#000000;">o</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Device Properties and Device Information</span><span class="f_Body">: The module may tie to a specific device (or a type of devices.) For example, certain modules may work only with user-facing cameras. You need to ensure that the input device is a user-facing camera.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Locate an input device and configure it to meet the data requests. See <a href="manuals_build_processing_pipeline.html" class="topiclink">Connecting I/O via PXC[M]CaptureManager</a>.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Use the </span><span class="f_CodeExample"><a href="setcaptureprofile_pxcvideomodule.html" class="topiclink">SetCaptureProfile</a></span><span class="f_Body"> function to configure the module. You need to fill the </span><span class="f_CodeExample"><a href="datadesc_pxcvideomodule.html" class="topiclink">DataDesc</a></span><span class="f_Body"> structure with the actual data specification, for example, the actual stream resolution, frame rate, the device property values and the device information.</span></td></tr></table></div><p class="p_Body"><span class="f_Body">After configuration, you can use the module member functions to access the module features.</span></p>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+<script type="text/javascript">
+HMInitToggle('TOGGLE0186A1','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A2','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A3','hm.type','dropdown','hm.state','0');
+</script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Getting/Setting Device Properties</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_get_set_device_properties.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Getting/Setting Device Properties</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_enumerate_i_o_devices.html">Previous</a>&nbsp;
+     <a href="manuals_enumerate_streams.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">You can get and set device properties through the </span><span class="f_CodeExample"><a href="device_pxccapture.html" class="topiclink">Device</a></span><span class="f_Body"> interface member functions. Example 36 shows how to get/set device properties.</span></p>
+<p class="p_Body"><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">It is not recommended to change any device settings. Doing so could impact other applications that share the same physical device.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A1')">C++ Example 36: Get/Set Device Properties</a></span></p>
+<div id="TOGGLE0186A1" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// device is a PXCCapture::Device instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Retrieve camera color and depth field of view</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCPointF32 color_fov=device-&gt;QueryColorFieldOfView();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCPointF32 depth_fov=device-&gt;QueryDepthFieldOfView()</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Turn off auto exposure and set manual exposure</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">device-&gt;SetColorAutoExposure(false);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">device-&gt;SetColorExposure(0);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A2')">C# Example 36: Get/Set Device Properties</a> </span></p>
+<div id="TOGGLE0186A2" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// device is a PXCMCapture.Device instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Retrieve camera color &amp; depth field of view</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMPointF32 color_fov=device.QueryColorFieldOfView();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMPointF32 depth_fov=device.QueryDepthFieldOfView();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Turn off auto exposure and set manual exposure</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">device.SetColorAutoExposure(false);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">device.SetColorExposure(0);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A3')">Java Example 36: Get/Set Device Properties</a> </span></p>
+<div id="TOGGLE0186A3" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// device is a PXCMCapture.Device instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Retrieve camera color &amp; depth field of view</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMPointF32 color_fov=device.QueryColorFieldOfView();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMPointF32 depth_fov=device.QueryDepthFieldOfView();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Turn off auto exposure and set manual exposure</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">device.SetColorAutoExposure(false);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">device.SetColorExposure(0);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body">&nbsp;</p>
+
+</td></tr></table>
+
+<script type="text/javascript">
+HMInitToggle('TOGGLE0186A1','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A2','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A3','hm.type','dropdown','hm.state','0');
+</script>
+</body>
+</html>

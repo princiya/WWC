@@ -1,0 +1,54 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>About Confidence Level</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="voice confidence level" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_about_confidence_level.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">About Confidence Level</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_about_audio_recording_level.html">Previous</a>&nbsp;
+     <a href="manuals_speech_synthesis.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">The SDK voice module uses confidence level to indicate the likelihood that a returned recognition result is the correct speech. </span></p>
+<p class="p_Body"><span class="f_Body">In general, the application should not rely on the absolute value of the confidence level, as the definition is speech engine specific. It is recommended to use confidence level only in the command and control mode to distinguish among multiple candidates. The higher the associated confidence level, the more likely that the candidate is the correct speech.</span></p>
+<p class="p_Body"><span class="f_Body">However, in some cases, instead of hard-coding a fixed threshold, you can use thresholding to increase or decrease certain aspect of voice recognition. For example, your application may expose a graphical user interface control to let the user adjust what is the acceptable recognition rate. The application can use 50% as the baseline. Any recognition results with a bigger confidence level are accepted and smaller are rejected. &nbsp;A higher confidence threshold increases false reject or false positive (right command is recognized but rejected) while a lower confidence threshold results in more false accept or false negative (wrong command is recognized and accepted).</span></p>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

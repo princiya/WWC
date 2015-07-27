@@ -1,0 +1,76 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Actions</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Action,Actions" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "toolkit_actions.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Actions</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="toolkit_main_concepts_and_usage.html">Previous</a>&nbsp;
+     <a href="toolkit_continuous_actions.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">The </span><span class="f_CodeExample">Actions</span><span class="f_Body"> are </span><span class="f_CodeExample">MonoBehavior</span><span class="f_Body"> classes that implement a specific interaction on a Unity game object. Actions use triggers to configure the specific interactions. </span></p>
+<p class="p_Body"><span class="f_Body">There are four categories of actions:</span></p>
+<p class="p_Body"><span class="f_Body" style="font-weight: bold;">Predefined Triggers Actions</span></p>
+<p class="p_Body"><span class="f_Body">The action triggers are predefined. You can only configure the rules attached to the trigger. This category includes actions where the interaction is tightly coded with a specific trigger such as </span><span class="f_CodeExample">Rotate Action</span><span class="f_Body"> or </span><span class="f_CodeExample">Tracking Action</span><span class="f_Body">.</span></p>
+<p class="p_Body"><span class="f_Body" style="font-weight: bold;">Custom Trigger Actions</span></p>
+<p class="p_Body"><span class="f_Body">The action triggers are variable. You can add and remove triggers to the action. This is for more generic actions such as </span><span class="f_CodeExample">Hide Action</span><span class="f_Body"> or </span><span class="f_CodeExample">Enable Behavior</span><span class="f_Body">. </span></p>
+<p class="p_Body"><span class="f_Body" style="font-weight: bold;">Continuous Actions</span></p>
+<p class="p_Body"><span class="f_Body">The action implements an interaction that uses continuous flow of data. For example, the </span><span class="f_CodeExample">Tracking Action</span><span class="f_Body"> uses the location of the tracked object every frame.</span></p>
+<p class="p_Body"><span class="f_Body" style="font-weight: bold;">One-Shot Actions</span></p>
+<p class="p_Body"><span class="f_Body">The action implements an interaction that needs to know only when a trigger is fired. For example, the </span><span class="f_CodeExample">Hide Action</span><span class="f_Body"> disables the renderer of the associated game object whenever the trigger is fired.</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Action User Interface</span></p>
+<p class="p_Body"><span class="f_Body">All actions have similar layout in the Unity Inspector as follows (as illustrated in Figure 85):</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Triggers &amp; rules configuration</span><span class="f_Body"> </span></td></tr></table></div><p class="p_Body"><span class="f_Body">You can specify the triggers that are associated with an action. For each trigger, you can add, remove, and configure the rules. Each rule has specific configuration parameters based on the algorithm it implements. For example, the </span><span class="f_CodeExample">Gesture Detected</span><span class="f_Body"> rule can configure which gesture to detect.</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Action Parameters</span></td></tr></table></div><p class="p_Body"><span class="f_Body">You can perform the following operations in the action UI:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">List</span><span class="f_Body"> all the rules associated with a particular trigger. To do this, click a rectangular before the trigger name. In Example 158, the </span><span class="f_CodeExample">Tracking</span><span class="f_Body"> action can configure the </span><span class="f_CodeExample">Smoothing Factor</span><span class="f_Body"> parameter.</span></td></tr></table></div><p class="p_Body" style="text-align: center;"><img src="toolkit_clip0006.png" width="291" height="226" alt="" style="margin:0px auto 0px auto;width:291px;height:226px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 85: Action’s UI – Trigger Open</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Add</span><span class="f_Body"> a rule to a trigger. To do this, click on the </span><span class="f_CodeExample">Add</span><span class="f_Body"> button to get a list of available rules (see Figure 86), and then click on the name of the required rule.</span></td></tr></table></div><p class="p_Body" style="text-align: center;"><img src="toolkit_clip0007.png" width="371" height="229" alt="" style="margin:0px auto 0px auto;width:371px;height:229px;border:none" /><span class="f_Body"> &nbsp; &nbsp; &nbsp; &nbsp;  </span><img src="toolkit_clip0008_zoom93.png" width="345" height="229" alt="" style="margin:0px auto 0px auto;width:345px;height:229px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 86: Action’s UI – The Add Rule Button</span></p>
+<p class="p_Body"><span class="f_Body">If more than one rule are attached to a trigger, the rules run sequentially in the order of appearing with OR operand relation among them. This means that if one of the rules fires, the trigger is fired with that rule’s values. For example, in Figure 86, if a gesture has been detected, the </span><span class="f_CodeExample">Hand Detected</span><span class="f_Body"> rule is ignored.</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span style="font-family: Calibri; font-weight: bold;">Skip</span><span class="f_Body"> a rule. To do this, simply uncheck the rule's checkbox (see Figure 87). The rule becomes inactive in the execution.</span></td></tr></table></div><p class="p_Body" style="text-align: center;"><img src="toolkit_clip0009.png" width="370" height="248" alt="" style="margin:0px auto 0px auto;width:370px;height:248px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 87: Action’s UI – Rule un-checked</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Get</span><span class="f_Body"> the rule's specific configuration parameters. To do this, click the rectangular before the rule name. Each rule has specific parameters that can be changed according to the algorithm it implements.</span></td></tr></table></div><p class="p_Body" style="text-align: center;"><img src="toolkit_clip0010.png" width="372" height="279" alt="" style="margin:0px auto 0px auto;width:372px;height:279px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 88: Action’s UI – Rule’s parameters</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Remove</span><span class="f_Body"> or </span><span class="f_Body" style="font-weight: bold;">Reset</span><span class="f_Body"> a rule/trigger. Right click the name of the rule/trigger and choose the corresponding action from the context menu, as shown in Figure 89. Resetting the rule/trigger returns its parameters to the default values.</span></td></tr></table></div><p class="p_Body" style="text-align: center;"><img src="toolkit_clip0011.png" width="373" height="140" alt="" style="margin:0px auto 0px auto;width:373px;height:140px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 89: Action’s UI – Rule’s context menu</span></p>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

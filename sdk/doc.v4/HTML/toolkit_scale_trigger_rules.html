@@ -1,0 +1,81 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Scale Trigger and Rules</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "toolkit_scale_trigger_rules.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Scale Trigger and Rules</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="toolkit_rotation_trigger_rules.html">Previous</a>&nbsp;
+     <a href="toolkit_translation_trigger_rules.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_InternalHeading"><span class="f_InternalHeading">Scale Trigger and Trigger Values</span></p>
+<p class="p_Body"><span class="f_Body">The </span><span class="f_CodeExample">Scale Trigger</span><span class="f_Body"> indicates that the user performed a scale interaction.</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table style="width:820px; border:solid 2px #000000; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:109px; padding:5px; border:solid 1px #000000;"><p><span style="font-weight: bold;">Data Type</span></p>
+</td>
+<td style="vertical-align:top; width:204px; padding:5px; border:solid 1px #000000;"><p><span style="font-weight: bold;">Parameters</span></p>
+</td>
+<td style="vertical-align:top; width:471px; padding:5px; border:solid 1px #000000;"><p><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:109px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">float</span></p>
+</td>
+<td style="vertical-align:top; width:204px; padding:5px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">Scale</span></p>
+</td>
+<td style="vertical-align:top; width:471px; padding:5px; border:solid 1px #000000;"><p>The scaling factor.</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Scale Trigger Rules</span><img src="toolkit_clip0041.png" width="232" height="46" alt="" style="float:right;margin:10px 10px 10px 10px; border:none" /></p>
+<p class="p_Body"><span class="f_Body">The Scale Trigger can work with the following rules:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Two Hands Scale</span></td></tr></table></div><p class="p_Body"><img src="toolkit_clip0042.png" width="237" height="78" alt="" style="width:237px;height:78px;border:none" /></p>
+<p class="p_Body" style="text-indent: 1px; margin: 7px 0px 7px 55px;"><span class="f_Body">The rule fires whenever the user’s two hands are performing a scale gesture. This gesture is defined by moving the hands in 3D in the following manner:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 98px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Courier New';color:#000000;">o</span></td><td style="border:none"><span class="f_Body">To up-scale the object, the user should move his hands apart, as illustrated in Figure 96.</span></td></tr></table></div><p class="p_Body" style="text-align: center;"><img src="toolkit_clip0043_zoom40.png" width="347" height="199" alt="" style="margin:0px auto 0px auto;width:347px;height:199px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 96: Move Hands Apart to Scale Up</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 99px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Courier New';color:#000000;">o</span></td><td style="border:none"><span class="f_Body">To down-scale the object, the user should move his hands closer to each other, as illustrated in Figure 97.</span></td></tr></table></div><p class="p_Body" style="text-align: center;"><img src="toolkit_clip0044_zoom53.png" width="459" height="223" alt="" style="margin:0px auto 0px auto;width:459px;height:223px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 97: Move Hands Closer to Scale Down</span></p>
+<p class="p_Body" style="margin: 7px 0px 7px 54px;"><span class="f_Body">You can specify the minimal distance that the hands need to move from their initial location where they were detected to start the gesture. If the </span><span class="f_CodeExample">Distance Threshold</span><span class="f_Body"> is set to zero, the scaling will start immediately. Otherwise, it will start only when the distance between the hands passes the selected threshold.</span></p>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Coordinate Systems</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="coordinate mapping,coordinate system,coordinates,projection,uvmap" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_coordinate_systems.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Coordinate Systems</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_enumerate_stream_configuration.html">Previous</a>&nbsp;
+     <a href="manuals_coordinates_mapping.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">The SDK uses the following coordinate system definitions:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">The Image Coordinate System</span><span class="f_Body">:</span></td></tr></table></div><p class="p_Body" style="text-indent: 1px; margin: 7px 0px 7px 50px;"><span class="f_Body">The coordinates refer to the pixel location (</span><span class="f_CodeExample">x,y</span><span class="f_Body">) in the color or depth pictures, where </span><span class="f_CodeExample">x</span><span class="f_Body"> is in the range of </span><span class="f_CodeExample">0</span><span class="f_Body"> to </span><span class="f_CodeExample">w-1</span><span class="f_Body">, &nbsp;(</span><span class="f_CodeExample">w</span><span class="f_Body"> is the image width), and </span><span class="f_CodeExample">y</span><span class="f_Body"> is in the range of </span><span class="f_CodeExample">0</span><span class="f_Body"> to </span><span class="f_CodeExample">h-1</span><span class="f_Body">, (</span><span class="f_CodeExample">h</span><span class="f_Body"> is the image height). From the camera point of view, the origin </span><span class="f_CodeExample">(0,0)</span><span class="f_Body"> is at the top left; the </span><span class="f_CodeExample">X</span><span class="f_Body"> axis points to the right; and the </span><span class="f_CodeExample">Y</span><span class="f_Body"> axis points down.</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">The Camera Coordinate System:</span><span class="f_Body"> </span></td></tr></table></div><p class="p_Body" style="margin: 7px 0px 7px 50px;"><span class="f_Body">The coordinates are 3D coordinates (</span><span class="f_CodeExample">x,y,z</span><span class="f_Body">). The origin (</span><span class="f_CodeExample">0,0,0</span><span class="f_Body">) is at the center of the depth camera. </span></p>
+<p class="p_Body" style="margin: 7px 0px 7px 50px;"><span class="f_Body">For </span><span class="f_Body" style="text-decoration: underline;">front facing cameras</span><span class="f_Body">, the default camera coordinate system is defined (see Figure 11) as the </span><span class="f_CodeExample">X</span><span class="f_Body"> axis pointing to the right (camera view), the </span><span class="f_CodeExample">Y</span><span class="f_Body"> axis up and the </span><span class="f_CodeExample">Z</span><span class="f_Body"> axis towards the user. This is also referred to as the left handed system. The camera coordinate system definition does not change with the camera mirror mode. The camera coordinates values are in meters, if not explicitly specified.</span></p>
+<p class="p_Image"><img src="cameracoordinatesystemuserfacing_zoom80.png" width="343" height="365" alt="" style="margin:0px auto 0px auto;width:343px;height:365px;border:none" /><span class="f_ImageCaption"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 11: Camera Coordinate System: User Facing</span></p>
+<p class="p_Body" style="margin: 7px 0px 7px 50px;"><span class="f_Body">For </span><span class="f_Body" style="text-decoration: underline;">rear facing cameras</span><span class="f_Body">, the default camera coordinate system is defined (see Figure 12) as the </span><span class="f_CodeExample">X</span><span class="f_Body"> axis pointing to the right, the </span><span class="f_CodeExample">Y</span><span class="f_Body"> axis up and the </span><span class="f_CodeExample">Z</span><span class="f_Body"> axis towards the user. This is also referred to as the right handed system. The camera coordinate system definition does not change with the camera mirror mode. The camera coordinates values are in meters, if not explicitly specified.</span></p>
+<p class="p_Image"><img src="cameracoordinatesystemworldfacing.png" width="407" height="448" alt="" style="margin:0px auto 0px auto;width:407px;height:448px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 12: Camera Coordinate System: World Facing</span></p>
+<p class="p_Body" style="margin: 7px 0px 7px 50px;"><span class="f_Body">To facilitate working with OpenCV* algorithms, the SDK defines an alternative camera coordinate system to match the OpenCV definition for </span><span class="f_Body" style="text-decoration: underline;">rear facing cameras</span><span class="f_Body">. The camera coordinate system is defined (see Figure 13) as the </span><span class="f_CodeExample">X</span><span class="f_Body"> axis pointing to the right, the </span><span class="f_CodeExample">Y</span><span class="f_Body"> axis down and the </span><span class="f_CodeExample">Z</span><span class="f_Body"> axis towards the scene. Use the </span><span class="f_CodeExample"><a href="setcoordinatesystem_pxcsession.html" class="topiclink">SetCoordinateSystem</a></span><span class="f_Body"> function to change the coordinate system setting.</span></p>
+<p class="p_TableText"><img src="note.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_TableText">To change the coordinate system, you must call the </span><span class="f_CodeExample"><a href="setcoordinatesystem_pxcsession.html" class="topiclink">SetCoordinateSystem</a></span><span class="f_TableText"> function before any camera device or the algorithm instance is created. In the case of using the </span><span class="f_CodeExample"><a href="pxcsensemanager.html" class="topiclink">PXC[M]SenseManager</a></span><span class="f_TableText"> interface, set the coordinate system right after creating the </span><span class="f_CodeExample"><a href="pxcsensemanager.html" class="topiclink">PXC[M]SenseManager</a></span><span class="f_TableText"> instance and before any </span><span class="f_CodeExample">EnableXXX</span><span class="f_TableText"> functions. The behavior is undefined if you change the coordinate system setting after the capture or algorithm instances are created or in the middle of streaming.</span></p>
+<p class="p_ImageCaption"><span style="width:60px">&nbsp;</span><img src="cameracoordinatesystemworldfacingopencv.png" width="407" height="427" alt="" style="margin:0px auto 0px auto;width:407px;height:427px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 13: Camera Coordinate System: World Facing Alternative</span></p>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

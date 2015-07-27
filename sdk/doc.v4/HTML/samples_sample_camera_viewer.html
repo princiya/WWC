@@ -1,0 +1,134 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Sample: DF_CameraViewer</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="C++ sample,DF_CameraViewer" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "samples_sample_camera_viewer.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Sample: DF_CameraViewer</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="samples_sample_3dscan.html">Previous</a>&nbsp;
+     <a href="samples_sample_face_tracking_cs.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">The </span><span class="f_CodeExample">DF_CameraViewer</span><span class="f_Body"> sample is a simple C++ console application to stream and render color and/or depth streams. </span></p>
+<p class="p_Body"><span class="f_Body">The sample can be used for quickly testing certain SDK interfaces.</span></p>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">DF_CameraViewer [-load &lt;module name&gt;] [-sdname &lt;device name&gt;] </span><br />
+<span class="f_CodeExample">[-csize &lt;resolution&gt;] [-dsize &lt;resolution&gt;] [-file &lt;Output Filename&gt;] [-listio] [-record] [-help]</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:682px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:4px;"><p style="margin: 10px 0px 10px 0px;"><span style="font-size: 10pt; font-family: Arial; color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:111px; padding:4px;"><p class="p_CodeExampleEmphasis"><span class="f_CodeExampleEmphasis">-load</span></p>
+</td>
+<td style="vertical-align:top; width:535px; padding:4px;"><p class="p_TableText"><span class="f_TableText">Explicitly load the specified module.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:4px;"><p style="margin: 10px 0px 10px 0px;"><span style="font-size: 10pt; font-family: Arial; color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:111px; padding:4px;"><p class="p_CodeExampleEmphasis"><span class="f_CodeExampleEmphasis">-csize</span></p>
+</td>
+<td style="vertical-align:top; width:535px; padding:4px;"><p class="p_TableText"><span class="f_TableText">Specify the color stream resolution and frame rate. For example, use </span><span class="f_CodeExample">640x480</span><span class="f_TableText"> to specify the resolution, or </span><span class="f_CodeExample">640x480x30</span><span class="f_TableText"> to specify the resolution and the frame rate.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:4px;"><p style="margin: 10px 0px 10px 0px;"><span style="font-size: 10pt; font-family: Arial; color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:111px; padding:4px;"><p class="p_CodeExampleEmphasis"><span class="f_CodeExampleEmphasis">-dsize</span></p>
+</td>
+<td style="vertical-align:top; width:535px; padding:4px;"><p class="p_TableText"><span class="f_TableText">Specify the depth stream resolution and frame rate. For example, use </span><span class="f_CodeExample">640x480</span><span class="f_TableText"> to specify the resolution, or </span><span class="f_CodeExample">640x480x30</span><span class="f_TableText"> to specify the resolution and the frame rate.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:4px;"><p style="margin: 10px 0px 10px 0px;"><span style="font-size: 10pt; font-family: Arial; color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:111px; padding:4px;"><p class="p_CodeExampleEmphasis"><span class="f_CodeExampleEmphasis">–sdname</span></p>
+</td>
+<td style="vertical-align:top; width:535px; padding:4px;"><p class="p_TableText"><span class="f_TableText">Specify an input device name.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:4px;"><p style="margin: 10px 0px 10px 0px;"><span style="font-size: 10pt; font-family: Arial; color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:111px; padding:4px;"><p class="p_CodeExampleEmphasis"><span class="f_CodeExampleEmphasis">–nframes</span></p>
+</td>
+<td style="vertical-align:top; width:535px; padding:4px;"><p class="p_TableText"><span class="f_TableText">Specify the maximum number of frames to record.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:4px;"><p style="margin: 10px 0px 10px 0px;"><span style="font-size: 10pt; font-family: Arial; color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:111px; padding:4px;"><p class="p_CodeExampleEmphasis"><span class="f_CodeExampleEmphasis">–listio</span></p>
+</td>
+<td style="vertical-align:top; width:535px; padding:4px;"><p class="p_TableText"><span class="f_TableText">List the I/O devices.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:4px;"><p style="margin: 10px 0px 10px 0px;"><span style="font-size: 10pt; font-family: Arial; color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:111px; padding:4px;"><p class="p_CodeExampleEmphasis"><span class="f_CodeExampleEmphasis">-record</span></p>
+</td>
+<td style="vertical-align:top; width:535px; padding:4px;"><p class="p_TableText"><span class="f_TableText">Enable file recording. Use the -file option to specify the recording file name.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:4px;"><p style="margin: 10px 0px 10px 0px;"><span style="font-size: 10pt; font-family: Arial; color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:111px; padding:4px;"><p class="p_CodeExampleEmphasis"><span class="f_CodeExampleEmphasis">–file</span></p>
+</td>
+<td style="vertical-align:top; width:535px; padding:4px;"><p class="p_TableText"><span class="f_TableText">Specify the recording or playback file name. If -record is not specified, the sample plays back the specified file. Otherwise, the sample records the camera data to the specified file.</span></p>
+<p class="p_Body"><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">The SDK installation directory is privileged and not writable. For file recording, please specify a file name in a writable directory.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:4px;"><p style="margin: 10px 0px 10px 0px;"><span style="font-size: 10pt; font-family: Arial; color: #000000;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:111px; padding:4px;"><p class="p_CodeExampleEmphasis"><span class="f_CodeExampleEmphasis">-help</span></p>
+</td>
+<td style="vertical-align:top; width:535px; padding:4px;"><p class="p_TableText"><span class="f_TableText">Print out the help message.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Example: </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">DF_CameraViewer –nframes 200</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

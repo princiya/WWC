@@ -1,0 +1,126 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Face Landmark Data [F200]</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="face landmark,landmark detection,landmark tracking" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_face_landmark_data.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Face Landmark Data [F200]</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_face_location_data.html">Previous</a>&nbsp;
+     <a href="manuals_face_pose_data.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">Similar to face location detection, if you enable landmark detection (</span><span class="f_CodeExample"><a href="pxcfaceconfiguration.html" class="topiclink">PXC[M]FaceConfiguration</a>.landmarks.IsEnabled=true</span><span class="f_Body">), you can use the </span><span class="f_CodeExample"><a href="querylandmarks_face_pxcfacedata.html" class="topiclink">QueryLandmarks</a></span><span class="f_Body"> function to retrieve any detected landmark points.</span></p>
+<p class="p_Body"><span class="f_Body">The supported landmark points are illustrated in </span><span class="f_TableText">Figure 17.</span></p>
+<p class="p_TableText" style="text-align: center;"><img src="face_landmarks_78points_zoom43.png" width="621" height="389" alt="" style="margin:0px auto 0px auto;width:621px;height:389px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 17: 78 Point Landmark Features</span></p>
+<p class="p_Body"><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_TableText">The number of supported landmark points may vary on different implementations. Do not hard-code a specific implementation in your application.</span></p>
+<p class="p_Body"><span class="f_TableText">You can retrieve the detected landmark points in its entirety (via the </span><span class="f_CodeExample"><a href="querypoints_landmarksdata_pxcfacedata.html" class="topiclink">QueryPoints</a></span><span class="f_TableText"> function), in groups (via the </span><span class="f_CodeExample"><a href="querypointsbygroup_landmarksdata_pxcfacedata.html" class="topiclink">QueryPointsByGroup</a></span><span class="f_TableText"> function), or in individual point (via the </span><span class="f_CodeExample"><a href="querypoint_landmarksdata_pxcfacedata.html" class="topiclink">QueryPoint</a></span><span class="f_TableText"> function).</span></p>
+<p class="p_Body"><span class="f_Body">Example 46 shows the steps to retrieve the face landmark data.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A1')">C++ Example 46: Retrieve Face Landmark Data</a></span></p>
+<div id="TOGGLE0186A1" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// fdata is a PXCFaceData instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">pxcI32 nfaces=fdata-&gt;QueryNumberOfDetectedFaces();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">for (pxcI32 i=0;i&lt;nfaces;i++) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Retrieve the face landmark data instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCFaceData::Face *face=fdata-&gt;QueryFaceByIndex(i);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCFaceData::LandmarksData *ldata=fdata-&gt;QueryLandmarks();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp;  </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// allocate the array big enough to hold the landmark points.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pxcI32 npoints=ldata-&gt;QueryNumPoints();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCFaceData::LandmarkPoint *points=new PXCFaceData::LandmarkPoint[npoints];</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// get the landmark data</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;ldata-&gt;QueryPoints(points, &amp;npoints);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;delete[] points;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A2')">C# Example 46: Retrieve Face Landmark Data</a></span></p>
+<div id="TOGGLE0186A2" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// fdata is a PXCMFaceData instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">Int32 nfaces=fdata.QueryNumberOfDetectedFaces();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">for (Int32 i=0;i&lt;nfaces;i++) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Retrieve the face landmark data instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCMFaceData.Face face=fdata.QueryFaceByIndex(i);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCMFaceData.LandmarksData ldata=fdata.QueryLandmarks();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp;  </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// get the landmark data</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCMFaceData.LandmarkPoint[] points;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;ldata.QueryPoints(out points);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A3')">Java Example 46: Retrieve Face Landmark Data</a></span></p>
+<div id="TOGGLE0186A3" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// fdata is a PXCMFaceData instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">int nfaces=fdata.QueryNumberOfDetectedFaces();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">for (int i=0;i&lt;nfaces;i++) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Retrieve the face landmark data instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCMFaceData.Face face=fdata.QueryFaceByIndex(i);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCMFaceData.LandmarksData ldata=fdata.QueryLandmarks();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp;  </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// allocate the array big enough to hold the landmark points.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;int npoints=ldata.QueryNumPoints();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCMFaceData.LandmarkPoint[] points=new PXCMFaceData.LandmarkPoint[npoints];</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// get the landmark data</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;ldata.QueryPoints(points);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_ImageCaption"><span class="f_ImageCaption">&nbsp;</span></p>
+
+</td></tr></table>
+
+<script type="text/javascript">
+HMInitToggle('TOGGLE0186A1','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A2','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A3','hm.type','dropdown','hm.state','0');
+</script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Scene Perception</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Scene Perception" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_scene_perception.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Scene Perception</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_accessing_ep_features.html">Previous</a>&nbsp;
+     <a href="manuals_scene_perception_via_sensemanager.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">The SDK Scene Perception module creates a digital representation of the observed environment and estimates in real-time the camera pose. The camera pose estimation is also called localization or tracking and the creation of the digital representation of the observed environment is also called reconstruction. </span></p>
+<p class="p_Body"><span class="f_Body">The module is optimized for Augmented Reality applications where computer graphic elements (virtual content) can be seamlessly added to the live camera view. The occlusions of the augmentations by real objects can be correctly handled thanks to the live and dense reconstruction of the surrounding environment. Also physics/lighting simulation can be used together with the reconstruction to increase the realism of the experience. The estimated motion by the module is scaled which enables metric measurements of the scene. See Figure 65 for a scene perception sample. The live color image is on the left and the densely reconstructed environment is on the right as a textured mesh. The estimated camera pose is represented as a square and its associated coordinate system.</span></p>
+<p class="p_Body" style="text-align: center;"><img src="manuals_clip0059_zoom120.png" width="448" height="200" alt="" style="margin:0px auto 0px auto;width:448px;height:200px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 65: Live Color (Left) Densely Reconstructed Environment (Right)</span></p>
+<p class="p_Body"><span class="f_Body">The camera pose consists of 6 degrees of freedom: 3 for the rotation/orientation and 3 for the translation/position. It is estimated in real-time, i.e. at the camera capture rate.</span></p>
+<p class="p_Body"><span class="f_Body">The digital representation of the environment is dense as opposed to sparse or point cloud. It can either be a voxel representation of the volume space or a mesh representation of the surface or a projected view of the volume space. Figure 65 and Figure 66 show examples of different representations.</span></p>
+<p class="p_Body" style="text-align: center;"><img src="manuals_clip0060_zoom123.png" width="463" height="206" alt="" style="margin:0px auto 0px auto;width:463px;height:206px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 66: Densely Reconstructed Environment as a Projected View of the Volume.</span></p>
+<p class="p_Body"><span class="f_Body">The camera motion is supposed to be smooth as the camera is hand-held by the user and moved in a natural and gentle way. Fast and sudden motion might result in a decrease of the tracking quality and might trigger a re-localization.</span></p>
+<p class="p_Body"><span class="f_Body">The observed environment is assumed to be containing some visual texture and/or having some 3D structure. The tracking would not work correctly if the observed environment does not have enough geometrical variations or when it is uniform or does not have texture: this happens when the camera's field of view is only containing a flat surface such as a wall, a floor or an empty table.</span></p>
+<p class="p_Body"><span class="f_Body">The Scene Perception module relies mostly on what is visible in the depth image. This means when the fill rate of the depth image is low, the tracking does not work correctly. The user needs to take into consideration the depth camera properties. In most cases, the user is assumed to point the camera towards a scene that is within the camera working range.</span></p>
+<p class="p_Body"><span class="f_Body">The user provides the system with the volume resolution depending on the use case and the environment scale size. For large scale environment, e.g. a room-sized environment, low resolution would provide best tracking results. For small scale environments, e.g. object-sized, high resolution would provide most accurate reconstruction. Figure 67 shows reconstruction at the low resolution setting.</span></p>
+<p class="p_Body" style="text-align: center;"><img src="manuals_clip0061_zoom131.png" width="402" height="180" alt="" style="margin:0px auto 0px auto;width:402px;height:180px;border:none" /><img src="manuals_clip0062_zoom132.png" width="400" height="180" alt="" style="margin:0px auto 0px auto;width:400px;height:180px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 67: The Reconstructed Volume Viewed From the Same Viewpoint as The Camera Current Pose.</span></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

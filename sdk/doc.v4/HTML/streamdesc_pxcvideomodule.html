@@ -1,0 +1,254 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>StreamDesc</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="StreamDesc" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "streamdesc_pxcvideomodule.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">StreamDesc</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="devicecap_pxcvideomodule.html">Previous</a>&nbsp;
+     <a href="streamdescset_pxcvideomodule.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_InternalHeading"><span class="f_InternalHeading">Namespace Hierarchy</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table style="width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_TableText"><span class="f_TableText">C++</span></p>
+</td>
+<td style="vertical-align:top; width:752px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="pxcvideomodule.html" class="topiclink">PXCVideoModule</a>::StreamDesc</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_TableText"><span class="f_TableText">C#</span></p>
+</td>
+<td style="vertical-align:top; width:752px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="pxcvideomodule.html" class="topiclink">PXCMVideoModule</a>.StreamDesc</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_TableText"><span class="f_TableText">Java</span></p>
+</td>
+<td style="vertical-align:top; width:752px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="pxcvideomodule.html" class="topiclink">PXCMVideoModule</a>.StreamDesc</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Definition</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 14px 0px;"><table style="width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:61px; padding:5px;"><p>C++</p>
+</td>
+<td style="vertical-align:top; width:739px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">struct StreamDesc {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp;  <a href="pxcsizei32.html" class="topiclink">PXCSizeI32</a> &nbsp; sizeMin;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp;  <a href="pxcsizei32.html" class="topiclink">PXCSizeI32</a> &nbsp; sizeMax;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp;  <a href="pxcrangef32.html" class="topiclink">PXCRangeF32</a> &nbsp;frameRate;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp;  <a href="streamoption_device_pxccapture.html" class="topiclink">StreamOption</a> options;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pxcI32 &nbsp; &nbsp; &nbsp; propertySet;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">};</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:61px; padding:5px;"><p>C#</p>
+</td>
+<td style="vertical-align:top; width:739px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">struct StreamDesc {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp;  <a href="pxcsizei32.html" class="topiclink">PXCMSizeI32</a> &nbsp;sizeMin;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp;  <a href="pxcsizei32.html" class="topiclink">PXCMSizeI32</a> &nbsp;sizeMax;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp;  <a href="pxcrangef32.html" class="topiclink">PXCMRangeF32</a> frameRate;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp;  <a href="streamoption_device_pxccapture.html" class="topiclink">StreamOption</a> options;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;Int32 &nbsp; &nbsp; &nbsp; &nbsp;propertySet;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">};</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:61px; padding:5px;"><p>Java</p>
+</td>
+<td style="vertical-align:top; width:739px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">class StreamDesc {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp;  <a href="pxcsizei32.html" class="topiclink">PXCMSizeI32</a> &nbsp;sizeMin;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp;  <a href="pxcsizei32.html" class="topiclink">PXCMSizeI32</a> &nbsp;sizeMax;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp;  <a href="pxcrangef32.html" class="topiclink">PXCMRangeF32</a> frameRate;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;EnumSet&lt;<a href="streamoption_device_pxccapture.html" class="topiclink">StreamOption</a>&gt; options;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;int &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;propertySet;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">};</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Description</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table style="width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><br />
+</td>
+<td style="vertical-align:top; width:842px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The </span><span class="f_CodeExample">StreamDesc</span><span class="f_TableText"> structure describes the stream characteristics of a module’s I/O data requirements. Unused fields should be set to zero.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Members</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table style="width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:196px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">sizeMin</span></p>
+</td>
+<td style="vertical-align:top; width:539px; padding:5px;"><p class="p_TableText"><span class="f_TableText">If not zero, specify the minimum resolution.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:196px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">sizeMax</span></p>
+</td>
+<td style="vertical-align:top; width:539px; padding:5px;"><p class="p_TableText"><span class="f_TableText">If not zero, specify the maximum resolution.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:196px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">frameRate</span></p>
+</td>
+<td style="vertical-align:top; width:539px; padding:5px;"><p class="p_TableText"><span class="f_TableText">If not zero, specify the frame rate range.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:196px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">options</span></p>
+</td>
+<td style="vertical-align:top; width:539px; padding:5px;"><p class="p_TableText"><span class="f_TableText">If not zero, specify the stream options.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:196px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">propertySet</span></p>
+</td>
+<td style="vertical-align:top; width:539px; padding:5px;"><p class="p_TableText"><span class="f_TableText">If not zero, request the specified device property set, as defined in Table 20.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A1')">Table 20: F200 Device Property Set</a></span></p>
+<div id="TOGGLE0186A1" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table style="width:820px; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:43px; padding:5px; border:solid 1px #000000;"><p class="p_TableText" style="text-align: center;"><span class="f_TableText">Set</span></p>
+</td>
+<td style="vertical-align:top; width:107px; padding:5px; border:solid 1px #000000;"><p class="p_TableText" style="text-align: center;"><span class="f_TableText">Confidence</span></p>
+</td>
+<td style="vertical-align:top; width:114px; padding:5px; border:solid 1px #000000;"><p class="p_TableText" style="text-align: center;"><span class="f_TableText">FilterOption</span></p>
+</td>
+<td style="vertical-align:top; width:108px; padding:5px; border:solid 1px #000000;"><p class="p_TableText" style="text-align: center;"><span class="f_TableText">LaserPower</span></p>
+</td>
+<td style="vertical-align:top; width:126px; padding:5px; border:solid 1px #000000;"><p class="p_TableText" style="text-align: center;"><span class="f_TableText">MotionRange</span></p>
+</td>
+<td style="vertical-align:top; width:110px; padding:5px; border:solid 1px #000000;"><p class="p_TableText" style="text-align: center;"><span class="f_TableText">Accuracy</span></p>
+</td>
+<td style="vertical-align:top; width:216px; padding:5px; border:solid 1px #000000;"><p class="p_TableText"><span class="f_TableText">Comment</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:43px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2" style="text-align: center;"><span class="f_TableText2">1</span></p>
+</td>
+<td style="vertical-align:top; width:107px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2" style="text-align: center;"><span class="f_TableText2">1</span></p>
+</td>
+<td style="vertical-align:top; width:114px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2" style="text-align: center;"><span class="f_TableText2">6</span></p>
+</td>
+<td style="vertical-align:top; width:108px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2" style="text-align: center;"><span class="f_TableText2">16</span></p>
+</td>
+<td style="vertical-align:top; width:126px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2" style="text-align: center;"><span class="f_TableText2">0</span></p>
+</td>
+<td style="vertical-align:top; width:110px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2" style="text-align: center;"><span class="f_TableText2">MEDIAN</span></p>
+</td>
+<td style="vertical-align:top; width:216px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Hand tracking</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:43px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2" style="text-align: center;"><span class="f_TableText2">2</span></p>
+</td>
+<td style="vertical-align:top; width:107px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2" style="text-align: center;"><span class="f_TableText2">1</span></p>
+</td>
+<td style="vertical-align:top; width:114px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2" style="text-align: center;"><span class="f_TableText2">6</span></p>
+</td>
+<td style="vertical-align:top; width:108px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2" style="text-align: center;"><span class="f_TableText2">16</span></p>
+</td>
+<td style="vertical-align:top; width:126px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2" style="text-align: center;"><span class="f_TableText2">21</span></p>
+</td>
+<td style="vertical-align:top; width:110px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2" style="text-align: center;"><span class="f_TableText2">MEDIAN</span></p>
+</td>
+<td style="vertical-align:top; width:216px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Face tracking</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:43px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2" style="text-align: center;"><span class="f_TableText2">3</span></p>
+</td>
+<td style="vertical-align:top; width:107px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2" style="text-align: center;"><span class="f_TableText2">0</span></p>
+</td>
+<td style="vertical-align:top; width:114px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2" style="text-align: center;"><span class="f_TableText2">6</span></p>
+</td>
+<td style="vertical-align:top; width:108px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2" style="text-align: center;"><span class="f_TableText2">16</span></p>
+</td>
+<td style="vertical-align:top; width:126px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2" style="text-align: center;"><span class="f_TableText2">21</span></p>
+</td>
+<td style="vertical-align:top; width:110px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2" style="text-align: center;"><span class="f_TableText2">Coarse</span></p>
+</td>
+<td style="vertical-align:top; width:216px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">User segmentation</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:43px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2" style="text-align: center;"><span class="f_TableText2">4</span></p>
+</td>
+<td style="vertical-align:top; width:107px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2" style="text-align: center;"><span class="f_TableText2">5</span></p>
+</td>
+<td style="vertical-align:top; width:114px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2" style="text-align: center;"><span class="f_TableText2">4</span></p>
+</td>
+<td style="vertical-align:top; width:108px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2" style="text-align: center;"><span class="f_TableText2">16</span></p>
+</td>
+<td style="vertical-align:top; width:126px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2" style="text-align: center;"><span class="f_TableText2">0</span></p>
+</td>
+<td style="vertical-align:top; width:110px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2" style="text-align: center;"><span class="f_TableText2">Finest</span></p>
+</td>
+<td style="vertical-align:top; width:216px; padding:5px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">3D scanning</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">&nbsp;</span></p>
+
+</td></tr></table>
+
+<script type="text/javascript">
+HMInitToggle('TOGGLE0186A1','hm.type','dropdown','hm.state','0');
+</script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Speech Synthesis</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="speech synthesis,voice synthesis" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_speech_synthesis.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Speech Synthesis</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_about_confidence_level.html">Previous</a>&nbsp;
+     <a href="manuals_additional_configurations.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">To implement speech synthesis in your application, follow the steps below:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:36px"><span style="font-size:11pt; font-family: 'Intel Clear';color:#000000;">1.</span></td><td style="border:none"><span class="f_Step" style="font-weight: bold;">Locate the Module Implementation</span><span class="f_Step">: Use the </span><span class="f_CodeExample"><a href="createimpl_pxcsession.html" class="topiclink">CreateImpl</a></span><span class="f_Step"> function to create an instance of the </span><span class="f_CodeExample"><a href="pxcspeechsynthesis.html" class="topiclink">PXCSpeechSynthesis</a></span><span class="f_Step"> instance, as illustrated in Example 82. </span></td></tr></table></div><p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A1')">C++ Example 82: Create a Speech Synthesis Module Instance</a> </span></p>
+<div id="TOGGLE0186A1" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">PXCSpeechSynthesis *tts=0;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">session-&gt;CreateImpl&lt;PXCSpeechSynthesis&gt;(&amp;tts);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A2')">C# Example 82: Create a Speech Synthesis Module Instance</a></span></p>
+<div id="TOGGLE0186A2" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">PXCMSpeechSynthesis tts;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">session.CreateImpl&lt;PXCMSpeechSynthesis&gt;(out tts);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A3')">Java Example 82: Create a Speech Synthesis Module Instance</a></span></p>
+<div id="TOGGLE0186A3" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">PXCMSpeechSynthesis tts=new PXCMSpeechSynthesis();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">session.CreateImpl(tts);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:36px"><span style="font-size:11pt; font-family: 'Intel Clear';color:#000000;">2.</span></td><td style="border:none"><span class="f_Step" style="font-weight: bold;">Initialize the Module</span><span class="f_Step">: Get available configurations using the </span><span class="f_CodeExample"><a href="queryprofile_pxcspeechsynthesis.html" class="topiclink">QueryProfile</a></span><span class="f_Step"> function and set the configuration using the </span><span class="f_CodeExample"><a href="setprofile_pxcspeechsynthesis.html" class="topiclink">SetProfile</a></span><span class="f_Step"> function. See Example 83.</span></td></tr></table></div><p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A4')">C++ Example 83: Initialize the Speech Synthesis Module</a> </span></p>
+<div id="TOGGLE0186A4" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">PXCSpeechSynthesis::ProfileInfo pinfo;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">tts-&gt;QueryProfile(0,&amp;pinfo);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">pinfo.language=PXCSpeechSynthesis::LANGUAGE_US_ENGLISH;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">tts-&gt;SetProfile(&amp;pinfo);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A5')">C# Example 83: Initialize the Speech Synthesis Module</a></span></p>
+<div id="TOGGLE0186A5" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">PXCMSpeechSynthesis.ProfileInfo pinfo;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">tts.QueryProfile(0,out pinfo);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">pinfo.language=PXCMSpeechSynthesis.LanguageType.LANGUAGE_US_ENGLISH;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">tts.SetProfile(pinfo);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A6')">Java Example 83: Initialize the Speech Synthesis Module</a></span></p>
+<div id="TOGGLE0186A6" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">PXCMSpeechSynthesis.ProfileInfo pinfo=new PXCMSpeechSynthesis.ProfileInfo;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">tts.QueryProfile(0, pinfo);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">pinfo.language=PXCMSpeechSynthesis.LanguageType.LANGUAGE_US_ENGLISH;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">tts.SetProfile(pinfo);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">Always set the language. If not set, the default language is undetermined depending on what is currently installed on the platform.</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:36px"><span style="font-size:11pt; font-family: 'Intel Clear';color:#000000;">3.</span></td><td style="border:none"><span class="f_Step" style="font-weight: bold;">Synthesize speech</span><span class="f_Step">: Use the </span><span class="f_CodeExample"><a href="buildsentence_pxcspeechsynthesis.html" class="topiclink">BuildSentence</a></span><span class="f_Step"> function to synthesize a sentence. The synthesized speech is stored as multiple audio buffers identified by the sentence identifier, which can be any non-zero unique value. Use the </span><span class="f_CodeExample"><a href="querybuffer_pxcspeechsynthesis.html" class="topiclink">QueryBuffer</a></span><span class="f_Step"> function to retrieve the synthesized speech buffers, illustrated in Example 84.</span></td></tr></table></div><p class="p_Step"><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Step"> You may synthesize multiple sentences before retrieving any synthesized data. Use the </span><span class="f_CodeExample"><a href="releasesentence_pxcspeechsynthesis.html" class="topiclink">ReleaseSentence</a></span><span class="f_Step"> function to release any resources allocated for the synthesized speech.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A7')">C++ Example 84: Synthesize a Sentence Into Speech</a></span></p>
+<div id="TOGGLE0186A7" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Synthesize the text string</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">tts-&gt;BuildSentence(1, L”Speak this”);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Retrieve the synthesized speech</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">int nbuffers=tts-&gt;QueryBufferNum(1);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">for (int i=0;i&lt;nbuffers;i++) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCAudio *audio=tts-&gt;QueryBuffer(1, i);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// send audio to the audio output device</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">tts-&gt;ReleaseSentence(1);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A8')">C# Example 84: Synthesize a Sentence Into Speech</a></span></p>
+<div id="TOGGLE0186A8" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Synthesize the text string</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">tts.BuildSentence(1, ”Speak this”);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Retrieve the synthesized speech</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">int nbuffers=tts.QueryBufferNum(1);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">for (int i=0;i&lt;nbuffers;i++) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCMAudio audio=tts.QueryBuffer(1, i);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// send audio to the audio output device</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">tts.ReleaseSentence(1);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A9')">Java Example 84: Synthesize a Sentence Into Speech</a></span></p>
+<div id="TOGGLE0186A9" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Synthesize the text string</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">tts.BuildSentence(1, ”Speak this”);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Retrieve the synthesized speech</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">int nbuffers=tts.QueryBufferNum(1);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">for (int i=0;i&lt;nbuffers;i++) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCMAudio audio=tts.QueryBuffer(1, i);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// send audio to the audio output device</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Clean up</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">tts.ReleaseSentence(1);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_List"><span class="f_List">&nbsp;</span></p>
+
+</td></tr></table>
+
+<script type="text/javascript">
+HMInitToggle('TOGGLE0186A1','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A2','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A3','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A4','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A5','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A6','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A7','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A8','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A9','hm.type','dropdown','hm.state','0');
+</script>
+</body>
+</html>

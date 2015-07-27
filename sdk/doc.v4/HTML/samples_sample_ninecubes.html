@@ -1,0 +1,60 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Unity Sample: FF_NineCubes</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="FF_NineCubes,Unity sample" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "samples_sample_ninecubes.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Unity Sample: FF_NineCubes</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="samples_unity_hands_animation.html">Previous</a>&nbsp;
+     <a href="samples_sample_unity_scene_perception.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">This sample </span><span class="f_CodeExample">FF_NineCubes</span><span class="f_Body"> shows how to run the SDK with the Unity game engine supporting the PC Standalone platform. The sample requires Unity v4.1.0 PRO (for the plugin capability) or later.</span></p>
+<p class="p_Body"><span class="f_Body">Copy the sample source to a writable folder and double click </span><span class="f_CodeExample">Assets/NineCubes.unity</span><span class="f_Body"> to launch the Unity editor, and then run the game. The screen shot is similar to Figure 164. By default, the sample initializes to run face tracking only. Click the buttons on the left upper corner to switch to the hand tracking mode, or adding the image display mode.</span></p>
+<p class="p_Body"><span class="f_Body">The script </span><span class="f_CodeExample">SenseInput.cs</span><span class="f_Body"> initializes the camera streaming, face and hand tracking. When there are available data (samples from the camera, or data from face tracking or hand tracking), the script sends events to the </span><span class="f_CodeExample">CubeMagic.cs</span><span class="f_Body"> script.</span></p>
+<p class="p_Body"><span class="f_Body">The script </span><span class="f_CodeExample">CubeMagic.cs</span><span class="f_Body"> visualizes face and hand tracking data. For either tracking data (nose position or hand position), the tracking coordinates are normalized to the view port and then evenly divided into nine pieces, each controlling the spinning of a cube. If the image display mode is enabled, the current depth frame is painted onto the currently spinning cube.</span></p>
+<p class="p_Body"><span class="f_Body">The script </span><span class="f_CodeExample">TextWindow.cs</span><span class="f_Body"> prints out the detected face and hand tracking data using a grayed color in the background. </span></p>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+<p class="p_ImageCaption"><img src="ninecubesscreenshot_zoom79.png" width="596" height="506" alt="" style="margin:0px auto 0px auto;width:596px;height:506px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 164: The NIneCubes Sample Window</span></p>
+<p class="p_Body"><img src="note.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">If you see a warning message &quot;</span><span class="f_CodeExample">NullReferenceException: Object reference not set to an instance of an object UnityEditor.DockArea.OnGUI()</span><span class="f_Body">&quot; while running your application in Unity Editor, close the </span><span class="f_CodeExample">Game</span><span class="f_Body"> and </span><span class="f_CodeExample">Scene</span><span class="f_Body"> windows and redo the window layout. The warning message should go away after the layout change. See also <a href="http://neareal.net/index.php?ComputerGraphics%2FUnity%2FTips%2FError%20UnityEditor.DockArea.OnGui(" target="_blank" class="weblink">http://neareal.net/index.php?ComputerGraphics%2FUnity%2FTips%2FError%20UnityEditor.DockArea.OnGui(</a>) (In Japanese.)</span></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

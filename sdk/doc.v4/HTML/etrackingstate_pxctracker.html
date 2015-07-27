@@ -1,0 +1,164 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>ETrackingState</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="ETrackingState" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "etrackingstate_pxctracker.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">ETrackingState</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_enumerators11.html">Previous</a>&nbsp;
+     <a href="manuals_static_functions7.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_InternalHeading"><span class="f_InternalHeading">Namespace Hierarchy</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table style="width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_TableText"><span class="f_TableText">C++</span></p>
+</td>
+<td style="vertical-align:top; width:752px; padding:5px;"><p><span class="f_CodeExample"><a href="pxctracker.html" class="topiclink">PXCTracker</a>::ETrackingState</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_TableText"><span class="f_TableText">C#</span></p>
+</td>
+<td style="vertical-align:top; width:752px; padding:5px;"><p><span class="f_CodeExample"><a href="pxctracker.html" class="topiclink">PXCMTracker</a>.ETrackingState</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_TableText"><span class="f_TableText">Java</span></p>
+</td>
+<td style="vertical-align:top; width:752px; padding:5px;"><p><span class="f_CodeExample"><a href="pxctracker.html" class="topiclink">PXCMTracker</a>.ETrackingState</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Description</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 10px 0px 10px 0px;"><table style="width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><br />
+</td>
+<td style="vertical-align:top; width:841px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The </span><span class="f_CodeExample">ETrackingState</span><span class="f_TableText"> enumerator defines the tracking states of a tracking target. The state usually starts with </span><span class="f_CodeExample">ETS_NOT_TRACKING</span><span class="f_TableText">. When it is found in the current camera image, the state changes to </span><span class="f_CodeExample">ETS_FOUND</span><span class="f_TableText">. For any image where the location of the target is successfully determined will have the state </span><span class="f_CodeExample">ETS_TRACKING</span><span class="f_TableText">. Once the tracking is lost, there will be one single frame </span><span class="f_CodeExample">ETS_LOST</span><span class="f_TableText">, then the state will be </span><span class="f_CodeExample">ETS_NOT_TRACKING</span><span class="f_TableText"> again. In case there is extrapolation of the pose requested, the transition may be from </span><span class="f_CodeExample">ETS_TRACKING</span><span class="f_TableText"> to </span><span class="f_CodeExample">ETS_EXTRAPOLATED</span><span class="f_TableText">.</span></p>
+<p class="p_TableText"><span class="f_TableText">These are the state transitions to be expected:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_CodeExample">ETS_NOT_TRACKING -&gt; ETS_FOUND</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_CodeExample">ETS_FOUND &nbsp; &nbsp; &nbsp; &nbsp;-&gt; ETS_TRACKING</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_CodeExample">ETS_TRACKING &nbsp; &nbsp; -&gt; ETS_LOST</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_CodeExample">ETS_LOST &nbsp; &nbsp; &nbsp; &nbsp; -&gt; ETS_NOT_TRACKING</span></td></tr></table></div><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_TableText">With additional extrapolation, these transitions can occur as well:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_CodeExample">ETS_TRACKING &nbsp; &nbsp; -&gt; ETS_EXTRAPOLATED</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:10pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_CodeExample">ETS_EXTRAPOLATED -&gt; ETS_LOST</span></td></tr></table></div><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_TableText">&quot;Event-States&quot; do not necessarily correspond to a complete frame but can be used to flag individual tracking events or replace tracking states to clarify their context: </span><span class="f_CodeExample">ETS_NOT_TRACKING -&gt; ETS_REGISTERED -&gt; ETS_FOUND</span><span class="f_TableText"> for edge based initialization</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Name/Description</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table style="width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:340px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">ETS_UNKNOWN</span></p>
+</td>
+<td style="vertical-align:top; width:388px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The tracking state is unknown.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:340px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">ETS_NOT_TRACKING</span></p>
+</td>
+<td style="vertical-align:top; width:388px; padding:5px;"><p class="p_TableText"><span class="f_TableText">No tracking.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:340px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">ETS_TRACKING</span></p>
+</td>
+<td style="vertical-align:top; width:388px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The tracking is established.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:340px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">ETS_LOST</span></p>
+</td>
+<td style="vertical-align:top; width:388px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The tracking is lost.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:340px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">ETS_FOUND</span></p>
+</td>
+<td style="vertical-align:top; width:388px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The tracking object is found.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:340px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">ETS_EXTRAPOLATED</span></p>
+</td>
+<td style="vertical-align:top; width:388px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The tracking is maintained by extrapolation.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:340px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">ETS_INITIALIZED</span></p>
+</td>
+<td style="vertical-align:top; width:388px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The tracking has loaded.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:340px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">ETS_REGISTERED</span></p>
+</td>
+<td style="vertical-align:top; width:388px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The pose was registered for tracking.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:62px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:340px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">ETS_INIT_FAILED</span></p>
+</td>
+<td style="vertical-align:top; width:388px; padding:5px;"><p class="p_TableText"><span class="f_TableText">The initialization is failed.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><span class="f_InternalHeading">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

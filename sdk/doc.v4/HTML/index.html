@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title>Intel® RealSense™ SDK Documentation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <script type="text/javascript" src="jquery.js"></script>
+  <script type="text/javascript" src="helpman_settings.js"></script>
+  <script type="text/javascript" src="helpman_navigation.js"></script>
+  <script type="text/javascript" src="docmaster_contextids.js"></script>
+
+  <link type="text/css" href="default.css" rel="stylesheet" />
+
+  <style type="text/css">
+    html,body { margin:0;padding:0;height:100%;overflow:hidden;
+    			       background:#FFFFFF;
+    }
+
+    #hmheadbox {
+      position: absolute;
+      left: 1px;
+      right: 1px;
+      top: 1px;
+      height: 60px;
+      background: #FFFFFF;
+      border: 1px solid #FFCC00;
+      }
+
+    #hmheadbox p {
+      font-size: 160%;
+      font-weight: bold;
+      margin-top: 16px;
+      margin-left: 8px;
+     }
+
+    #hmnavbox {
+      position: absolute;
+      left: 1px;
+      width: 250px;
+      min-width: 50px;
+      top: 62px;
+      bottom: 1px;
+      border: 1px solid #FFCC00;
+      }
+
+    #hmcontentbox {
+      position: absolute;
+      top: 62px;
+      right: 1px;
+      bottom: 1px;
+      left: 252px;
+      border: 1px solid #FFCC00;
+      }
+
+    iframe {
+      position: absolute;left:0;top:0;width:100%;height:100%;border:none;
+      }
+  </style>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+      if (!hmSupportsAbspos()) {
+      	$(window).bind("resize", function() {
+      	  hmNoAbsposResize($("#hmheadbox"), true, false);
+      	  hmNoAbsposResize($("#hmnavbox"), false, true);
+      	  hmNoAbsposResize($("#hmcontentbox"), true, true);
+	    });
+	    $(window).trigger("resize");
+	  }
+      hmCreateVSplitter($("#hmnavbox"),$("#hmcontentbox"));
+    });
+  </script>
+
+</head>
+<body>
+<div id="hmheadbox">
+<IMG SRC="intellogo.png" HEIGHT=60 ALIGN=RIGHT><p>Intel® RealSense™ SDK Documentation</p></div>
+<div id="hmnavbox">
+  <iframe name="hmnavigation" id="hmnavigation" src="docmaster_content.html" seamless="seamless" title="Navigation Pane" frameborder="0"></iframe>
+</div>
+
+<div id="hmcontentbox" >
+  <script type="text/javascript">
+    var defaulttopic="docm_legal_information.html";
+    var query = window.location.search.substring(1), hash = window.location.hash, xssTest = /javascript|:|&#58;|&#x3a;|%3a|3a;|58;|\//i;
+    if (query !== "") query = (xssTest.test(query)) ? "" : query;
+    if (hash !== "") hash = (xssTest.test(hash)) ? "" : hash;
+    if (query != "") {
+      if (typeof(hmGetContextId) != "undefined") {
+        var tmpCntx = hmGetContextId(query);
+        if (tmpCntx != "") {
+          defaulttopic = tmpCntx;
+        } else {
+          defaulttopic = query + hash;
+        }
+       }
+    }
+    document.write('<iframe name="hmcontent" id="hmcontent" src="'+defaulttopic+'" seamless="seamless" title="Content Page" frameborder="0"></iframe>');
+  </script>
+  <noscript>
+    <iframe name="hmcontent" id="hmcontent" src="docm_legal_information.html" seamless="seamless" title="Content Page" frameborder="0"></iframe>
+  </noscript>
+</div>
+</body>
+</html>
+

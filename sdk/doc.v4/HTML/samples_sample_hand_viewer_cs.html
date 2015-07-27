@@ -1,0 +1,69 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Sample: FF_HandsViewer[.cs]</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="C# sample,C++ sample,FF_HandsViewer,FF_HandsViewer.cs" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "samples_sample_hand_viewer_cs.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Sample: FF_HandsViewer[.cs]</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="samples_sample_emotion_viewer_cs.html">Previous</a>&nbsp;
+     <a href="samples_sample_hands_3d_viewer.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_InternalHeading"><span class="f_InternalHeading">Introduction</span></p>
+<p class="p_Body"><span class="f_Body">The </span><span class="f_CodeExample">FF_HandsViewer[.cs]</span><span class="f_Body"> samples are GUI applications that demonstrate the SDK hand tracking feature. The samples demonstrate, among other, the tracked hand skeleton (joints and bones), the segmentation mask (separating hand from background) and the gesture recognition mechanism. Two versions of this sample are available, one using the C++ API and the other on top of the C# API. </span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Launch</span></p>
+<p class="p_Body"><span class="f_Body">The samples can be launched directly from the </span><span class="f_CodeExample">bin</span><span class="f_Body"> folder of the SDK installation, or compiled and executed using Microsoft Visual Studio. The project and source files are located inside the </span><span class="f_CodeExample">sample/FF_HandsViewer</span><span class="f_Body"> or </span><span class="f_CodeExample">framework/CSharp/FF_HandsViewer.cs</span><span class="f_Body"> folders, respectively.</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Menu Options</span></p>
+<p class="p_Body"><span class="f_Body">From the menu, the user can select the input device, the hand tracking module, and the operating mode (live streaming mode, playback mode, and recording mode), as shown in Figure 131:</span></p>
+<p class="p_Body" style="text-align: center;"><img src="sample_hand_viewer_tracking.png" width="617" height="599" alt="" style="margin:0px auto 0px auto;width:617px;height:599px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 131: Sample hands_viewer</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">GUI Options</span></p>
+<p class="p_Body"><span class="f_Body">Click the </span><span class="f_CodeExample">Start</span><span class="f_Body"> button to load and activate the hand tracking module. </span></p>
+<p class="p_Body"><span class="f_Body">Check the option </span><span class="f_CodeExample">Depth</span><span class="f_Body"> to display the depth stream, as illustrated in Figure 131. </span></p>
+<p class="p_Body"><span class="f_Body">Check the option </span><span class="f_CodeExample">Labeled Image</span><span class="f_Body"> to display the labeled image. </span></p>
+<p class="p_Body"><span class="f_Body">Check the </span><span class="f_CodeExample">Scale</span><span class="f_Body"> option to scale the images to the size of the display panel, and the </span><span class="f_CodeExample">Mirror</span><span class="f_Body"> option to mirror the images (flip around Y axis).</span></p>
+<p class="p_Body"><span class="f_Body">Check the option </span><span class="f_CodeExample">Joints</span><span class="f_Body"> to visualize all 22 hand joints as colored circles.</span></p>
+<p class="p_Body"><span class="f_Body">Check the option </span><span class="f_CodeExample">Skeleton</span><span class="f_Body"> to visualize the hand skeleton.</span></p>
+<p class="p_Body"><span class="f_Body">Select an item in the </span><span class="f_CodeExample">Gesture</span><span class="f_Body"> list to recognize the specified gesture. If left empty, the sample does not recognize any gesture. </span></p>
+<p class="p_Body"><span class="f_Body">Whenever there is a fired gesture or alert, the sample logging window displays the gesture or alert details.</span></p>
+<p class="p_Body"><span class="f_Body">Finally, click the </span><span class="f_CodeExample">Stop</span><span class="f_Body"> button to terminate the tracking process.</span></p>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

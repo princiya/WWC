@@ -1,0 +1,225 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Configuring the Blob Module</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_configuring_the_blob_module.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Configuring the Blob Module</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_initializing_the_blob_module.html">Previous</a>&nbsp;
+     <a href="manuals_extracting_blob_data.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">The blob module has various configuration options, such as the number and size of objects that can be identified and output as blobs, etc. You can configure the blob module with the </span><span class="f_CodeExample"><a href="pxcblobconfiguration.html" class="topiclink">PXC[M]BlobConfiguration</a></span><span class="f_Body"> interface. The code sample below demonstrates how to do this.</span></p>
+<p class="p_Body"><img src="note.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">Call the </span><span class="f_CodeExample"><a href="applychanges_pxcblobconfiguration.html" class="topiclink">ApplyChanges</a></span><span class="f_Body"> function to apply any new configuration.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A1')">C++ Example 56: Configure the Blob Module</a></span></p>
+<div id="TOGGLE0186A1" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Get an instance of PXCBlobConfiguration</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCBlobConfiguration* blobConfig = blobModule-&gt;CreateActiveConfiguration();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Configure the blob module</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">blobConfig-&gt;SetSegmentationSmoothing(0.7);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// … call more configuration methods</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Apply the new configuration values</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">blobConfig-&gt;ApplyChanges();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A2')">C# Example 56: Configure the Blob Module</a></span></p>
+<div id="TOGGLE0186A2" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Get an instance of PXCMBlobConfiguration</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMBlobConfiguration blobConfig = blobModule.CreateActiveConfiguration();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Configure the blob module</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">blobConfig.SetSegmentationSmoothing(0.7f);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// … call more configuration methods</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Apply the new configuration values</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">blobConfig.ApplyChanges();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A3')">Java Example 56: Configure the Blob Module</a></span></p>
+<div id="TOGGLE0186A3" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Get an instance of PXCMBlobConfiguration</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMBlobConfiguration blobConfig = blobModule.CreateActiveConfiguration();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Configure the blob module</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">blobConfig.SetSegmentationSmoothing(0.7f);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// … call more configuration methods</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Apply the new configuration values</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">blobConfig.ApplyChanges();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body">Table 7 summarizes the blob configuration options:</span></p>
+<div style="text-align: center; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table style="margin:0 auto; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<th style="vertical-align:top; width:254px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2" style="font-weight: bold;">Configuration Function</span></p>
+</th>
+<th style="vertical-align:top; width:447px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2" style="font-weight: bold;">Description</span></p>
+</th>
+<th style="vertical-align:top; width:113px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2" style="font-weight: bold;">Default</span></p>
+</th>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:254px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="applychanges_pxcblobconfiguration.html" class="topiclink">ApplyChanges</a></span></p>
+</td>
+<td style="vertical-align:top; width:447px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Activates the current configuration on the module. No changes is applied until this function is called.</span></p>
+</td>
+<td style="vertical-align:top; width:113px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">NA</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:254px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="update_pxcblobconfiguration.html" class="topiclink">Update</a></span></p>
+</td>
+<td style="vertical-align:top; width:447px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Retrieves the active configuration.</span></p>
+</td>
+<td style="vertical-align:top; width:113px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">NA</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:254px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="restoredefaults_pxcblobconfiguration.html" class="topiclink">RestoreDefaults</a></span></p>
+</td>
+<td style="vertical-align:top; width:447px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Retrieves the default configuration.</span></p>
+</td>
+<td style="vertical-align:top; width:113px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">NA</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:254px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="enablesegmentationimage_pxcblobconfiguration.html" class="topiclink">EnableSegmentationImage</a></span></p>
+</td>
+<td style="vertical-align:top; width:447px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Enable/disable the extraction of the segmentation image.</span></p>
+</td>
+<td style="vertical-align:top; width:113px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">True</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:254px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="enablecontourextraction_pxcblobconfiguration.html" class="topiclink">EnableContourExtraction</a></span></p>
+</td>
+<td style="vertical-align:top; width:447px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Enable/disable the extraction of contour lines.</span></p>
+</td>
+<td style="vertical-align:top; width:113px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">True</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:254px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="setmaxblobs_pxcblobconfiguration.html" class="topiclink">SetMaxBlobs</a></span></p>
+</td>
+<td style="vertical-align:top; width:447px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Set the maximal number of blobs to be detected (must be less than 4, the default is 1).</span></p>
+<p class="p_Body"><img src="note.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">If there are more than the configured number of blobs in the image, the largest objects in the tracking range are extracted.</span></p>
+</td>
+<td style="vertical-align:top; width:113px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">1</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:254px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="setmaxdistance_pxcblobconfiguration.html" class="topiclink">SetMaxDistance</a></span></p>
+</td>
+<td style="vertical-align:top; width:447px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Set the maximal distance in millimeters from the sensor, where objects (blobs) are to be identified.</span></p>
+</td>
+<td style="vertical-align:top; width:113px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">550 mm</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:254px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="setminpixelcount_pxcblobconfiguration.html" class="topiclink">SetMinPixelCount</a></span></p>
+</td>
+<td style="vertical-align:top; width:447px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Set the minimal number of pixels that a blob must have. Objects smaller than this limit are not identified as blobs. The limit must be no more than a quarter of the entire sensor’s image size.</span></p>
+</td>
+<td style="vertical-align:top; width:113px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">400 pixels</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:254px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="setmaxobjectdepth_pxcblobextractor.html" class="topiclink">SetMaxObjectDepth</a></span></p>
+</td>
+<td style="vertical-align:top; width:447px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Set the maximal object depth. The object depth is the distance in millimeters between the two object points that are closest and farthest from the sensor. If the object depth is larger than this value, the farthest part of the object is “trimmed”. This feature can be useful if you want to identify only a small part of an object.</span></p>
+</td>
+<td style="vertical-align:top; width:113px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">300 mm</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:254px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="setmincontoursize_pxcblobconfiguration.html" class="topiclink">SetMinContourSize</a></span></p>
+</td>
+<td style="vertical-align:top; width:447px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Set the minimal contour size (in number of contour points) for an object. Any blob whose contour points are fewer than the limit will not be identified.</span></p>
+</td>
+<td style="vertical-align:top; width:113px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">30 points</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:254px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="setsegmentationsmoothing_pxcblobconfiguration.html" class="topiclink">SetSegmentationSmoothing</a></span></p>
+</td>
+<td style="vertical-align:top; width:447px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2"> Set the smoothing value for the segmentation image. “Smoothing” will result in a more consistent, continuous image with less “holes”. A higher smoothing value requires more computation resources.</span></p>
+</td>
+<td style="vertical-align:top; width:113px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">0.3</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:254px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="setcontoursmoothingvalue_pxcblobconfiguration.html" class="topiclink">SetContourSmoothing</a></span></p>
+</td>
+<td style="vertical-align:top; width:447px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Set the smoothing value for the contour line. “Smoothing” causes the contour line to be smoother, i.e. to ignore small inconsistencies in the line. A Higher smoothing value requires more computation resources.</span></p>
+<p class="p_TableText2"><img src="note.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">Under extreme conditions, high smoothing values may “split” a single blob in two different outer contour lines.</span></p>
+</td>
+<td style="vertical-align:top; width:113px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">1</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:254px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="enablestabilizer_pxcblobconfiguration.html" class="topiclink">EnableStabilizer</a></span></p>
+</td>
+<td style="vertical-align:top; width:447px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Enable/disable the stabilization of the extremity points. Stabilization may induce a small offset between the extremity points and the contour line.</span></p>
+</td>
+<td style="vertical-align:top; width:113px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">True</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Table 7: The Blob Module Configurations</span></p>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+<script type="text/javascript">
+HMInitToggle('TOGGLE0186A1','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A2','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A3','hm.type','dropdown','hm.state','0');
+</script>
+</body>
+</html>

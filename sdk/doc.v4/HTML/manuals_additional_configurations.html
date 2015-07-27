@@ -1,0 +1,153 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Configuring Synthesis Quality</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_additional_configurations.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Configuring Synthesis Quality</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_speech_synthesis.html">Previous</a>&nbsp;
+     <a href="manuals_touchless_controller2.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">You can fine-tune speech synthesis quality as follows:</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Initialization Parameters</span></p>
+<p class="p_InternalHeading"><span class="f_Body">You can use the following parameters during initialization (</span><span class="f_CodeExample"><a href="setprofile_pxcspeechsynthesis.html" class="topiclink">SetProfile</a></span><span class="f_Body">) to fine-tune speech synthesis. They applies to the complete sentence:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_CodeExample">volume</span><span class="f_Body">: Set the volume level. The value is between </span><span class="f_CodeExample">0</span><span class="f_Body"> (mute) and </span><span class="f_CodeExample">100</span><span class="f_Body"> (the maximum volume). The default value is </span><span class="f_CodeExample">80</span><span class="f_Body">.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_CodeExample">pitch</span><span class="f_Body">: Scale the voice pitch with a factor between </span><span class="f_CodeExample">50</span><span class="f_Body"> (half the default pitch) and </span><span class="f_CodeExample">200</span><span class="f_Body"> (two times the default pitch). The default value is </span><span class="f_CodeExample">100</span><span class="f_Body">.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_CodeExample">rate</span><span class="f_Body">: Set the speaking rate. The value is between </span><span class="f_CodeExample">50</span><span class="f_Body"> (half the default rate) and </span><span class="f_CodeExample">400</span><span class="f_Body"> (four times the default rate). The default value is </span><span class="f_CodeExample">100</span><span class="f_Body">.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_CodeExample">eosPauseDuration</span><span class="f_Body">: Set the end of sentence pause duration to a value between 0 and 9. The pause is about 200 milliseconds multiplied by the value.</span></td></tr></table></div><p class="p_InternalHeading"><span class="f_InternalHeading">Escape Control Codes</span></p>
+<p class="p_InternalHeading"><span class="f_Body">You can insert escape control codes into the speech text to fine-tune part of speech synthesis. The control sequence leads with an </span><span class="f_CodeExample">&lt;ESC&gt;</span><span class="f_Body"> ASCII code and commands denoted by back slashes.</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Audio recording:</span></td></tr></table></div><p class="p_Body"><span class="f_Body">Example: </span><span class="f_CodeExample">Record after the beep. &lt;ESC&gt;\audio=”c:\beep.wav”\</span></p>
+<p class="p_Body"><span class="f_Body">The control sequence </span><span class="f_CodeExample">&lt;ESC&gt;\audio=”&lt;file&gt;”\</span><span class="f_Body"> inserts audio recording into the synthesized speech. The audio file must be a </span><span class="f_CodeExample">WAV</span><span class="f_Body"> file, encoded with 16-bit PCM and the sample rate matching the speech synthesis setting.</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Pause:</span></td></tr></table></div><p class="p_Body"><span class="f_Body">Example: </span><span class="f_CodeExample">I am &lt;ESC&gt;\pause=300\ John.</span></p>
+<p class="p_Body"><span class="f_Body">The control sequence </span><span class="f_CodeExample">&lt;ESC&gt;\pause=&lt;time&gt;\</span><span class="f_Body"> inserts a pause into the synthesized speech. The pause is in milliseconds.</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Text Formatting:</span></td></tr></table></div><p class="p_Body"><span class="f_Body">Example: </span><span class="f_CodeExample">The address reads &lt;ESC&gt;\tn=address\ 2111 NE 25th Ave, Hillsboro, OR &lt;ESC&gt;\tn=normal\</span></p>
+<p class="p_Body"><span class="f_Body">The control sequence </span><span class="f_CodeExample">&lt;ESC&gt;\tn=&lt;type&gt;\</span><span class="f_Body"> guides the synthesizer on the text format, as follows:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table style="width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:123px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">spell</span></p>
+</td>
+<td style="vertical-align:top; width:677px; padding:5px;"><p>Spell out the text that follows.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:123px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">address</span></p>
+</td>
+<td style="vertical-align:top; width:677px; padding:5px;"><p>Synthesize the text as an address.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:123px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">sms</span></p>
+</td>
+<td style="vertical-align:top; width:677px; padding:5px;"><p>Synthesize the text as an SMS message.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:123px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">normal</span></p>
+</td>
+<td style="vertical-align:top; width:677px; padding:5px;"><p>Reset to regular text processing.</p>
+</td>
+</tr>
+</table>
+</div>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Read Mode:</span></td></tr></table></div><p class="p_Body"><span class="f_Body">Example: </span><span class="f_CodeExample">Follow me to spell the word Bee &lt;ESC&gt;\readmode=char\ Bee</span></p>
+<p class="p_Body"><span class="f_Body">The control sequence </span><span class="f_CodeExample">&lt;ESC&gt;\readmode=&lt;mode&gt;\</span><span class="f_Body"> changes how the text should be synthesized as follows:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table style="width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:122px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">sent</span></p>
+</td>
+<td style="vertical-align:top; width:678px; padding:5px;"><p>Read the text as a sentence, and pause after each sentence. This is the default.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:122px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">char</span></p>
+</td>
+<td style="vertical-align:top; width:678px; padding:5px;"><p>Read the text character by character (similar to the <span class="f_CodeExample">spell</span> text formatting.)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:122px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">word</span></p>
+</td>
+<td style="vertical-align:top; width:678px; padding:5px;"><p>Read the text word by word, with pause between words.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:122px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">line</span></p>
+</td>
+<td style="vertical-align:top; width:678px; padding:5px;"><p>Read the text line by line, with pause between lines.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:122px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">explicit_eos</span></p>
+</td>
+<td style="vertical-align:top; width:678px; padding:5px;"><p>Break the sentence only when seeing the <span class="f_CodeExample">&lt;ESC&gt;\eos=&lt;value&gt;\</span> control sequence. </p>
+</td>
+</tr>
+</table>
+</div>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Word Prominence Level</span></td></tr></table></div><p class="p_Body"><span class="f_Body">Example: </span><span class="f_CodeExample">I &lt;ESC&gt;\nlu=PRM:3\ am the person you are looking for.</span></p>
+<p class="p_Body"><span class="f_Body">The control sequence </span><span class="f_CodeExample">&lt;ESC&gt;\nlu=PRM:&lt;level&gt;\</span><span class="f_Body"> adjusts the word prominence level as follows:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table style="width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:122px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">0</span></p>
+</td>
+<td style="vertical-align:top; width:678px; padding:5px;"><p>Reduced.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:122px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">1</span></p>
+</td>
+<td style="vertical-align:top; width:678px; padding:5px;"><p>Stressed.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:122px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">2</span></p>
+</td>
+<td style="vertical-align:top; width:678px; padding:5px;"><p>Accented.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:122px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">3</span></p>
+</td>
+<td style="vertical-align:top; width:678px; padding:5px;"><p>Emphasized.</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

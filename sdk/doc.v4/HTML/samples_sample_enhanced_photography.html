@@ -1,0 +1,63 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Sample: RF_EnhancedPhotography</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="C# sample,C++ sample,EnhancedPhotography,RF_EnhancedPhotography" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "samples_sample_enhanced_photography.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Sample: RF_EnhancedPhotography</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="samples_sample_depthblendep.html">Previous</a>&nbsp;
+     <a href="samples_sample_measurementsp.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_InternalHeading"><span class="f_InternalHeading">Introduction</span></p>
+<p class="p_Body"><span class="f_Body">The </span><span class="f_CodeExample">RF_DepthBlendEP</span><span class="f_Body"> sample is a C++ application that demonstrates the SDK photo processing features. The sample shows how to take a snapshot out of a live streaming frames, and then perform refocusing and distance measurement operations. </span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Launch</span></p>
+<p class="p_Body"><span class="f_Body">The sample can be launched directly from the </span><span class="f_CodeExample">bin</span><span class="f_Body"> folder of the SDK installation, or compiled and executed using Microsoft Visual Studio. The project and source files are located inside the </span><span class="f_CodeExample">sample/RF_EnhancedPhotography</span><span class="f_Body"> folder.</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Menu Options</span></p>
+<p class="p_Body"><span class="f_Body">From the menu, the user can choose the input device as shown in Figure 155:</span></p>
+<p class="p_Body" style="text-align: center;"><img src="sample_enhanced_photography.png" width="926" height="639" alt="" style="margin:0px auto 0px auto;width:926px;height:639px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 155: Sample Enhanced Photography</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">GUI Options</span></p>
+<p class="p_Body"><span class="f_Body">Click the </span><span class="f_CodeExample">Preview</span><span class="f_Body"> button to start living streaming. The same button switches between the </span><span class="f_CodeExample">Preview</span><span class="f_Body"> mode and the </span><span class="f_CodeExample">Snapshot</span><span class="f_Body"> mode. Choose a good picture and then click the </span><span class="f_CodeExample">Snapshot</span><span class="f_Body"> button. The image frame freezes to let you work on the snapshot image, with the following available operations:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_CodeExample" style="font-weight: bold;">Refocus</span><span class="f_Body">: Click the </span><span class="f_CodeExample">Refocus</span><span class="f_Body"> radio button, and then any point on the snapshot image. The image is refocused to the mouse position.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_CodeExample" style="font-weight: bold;">Measure</span><span class="f_Body">: Click the </span><span class="f_CodeExample">Measure</span><span class="f_Body"> radio button and then any two points on the snapshot image. The sample calculates the distance between the two points, and shows the distance in the status bar.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_CodeExample" style="font-weight: bold;">Depth Enhance</span><span class="f_Body">: Click the </span><span class="f_CodeExample">Depth Enhance</span><span class="f_Body"> radio button. The sample shows the enhanced (hole-filled) depth image.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_CodeExample" style="font-weight: bold;">Depth Upscale</span><span class="f_Body">: Click the </span><span class="f_CodeExample">Depth Upscale</span><span class="f_Body"> radio button. The sample shows the depth image upscaled to the color image resolution.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_CodeExample" style="font-weight: bold;">Paste OnPlane</span><span class="f_Body">: Click the </span><span class="f_CodeExample">Past OnPlane</span><span class="f_Body"> radio button, and then two points on the snapshot image. The sample pastes the Intel logo onto the plane in the image. The two points specify the top left and bottom left points of the logo image.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_CodeExample" style="font-weight: bold;">Color Pop</span><span class="f_Body">: Click the </span><span class="f_CodeExample">Color Pop</span><span class="f_Body"> radio button and then a point on the snapshot image. The sample shows a color region around the specified point while suppressing color of the rest pixels of the image.</span></td></tr></table></div><p class="p_Body"><span class="f_Body">Click the </span><span class="f_CodeExample">Save result as JPG+XMP</span><span class="f_Body"> button to save the snapshot image. You can view the saved file from any browser.</span></p>
+<p class="p_Body"><span class="f_Body">Finally, click the </span><span class="f_CodeExample">Stop</span><span class="f_Body"> button to terminate the streaming process.</span></p>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

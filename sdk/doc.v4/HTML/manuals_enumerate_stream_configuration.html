@@ -1,0 +1,114 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Enumerating Stream Configurations</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_enumerate_stream_configuration.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Enumerating Stream Configurations</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_enumerate_streams.html">Previous</a>&nbsp;
+     <a href="manuals_coordinate_systems.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">Each stream may have multiple configurations (color format, resolution and frame rate). Use the </span><span class="f_CodeExample"><a href="querystreamprofileset_device_pxccapture.html" class="topiclink">QueryStreamProfileSet</a></span><span class="f_Body"> function to enumerate the stream configurations on a single stream or on multiple streams.</span></p>
+<p class="p_Body"><img src="note.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">There are usually constraints on multiple stream configurations. For example, the configuration of an inferred stream may be tied to the corresponding depth stream. When enumerating multiple stream configurations, the </span><span class="f_CodeExample"><a href="querystreamprofileset_device_pxccapture.html" class="topiclink">QueryStreamProfileSet</a></span><span class="f_Body"> function returns the unique combinations of all valid stream configurations.</span></p>
+<p class="p_Body"><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">Use the </span><span class="f_CodeExample"><a href="isstreamprofilesetvalid_device_pxccapture.html" class="topiclink">IsStreamProfileSetValid</a></span><span class="f_Body"> function to validate certain stream configuration.</span></p>
+<p class="p_Body"><span class="f_Body">Example 38 shows how to enumerate the stream configurations.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A1')">C++ Example 38: Enumerate the Stream Configurations</a></span></p>
+<div id="TOGGLE0186A1" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// device is a PXCCapture::Device instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCCapture::StreamType streams=PXCCapture::STREAM_TYPE_COLOR|PXCCapture::STREAM_TYPE_DEPTH;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">for (int p=0;;p++) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCCapture::Device::StreamProfileSet profiles={};</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pxcStatus sts=device-&gt;QueryStreamProfileSet(streams, p, &amp;profiles);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;if (sts&lt;PXC_STATUS_NO_ERROR) break;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;wprintf_s(L&quot;color[%d]: %dx%d\n&quot;, p, profiles.color.imageInfo.width, profiles.color.imageInfo.height);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;wprintf_s(L&quot;depth[%d]: %dx%d\n&quot;, p, profiles.depth.imageInfo.width, profiles.depth.imageInfo.height);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A2')">C# Example 38: Enumerate the Stream Configurations</a></span></p>
+<div id="TOGGLE0186A2" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// device is a PXCMCapture.Device instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMCapture.StreamType streams=PXCMCapture.StreamType.STREAM_TYPE_COLOR|PXCCapture.StreamType.STREAM_TYPE_DEPTH;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">for (int p=0;;p++) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCMCapture.Device.StreamProfileSet profiles;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pxcmStatus sts=device.QueryStreamProfileSet(streams, p, out profiles);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;if (sts&lt;pxcmStatus.PXCM_STATUS_NO_ERROR) break;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;Console.WriteLn(&quot;color[{0}]: {1}x{2}&quot;, p, profiles.color.imageInfo.width, profiles.color.imageInfo.height);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;Console.WriteLn(&quot;color[{0}]: {1}x{2}&quot;, p, profiles.color.imageInfo.width, profiles.color.imageInfo.height);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A3')">Java Example 38: Enumerate the Stream Configurations</a></span></p>
+<div id="TOGGLE0186A3" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// device is a PXCMCapture.Device instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">EnumSet&lt;PXCMCapture.StreamType&gt; streams=EnumSet.of(PXCMCapture.StreamType.STREAM_TYPE_COLOR,PXCCapture.StreamType.STREAM_TYPE_DEPTH);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">for (int p=0;;p++) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;PXCMCapture.Device.StreamProfileSet profiles=new PXCMCapture.Device.StreamProfileSet();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;pxcmStatus sts=device.QueryStreamProfileSet(streams, p, profiles);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;if (sts&lt;pxcmStatus.PXCM_STATUS_NO_ERROR) break;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;System.out.printf(&quot;color[%d]: %dx%d%n&quot;, p, profiles.color.imageInfo.width, profiles.color.imageInfo.height);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;System.out.printf(&quot;color[%d]: %dx%d%n&quot;, p, profiles.color.imageInfo.width, profiles.color.imageInfo.height);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+<script type="text/javascript">
+HMInitToggle('TOGGLE0186A1','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A2','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A3','hm.type','dropdown','hm.state','0');
+</script>
+</body>
+</html>

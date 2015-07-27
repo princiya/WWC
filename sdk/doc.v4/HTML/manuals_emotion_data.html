@@ -1,0 +1,177 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Intensity and Evidence</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_emotion_data.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Intensity and Evidence</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_emotion_detection_via_senseman.html">Previous</a>&nbsp;
+     <a href="manuals_hand_tracking.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body" style="font-weight: bold;">Intensity and Evidence</span></p>
+<p class="p_Body"><span class="f_Body">Use the </span><span class="f_CodeExample"><a href="queryemotiondata_pxcemotion.html" class="topiclink">QueryEmotionData</a></span><span class="f_Body"> function to query data for a specific emotion of a face or the </span><span class="f_CodeExample"><a href="queryallemotiondata_pxcemotion.html" class="topiclink">QueryAllEmotionData</a></span><span class="f_Body"> function to retrieve data for all emotions of a face.</span></p>
+<p class="p_Body"><span class="f_Body">Among the detected emotion parameters (see the </span><span class="f_CodeExample"><a href="emotion_pxcemotion.html" class="topiclink">Emotion</a></span><span class="f_Body"> structure for definitions,) the two parameters </span><span class="f_CodeExample">intensity</span><span class="f_Body"> and </span><span class="f_CodeExample">evidence</span><span class="f_Body"> determine how likely the face might perform the emotion: </span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Evidence</span><span class="f_Body">: &nbsp;This value represents the odds in 10-based logarithmic scale of a target expression being present. For instance, the value 2 indicates that an emotion is 100 (=102) times more likely to be categorized as present than not present; while the value -2 indicates that an emotion is 100 times more likely to be categorized as not present than present. </span></td></tr></table></div><p class="p_Body"><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_CodeExample">Evidence</span><span class="f_Body"> is more useful when an application needs to know whether a particular emotion is present. </span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Intensity</span><span class="f_Body">: This value shows the perceived intensity of the emotion as estimated by human experts as follows:</span></td></tr></table></div><div style="text-align: center; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="margin:0 auto; width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:150px; padding:5px;"><p class="p_TableText"><span class="f_TableText" style="font-weight: bold;">Value Interval</span></p>
+</td>
+<td style="vertical-align:top; width:650px; padding:5px;"><p class="p_TableText"><span class="f_TableText" style="font-weight: bold;">Description of Emotion Expression</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:150px; padding:5px;"><p class="p_TableText"><span class="f_TableText">[0.0, 0.2)</span></p>
+</td>
+<td style="vertical-align:top; width:650px; padding:5px;"><p class="p_TableText"><span class="f_TableText">expression is likely absent</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:150px; padding:5px;"><p class="p_TableText"><span class="f_TableText">[0.2, 0.4)</span></p>
+</td>
+<td style="vertical-align:top; width:650px; padding:5px;"><p class="p_TableText"><span class="f_TableText">expression is of low intensity</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:150px; padding:5px;"><p class="p_TableText"><span class="f_TableText">[0.4, 0.6)</span></p>
+</td>
+<td style="vertical-align:top; width:650px; padding:5px;"><p class="p_TableText"><span class="f_TableText">expression is of medium intensity</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:150px; padding:5px;"><p class="p_TableText"><span class="f_TableText">[0.6, 0.8)</span></p>
+</td>
+<td style="vertical-align:top; width:650px; padding:5px;"><p class="p_TableText"><span class="f_TableText">expression is of high intensity</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:150px; padding:5px;"><p class="p_TableText"><span class="f_TableText">[0.8, 1.0]</span></p>
+</td>
+<td style="vertical-align:top; width:650px; padding:5px;"><p class="p_TableText"><span class="f_TableText">expression is of high intensity</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_CodeExample">Intensity</span><span class="f_Body"> is more useful when an application needs to quantify the strength of the emotions. </span></p>
+<p class="p_Body"><span class="f_CodeExample">Intensity</span><span class="f_Body"> has a non-linear relationship with </span><span class="f_CodeExample">evidence</span><span class="f_Body">. As </span><span class="f_CodeExample">intensity</span><span class="f_Body"> increases, </span><span class="f_CodeExample">evidence</span><span class="f_Body"> increases. As a subjective scale, </span><span class="f_CodeExample">intensity</span><span class="f_Body"> is more intuitive than </span><span class="f_CodeExample">evidence</span><span class="f_Body"> but it is more sensitive to variations. It is recommended that the application uses </span><span class="f_CodeExample">evidence</span><span class="f_Body"> to determine an outstanding emotion state out of all emotion data, as illustrated in Example 60.</span></p>
+<p class="p_Body"><img src="note.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">The module exposes scores for multiple emotion states. It is possible that a person in the picture expresses more than a single emotion state, for example, surprising with joy. Thus it is also recommended to take all detected emotion data into consideration, rather than simply taking the outstanding one.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A1')">C++ Example 60: Retrieve Emotion Detection Result</a></span></p>
+<div id="TOGGLE0186A1" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: 'Courier New';">pxcI32 num_faces = em-&gt;QueryNumFaces();</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: 'Courier New';">for (pxcI32 fid=0; fid&lt;num_faces; fid++) {</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: 'Courier New';"> &nbsp; &nbsp;// retrieve all estimation data</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: 'Courier New';"> &nbsp; &nbsp;PXCEmotion::EmotionData arrData[10]={0};</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: 'Courier New';"> &nbsp; &nbsp;em-&gt;QueryAllEmotionData(fid, arrData);</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: Arial; color: #000000;">&nbsp;</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: 'Courier New';"> &nbsp; &nbsp;// find the emotion with maximum evidence</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: 'Courier New';"> &nbsp; &nbsp;int idx_outstanding_emotion = 0;</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: 'Courier New';"> &nbsp; &nbsp;int max_evidence = arrData[0].evidence;</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: 'Courier New';"> &nbsp; &nbsp;for (pxcI32 k=1; k&lt;7; k++) {</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp;if (arrData[k].evidence &lt; max_evidence) continue;</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp;max_evidence = arrData[k].evidence;</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp;idx_outstanding_emotion=k;</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: 'Courier New';"> &nbsp; &nbsp;}</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: Arial; color: #000000;">&nbsp;</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: 'Courier New';"> &nbsp; &nbsp;// do something with the outstanding primary emotion</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: 'Courier New';"> &nbsp; &nbsp;....</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: 'Courier New';">}</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A2')">C# Example 60: Retrieve Emotion Detection Result</a> </span></p>
+<div id="TOGGLE0186A2" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: 'Courier New';">Int32 num_faces = em.QueryNumFaces();</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: 'Courier New';">for (int fid=0; fid&lt;num_faces; fid++) {</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: 'Courier New';"> &nbsp; &nbsp;// retrieve all estimation data</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: 'Courier New';"> &nbsp; &nbsp;PXCMEmotion.EmotionData[] arrData=new PXCMEmotion.EmotionData[10];</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: 'Courier New';"> &nbsp; &nbsp;em.QueryAllEmotionData(fid, arrData);</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: Arial; color: #000000;">&nbsp;</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: 'Courier New';"> &nbsp; &nbsp;// find the emotion with maximum evidence</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: 'Courier New';"> &nbsp; &nbsp;int idx_outstanding_emotion = 0;</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: 'Courier New';"> &nbsp; &nbsp;int max_evidence = arrData[0].evidence;</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: 'Courier New';"> &nbsp; &nbsp;for (int k=1; k&lt;7; k++) {</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp;if (arrData[k].evidence &lt; max_evidence) continue;</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp;max_evidence = arrData[k].evidence;</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp;idx_outstanding_emotion=k;</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: 'Courier New';"> &nbsp; &nbsp;}</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: Arial; color: #000000;">&nbsp;</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: 'Courier New';"> &nbsp; &nbsp;// do something with the outstanding primary emotion</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: 'Courier New';"> &nbsp; &nbsp;....</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: 'Courier New';">}</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A3')">Java Example 60: Retrieve Emotion Detection Result</a> </span></p>
+<div id="TOGGLE0186A3" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: 'Courier New';">int num_faces = em.QueryNumFaces();</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: 'Courier New';">for (int fid=0; fid&lt;num_faces; fid++) {</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: 'Courier New';"> &nbsp; &nbsp;// retrieve all estimation data</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: 'Courier New';"> &nbsp; &nbsp;PXCMEmotion.EmotionData[] arrData=new PXCMEmotion.EmotionData[10];</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: 'Courier New';"> &nbsp; &nbsp;em.QueryAllEmotionData(fid, arrData);</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: Arial; color: #000000;">&nbsp;</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: 'Courier New';"> &nbsp; &nbsp;// find the emotion with maximum evidence</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: 'Courier New';"> &nbsp; &nbsp;int idx_outstanding_emotion = 0;</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: 'Courier New';"> &nbsp; &nbsp;int max_evidence = arrData[0].evidence;</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: 'Courier New';"> &nbsp; &nbsp;for (int k=1; k&lt;7; k++) {</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp;if (arrData[k].evidence &lt; max_evidence) continue;</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp;max_evidence = arrData[k].evidence;</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp;idx_outstanding_emotion=k;</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: 'Courier New';"> &nbsp; &nbsp;}</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: Arial; color: #000000;">&nbsp;</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: 'Courier New';"> &nbsp; &nbsp;// do something with the outstanding primary emotion</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: 'Courier New';"> &nbsp; &nbsp;....</span></p>
+<p style="margin: 8px 0px 0px 0px;"><span style="font-size: 10pt; font-family: 'Courier New';">}</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+<script type="text/javascript">
+HMInitToggle('TOGGLE0186A1','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A2','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A3','hm.type','dropdown','hm.state','0');
+</script>
+</body>
+</html>

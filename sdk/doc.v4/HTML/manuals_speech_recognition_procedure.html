@@ -1,0 +1,314 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Speech Recognition</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="speech recognition,voice recognition" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_speech_recognition_procedure.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Speech Recognition</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_programming_guide_voice.html">Previous</a>&nbsp;
+     <a href="manuals_command_control_and_dictation.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">Use the following procedure to implement speech recognition in your application:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:36px"><span style="font-size:11pt; font-family: 'Intel Clear';color:#000000;">1.</span></td><td style="border:none"><span class="f_Step" style="font-weight: bold;">Identify an Audio Source (OPTIONAL): </span><span class="f_Step">Use the </span><span class="f_CodeExample"><a href="pxcaudiosource.html" class="topiclink">PXC[M]AudioSource</a></span><span class="f_Step"> interface to enumerate and select an input audio device, as illustrated in Example 72. </span></td></tr></table></div><p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A1')">C++ Example 72: Select an Audio Source</a> </span></p>
+<div id="TOGGLE0186A1" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// session is a PXCSession instance.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCAudioSource *source=session-&gt;CreateAudioSource();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Scan and Enumerate audio devices</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">source-&gt;ScanDevices();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCAudioSource::DeviceInfo dinfo;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">for (int d=source-&gt;QueryDeviceNum()-1;d&gt;=0;d--) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;source-&gt;QueryDeviceInfo(i, &amp;dinfo);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Select one and break out of the loop</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Set the active device</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">source-&gt;SetDevice(&amp;dinfo);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A2')">C# Example 72: Select an Audio Source</a></span></p>
+<div id="TOGGLE0186A2" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// session is a PXCMSession instance.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMAudioSource source=session.CreateAudioSource();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Scan and Enumerate audio devices</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">source.ScanDevices();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMAudioSource.DeviceInfo dinfo;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">for (int d=source.QueryDeviceNum()-1;d&gt;=0;d--) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;source.QueryDeviceInfo(i, out dinfo);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Select one and break out of the loop</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Set the active device</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">source.SetDevice(dinfo);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A3')">Java Example 72: Select an Audio Source</a></span></p>
+<div id="TOGGLE0186A3" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// session is a PXCMSession instance.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMAudioSource source=session.CreateAudioSource();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Scan and Enumerate audio devices</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">source.ScanDevices();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMAudioSource.DeviceInfo dinfo=new PXCMAudioSource();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">for (int d=source.QueryDeviceNum()-1;d&gt;=0;d--) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;source.QueryDeviceInfo(i, out dinfo);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;// Select one and break out of the loop</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Set the active device</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">source.SetDevice(dinfo);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">The SDK audio source supports reading from an audio file. The audio file can be in any system-supported audio formats, such as </span><span class="f_CodeExample">WAV</span><span class="f_Body">, </span><span class="f_CodeExample">MP3</span><span class="f_Body">, or </span><span class="f_CodeExample">WMV</span><span class="f_Body">. Example 73 shows how to setup the audio source to read from an audio file.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A4')">C++ Example 73: Select a File Audio Source</a> </span></p>
+<div id="TOGGLE0186A4" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// session is a PXCSession instance.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCAudioSource *source=session-&gt;CreateAudioSource();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Set the audio fie</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCAudioSource::DeviceInfo dinfo={};</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">wcscpy_s&lt;sizeof(dinfo.did)/sizeof(pxcCHAR)&gt;(dinfo.did,L&quot;my_audio_file.wav&quot;);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Set the active device</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">source-&gt;SetDevice(&amp;dinfo);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A5')">C# Example 73: Select a File Audio Source</a></span></p>
+<div id="TOGGLE0186A5" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// session is a PXCMSession instance.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMAudioSource source=session.CreateAudioSource();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Set the audio fie</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMAudioSource.DeviceInfo dinfo=new PXCMAudioSource.DeviceInfo();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">dinfo.did=&quot;my_audio_file.wav&quot;;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Set the active device</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">source.SetDevice(dinfo);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A6')">Java Example 73: Select a File Audio Source</a></span></p>
+<div id="TOGGLE0186A6" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// session is a PXCMSession instance.</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMAudioSource source=session.CreateAudioSource();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Set the audio fie</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMAudioSource.DeviceInfo dinfo=new PXCMAudioSource.DeviceInfo();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">dinfo.did=&quot;my_audio_file.wav&quot;;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Set the active device</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">source.SetDevice(dinfo);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:36px"><span style="font-size:11pt; font-family: 'Intel Clear';color:#000000;">2.</span></td><td style="border:none"><span class="f_Step" style="font-weight: bold;">Locate the Module Implementation</span><span class="f_Step">: Use the </span><span class="f_CodeExample"><a href="createimpl_pxcsession.html" class="topiclink">CreateImpl</a></span><span class="f_Step"> function to create an instance of the </span><span class="f_CodeExample"><a href="pxcspeechrecognition.html" class="topiclink">PXCSpeechRecognition</a></span><span class="f_Step"> instance, as illustrated in Example 74. </span></td></tr></table></div><p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A7')">C++ Example 74: Create a Speech Recognition Instance</a> </span></p>
+<div id="TOGGLE0186A7" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">PXCSpeechRecognition *sr=0;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">session-&gt;CreateImpl&lt;PXCSpeechRecognition&gt;(&amp;sr);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A8')">C# Example 74: Create a Speech Recognition Instance</a></span></p>
+<div id="TOGGLE0186A8" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">PXCMSpeechRecognition sr;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">session.CreateImpl&lt;PXCMSpeechRecognition&gt;(out sr);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A9')">Java Example 74: Create a Speech Recognition Instance</a></span></p>
+<div id="TOGGLE0186A9" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">PXCMSpeechRecognition sr=new PXCMSpeechRecognition();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">session.CreateImpl(sr);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:36px"><span style="font-size:11pt; font-family: 'Intel Clear';color:#000000;">3.</span></td><td style="border:none"><span class="f_Step" style="font-weight: bold;">Configure the Module</span><span class="f_Step">: Get available configurations using the  </span><span class="f_CodeExample"><a href="queryprofile_pxcspeechrecognition.html" class="topiclink">QueryProfile</a></span><span class="f_Step"> function and set the configuration using the </span><span class="f_CodeExample"><a href="setprofile_pxcspeechrecognition.html" class="topiclink">SetProfile</a></span><span class="f_Step"> function. See Example 75.</span></td></tr></table></div><p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186AA')">C++ Example 75: Initialize the Speech Recognition Module</a> </span></p>
+<div id="TOGGLE0186AA" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">PXCSpeechRecognition::ProfileInfo pinfo;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sr-&gt;QueryProfile(0,&amp;pinfo);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">pinfo.language=PXCSpeechRecognition::LANGUAGE_US_ENGLISH;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sr-&gt;SetProfile(&amp;pinfo);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186AB')">C# Example 75: Initialize the Speech Recognition Module</a></span></p>
+<div id="TOGGLE0186AB" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">PXCMSpeechRecognition.ProfileInfo pinfo;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sr.QueryProfile(0,out pinfo);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">pinfo.language=PXCMSpeechRecognition.LanguageType.LANGUAGE_US_ENGLISH;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sr.SetProfile(pinfo);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186AC')">Java Example 75: Initialize the Speech Recognition Module</a></span></p>
+<div id="TOGGLE0186AC" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">PXCMSpeechRecognition.ProfileInfo pinfo=new PXCMSpeechRecognition.ProfileInfo;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sr.QueryProfile(0, pinfo);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">pinfo.language=PXCMSpeechRecognition.LanguageType.LANGUAGE_US_ENGLISH;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sr.SetProfile(pinfo);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">Always set the language. If not set, the default language is undetermined depending on what is currently installed on the platform.</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:36px"><span style="font-size:11pt; font-family: 'Intel Clear';color:#000000;">4.</span></td><td style="border:none"><span class="f_Step" style="font-weight: bold;">Set the Recognition mode (OPTIONAL):</span><span class="f_Step"> See <a href="manuals_command_control_and_dictation.html" class="topiclink">Command Control and Dictation</a> on how to configure the speech recognition module to work in the command and control mode or in the dictation mode. By default, the module is set in the dictation mode.</span></td></tr></table></div><p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186AD')">C++ Example 76: Set the Dictation Mode</a> </span></p>
+<div id="TOGGLE0186AD" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">sr-&gt;SetDictation();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186AE')">C# Example 76: Set the Dictation Mode</a></span></p>
+<div id="TOGGLE0186AE" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">sr.SetDictation();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186AF')">Java Example 76: Set the Dictation Mode</a> </span></p>
+<div id="TOGGLE0186AF" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">sr.SetDictation();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:36px"><span style="font-size:11pt; font-family: 'Intel Clear';color:#000000;">5.</span></td><td style="border:none"><span class="f_Step" style="font-weight: bold;">Execution Flow: </span><span class="f_Step">Start speech recognition using the </span><span class="f_CodeExample"><a href="startrec_pxcspeechrecognition.html" class="topiclink">StartRec</a></span><span class="f_Step"> function and stop with the </span><span class="f_CodeExample"><a href="stoprec_pxcspeechrecognition.html" class="topiclink">StopRec</a></span><span class="f_Step"> function. The application receives events on any recognition activities. See <a href="manuals_handle_recognition_events.html" class="topiclink">Handle Recognition Events</a> for details on setting up event handlers.</span></td></tr></table></div><p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186B0')">C++ Example 77: Start/Stop Speech Recognition</a> </span></p>
+<div id="TOGGLE0186B0" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Start recognition</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sr-&gt;StartRec(source, handler);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Stop recognition</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sr-&gt;StopRec();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186B1')">C# Example 77: Start/Stop Speech Recognition</a> </span></p>
+<div id="TOGGLE0186B1" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Start recognition</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sr.StartRec(source, handler);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Stop recognition</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sr.StopRec();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186B2')">Java Example 77: Start/Stop Speech Recognition</a></span></p>
+<div id="TOGGLE0186B2" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// Start recognition</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sr.StartRec(source, handler);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Stop recognition</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">sr.StopRec();</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_List"><span class="f_List">&nbsp;</span></p>
+
+</td></tr></table>
+
+<script type="text/javascript">
+HMInitToggle('TOGGLE0186A1','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A2','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A3','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A4','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A5','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A6','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A7','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A8','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A9','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186AA','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186AB','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186AC','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186AD','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186AE','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186AF','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186B0','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186B1','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186B2','hm.type','dropdown','hm.state','0');
+</script>
+</body>
+</html>

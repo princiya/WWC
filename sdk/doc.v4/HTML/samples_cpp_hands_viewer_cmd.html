@@ -1,0 +1,98 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Sample: hands_viewer_cmd</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="C++ sample,hands_viewer_cmd" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "samples_cpp_hands_viewer_cmd.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Sample: hands_viewer_cmd</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     
+     
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_InternalHeading"><span class="f_InternalHeading">Introduction</span></p>
+<p class="p_Body"><span class="f_Body">The </span><span class="f_CodeExample">hands_viewer_cmd</span><span class="f_Body"> sample is a C++ console application that demonstrates the SDK hand tracking feature. This application demonstrates, among other, the tracked hand skeleton (joints and bones), the segmentation mask (separating hand from background) and the gesture recognition mechanism.</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Launch</span></p>
+<p class="p_Body"><span class="f_Body">The applications can be launched directly from the </span><span class="f_CodeExample">bin</span><span class="f_Body"> folder of the SDK installation, or compiled and executed using Microsoft Visual Studio. The project and source files are located inside the </span><span class="f_CodeExample">sample/hands_viewer_cmd</span><span class="f_Body"> folder. Launch the sample executable under a command window. The sample output is similar to Figure 167.</span></p>
+<p class="p_Body" style="text-align: center;"><img src="sample_cpp_hands_viewer_cmd.png" width="843" height="551" alt="" style="margin:0px auto 0px auto;width:843px;height:551px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 167: Sample hands_viewer_cmd Console Window.</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Command Options</span></p>
+<p class="p_Body"><span class="f_Body">Run the sample executable without any command line options shows the help message. The sample uses the following command line options:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table style="width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:197px; padding:5px;"><p><span style="font-weight: bold;">Option</span></p>
+</td>
+<td style="vertical-align:top; width:603px; padding:5px;"><p><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:197px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">-live</span></p>
+</td>
+<td style="vertical-align:top; width:603px; padding:5px;"><p>Stream data through a live camera. The option <span class="f_CodeExample">-live</span> or <span class="f_CodeExample">-seq</span> must present but not both.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:197px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">-seq &lt;file&gt;</span></p>
+</td>
+<td style="vertical-align:top; width:603px; padding:5px;"><p>Stream data through a recorded file. The option <span class="f_CodeExample">-live</span> or <span class="f_CodeExample">-seq</span> must present but not both.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:197px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">-skeleton</span></p>
+</td>
+<td style="vertical-align:top; width:603px; padding:5px;"><p>Print out joint world position information.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:197px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">-alerts</span></p>
+</td>
+<td style="vertical-align:top; width:603px; padding:5px;"><p>Print out fired alerts.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:197px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">-gestures</span></p>
+</td>
+<td style="vertical-align:top; width:603px; padding:5px;"><p>Print out fired gestures.</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

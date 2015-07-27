@@ -1,0 +1,155 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>JavaScript Programs</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_javascript_programs.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">JavaScript Programs</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_unity_web_player.html">Previous</a>&nbsp;
+     <a href="manuals_face_tracking_example.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">The SDK supports limited modules when programming with JavaScript in a browser context. The list of supported modules is as follows:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Face detection, landmark tracking, pose and expression detection.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Hand tracking and gesture recognition.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Speech recognition (dictation, command and control).</span></td></tr></table></div><p class="p_Body"><span class="f_Body">See the sub-sections below for examples of how to program the supported modules.</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">JavaScript Programming Specifics</span></p>
+<p class="p_Body"><span class="f_Body">The SDK exposes the JavaScript interfaces and methods similar to other supported languages such as C++, C# and Java* with the following differences:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">The SDK exposes static functions by concatenating the name space hierarchy with the underscore character. </span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">PXCMSession_CreateInstance(...);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSenseManager_CreateInstance(...);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">The SDK exposes constant values or enumerator values in the global object </span><span class="f_CodeExample">pxcmConst</span><span class="f_Body">. The name space hierarchy is preserved. </span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">pxcmConst.PXCM_STATUS_NO_ERROR</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">pxcmConst.PXCMSpeechRecognition.CUID</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">pxcmConst.PXCMCapture.Device.MIRROR_MODE_HORIZONTAL</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">pxcmConst.PXCMFaceConfiguration.FACE_MODE_COLOR_PLUS_DEPTH</span></p>
+</td>
+</tr>
+</table>
+</div>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Each SDK function returns a promise object. You must use the </span><span class="f_CodeExample">then</span><span class="f_Body"> function to concatenate several procedural calls. </span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">var sm;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">var face;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMSenseManager_CreateInstance().then(function (instance) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;sm = instance;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;return sm.EnableFace(onFaceData);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}).then(function (instance) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;face=instance;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;return sm.Init();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}).then(function (result) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;return face.CreateActiveConfiguration();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}).then(function (config) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;...</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}).then(function (result) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;return face.ApplyChanges();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}).then(function (result) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;return sense.StreamFrames();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}).then(function (result) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}).catch(function (error) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">});</span></p>
+</td>
+</tr>
+</table>
+</div>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">The SDK redesigns the callback functions to return an aggregation of all module processing data. For example, the hand tracking callback function </span><span class="f_CodeExample">OnHandData</span><span class="f_Body"> is invoked with all aggregated hand tracking data. This is significantly different from other language programming, where you need to query the specific hand data within the callback function.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">function onHandData(mid, module, data) {</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"> &nbsp; &nbsp;var joints = data.hands[0].trackedJoint;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">}</span></p>
+</td>
+</tr>
+</table>
+</div>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">The SDK supports the limited functions of the following interfaces only:</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table style="width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:259px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="pxcbase.html" class="topiclink">PXCMBase</a></span></p>
+</td>
+<td style="vertical-align:top; width:541px; padding:5px;"><p>A general interface for any unsupported modules. This is reserved.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:259px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="pxccapturemanager.html" class="topiclink">PXCMCaptureManager</a></span></p>
+</td>
+<td style="vertical-align:top; width:541px; padding:5px;"><p>Retrieve information about the device and streams.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:259px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="pxcsensemanager.html" class="topiclink">PXCMSenseManager</a></span></p>
+</td>
+<td style="vertical-align:top; width:541px; padding:5px;"><p>Pipeline control for the face and hand tracking modules.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:259px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="pxcsession.html" class="topiclink">PXCMSession</a></span></p>
+</td>
+<td style="vertical-align:top; width:541px; padding:5px;"><p>The SDK session management interface.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:259px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="pxcfacemodule.html" class="topiclink">PXCMFaceModule</a></span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"><a href="pxcfaceconfiguration.html" class="topiclink">PXCMFaceConfiguration</a></span></p>
+</td>
+<td style="vertical-align:top; width:541px; padding:5px;"><p>The face tracking interface.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:259px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="pxchandmodule.html" class="topiclink">PXCMHandModule</a></span></p>
+<p class="p_CodeExample"><span class="f_CodeExample"><a href="pxchandconfiguration.html" class="topiclink">PXCMHandConfiguration</a></span></p>
+</td>
+<td style="vertical-align:top; width:541px; padding:5px;"><p>The hand tracing interface.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:259px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample"><a href="pxcspeechrecognition.html" class="topiclink">PXCMSpeechRecognition</a></span></p>
+</td>
+<td style="vertical-align:top; width:541px; padding:5px;"><p>The speech recognition interface.</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

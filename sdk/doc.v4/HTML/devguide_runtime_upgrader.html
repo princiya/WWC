@@ -1,0 +1,105 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Runtime Installers</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="installer,runtime installer,runtime upgrader,upgrader" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "devguide_runtime_upgrader.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Runtime Installers</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="devguide_application_deployment.html">Previous</a>&nbsp;
+     <a href="devguide_installer_command_options.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">The SDK includes runtime installers under </span><span class="f_CodeExample">$(RSSDK_DIR)/runtime.</span><span class="f_Body"> The directory exists if you select redistributable components, selected by default, during the SDK developer package installation.</span></p>
+<p class="p_Body"><span class="f_Body">The runtime installers perform the following operations:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">If there is no existing runtime, install the SDK modules.</span></td></tr></table></div><p class="p_Body"><img src="note.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">Certain SDK module runtimes may have license restrictions. See <a href="devguide_runtime_upgrader.html#speechruntimeandlanguagepacks" class="topiclink">Speech Runtime and Language Packs</a> for details.</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">If there is an existing runtime, update the runtime.</span></td></tr></table></div><p class="p_Body" style="margin: 7px 0px 7px 24px;"><span class="f_Body">The upgrading policy is illustrated in Figure 3. If the existing runtime is older (the major version is the same and the minor version is lower), the existing runtime is updated. Otherwise the two runtimes coexist on the same system. The runtime installers do not override SDK runtimes that are up-to-date, or of a different major version.</span></p>
+<p class="p_Body" style="margin: 7px 0px 7px 24px;"><span class="f_Body">&nbsp;</span></p>
+<p class="p_Body" style="text-align: center;"><img src="devguide_clip0001.png" width="594" height="271" alt="" style="margin:0px auto 0px auto;width:594px;height:271px;border:none" /></p>
+<p class="p_Body" style="text-align: center;"><span class="f_ImageCaption">Figure 3: Runtime Upgrading Policies</span></p>
+<p class="p_Body"><span class="f_Body">Table 6 lists available runtime installers. </span></p>
+<div style="text-align: center; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table style="margin:0 auto; width:820px; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:324px; padding:5px;"><p><span style="font-weight: bold;">Runtime Installer (YYYY is the SDK version)</span></p>
+</td>
+<td style="vertical-align:top; width:476px; padding:5px;"><p><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:324px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">intel_rs_sdk_runtime_YYYY.exe</span></p>
+</td>
+<td style="vertical-align:top; width:476px; padding:5px;"><p>The SDK runtime master installer for offline installation. This installer may be available only through download due to its size.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:324px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">intel_rs_sdk_runtime_websetup_YYYY.exe</span></p>
+</td>
+<td style="vertical-align:top; width:476px; padding:5px;"><p>The SDK runtime master installer for online installation.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:324px; padding:5px;"><p class="p_CodeExample"><span class="f_CodeExample">intel_rs_sdk_runtime_core_YYYY.exe</span></p>
+</td>
+<td style="vertical-align:top; width:476px; padding:5px;"><p>The SDK core runtime installer.</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_InternalHeading"><img src="note.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body" style="color: #ff0000;"> The runtime installers may have different distribution rights. See </span><span class="f_CodeExample" style="color: #ff0000;">redist.txt</span><span class="f_Body" style="color: #ff0000;"> in the SDK package for details.</span></p>
+<p class="p_InternalHeading"><img src="note.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">The installation process may take some time. Your application installer must wait for the installation process to complete.</span></p>
+<p class="p_Body"><img src="note.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">The installer requires the elevated privilege to install the runtime libraries and data files into the system folders.</span></p>
+<p class="p_InternalHeading"><span class="f_Body">You can pack the runtime installer(s) in your application installer using any of the following installation scenarios.</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Installation Case 1: Capture Only Installation</span></p>
+<p class="p_Body"><span class="f_Body">The SDK core runtime installer includes libraries for raw camera data capturing and SDK essential features such as session management, SenseManager pipelining, and file recording and playback. If your application works with camera data capturing only and does not use any algorithms (such as face tracking or hand tracking), you can pack the core runtime installer as part of the application installation.</span></p>
+<p class="p_InternalHeading"><a id="moduleofflineinstallation"></a><span class="f_InternalHeading">Installation Case 2: Module Offline Installation</span></p>
+<p class="p_Body"><span class="f_Body">The SDK runtime master installer includes the core runtime and additionally all algorithm (module) runtimes for offline installation. Usually an application only uses a subset of the provided algorithms. The master installer can export a set of customized installation scripts that include only the algorithms needed.</span></p>
+<p class="p_Body"><span class="f_Body">To generate the customized installation scripts, perform the following steps:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Run the SDK runtime master installer with the command line </span><span class="f_CodeExample">--pre-bundle=&lt;dir&gt;</span><span class="f_Body">, where </span><span class="f_CodeExample">&lt;dir&gt;</span><span class="f_Body"> is the absolute path of where the installer script should be exported.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Go through the installation flow and select the modules that your application needs. No installation is done. Instead, the master installer exports the installation scripts to the destination directory.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">Pack the entire destination directory into your application installer, and follow the commands in </span><span class="f_CodeExample">readme_cmd.txt</span><span class="f_Body"> to install the SDK runtimes.</span></td></tr></table></div><p class="p_InternalHeading"><span class="f_InternalHeading">Installation Case 3: Module Online Installation</span></p>
+<p class="p_Body"><span class="f_Body">To minimize the size of the application, you can use the SDK runtime master installer for online installation. The installer downloads the required modules from the Intel website during installation. Use the </span><span class="f_CodeExample">--finstall=&lt;feature-list&gt;</span><span class="f_Body"> </span><span class="f_CodeExample">--fnone=all</span><span class="f_Body"> command line to customize the algorithms to be installed. See <a href="devguide_installation_features.html" class="topiclink">Features and Components</a> for the feature list.</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading" style="color: #ff0000;">Uninstallation</span></p>
+<p class="p_Body"><span class="f_Body" style="color: #ff0000;">The SDK runtimes are shared among multiple applications. The application installer should never remove any SDK runtimes. Leave them on the system.</span></p>
+<p class="p_Body"><span class="f_Body">The user can manually uninstall the SDK runtime from </span><span class="f_CodeExample">Control Panel </span><span class="f_CodeExample" style="font-family: 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial';">&rarr;</span><span class="f_CodeExample"> Programs and Features</span><span class="f_Body">. Do so only after all SDK applications are uninstalled from the system.</span></p>
+<p class="p_InternalHeading"><a id="speechruntimeandlanguagepacks"></a><span class="f_InternalHeading">Speech Runtime and Language Packs</span></p>
+<p class="p_InternalHeading"><span class="f_Body">The speech runtime and language packs do not have an offline installation option. </span><span class="f_Body">They are available only as online download if not already on the system. </span></p>
+<p class="p_InternalHeading"><span class="f_Body">To add the speech runtime and the language pack(s), append the speech runtime and language pack feature names to the installer option </span><span class="f_CodeExample">--finstall</span><span class="f_Body">. See <a href="devguide_installation_features.html" class="topiclink">Features and Components</a> for the feature names. For example, use </span><span class="f_CodeExample">--finstall=voice,genie_en_us</span><span class="f_Body"> to download and install the speech runtime and the US English language pack. </span></p>
+<p class="p_InternalHeading"><span class="f_Body">If you use the <a href="devguide_runtime_upgrader.html#moduleofflineinstallation" class="topiclink">Module Offline Installation</a> installation option, select the speech components and follow the instruction in </span><span class="f_CodeExample">readme_cmd.txt</span><span class="f_Body">. For example, if you select the hand tracking module, the speech runtime and the US English language pack, the instruction in </span><span class="f_CodeExample">readme_cmd.txt</span><span class="f_Body"> is similar to </span><span class="f_CodeExample">--finstall=core,hand,voice,genie_en_us</span><span class="f_Body">. The generated customized installer contains the local hand tracking runtime and the code to trigger downloading of the speech runtime and the language pack.</span></p>
+<p class="p_Body"><img src="note.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">During the runtime installation, due to license restriction, the installer needs to validate the Intel® RealSense™ 3D Camera platform. You need to prompt the user to plug in the camera if the camera is not integrated. The installer returns status code </span><span class="f_CodeExample">3020</span><span class="f_Body"> (see <a href="devguide_installer_command_options.html" class="topiclink">Command Option and Status Code</a>) and skips the speech component installation if the installer fails to validate the platform.</span></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

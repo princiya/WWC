@@ -1,0 +1,74 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Sample: DF_3DScan</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="C++ sample,DF_3DScan" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "samples_sample_3dscan.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Sample: DF_3DScan</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="samples_camera_orientation_neutral_samp.html">Previous</a>&nbsp;
+     <a href="samples_sample_camera_viewer.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">The </span><span class="f_CodeExample">DF_3DScan.exe</span><span class="f_Body"> sample is a minimal C++ console application that demonstrates the capabilities of the 3D capturing and scanning. This sample can be used to generate 3D mesh data. </span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Launch &amp; Build</span></p>
+<p class="p_Body"><span class="f_Body">You can launch the prebuilt sample directly from the </span><span class="f_CodeExample">$(RSSDK_DIR)/bin/$(Platform)</span><span class="f_Body"> folder of the SDK installation, or compile and execute within Microsoft Visual Studio. The project and source files are located under </span><span class="f_CodeExample">$(RSSDK_DIR)/sample/DF_3DScan</span><span class="f_Body">.</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Usage</span></p>
+<p class="p_InternalHeading"><span class="f_Body">Attach the camera, and start the sample executable. </span></p>
+<p class="p_Body"><span class="f_Body">During the sample startup sequence, optionally press and hold the </span><span class="f_CodeExample">Ctrl</span><span class="f_Body"> key to select a profile in the profile selection menu similar to what is shown in Figure 112. Currently, the module supports only a single profile.</span></p>
+<p class="p_Body" style="text-align: center;"><img src="samples_clip0012.png" width="725" height="120" alt="" style="margin:0px auto 0px auto;width:725px;height:120px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 112: 3dscan profile selection menu.</span></p>
+<p class="p_Body"><span class="f_Body">Once the user selects the profile, the selected profile details are shown in stdout similar to what is shown in Figure 113.</span></p>
+<p class="p_Body" style="text-align: center;"><img src="samples_clip0013.png" width="699" height="158" alt="" style="margin:0px auto 0px auto;width:699px;height:158px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 113: 3dscan showing the selected profile.</span></p>
+<p class="p_Body"><span class="f_Body">If the </span><span class="f_CodeExample">Ctrl</span><span class="f_Body"> key is not held during the startup sequence, the profile selection menu is not shown, and the first profile is used. In this case, you should see something similar to what is shown in Figure 114.</span></p>
+<p class="p_Body" style="text-align: center;"><img src="samples_clip0014.png" width="688" height="139" alt="" style="margin:0px auto 0px auto;width:688px;height:139px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 114: 3dscan starting with first profile.</span></p>
+<p class="p_Body"><span class="f_Body">After the initialization is complete, the preview window is created. An example of the preview window is shown in Figure 115.</span></p>
+<p class="p_Body" style="text-align: center;"><img src="samples_clip0015.png" width="653" height="519" alt="" style="margin:0px auto 0px auto;width:653px;height:519px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 115: 3dscan preview window when Mode is set to TARGETING. The preview window shows the extent of the scanning volume.</span></p>
+<p class="p_Body"><span class="f_Body">When the preview window is in focus, the user starts the scanning process by pressing the space bar to switching from the </span><span class="f_CodeExample">TARGETING</span><span class="f_Body"> to </span><span class="f_CodeExample">SCANNING</span><span class="f_Body"> mode. The sample is implemented to toggle between these modes using the space bar. The preview window will change to show the </span><span class="f_CodeExample">SCANNING</span><span class="f_Body"> preview similar to what is shown in Figure 116. The rendering style and size of the preview window will change to match the mode.</span></p>
+<p class="p_Body" style="text-align: center;"><img src="samples_clip0016.png" width="466" height="383" alt="" style="margin:0px auto 0px auto;width:466px;height:383px;border:none" /></p>
+<p class="p_ImageCaption"><span class="f_ImageCaption">Figure 116: 3dscan preview when Mode is set to SCANNING. The preview window shows the accumulated data within the scanning volume.</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Generating a 3D Mesh data set from the scanning volume</span></p>
+<p class="p_Body"><span class="f_Body">The scanning volume is converted into a mesh format when the window is closed. The mesh file (out.obj) is created in the current working directory. When debugging in Microsoft Visual Studio, this will be the location of the project file (i.e. </span><span class="f_CodeExample">sample\3dscan\</span><span class="f_Body">). The OBJ output format is one of the supported standard mesh formats. These files can then be loaded into standard tools or importers for use.</span></p>
+<p class="p_InternalHeading"><span class="f_InternalHeading">Limitations</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 14px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">This sample does not support simultaneous use of multiple cameras.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">This sample does not support camera detach (or attach) while it is running. </span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">If the camera is not attached before the sample is started, it will exit with an error code. </span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body">If the camera is disconnected while the sample is running, it will exit with an error code.</span></td></tr></table></div><p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

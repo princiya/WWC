@@ -1,0 +1,208 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>Accessing Hands by Index or ID</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "manuals_accessing_hands_by_index_or_id.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFCC99">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1"><span class="f_Heading1">Accessing Hands by Index or ID</span></h1>
+
+    </td>
+    <td style="text-align:right">
+     <a href="docm_legal_information.html">Top</a>&nbsp;
+     <a href="manuals_coordinate_systems2.html">Previous</a>&nbsp;
+     <a href="manuals_accessing_hand_id_and_timestam.html">Next</a>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Body"><span class="f_Body">The hand data is represented by the </span><span class="f_CodeExample"><a href="ihand_pxchanddata.html" class="topiclink">IHand</a></span><span class="f_Body"> interface. This includes information about the hand position, posture, joints, etc. You can retrieve a specific hand’s data from the </span><span class="f_CodeExample"><a href="pxchanddata.html" class="topiclink">PXC[M]HandData</a></span><span class="f_Body"> object.</span></p>
+<p class="p_Body"><span class="f_Body">There are two types of identifiers by which you can access hand data:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Unique hand ID</span><span class="f_Body"> - Each identified hand is assigned a unique numeric ID, which is constant for that hand throughout the session. Unique hand ID values are not guaranteed to be sequential or limited in size. To access the same hand throughout the session, use the hand ID. To retrieve a hand’s unique ID, you can query for it using one of the order-based indexes described below. You may also receive the unique ID values in the </span><span class="f_CodeExample"><a href="alertdata_pxchanddata.html" class="topiclink">AlertData</a></span><span class="f_Body"> and </span><span class="f_CodeExample"><a href="gesturedata_pxchanddata.html" class="topiclink">GestureData</a></span><span class="f_Body"> structures passed to the callback functions.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table border="0" cellpadding="0" cellspacing="0" style="border:none;border-spacing:0px;padding:0px;line-height: normal;"><tr valign="baseline" style="vertical-align:baseline"><td style="border:none;width:17px"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;">&#8226;</span></td><td style="border:none"><span class="f_Body" style="font-weight: bold;">Order-based index</span><span class="f_Body"> – Hands may be indexed according to several types of orders, such as by time (the first hand detected will have a zeor index) or by distance (the hand closest to the sensor will have a zero index). Order-based indexes are sequential and start from zero.</span></td></tr></table></div><p class="p_Body"><span class="f_Body">The following table describes the different types of order-based indexes, which are defined in the </span><span class="f_CodeExample"><a href="accessordertype_pxchanddata.html" class="topiclink">AccessOrderType</a></span><span class="f_Body"> enumerator:</span></p>
+<div style="text-align: center; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table style="margin:0 auto; width:808px; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<th style="vertical-align:top; width:251px; padding:6px; border:solid 1px #000000;"><p class="p_TableText"><span class="f_TableText" style="font-weight: bold;">Order Type</span></p>
+</th>
+<th style="vertical-align:top; width:529px; padding:6px; border:solid 1px #000000;"><p class="p_TableText"><span class="f_TableText" style="font-weight: bold;">Description</span></p>
+</th>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:251px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">ACCESS_ORDER_BY_ID</span></p>
+</td>
+<td style="vertical-align:top; width:529px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Access the hand according to its unique ID.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:251px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">ACCESS_ORDER_BY_TIME </span></p>
+</td>
+<td style="vertical-align:top; width:529px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Order according to the time that the hand was detected (“oldest” hand has index zero).</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:251px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">ACCESS_ORDER_NEAR_TO_FAR</span></p>
+</td>
+<td style="vertical-align:top; width:529px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Order according to the distance of the hand from the sensor (nearest hand has index zero).</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:251px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">ACCESS_ORDER_LEFT_HANDS</span></p>
+</td>
+<td style="vertical-align:top; width:529px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Retrieve only left hands. (Usually there is only one left hand in view. If there are more, the order of their retrieval is unpredictable).</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:251px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">ACCESS_ORDER_RIGHT_HANDS</span></p>
+</td>
+<td style="vertical-align:top; width:529px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">Retrieve only right hands. (Usually there is only one right hand in view. If there are more, the order of their retrieval is unpredictable).</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:251px; padding:6px; border:solid 1px #000000;"><p class="p_CodeExample"><span class="f_CodeExample">ACCESS_ORDER_FIXED</span></p>
+</td>
+<td style="vertical-align:top; width:529px; padding:6px; border:solid 1px #000000;"><p class="p_TableText2"><span class="f_TableText2">The first hand to enter the scene has an index of zero, and the second hand to enter the scene has an index of one.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><img src="tip.png" width="24" height="24" alt="" style="width:24px;height:24px;border:none" /><span class="f_Body">Using the different access order types does not affect the hands that are tracked. The first two hands to enter the scene are always tracked.</span></p>
+<p class="p_Body"><span class="f_Body">Example 64 and Example 65 show two alternative methods for accessing the information of the hand nearest to the sensor.</span></p>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A1')">C++ Example 64: Retrieve the Hand Data by ID</a></span></p>
+<div id="TOGGLE0186A1" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// handData is a PXCHandData instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Update hand data</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handData-&gt;Update(); </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// retrieve the hand identifier</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">pxcUID handId;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handData-&gt;QueryHandId(PXCHandData::ACCESS_ORDER_NEAR_TO_FAR, 0, handId);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// You can keep the unique hand ID for use throughout the session</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// retrieve the hand data by unique hand ID</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCHandData::IHand *ihand=0;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handData-&gt;QueryHandDataById(handId, ihand);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A2')">C# Example 64: Retrieve the Hand Data by ID</a></span></p>
+<div id="TOGGLE0186A2" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// handData is a PXCMHandData instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Update hand data</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handData.Update(); </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// retrieve the hand identifier</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">Int32 handId;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handData.QueryHandId(PXCMHandData.AccessOrder.ACCESS_ORDER_NEAR_TO_FAR, 0, out handId);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// You can keep the unique hand ID for use throughout the session</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// retrieve the hand data by unique hand ID</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMHandData.IHand ihand;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handData.QueryHandDataById(handId, out ihand);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A3')">Java Example 64: Retrieve the Hand Data by ID</a></span></p>
+<div id="TOGGLE0186A3" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// handData is a PXCMHandData instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Update hand data</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handData.Update(); </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// retrieve the hand identifier</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">int[] handId=new int[1];</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handData.QueryHandId(PXCMHandData.AccessOrder.ACCESS_ORDER_NEAR_TO_FAR, 0, handId);</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// You can keep the unique hand ID for use throughout the session</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// retrieve the hand data by unique hand ID</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMHandData.IHand ihand=new PXCMHandData.IHand();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handData.QueryHandDataById(handId, ihand);</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A4')">C++ Example 65: Retrieve the Hand Data by Index</a></span></p>
+<div id="TOGGLE0186A4" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// handData is a PXCHandData instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Update hand data</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handData-&gt;Update(); </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// retrieve the hand data by the order-based index</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCHandData::IHand *ihand=0;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">QueryHandData(PXCHandData::ACCESS_ORDER_NEAR_TO_FAR, 0, ihand); </span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A5')">C# Example 65: Retrieve the Hand Data by Index</a></span></p>
+<div id="TOGGLE0186A5" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// handData is a PXCMHandData instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Update hand data</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handData.Update(); </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// retrieve the hand data by the order-based index</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMHandData.IHand ihand;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">QueryHandData(PXCMHandData.AccessOrder.ACCESS_ORDER_NEAR_TO_FAR, 0, out ihand); </span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body"><a class="dropdown-toggle" href="javascript:HMToggle('toggle','TOGGLE0186A6')">Java Example 65: Retrieve the Hand Data by Index</a></span></p>
+<div id="TOGGLE0186A6" style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px;"><table class="CodeSegment" style="border-color:#ffe6c0 #ff9900 #ff9900 #ffe6c0; border-style:solid; border-width:1px; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#ffffff; padding:4px; border-color:#ff9900 #ffe6c0 #ffe6c0 #ff9900; border-style:solid; border-width:1px;"><p class="p_CodeExample"><span class="f_CodeExample">// handData is a PXCMHandData instance</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// Update hand data</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">handData.Update(); </span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">&nbsp;</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">// retrieve the hand data by the order-based index</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">PXCMHandData.IHand ihand=new PXCMHandData();</span></p>
+<p class="p_CodeExample"><span class="f_CodeExample">QueryHandData(PXCMHandData.AccessOrder.ACCESS_ORDER_NEAR_TO_FAR, 0, ihand); </span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Body"><span class="f_Body">&nbsp;</span></p>
+
+</td></tr></table>
+
+<script type="text/javascript">
+HMInitToggle('TOGGLE0186A1','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A2','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A3','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A4','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A5','hm.type','dropdown','hm.state','0');
+HMInitToggle('TOGGLE0186A6','hm.type','dropdown','hm.state','0');
+</script>
+</body>
+</html>
