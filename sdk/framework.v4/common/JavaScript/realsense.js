@@ -627,6 +627,7 @@ function PXCMSenseManager(instance) {
         @return Promise object
     */
     this.Init = function (onConnect, onStatus, onData) {
+        console.log("In init ", onStatus);
         if (onConnect !== 'undefined' && onConnect != null) {
             RealSense.connection.subscribe_callback("PXCMSenseManager_OnConnect", this, onConnect);
         }
@@ -688,6 +689,10 @@ function PXCMSenseManager(instance) {
     // Internal functions
 
     this.EnableModule = function (mid, mdesc, onData) {  
+        console.log("###### from enable module");
+        console.log("MID", mid);
+        console.log("MDESC", mdesc);
+        console.log("ONDATA", onData);
         var res;
         return RealSense.connection.call(instance, 'PXCMSenseManager_EnableModule', { mid: mid, mdesc: mdesc }).then(function (result) {
             res = result;
@@ -699,12 +704,15 @@ function PXCMSenseManager(instance) {
             if (mid == pxcmConst.PXCMBlobModule.CUID) module = new PXCMBlobModule(result2.instance.value); else
                 module = new PXCMBase(result2.instance.value);
             if (onData != undefined) {
+                console.log('ondata is not undefined ', onData);
                 self.mid_callbacks[mid] = { callback: onData };
                 res.instance = result2.instance.value;
                 self.mid_callbacks[mid].instance = result2.instance.value;
                 
                 self.mid_callbacks[mid].module_instance = result2.instance.value;
                 self.mid_callbacks[mid].module = module;   
+            } else {
+            	console.log('on data is undefined');
             }
             return module;
         });
@@ -1123,6 +1131,7 @@ function PXCMBlobData_IBlob(instance) {
 }
 
 function PXCMFaceModule(instance) {
+    console.log('in PXCMFaceModule');
     var instance = instance;
     var self = this;
 
@@ -1131,12 +1140,18 @@ function PXCMFaceModule(instance) {
 	@return Configuration instance as a promise object
 	*/
     this.CreateActiveConfiguration = function () {
+        console.log('in CreateActiveConfiguration');
         var config;
         return RealSense.connection.call(instance, 'PXCMFaceModule_CreateActiveConfiguration').then(function (result) {
             config = new PXCMFaceConfiguration(result.instance.value);
             return RealSense.connection.call(result.instance.value, 'PXCMFaceConfiguration_GetConfigurations');
         }).then(function (result) {
-            config.configs = result.configs;
+            config.configs = {};
+            config.configs.detection = FaceDataLayout.faces[0].detection;
+            config.configs.landmarks = FaceDataLayout.faces[0].landmarks;
+            config.configs.pose = FaceDataLayout.faces[0].pose;
+            config.configs.expressionProperties = FaceDataLayout.faces[0].expressions;
+            console.log("## Config ", config);
             return config;
         });
     }

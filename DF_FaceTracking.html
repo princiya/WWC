@@ -47,16 +47,21 @@
                     console.log(">>2", result);
                     return result.CreateActiveConfiguration();
                 }).catch(function (error) {
+                    console.log('@@@@@@@@@@@@@@@@ Catch create active configuration: ',error);
                     status('Catch create active configuration: ' + JSON.stringify(error));
                 }).then(function (result) {
                     console.log(">>3", result);
                     faceConfiguration = result;
+                    /*
                     faceConfiguration.configs.detection.isEnabled = document.getElementById("detection").checked;
                     faceConfiguration.configs.landmarks.isEnabled = document.getElementById("landmarks").checked;
                     faceConfiguration.configs.pose.isEnabled = document.getElementById("pose").checked;
                     faceConfiguration.configs.expressionProperties.isEnabled = document.getElementById("expressions").checked;
+                    */
                     var selects = document.getElementById("mode");
                     var mode = Number(selects.options[selects.selectedIndex].value);
+                    console.log(">> ### 3 FACECONFIGURATION ");
+                    console.log(faceConfiguration);
                     return faceConfiguration.SetTrackingMode(mode);
                 }).catch(function (error) {
                     status('Catch face config set tracking mode: ' + JSON.stringify(error));
@@ -96,16 +101,18 @@
                 }).then(function (dinfo) {
                     console.log(">>10", dinfo);
                     var info = dinfo;
-                    if (dinfo.model == pxcmConst.PXCMCapture.DEVICE_MODEL_F200)
-                        document.getElementById("landmarks").checked = true;
+                    //if (dinfo.model == pxcmConst.PXCMCapture.DEVICE_MODEL_F200)
+                        //document.getElementById("landmarks").checked = true;
                     return sense.StreamFrames();
                 }).catch(function (error) {
+                    console.log('@@@@@@@@@@@@@@@@Catch sense stream frames: ',error);
                     status('Catch sense stream frames: ' + JSON.stringify(error));
                 }).then(function (result) {
-                    console.log('>> 11 Streaming ' + imageSize.width + 'x' + imageSize.height);
-                    status('Streaming ' + imageSize.width + 'x' + imageSize.height);
+                    //console.log('>> 11 Streaming ' + imageSize.width + 'x' + imageSize.height);
+                    //status('Streaming ' + imageSize.width + 'x' + imageSize.height);
                     document.getElementById("Stop").disabled = false;   
                 }).catch(function (error) {
+                    console.log('@@@@@@@@@@@@@@@@Last catch: ',error);
                     status('last catch >> Init failed: ' + JSON.stringify(error));
                     document.getElementById("Start").disabled = false;
                 });
@@ -175,6 +182,7 @@
             }
 
             function onStatus(data) {
+                console.log("@@@ from onstatus ", data);
                 if (data.sts < 0) {
                     status('Error ' + data.sts + ' on module ' + data.mid);
                     clear();
@@ -182,7 +190,7 @@
             }
 
             function status(msg) {
-                $('#status').text(msg);
+                $('#status').append(msg);
             }
         });
     </script>
