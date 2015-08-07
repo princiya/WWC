@@ -52,12 +52,10 @@
                 }).then(function (result) {
                     console.log(">>3", result);
                     faceConfiguration = result;
-                    /*
                     faceConfiguration.configs.detection.isEnabled = document.getElementById("detection").checked;
                     faceConfiguration.configs.landmarks.isEnabled = document.getElementById("landmarks").checked;
                     faceConfiguration.configs.pose.isEnabled = document.getElementById("pose").checked;
                     faceConfiguration.configs.expressionProperties.isEnabled = document.getElementById("expressions").checked;
-                    */
                     var selects = document.getElementById("mode");
                     var mode = Number(selects.options[selects.selectedIndex].value);
                     console.log(">> ### 3 FACECONFIGURATION ");
@@ -89,7 +87,7 @@
                     status('Catch cmgr query image size: ' + JSON.stringify(error));
                 }).then(function (result) {
                     imageSize = result.size;
-                    console.log(">>8", result);
+                    console.log(">>8", imageSize);
                     return cmgr.QueryCapture();
                 }).catch(function (error) {
                     status('Catch cmgr query capture: ' + JSON.stringify(error));
@@ -136,7 +134,7 @@
             });
 
             function onFaceData(mid, module, data) {
-                console.log("### from onfacedata", data);
+                console.log("################################ from onfacedata", data);
                 var canvas = document.getElementById('myCanvas');
                 var context = canvas.getContext('2d');
 
