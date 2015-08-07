@@ -191,6 +191,7 @@ headtrackr.Tracker = function(params) {
 			}
 
 			// resize video when it is playing
+			/*
 			video.addEventListener('playing', function() {
 				if(video.width > video.height) {
 					video.width = 320;
@@ -198,6 +199,7 @@ headtrackr.Tracker = function(params) {
 					video.height = 240;
 				}
 			}, false);
+			*/
 		}
 		
 		videoElement = video;

@@ -1,18 +1,16 @@
-body {
+canvas, video, body {
 	position: absolute;
 	top: 0px;
 	bottom: 0px;
 	left: 0px;
 	right: 0px;
+	width: 100%
+}
+
+body {
 	background: #000;
 }
 
 video {
-	display: none
-}
-
-#gameCanvas {
-	position: absolute;
-	width: 1200px;
-	height: 600px;
+	display: none;
 }
