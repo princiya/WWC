@@ -1,4 +1,4 @@
-canvas, video, body {
+body, #gameCanvas {
 	position: absolute;
 	top: 0px;
 	bottom: 0px;
@@ -13,4 +13,9 @@ body {
 
 video {
 	display: none;
+}
+
+#inputCancas, overlay {
+	position: absolute;
+	left: 0px;
 }

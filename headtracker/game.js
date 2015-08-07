@@ -52,7 +52,7 @@ function getMousePos(canvas, evt) {
 
 setInterval(game, 25); // waits 25 milliseconds then repeats all of the above
 
-function game() { console.log('in game');
+function game() { 
     canvas = document.getElementById('gameCanvas');
     context = canvas.getContext('2d'); // context is the variable to envoke all Canvas commands
     context.clearRect(0, 0, gamew, gameh); // Clears the entire screen
@@ -62,6 +62,38 @@ function game() { console.log('in game');
     context.strokeRect(0, 0, gamew, gameh); //Draw Game Space  
     context.save(); // Save the canvas location
     context.strokeStyle = "white" // Color of the object lines
+    
+    if(laserstatus>0 && laserstart>0){// draw color the laser red when fired
+    	h++;
+	}
+
+	crosshairs();
+	drawship();
+	context.save();
+	context.restore();
+	
+	if (shot){  // when clicking mouse this we calculate the angle to the point clicked
+  		laserstatus=1;
+  		xhairRadian=Math.atan2(touchY-shipy, touchX-shipx);  // Calculate radian angle of target fire
+  		if(xhairRadian<=0){                                                // The above calulate a negative radian. Turn the negative radian into is positive counterpart
+    		xhairRadian=2*Math.PI+xhairRadian;
+    	}
+  		deltaRadian=xhairRadian-shipRadian   ;                        
+  		if (deltaRadian < -Math.PI || deltaRadian > Math.PI){   // determine if the spin direction should be left or right
+      		if(xhairRadian<shipRadian){
+    			direction="right";
+    		} if(xhairRadian>shipRadian){
+      			direction="left";
+      		}
+   		} else {                                                        // else if the difference in angle is positive spin toward the right
+      		if (xhairRadian > shipRadian) {
+          		direction = "right";
+    		} if(xhairRadian<shipRadian){                    /// if the difference in angls is negative spin toward the left
+      			direction="left";
+      		}
+   		}
+  		shotstart=1;                                           // shotstart = 1 means we've finished the calculations and are ready to shoot the laser at the target
+     }
 }
 
 function crosshairs() { //draws the crosshairs
