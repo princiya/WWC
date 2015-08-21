@@ -51,7 +51,7 @@ function getMousePos(canvas, evt) {
 }
 
 setInterval(game, 25); // waits 25 milliseconds then repeats all of the above
-
+//setTimeout(game, 100);
 function game() { 
     canvas = document.getElementById('gameCanvas');
     context = canvas.getContext('2d'); // context is the variable to envoke all Canvas commands
@@ -72,7 +72,7 @@ function game() {
 	context.save();
 	context.restore();
 	
-	if (shot){  // when clicking mouse this we calculate the angle to the point clicked
+	if (shot){  // when head is moved we calculate the angle to the point clicked
   		laserstatus=1;
   		xhairRadian=Math.atan2(touchY-shipy, touchX-shipx);  // Calculate radian angle of target fire
   		if(xhairRadian<=0){                                                // The above calulate a negative radian. Turn the negative radian into is positive counterpart
@@ -102,6 +102,7 @@ function crosshairs() { //draws the crosshairs
 
     context.save();
     context.translate(touchX, touchY);
+    //context.translate(300, 100);
     context.beginPath();
     context.moveTo(0, -20)
     context.lineTo(0, 20)
